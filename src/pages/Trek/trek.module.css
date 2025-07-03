@@ -1,0 +1,340 @@
+.main{
+    height: 100%;
+    width: 100vw;
+    background-color: #E9EFEC;
+}
+
+.main .firstSection{
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    height: auto;
+}
+
+.firstSection .content{
+    margin: 10% 0% 0% 6%;
+    position: relative;
+}
+
+.content h1{
+    font-family: "Kalnia", serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 1rem;
+    font-size: clamp(1rem, -0.5357142857142858rem + 8.928571428571429vw, 2.8125rem);
+    position: absolute;
+    width: clamp(300px, 50vw, 600px);
+}
+
+.content p{
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 0.9375rem;
+    font-size: clamp(0.9375rem, 0.5803571428571429rem + 1.7857142857142856vw, 1.25rem);
+    line-height: 32px;
+    margin-top: clamp(0px, 33vw, 320px);
+    width: clamp(300px, 60vw, 700px);
+    position: absolute;
+    border: 2px solid red;
+}
+
+.content .moreBtn{
+    border: none;
+    border-radius: 10px;
+    height: 2rem;
+    width: 3rem;
+    background-color: #16423C;
+    color: white;
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    margin-top: clamp(100px, 75vw, 450px);
+}
+
+.content .moreBtn:hover{
+    background-color: #E9EFEC;
+    border: 2px solid #16423C;
+    color: #16423C;
+    cursor: pointer;
+}
+
+.firstSection .heroImg{
+    height: auto;
+    width: 50%;
+}
+
+@media (min-width: 601px){
+    .main .firstSection{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: auto;
+    }
+
+    .firstSection .content{
+        margin: 15% 0% 0% 4%;
+        position: relative;
+    }
+    
+    .content h1{
+        font-family: "Kalnia", serif;
+        font-weight: 500;
+        font-style: normal;
+        font-size: 2.8125rem;
+        font-size: clamp(2.8125rem, 1.687874251497006rem + 2.9940119760479043vw, 3.125rem);
+        position: absolute;
+        width: clamp(300px, 50vw, 600px);
+    }
+    
+    .content p{
+        font-family: "Josefin Sans", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 0.9375rem;
+        font-size: clamp(0.9375rem, 0.5803571428571429rem + 1.7857142857142856vw, 1.25rem);
+        line-height: 32px;
+        margin: 280px 0px 0px 0px;
+        width: clamp(300px, 65vw, 750px);
+        position: absolute;
+        border: 2px solid red;
+    }
+
+    .content .moreBtn{
+        border: none;
+        border-radius: 10px;
+        height: clamp(20px, 5vw, 40px);
+        width: clamp(50px, 10vw, 80px);
+        background-color: #16423C;
+        color: white;
+        font-family: "Josefin Sans", sans-serif;
+        font-weight: 500;
+        font-style: normal;
+        font-size: clamp(15px, 2vw, 20px);
+        margin-top: clamp(100px, 85vw, 470px);
+    }
+    
+    .firstSection .heroImg{
+        height: auto;
+        width: 50%;
+    }
+}
+
+@media (min-width: 768px){
+    .main .firstSection{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: auto;
+    }
+
+    .firstSection .content{
+        margin: 15% 0% 0% 4%;
+        position: relative;
+    }
+    
+    .content h1{
+        font-family: "Kalnia", serif;
+        font-weight: 500;
+        font-style: normal;
+        font-size: 2.8125rem;
+        font-size: clamp(2.8125rem, 0.6696428571428577rem + 4.4642857142857135vw, 3.4375rem);
+        position: absolute;
+        width: clamp(300px, 50vw, 600px);
+    }
+    
+    .content p{
+        font-family: "Josefin Sans", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 1.5625rem;
+        font-size: clamp(1.5625rem, 0.4910714285714288rem + 2.2321428571428568vw, 1.875rem);
+        line-height: clamp(32px, 8vw, 42px);
+        margin-top: clamp(200px, 30vw, 250px);
+        width: clamp(300px, 50vw, 500px);
+        position: absolute;
+    }
+
+    .content .moreBtn{
+        border: none;
+        border-radius: 10px;
+        height: clamp(20px, 5vw, 40px);
+        width: clamp(50px, 10vw, 80px);
+        background-color: #16423C;
+        color: white;
+        font-family: "Josefin Sans", sans-serif;
+        font-weight: 500;
+        font-style: normal;
+        font-size: clamp(15px, 2vw, 20px);
+        margin-top: clamp(470px, 80vw, 520px);
+    }
+    
+    .firstSection .heroImg{
+        height: auto;
+        width: 50%;
+    }
+}
+
+@media (min-width: 992px){
+    .main .firstSection{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: auto;
+    }
+
+    .firstSection .content{
+        margin: 10% 0% 0% 4%;
+        position: relative;
+    }
+    
+    .content h1{
+        font-family: "Kalnia", serif;
+        font-weight: 500;
+        font-style: normal;
+        font-size: 3.4375rem;
+        font-size: clamp(3.4375rem, 0.45673076923076916rem + 4.807692307692308vw, 4.0625rem);
+        position: absolute;
+        width: clamp(500px, 50vw, 650px);
+    }
+    
+    .content p{
+        font-family: "Josefin Sans", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 1.875rem;
+        font-size: clamp(1.875rem, 0.3846153846153846rem + 2.403846153846154vw, 2.1875rem);
+        line-height: clamp(42px, 10vw, 50px);
+        margin-top: clamp(250px, 25vw, 350px);
+        width: clamp(500px, 50vw, 600px);
+        position: absolute;
+    }
+
+    .content .moreBtn{
+        border: none;
+        border-radius: 10px;
+        height: clamp(20px, 5vw, 40px);
+        width: clamp(50px, 10vw, 80px);
+        background-color: #16423C;
+        color: white;
+        font-family: "Josefin Sans", sans-serif;
+        font-weight: 500;
+        font-style: normal;
+        font-size: clamp(15px, 2vw, 20px);
+        margin-top: clamp(520px, 50vw, 600px);
+    }
+    
+    .firstSection .heroImg{
+        height: auto;
+        width: 45%;
+    }
+}
+
+@media (min-width: 1200px){
+    .main .firstSection{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: auto;
+    }
+
+    .firstSection .content{
+        margin: 10% 0% 0% 5%;
+    }
+    
+    .content h1{
+        font-family: "Kalnia", serif;
+        font-weight: 500;
+        font-style: normal;
+        font-size: 4.0625rem;
+        font-size: clamp(4.0625rem, 2.8125rem + 1.6666666666666667vw, 4.375rem);
+        position: absolute;
+        width: clamp(600px, 50vw, 750px);
+    }
+    
+    .content p{
+        font-family: "Josefin Sans", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 1.875rem;
+        font-size: clamp(1.875rem, 0.3846153846153846rem + 2.403846153846154vw, 2.1875rem);
+        line-height: clamp(42px, 10vw, 50px);
+        margin-top: clamp(250px, 25vw, 320px);
+        width: clamp(500px, 50vw, 700px);
+        position: absolute;
+    }
+    
+    .content .moreBtn{
+        border: none;
+        border-radius: 10px;
+        height: clamp(40px, 5vw, 50px);
+        width: clamp(80px, 10vw, 120px);
+        background-color: #16423C;
+        color: white;
+        font-family: "Josefin Sans", sans-serif;
+        font-weight: 500;
+        font-style: normal;
+        font-size: clamp(15px, 2vw, 20px);
+        margin-top: clamp(600px, 20vw, 650px);
+    }
+    
+    .firstSection .heroImg{
+        height: auto;
+        width: 45%;
+    }
+}
+
+@media (min-width: 1500px){
+    .main .firstSection{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: auto;
+    }
+
+    .firstSection .content{
+        margin: 10% 0% 0% 7%;
+        position: relative;
+    }
+    
+    .content h1{
+        font-family: "Kalnia", serif;
+        font-weight: 500;
+        font-style: normal;
+        font-size: 4.375rem;
+        font-size: clamp(4.375rem, 1.5625rem + 3vw, 5.3125rem);
+        position: absolute;
+        width: clamp(600px, 50vw, 900px);
+    }
+    
+    .content p{
+        font-family: "Josefin Sans", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 2.5rem;
+        font-size: clamp(2.5rem, 0.625rem + 2vw, 3.125rem);
+        line-height: clamp(42px, 10vw, 55px);
+        margin-top: clamp(250px, 25vw, 400px);
+        width: clamp(500px, 50vw, 1000px);
+        position: absolute;
+    }
+
+    .content .moreBtn{
+        border: none;
+        border-radius: 10px;
+        height: clamp(40px, 5vw, 50px);
+        width: clamp(80px, 10vw, 120px);
+        background-color: #16423C;
+        color: white;
+        font-family: "Josefin Sans", sans-serif;
+        font-weight: 500;
+        font-style: normal;
+        font-size: clamp(15px, 2vw, 20px);
+        margin-top: clamp(650px, 50vw, 720px);
+    }
+    
+    .firstSection .heroImg{
+        height: clamp(500px, 100vw, 1250px);
+        width: 50%;
+    }
+}
