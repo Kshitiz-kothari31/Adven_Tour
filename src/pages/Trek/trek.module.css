@@ -1,340 +1,840 @@
-.main{
-    height: 100%;
-    width: 100vw;
-    background-color: #E9EFEC;
+.main {
+  height: 100%;
+  width: 100vw;
+  background-color: #e9efec;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 
-.main .firstSection{
-    display: flex;
-    justify-content: space-between;
-    width: 100vw;
-    height: auto;
+.main .firstSection {
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+  height: auto;
 }
 
-.firstSection .content{
-    margin: 10% 0% 0% 6%;
-    position: relative;
+.firstSection .content {
+  margin: 10% 0% 0% 6%;
+  position: relative;
 }
 
-.content h1{
-    font-family: "Kalnia", serif;
-    font-weight: 500;
-    font-style: normal;
-    font-size: 1rem;
-    font-size: clamp(1rem, -0.5357142857142858rem + 8.928571428571429vw, 2.8125rem);
-    position: absolute;
+.content h1 {
+  font-family: "Kalnia", serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1rem;
+  font-size: clamp(
+    1rem,
+    -0.5357142857142858rem + 8.928571428571429vw,
+    2.8125rem
+  );
+  position: absolute;
+  width: clamp(150px, 70vw, 370px);
+}
+
+.content p {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.9375rem;
+  font-size: clamp(0.9375rem, 0.3125rem + 5vw, 1.25rem);
+  line-height: clamp(20px, 7vw, 32px);
+  margin-top: clamp(5px, 30vw, 300px);
+  width: clamp(300px, 60vw, 700px);
+  position: absolute;
+}
+
+.content .moreBtn {
+  border: none;
+  border-radius: 10px;
+  height: 2rem;
+  width: 3rem;
+  background-color: #16423c;
+  color: white;
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  margin-top: clamp(100px, 75vw, 450px);
+}
+
+.content .moreBtn:hover {
+  background-color: #e9efec;
+  border: 2px solid #16423c;
+  color: #16423c;
+  cursor: pointer;
+}
+
+.firstSection .heroImg {
+  height: auto;
+  width: 50%;
+}
+
+/* INFO: DOWN BUTTON CSS */
+
+.main .downBtnDiv {
+  height: 40px;
+  width: 40px;
+  background-color: #16423c;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+.downBtnDiv img {
+  height: 20px;
+  width: 20px;
+}
+
+/* INFO: Second section css styling */
+
+.main .secondSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.secondSection h2 {
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size: clamp(15px, 5vw, 30px);
+  width: 85%;
+  line-height: clamp(30px, 10vw, 50px);
+}
+
+.secondSection p {
+  width: 85%;
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.9375rem;
+  font-size: clamp(0.9375rem, 0.78125rem + 1.25vw, 1.25rem);
+  margin-top: 20px;
+  line-height: clamp(20px, 5vw, 30px);
+}
+
+/* INFO: Trek section code */
+
+/* INFO: Trek 1 code */
+
+.main .Trek1 {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5rem;
+  width: clamp(200px, 60vw, 350px);
+  height: clamp(250px, 80vw, 430px);
+  background-color: #c4dad2;
+  border-radius: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.Trek1 .details {
+  position: absolute;
+  top: clamp(215px, 70vw, 376px);
+  left: clamp(130px, 39vw, 225px);
+  bottom: 1.5rem;
+  height: 8%;
+  width: 30%;
+  border: none;
+  border-radius: 15px;
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size: clamp(6px, 1.8vw, 30px);
+  background-color: #16423c;
+  color: white;
+  padding: 1px;
+  align-items: center;
+}
+
+.details:hover {
+  background-color: #e9efec;
+  border: 1px solid #16423c;
+  color: #16423c;
+  cursor: pointer;
+}
+
+.Trek1 .images {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 60%;
+  width: auto;
+}
+
+.images .img1, .img5, .img9 {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+
+.images .img2, .img6, .img10{
+  display: none;
+}
+
+.Trek1 .leftContent {
+  padding: 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(21px, 6vw, 25px);
+}
+
+.leftContent h3 {
+  font-size: clamp(12px, 5vw, 28px);
+  margin-top: -25px;
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.leftContent p {
+  font-size: clamp(12px, 4vw, 20px);
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  line-height: clamp(10px, 4vw, 26px);
+}
+
+/* INFO: Trek 2  code */
+
+.main .Trek2 {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5rem;
+  width: clamp(200px, 60vw, 350px);
+  height: clamp(250px, 80vw, 430px);
+  border: 5px solid #16423c;
+  border-radius: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.Trek2 .details2 {
+  position: absolute;
+  top: clamp(200px, 68vw, 367px);
+  left: clamp(130px, 39vw, 225px);
+  right: 1.5rem;
+  bottom: 1.5rem;
+  height: 8%;
+  width: 30%;
+  border: none;
+  border-radius: 15px;
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size: clamp(6px, 1.8vw, 30px);
+  background-color: #16423c;
+  color: white;
+  padding: 1px;
+  align-items: center;
+}
+
+.details2:hover {
+  background-color: #e9efec;
+  border: 1px solid #16423c;
+  color: #16423c;
+  cursor: pointer;
+}
+
+.Trek2 .images {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 60%;
+  width: auto;
+}
+
+.Trek2 .images .img3, .img7 {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+
+.Trek2 .images .img4, .img8 {
+  display: none;
+}
+
+.Trek2 .leftContent {
+  padding: 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(21px, 6vw, 25px);
+}
+
+.leftContent h3 {
+  font-size: clamp(12px, 5vw, 28px);
+  margin-top: -25px;
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.leftContent p {
+  font-size: clamp(12px, 4vw, 20px);
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  line-height: clamp(10px, 4vw, 26px);
+}
+
+@media (min-width: 601px) {
+  .firstSection .content {
+    margin: 15% 0% 0% 4%;
+  }
+
+  .content h1 {
+    font-size: 2.8125rem;
+    font-size: clamp(
+      2.8125rem,
+      1.687874251497006rem + 2.9940119760479043vw,
+      3.125rem
+    );
     width: clamp(300px, 50vw, 600px);
+  }
+
+  .content p {
+    font-size: 0.9375rem;
+    font-size: clamp(
+      0.9375rem,
+      0.5803571428571429rem + 1.7857142857142856vw,
+      1.25rem
+    );
+    line-height: 32px;
+    margin: 280px 0px 0px 0px;
+    width: clamp(300px, 65vw, 750px);
+  }
+
+  .content .moreBtn {
+    height: clamp(20px, 5vw, 40px);
+    width: clamp(50px, 10vw, 80px);
+    font-size: clamp(15px, 2vw, 20px);
+    margin-top: clamp(100px, 85vw, 470px);
+  }
+
+  .content .moreBtn:hover {
+    background-color: #e9efec;
+    border: 2px solid #16423c;
+    color: #16423c;
+    cursor: pointer;
+  }
+
+  /* INFO: DOWN BUTTON CSS */
+
+  .main .downBtnDiv {
+    height: clamp(40px, 5vw, 60px);
+    width: clamp(40px, 5vw, 60px);
+  }
+
+  /* INFO: Second Section Code */
+
+  .secondSection h2 {
+    font-size: clamp(30px, 5vw, 35px);
+  }
 }
 
-.content p{
+@media (min-width: 768px) {
+  .firstSection .content {
+    margin: 15% 0% 0% 4%;
+  }
+
+  .content h1 {
+    font-size: 2.8125rem;
+    font-size: clamp(
+      2.8125rem,
+      0.6696428571428577rem + 4.4642857142857135vw,
+      3.4375rem
+    );
+    width: clamp(300px, 50vw, 600px);
+  }
+
+  .content p {
+    font-size: 1.5625rem;
+    font-size: clamp(
+      1.5625rem,
+      0.4910714285714288rem + 2.2321428571428568vw,
+      1.875rem
+    );
+    line-height: clamp(32px, 8vw, 42px);
+    margin-top: clamp(200px, 30vw, 250px);
+    width: clamp(300px, 50vw, 500px);
+  }
+
+  .content .moreBtn {
+    height: clamp(20px, 5vw, 40px);
+    width: clamp(50px, 10vw, 80px);
+    font-size: clamp(15px, 2vw, 20px);
+    margin-top: clamp(470px, 80vw, 520px);
+  }
+
+  /* INFO: Second section code  */
+  .main .secondSection {
+    margin-top: 80px;
+  }
+
+  .secondSection h2 {
+    width: 75%;
+  }
+
+  .secondSection p {
+    width: 75%;
+    font-size: 1.25rem;
+    font-size: clamp(
+      1.25rem,
+      0.17857142857142883rem + 2.2321428571428568vw,
+      1.5625rem
+    );
+    margin-top: 25px;
+  }
+
+  /* INFO: Trek section code */
+
+  .main .Trek1 {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+    width: clamp(580px, 70vw, 1100px);
+    height: clamp(100px, 30vw, 450px);
+    background-color: #c4dad2;
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5rem;
+  }
+
+  .Trek1 .images {
+    display: flex;
+    flex-direction: row;
+    gap: clamp(0.5rem, 2vw, 3rem);
+    height: clamp(8rem, 21vw, 21rem);
+    width: clamp(15rem, 28vw, 30rem);
+    margin-left: 5%;
+    margin-top: 1%;
+  }
+
+  .images .img1, .img5, .img9 {
+    max-width: 46%;
+    height: clamp(9rem, 20vw, 21rem);
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+
+  .images .img2, .img6, .img10 {
+    max-width: 46%;
+    height: clamp(9rem, 20vw, 21rem);
+    margin-top: clamp(25px, 4vw, 60px);
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    display: flex;
+  }
+
+  .Trek1 .images .img5{
+    height: clamp(5rem, 15vw, 21rem);
+  }
+
+  .Trek1 .images .img6{
+    height: clamp(5rem, 15vw, 21rem);
+    margin-top: clamp(25px, 9vw, 65px);
+  }
+
+  .Trek1 .images .img9{
+    max-width: 55%;
+    height: clamp(5rem, 16vw, 16rem);
+    border-radius: 20px;
+  }
+
+  .Trek1 .images .img10{
+    height: clamp(5rem, 15vw, 16rem);
+    max-width: 55%;
+    margin-top: clamp(15px, 5vw, 75px);
+    margin-left: -20%;
+    border-radius: 50%;
+  }
+
+  .Trek1 .leftContent {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(10px, 2vw, 20px);
+    margin: 5%;
+    padding: 0rem 0rem;
+    width: clamp(240px, 30vw, 430px);
+    height: clamp(100px, 16vw, 300px);
+  }
+
+  .leftContent h3 {
+    font-size: clamp(10px, 3vw, 45px);
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  .leftContent p {
+    font-size: clamp(10px, 2vw, 30px);
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    line-height: clamp(10px, 4vw, 50px);
+  }
+
+  .Trek1 .details {
+    position: absolute;
+    border: none;
+    border-radius: 10px;
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-size: clamp(1px, 1.2vw, 15px);
+    background-color: #16423c;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    height: clamp(30px, 4vw, 40px);
+    width: clamp(50px, 10vw, 120px);
+    top: clamp(145px, 23vw, 322px);
+    left: clamp(460px, 57vw, 900px);
+    right: 50px;
+  }
+
+  .Trek1 .details:hover {
+    background-color: #e9efec;
+    border: 1px solid #16423c;
+    color: #16423c;
+    cursor: pointer;
+  }
+
+  /* INFO: Trek 2 Card Code Design */
+
+  .main .Trek2 {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1rem;
+    width: clamp(580px, 70vw, 1100px);
+    height: clamp(100px, 30vw, 450px);
+    border: 5px solid #16423c;
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5rem;
+  }
+
+  .Trek2 .images {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: clamp(8rem, 21vw, 21rem);
+    width: clamp(15rem, 28vw, 30rem);
+    margin-left: 5%;
+    padding: 0;
+    gap: 15%;
+  }
+
+  .Trek2 .images .img3, .img7 {
+    width: clamp(180px, 25vw, 400px);
+    height: 50%;
+    border-radius: clamp(30px, 10vw, 60px);
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+  
+  .Trek2 .images .img7 {
+    width: clamp(100px, 15vw, 400px);
+    border-radius: clamp(10px, 1vw, 20px);
+  }
+
+  .Trek2 .images .img4, .img8 {
+    width: clamp(150px, 25vw, 400px);
+    height: 45%;
+    margin-top: -6%;
+    display: flex;
+    margin-left: 10%;
+    border-radius: clamp(30px, 10vw, 60px);
+    z-index: 10;
+  }
+
+  .Trek2 .images .img8 {
+    height: 52%;
+    margin-top: -13%;
+    border-radius: clamp(10px, 1vw, 20px);
+  }
+
+  .Trek2 .leftContent {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(10px, 2vw, 60px);
+    margin: 5%;
+    padding: 0rem 0rem;
+    width: clamp(240px, 30vw, 430px);
+    height: clamp(100px, 16vw, 300px);
+  }
+
+  .Trek2 .leftContent h3 {
+    font-size: clamp(10px, 3vw, 45px);
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  .Trek2 .leftContent p {
+    font-size: clamp(10px, 2vw, 30px);
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    line-height: clamp(10px, 4vw, 50px);
+  }
+
+  .Trek2 .details2 {
+    position: absolute;
+    border: none;
+    border-radius: 10px;
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-size: clamp(1px, 1.2vw, 15px);
+    border: 2px solid #16423c;
+    color: #ffffff;
+    align-items: center;
+    justify-content: center;
+    height: clamp(30px, 4vw, 40px);
+    width: clamp(50px, 10vw, 120px);
+    top: clamp(140px, 21.9vw, 323px);
+    left: clamp(460px, 57vw, 900px);
+    right: 50px;
+    bottom: 50px;
+  }
+
+  .Trek2 .details2:hover {
+    background-color: #ffffff;
+    color: #16423c;
+    cursor: pointer;
+  }
+}
+
+@media (min-width: 992px) {
+  .firstSection .content {
+    margin: 10% 0% 0% 4%;
+  }
+
+  .content h1 {
+    font-size: 3.4375rem;
+    font-size: clamp(
+      3.4375rem,
+      0.45673076923076916rem + 4.807692307692308vw,
+      4.0625rem
+    );
+    width: clamp(500px, 50vw, 650px);
+  }
+
+  .content p {
+    font-size: 1.875rem;
+    font-size: clamp(
+      1.875rem,
+      0.3846153846153846rem + 2.403846153846154vw,
+      2.1875rem
+    );
+    line-height: clamp(42px, 10vw, 50px);
+    margin-top: clamp(250px, 25vw, 350px);
+    width: clamp(500px, 50vw, 600px);
+  }
+
+  .content .moreBtn {
+    height: clamp(20px, 5vw, 40px);
+    width: clamp(50px, 10vw, 80px);
+    font-size: clamp(15px, 2vw, 20px);
+    margin-top: clamp(520px, 50vw, 600px);
+  }
+
+  .firstSection .heroImg {
+    height: auto;
+    width: 45%;
+  }
+
+  /* INFO: Second section code  */
+  .main .secondSection {
+    margin-top: 95px;
+  }
+
+  .secondSection h2 {
+    width: 70%;
+    font-size: clamp(35px, 5vw, 45px);
+  }
+
+  .secondSection p {
+    width: 75%;
+    font-size: 1.5625rem;
+    font-size: clamp(
+      1.5625rem,
+      0.07211538461538458rem + 2.403846153846154vw,
+      1.875rem
+    );
+    margin-top: 30px;
+    line-height: clamp(20px, 5vw, 50px);
+  }
+}
+
+@media (min-width: 1200px) {
+  .main .firstSection {
+    width: 100%;
+  }
+
+  .firstSection .content {
+    margin: 10% 0% 0% 5%;
+  }
+
+  .content h1 {
+    font-size: 4.0625rem;
+    font-size: clamp(4.0625rem, 2.8125rem + 1.6666666666666667vw, 4.375rem);
+    width: clamp(600px, 50vw, 750px);
+  }
+
+  .content p {
     font-family: "Josefin Sans", sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 0.9375rem;
-    font-size: clamp(0.9375rem, 0.5803571428571429rem + 1.7857142857142856vw, 1.25rem);
-    line-height: 32px;
-    margin-top: clamp(0px, 33vw, 320px);
-    width: clamp(300px, 60vw, 700px);
+    font-size: 1.875rem;
+    font-size: clamp(
+      1.875rem,
+      0.3846153846153846rem + 2.403846153846154vw,
+      2.1875rem
+    );
+    line-height: clamp(42px, 10vw, 50px);
+    margin-top: clamp(250px, 25vw, 320px);
+    width: clamp(500px, 50vw, 700px);
     position: absolute;
-    border: 2px solid red;
-}
+  }
 
-.content .moreBtn{
+  .content .moreBtn {
     border: none;
     border-radius: 10px;
-    height: 2rem;
-    width: 3rem;
-    background-color: #16423C;
+    height: clamp(40px, 5vw, 50px);
+    width: clamp(80px, 10vw, 120px);
+    background-color: #16423c;
     color: white;
     font-family: "Josefin Sans", sans-serif;
     font-weight: 500;
     font-style: normal;
-    margin-top: clamp(100px, 75vw, 450px);
-}
+    font-size: clamp(15px, 2vw, 20px);
+    margin-top: clamp(600px, 20vw, 650px);
+  }
 
-.content .moreBtn:hover{
-    background-color: #E9EFEC;
-    border: 2px solid #16423C;
-    color: #16423C;
-    cursor: pointer;
-}
-
-.firstSection .heroImg{
+  .firstSection .heroImg {
     height: auto;
+    width: 45%;
+  }
+
+  /* INFO: Second section code  */
+  .main .secondSection {
+    margin-top: 100px;
+  }
+
+  .secondSection h2 {
+    width: 65%;
+    font-size: clamp(35px, 5vw, 45px);
+  }
+
+  .secondSection p {
+    width: 75%;
+    font-size: 1.5625rem;
+    font-size: clamp(
+      1.5625rem,
+      0.07211538461538458rem + 2.403846153846154vw,
+      1.875rem
+    );
+    margin-top: 30px;
+    line-height: clamp(20px, 5vw, 50px);
+  }
+
+  /* INFO: Trek code below */
+
+  .Trek1 .leftContent {
+    gap: clamp(20px, 2vw, 40px);
+  }
+}
+
+@media (min-width: 1500px) {
+
+  .firstSection .content {
+    margin: 10% 0% 0% 7%;
+  }
+
+  .content h1 {
+    font-size: 4.375rem;
+    font-size: clamp(4.375rem, 1.5625rem + 3vw, 5.3125rem);
+    position: absolute;
+    width: clamp(600px, 50vw, 900px);
+  }
+
+  .content p {
+    font-size: 2.5rem;
+    font-size: clamp(2.5rem, 0.625rem + 2vw, 3.125rem);
+    line-height: clamp(42px, 10vw, 55px);
+    margin-top: clamp(250px, 25vw, 400px);
+    width: clamp(500px, 50vw, 1000px);
+    position: absolute;
+  }
+
+  .content .moreBtn {
+    height: clamp(40px, 5vw, 50px);
+    width: clamp(80px, 10vw, 120px);
+    font-size: clamp(15px, 2vw, 20px);
+    margin-top: clamp(650px, 50vw, 720px);
+  }
+
+  .firstSection .heroImg {
+    height: clamp(500px, 100vw, 1250px);
     width: 50%;
-}
+  }
 
-@media (min-width: 601px){
-    .main .firstSection{
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        height: auto;
-    }
+  /* INFO: Second section code  */
+  .main .secondSection {
+    margin-top: 150px;
+  }
 
-    .firstSection .content{
-        margin: 15% 0% 0% 4%;
-        position: relative;
-    }
-    
-    .content h1{
-        font-family: "Kalnia", serif;
-        font-weight: 500;
-        font-style: normal;
-        font-size: 2.8125rem;
-        font-size: clamp(2.8125rem, 1.687874251497006rem + 2.9940119760479043vw, 3.125rem);
-        position: absolute;
-        width: clamp(300px, 50vw, 600px);
-    }
-    
-    .content p{
-        font-family: "Josefin Sans", sans-serif;
-        font-weight: 400;
-        font-style: normal;
-        font-size: 0.9375rem;
-        font-size: clamp(0.9375rem, 0.5803571428571429rem + 1.7857142857142856vw, 1.25rem);
-        line-height: 32px;
-        margin: 280px 0px 0px 0px;
-        width: clamp(300px, 65vw, 750px);
-        position: absolute;
-        border: 2px solid red;
-    }
+  .secondSection h2 {
+    width: 60%;
+    font-size: clamp(45px, 5vw, 60px);
+    line-height: clamp(50px, 10vw, 100px);
+  }
 
-    .content .moreBtn{
-        border: none;
-        border-radius: 10px;
-        height: clamp(20px, 5vw, 40px);
-        width: clamp(50px, 10vw, 80px);
-        background-color: #16423C;
-        color: white;
-        font-family: "Josefin Sans", sans-serif;
-        font-weight: 500;
-        font-style: normal;
-        font-size: clamp(15px, 2vw, 20px);
-        margin-top: clamp(100px, 85vw, 470px);
-    }
-    
-    .firstSection .heroImg{
-        height: auto;
-        width: 50%;
-    }
-}
-
-@media (min-width: 768px){
-    .main .firstSection{
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        height: auto;
-    }
-
-    .firstSection .content{
-        margin: 15% 0% 0% 4%;
-        position: relative;
-    }
-    
-    .content h1{
-        font-family: "Kalnia", serif;
-        font-weight: 500;
-        font-style: normal;
-        font-size: 2.8125rem;
-        font-size: clamp(2.8125rem, 0.6696428571428577rem + 4.4642857142857135vw, 3.4375rem);
-        position: absolute;
-        width: clamp(300px, 50vw, 600px);
-    }
-    
-    .content p{
-        font-family: "Josefin Sans", sans-serif;
-        font-weight: 400;
-        font-style: normal;
-        font-size: 1.5625rem;
-        font-size: clamp(1.5625rem, 0.4910714285714288rem + 2.2321428571428568vw, 1.875rem);
-        line-height: clamp(32px, 8vw, 42px);
-        margin-top: clamp(200px, 30vw, 250px);
-        width: clamp(300px, 50vw, 500px);
-        position: absolute;
-    }
-
-    .content .moreBtn{
-        border: none;
-        border-radius: 10px;
-        height: clamp(20px, 5vw, 40px);
-        width: clamp(50px, 10vw, 80px);
-        background-color: #16423C;
-        color: white;
-        font-family: "Josefin Sans", sans-serif;
-        font-weight: 500;
-        font-style: normal;
-        font-size: clamp(15px, 2vw, 20px);
-        margin-top: clamp(470px, 80vw, 520px);
-    }
-    
-    .firstSection .heroImg{
-        height: auto;
-        width: 50%;
-    }
-}
-
-@media (min-width: 992px){
-    .main .firstSection{
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        height: auto;
-    }
-
-    .firstSection .content{
-        margin: 10% 0% 0% 4%;
-        position: relative;
-    }
-    
-    .content h1{
-        font-family: "Kalnia", serif;
-        font-weight: 500;
-        font-style: normal;
-        font-size: 3.4375rem;
-        font-size: clamp(3.4375rem, 0.45673076923076916rem + 4.807692307692308vw, 4.0625rem);
-        position: absolute;
-        width: clamp(500px, 50vw, 650px);
-    }
-    
-    .content p{
-        font-family: "Josefin Sans", sans-serif;
-        font-weight: 400;
-        font-style: normal;
-        font-size: 1.875rem;
-        font-size: clamp(1.875rem, 0.3846153846153846rem + 2.403846153846154vw, 2.1875rem);
-        line-height: clamp(42px, 10vw, 50px);
-        margin-top: clamp(250px, 25vw, 350px);
-        width: clamp(500px, 50vw, 600px);
-        position: absolute;
-    }
-
-    .content .moreBtn{
-        border: none;
-        border-radius: 10px;
-        height: clamp(20px, 5vw, 40px);
-        width: clamp(50px, 10vw, 80px);
-        background-color: #16423C;
-        color: white;
-        font-family: "Josefin Sans", sans-serif;
-        font-weight: 500;
-        font-style: normal;
-        font-size: clamp(15px, 2vw, 20px);
-        margin-top: clamp(520px, 50vw, 600px);
-    }
-    
-    .firstSection .heroImg{
-        height: auto;
-        width: 45%;
-    }
-}
-
-@media (min-width: 1200px){
-    .main .firstSection{
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        height: auto;
-    }
-
-    .firstSection .content{
-        margin: 10% 0% 0% 5%;
-    }
-    
-    .content h1{
-        font-family: "Kalnia", serif;
-        font-weight: 500;
-        font-style: normal;
-        font-size: 4.0625rem;
-        font-size: clamp(4.0625rem, 2.8125rem + 1.6666666666666667vw, 4.375rem);
-        position: absolute;
-        width: clamp(600px, 50vw, 750px);
-    }
-    
-    .content p{
-        font-family: "Josefin Sans", sans-serif;
-        font-weight: 400;
-        font-style: normal;
-        font-size: 1.875rem;
-        font-size: clamp(1.875rem, 0.3846153846153846rem + 2.403846153846154vw, 2.1875rem);
-        line-height: clamp(42px, 10vw, 50px);
-        margin-top: clamp(250px, 25vw, 320px);
-        width: clamp(500px, 50vw, 700px);
-        position: absolute;
-    }
-    
-    .content .moreBtn{
-        border: none;
-        border-radius: 10px;
-        height: clamp(40px, 5vw, 50px);
-        width: clamp(80px, 10vw, 120px);
-        background-color: #16423C;
-        color: white;
-        font-family: "Josefin Sans", sans-serif;
-        font-weight: 500;
-        font-style: normal;
-        font-size: clamp(15px, 2vw, 20px);
-        margin-top: clamp(600px, 20vw, 650px);
-    }
-    
-    .firstSection .heroImg{
-        height: auto;
-        width: 45%;
-    }
-}
-
-@media (min-width: 1500px){
-    .main .firstSection{
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        height: auto;
-    }
-
-    .firstSection .content{
-        margin: 10% 0% 0% 7%;
-        position: relative;
-    }
-    
-    .content h1{
-        font-family: "Kalnia", serif;
-        font-weight: 500;
-        font-style: normal;
-        font-size: 4.375rem;
-        font-size: clamp(4.375rem, 1.5625rem + 3vw, 5.3125rem);
-        position: absolute;
-        width: clamp(600px, 50vw, 900px);
-    }
-    
-    .content p{
-        font-family: "Josefin Sans", sans-serif;
-        font-weight: 400;
-        font-style: normal;
-        font-size: 2.5rem;
-        font-size: clamp(2.5rem, 0.625rem + 2vw, 3.125rem);
-        line-height: clamp(42px, 10vw, 55px);
-        margin-top: clamp(250px, 25vw, 400px);
-        width: clamp(500px, 50vw, 1000px);
-        position: absolute;
-    }
-
-    .content .moreBtn{
-        border: none;
-        border-radius: 10px;
-        height: clamp(40px, 5vw, 50px);
-        width: clamp(80px, 10vw, 120px);
-        background-color: #16423C;
-        color: white;
-        font-family: "Josefin Sans", sans-serif;
-        font-weight: 500;
-        font-style: normal;
-        font-size: clamp(15px, 2vw, 20px);
-        margin-top: clamp(650px, 50vw, 720px);
-    }
-    
-    .firstSection .heroImg{
-        height: clamp(500px, 100vw, 1250px);
-        width: 50%;
-    }
+  .secondSection p {
+    width: 70%;
+    font-size: 1.875rem;
+    font-size: clamp(1.875rem, 0rem + 2vw, 2.5rem);
+    margin-top: 40px;
+    line-height: clamp(50px, 5vw, 60px);
+  }
 }
