@@ -337,7 +337,8 @@
   width: clamp(200px, 80vw, 500px);
   height: clamp(200px, 100vw, 350px);
   gap: clamp(1rem, 5vw, 5rem);
-  margin-top: -3rem;
+
+  position: relative;
 }
 
 .ImageSection .slidingImages .leftBtn {
@@ -348,6 +349,11 @@
   padding: clamp(1px, 3vw, 12px);
 }
 
+.ImageSection .slidingImages .leftBtn:hover{
+  background-color: #005547;
+  cursor: pointer;
+}
+
 .ImageSection .slidingImages .rightBtn {
   height: clamp(20px, 10vw, 50px);
   width: clamp(20px, 10vw, 50px);
@@ -355,6 +361,11 @@
   border-radius: 50%;
   padding: clamp(1px, 3vw, 12px);
 } 
+
+.ImageSection .slidingImages .rightBtn:hover{
+  background-color: #005547;
+  cursor: pointer;
+}
 
 .ImageSection p{
   font-size: clamp(15px, 2vw, 25px);
@@ -392,22 +403,37 @@
   display: flex;
   flex-direction: row;
   height: clamp(150px, 65vw, 300px);
-  width: clamp(150px, 50vw, 270px);
+  width: 100%;
+  overflow: hidden;
   border-radius: 20px;
-  flex-direction: row;
-  overflow-x: hidden;
 }
 
 .slidingImages .GuideImg1 {
   height: 100%;
   width: 100%;
   object-fit: cover;
+  flex: 0 0 100%;
 }
 
 .slidingImages .GuideImg2 {
   height: 100%;
   width: 100%;
   object-fit: cover;
+  flex: 0 0 100%;
+}
+
+.slidingImages .GuideImg3 {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  flex: 0 0 100%;
+}
+
+.slidingImages .GuideImg4 {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  flex: 0 0 100%;
 }
 
 @media (min-width: 601px) {
@@ -760,13 +786,6 @@
 
   /* INFO: Guides images section */
 
-  .ImageSection {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
   .ImageSection h2 {
     font-family: "Josefin Sans", sans-serif;
     font-optical-sizing: auto;
@@ -822,9 +841,29 @@
     object-fit: cover;
     border-radius: clamp(5px, 1vw, 40px);
     transform: rotate(-4.12deg);
+    flex: none;
+  }
+  
+  .slidingImages .GuideImg2 {
+    height: clamp(50px, 17vw, 600px);
+    width:  clamp(70px, 15vw, 550px);
+    object-fit: cover;
+    transform: rotate(4.59deg);
+    border-radius: clamp(5px, 1vw, 40px);
+    flex: none;
   }
 
-  .slidingImages .GuideImg2 {
+  .slidingImages .GuideImg3 {
+    flex: none;
+    height: clamp(50px, 17vw, 600px);
+    width:  clamp(70px, 15vw, 550px);
+    object-fit: cover;
+    border-radius: clamp(5px, 1vw, 40px);
+    transform: rotate(-4.12deg);
+  }
+  
+  .slidingImages .GuideImg4 {
+    flex: none;
     height: clamp(50px, 17vw, 600px);
     width:  clamp(70px, 15vw, 550px);
     object-fit: cover;
