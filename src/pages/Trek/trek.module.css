@@ -119,6 +119,7 @@
   font-size: 0.9375rem;
   font-size: clamp(0.9375rem, 0.78125rem + 1.25vw, 1.25rem);
   margin-top: 20px;
+  margin-bottom: clamp(1rem, 4vw, 5rem);
   line-height: clamp(20px, 5vw, 30px);
 }
 
@@ -173,7 +174,9 @@
   width: auto;
 }
 
-.images .img1, .img5, .img9 {
+.images .img1,
+.img5,
+.img9 {
   max-width: 100%;
   height: auto;
   display: block;
@@ -183,7 +186,9 @@
   -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
 }
 
-.images .img2, .img6, .img10{
+.images .img2,
+.img6,
+.img10 {
   display: none;
 }
 
@@ -262,7 +267,8 @@
   width: auto;
 }
 
-.Trek2 .images .img3, .img7 {
+.Trek2 .images .img3,
+.img7 {
   max-width: 100%;
   height: auto;
   display: block;
@@ -272,7 +278,8 @@
   -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
 }
 
-.Trek2 .images .img4, .img8 {
+.Trek2 .images .img4,
+.img8 {
   display: none;
 }
 
@@ -299,6 +306,108 @@
   font-weight: 400;
   font-style: normal;
   line-height: clamp(10px, 4vw, 26px);
+}
+
+/* INFO: Guides images section */
+
+.ImageSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.ImageSection h2 {
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-size: clamp(18px, 4vw, 50px);
+  line-height: clamp(30px, 10vw, 50px);
+  width: 80%;
+  text-align: center;
+  text-decoration-line: underline;
+  margin-top: clamp(3rem, 4vw, 8rem);
+}
+
+.ImageSection .slidingImages {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(200px, 80vw, 500px);
+  height: clamp(200px, 100vw, 350px);
+  gap: clamp(1rem, 5vw, 5rem);
+  margin-top: -3rem;
+}
+
+.ImageSection .slidingImages .leftBtn {
+  height: clamp(20px, 10vw, 50px);
+  width: clamp(20px, 10vw, 50px);
+  background-color: #16423c;
+  border-radius: 50%;
+  padding: clamp(1px, 3vw, 12px);
+}
+
+.ImageSection .slidingImages .rightBtn {
+  height: clamp(20px, 10vw, 50px);
+  width: clamp(20px, 10vw, 50px);
+  background-color: #16423c;
+  border-radius: 50%;
+  padding: clamp(1px, 3vw, 12px);
+} 
+
+.ImageSection p{
+  font-size: clamp(15px, 2vw, 25px);
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  width: clamp(250px, 80vw, 1000px);
+  height: auto;
+  text-align: center;
+  line-height: clamp(1.5rem, 5vw, 3rem);
+  margin-bottom: 2rem;
+}
+
+.ImageSection button{
+  height: clamp(35px, 5vw, 40px);
+  width: clamp(100px, 10vw, 120px);
+  border: none;
+  background-color: #16423c;
+  color: white;
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  border-radius: 10px;
+  padding: 2px;
+  cursor: pointer;
+}
+
+.ImageSection button:hover{
+  background-color: #E9EFEC;
+  color: #16423c;
+  border: 2px solid #16423c;
+}
+
+.ImageSection .slidingImages .slideImages {
+  display: flex;
+  flex-direction: row;
+  height: clamp(150px, 65vw, 300px);
+  width: clamp(150px, 50vw, 270px);
+  border-radius: 20px;
+  flex-direction: row;
+  overflow-x: hidden;
+}
+
+.slidingImages .GuideImg1 {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.slidingImages .GuideImg2 {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 @media (min-width: 601px) {
@@ -437,40 +546,44 @@
     margin-top: 1%;
   }
 
-  .images .img1, .img5, .img9 {
+  .images .img1,
+  .img5,
+  .img9 {
     max-width: 46%;
-    height: clamp(9rem, 20vw, 21rem);
+    height: clamp(9rem, 15vw, 21rem);
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
     mask-image: none;
     -webkit-mask-image: none;
   }
 
-  .images .img2, .img6, .img10 {
+  .images .img2,
+  .img6,
+  .img10 {
     max-width: 46%;
-    height: clamp(9rem, 20vw, 21rem);
+    height: clamp(9rem, 15vw, 21rem);
     margin-top: clamp(25px, 4vw, 60px);
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
     display: flex;
   }
 
-  .Trek1 .images .img5{
-    height: clamp(5rem, 15vw, 21rem);
+  .Trek1 .images .img5 {
+    height: clamp(5rem, 12vw, 21rem);
   }
 
-  .Trek1 .images .img6{
+  .Trek1 .images .img6 {
     height: clamp(5rem, 15vw, 21rem);
     margin-top: clamp(25px, 9vw, 65px);
   }
 
-  .Trek1 .images .img9{
+  .Trek1 .images .img9 {
     max-width: 55%;
     height: clamp(5rem, 16vw, 16rem);
     border-radius: 20px;
   }
 
-  .Trek1 .images .img10{
+  .Trek1 .images .img10 {
     height: clamp(5rem, 15vw, 16rem);
     max-width: 55%;
     margin-top: clamp(15px, 5vw, 75px);
@@ -560,20 +673,22 @@
     gap: 15%;
   }
 
-  .Trek2 .images .img3, .img7 {
+  .Trek2 .images .img3,
+  .img7 {
     width: clamp(180px, 25vw, 400px);
     height: 50%;
     border-radius: clamp(30px, 10vw, 60px);
     mask-image: none;
     -webkit-mask-image: none;
   }
-  
+
   .Trek2 .images .img7 {
     width: clamp(100px, 15vw, 400px);
     border-radius: clamp(10px, 1vw, 20px);
   }
 
-  .Trek2 .images .img4, .img8 {
+  .Trek2 .images .img4,
+  .img8 {
     width: clamp(150px, 25vw, 400px);
     height: 45%;
     margin-top: -6%;
@@ -641,6 +756,80 @@
     background-color: #ffffff;
     color: #16423c;
     cursor: pointer;
+  }
+
+  /* INFO: Guides images section */
+
+  .ImageSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ImageSection h2 {
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-size: clamp(18px, 4vw, 50px);
+    line-height: clamp(30px, 10vw, 50px);
+    width: 80%;
+    text-align: center;
+    text-decoration-line: underline;
+    margin-top: clamp(3rem, 4vw, 8rem);
+    margin-bottom: clamp(1rem, 6vw, 8rem);
+  }
+
+  .ImageSection .slidingImages {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: clamp(500px, 85vw, 1200px);
+    height: clamp(150px, 25vw, 320px);
+    gap: clamp(1rem, 4vw, 5rem);
+  }
+
+  .ImageSection .slidingImages .leftBtn {
+    height: clamp(20px, 5vw, 45px);
+    width: clamp(20px, 5vw, 45px);
+    background-color: #16423c;
+    border-radius: 50%;
+    padding: clamp(1px, 3vw, 12px);
+  }
+
+  .ImageSection .slidingImages .rightBtn {
+    height: clamp(20px, 5vw, 45px);
+    width: clamp(20px, 5vw, 45px);
+    background-color: #16423c;
+    border-radius: 50%;
+    padding: clamp(1px, 3vw, 12px);
+  }
+
+  .ImageSection .slidingImages .slideImages {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: clamp(100px, 22vw, 300px);
+    width: clamp(270px, 80vw, 1000px);
+    overflow: hidden;
+    border-radius: 0;
+    padding: 1rem;
+  }
+
+  .slidingImages .GuideImg1 {
+    height: clamp(50px, 17vw, 600px);
+    width:  clamp(70px, 15vw, 550px);
+    object-fit: cover;
+    border-radius: clamp(5px, 1vw, 40px);
+    transform: rotate(-4.12deg);
+  }
+
+  .slidingImages .GuideImg2 {
+    height: clamp(50px, 17vw, 600px);
+    width:  clamp(70px, 15vw, 550px);
+    object-fit: cover;
+    transform: rotate(4.59deg);
+    border-radius: clamp(5px, 1vw, 40px);
   }
 }
 
@@ -786,7 +975,6 @@
 }
 
 @media (min-width: 1500px) {
-
   .firstSection .content {
     margin: 10% 0% 0% 7%;
   }
