@@ -4,6 +4,7 @@ import Trek from "./pages/Trek/trek";
 import Page2 from "./pages/page2";
 import Layout from "./layout";
 import Zipline from "./pages/Zip&kay/Zipline";
+import Gallery from "./pages/Gallery/Gallery";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/trek" element={<Trek />} />
           <Route path="/page2" element={<Page2 />} />
           <Route path="/zipline" element={<Zipline />} />
+          <Route path="/gallery" element={<Gallery />} />
         </Route>
       </Routes>
     </Router>
