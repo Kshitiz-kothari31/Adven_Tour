@@ -1,55 +1,66 @@
-import React from 'react'
-import { motion, useAnimation } from 'framer-motion';
-import { useEffect } from 'react';
-import pic from '../../assets/images/Home/22.png'
+import { motion, useAnimation , AnimatePresence } from 'framer-motion';
+import { useEffect , useState } from 'react';
+import img1 from '../../assets/images/Home/img1.png'
+import img2 from '../../assets/images/Home/img2.png'
+import img3 from '../../assets/images/Home/img3.png'
 import pic1 from '../../assets/images/Home/download.jpeg'
 import pic2 from '../../assets/images/Home/download (5).jpeg' 
 import ImageSlider from './imageslider'
 import './home.css'
 
+const images = [img1, img2, img3];
+
+    const ImageSliderBox = () => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [show, setShow] = useState(true);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+        setShow(false); // Start fade out
+        setTimeout(() => {
+            setCurrentIndex((prev) => (prev + 1) % images.length);
+            setShow(true); // Fade in new image
+        }, 400); // match fade-out duration
+        }, 2500);
+
+        return () => clearInterval(interval);
+    }, []);
+
+    return (
+        <motion.div
+        className="relative w-full md:w-[85%] mx-auto mt-8 px-2 overflow-hidden  rounded-4xl shadow-lg"
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1, ease: 'easeOut' }}
+        >
+        {/* Smooth image fade transition */}
+        <div className="relative z-10 w-full h-[60vh] rounded-4xl overflow-hidden">
+            <AnimatePresence mode="wait">
+            {show && (
+                <motion.img
+                key={currentIndex}
+                src={images[currentIndex]}
+                alt="Slider Image"
+                className="w-full h-full object-cover rounded-4xl"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.6, ease: 'easeOut' }}
+                />
+            )}
+            </AnimatePresence>
+        </div>
+        </motion.div>
+    );
+    };
 const home = () => {
+
+
   return (
     <section className='home'>
         {/* image section at top */}
-        <motion.div
-        className="relative w-full md:w-[85%] mx-auto mt-5 px-2 overflow-hidden rounded-4xl"
-        initial={{ opacity: 0, scale: 0.9 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1.2, ease: 'easeOut' }}
-        >
-        {/* Animated background glow */}
-        <motion.div
-            className="absolute inset-0 z-0 rounded-4xl"
-            style={{
-            background: 'radial-gradient(circle at center, #FF6B00 20%, #FFF5E4 80%)',
-            }}
-            animate={{
-            backgroundPosition: ['0% 0%', '100% 100%', '0% 0%'],
-            }}
-            transition={{
-            duration: 10,
-            repeat: Infinity,
-            ease: 'easeInOut',
-            }}
-        />
-
-        {/* Glow pulse overlay */}
-        <motion.div
-            className="absolute inset-0 bg-white/10 blur-2xl z-10 rounded-4xl"
-            animate={{ opacity: [0.1, 0.3, 0.1] }}
-            transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
-        />
-
-        {/* Hero Image */}
-        <motion.img
-            src={pic}
-            alt="Hero"
-            className="relative z-20 w-full h-[70vh] object-cover rounded-4xl"
-            whileHover={{ scale: 1.05, rotate: 1 }}
-            transition={{ duration: 0.4 }}
-        />
-        </motion.div>
+            <ImageSliderBox  />
 
 
         {/* para section */}
@@ -66,24 +77,25 @@ const home = () => {
         >
             {[`Welcome to `, `We offer exciting outdoor activities like `, `Our experienced team makes sure`].map((text, index) => (
             <motion.p
-                key={index}
-                variants={{
+            key={index}
+            variants={{
                 hidden: { opacity: 0, y: 40 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: 'easeOut' } },
-                }}
+            }}
             >
-                {index === 0 && (
+            {index === 0 && (
                 <>Welcome to <span className="font-bold">Adventure Pulse</span> – your one-stop destination for fun, thrill, and adventure!</>
-                )}
-                {index === 1 && (
-                <>We offer exciting outdoor activities like <span className="font-bold"> rafting in wild rivers</span>, <span className="font-bold"> camping under the stars</span>, <span className="font-bold"> bungee jumping from great heights</span>, and <span className="font-bold"> adventure tours</span> through beautiful forests and hills.</>
-                )}
-                {index === 2 && (
-                <p className="hidden lg:block">
-                    Our experienced team makes sure every activity is safe and fun for everyone — whether you’re a beginner or an adventure lover. Come with your friends, family, or join solo, and create amazing memories you’ll never forget. Adventure Pulse is here to turn your holiday into an unforgettable adventure!
-                </p>
-                )}
+            )}
+            {index === 1 && (
+                <>We offer exciting outdoor activities like <span className="font-bold">rafting in wild rivers</span>, <span className="font-bold">camping under the stars</span>, <span className="font-bold">bungee jumping from great heights</span>, and <span className="font-bold">adventure tours</span> through beautiful forests and hills.</>
+            )}
+            {index === 2 && (
+                <span className="hidden lg:block">
+                Our experienced team makes sure every activity is safe and fun for everyone — whether you’re a beginner or an adventure lover. Come with your friends, family, or join solo, and create amazing memories you’ll never forget. Adventure Pulse is here to turn your holiday into an unforgettable adventure!
+                </span>
+            )}
             </motion.p>
+
             ))}
         </motion.div>
         </motion.div>
@@ -321,7 +333,7 @@ const home = () => {
         <ImageSlider  />
 
         {/* detail */}
-        <div className="bg-[#2F3136] py-16 px-4 md:px-10 xl:px-24">
+        <div className="bg-[#2F3136] py-16 px-4 mt-10 md:px-10 xl:px-24">
     <div className="grid grid-cols-2 md:grid-cols-3 gap-6 text-center text-white font-josefin">
         {/* Card 1 */}
         <div>

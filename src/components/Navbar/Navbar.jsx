@@ -3,7 +3,6 @@ import logo from '../Navbar/21.svg';
 import '../Navbar/Navbar.css';
 import '../../index.css';
 
-
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
@@ -27,20 +26,21 @@ const Navbar = () => {
   }, [isOpen]);
 
   return (
-    <header className="navbar fixed top-0 left-0 right-0 z-50 bg-cyan-50 shadow border-b border-gray-200">
-
-      <div className="w-full px-4"> 
-        
-
-        <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto flex items-center justify-between py-4"> 
-          {/* Logo Section */}
+    <header className="fixed top-0 left-0 right-0 z-50 bg-cyan-50 shadow border-b border-gray-200">
+      <div className="w-full px-4 xl:px-8 2xl:px-16">
+        <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto flex items-center justify-between py-4">
+          
+          {/* Left: Logo */}
           <div className="flex items-center space-x-4">
-            <img src={logo} alt="logo" className="h-10 w-10" /> 
+            <img src={logo} alt="logo" className="h-10 w-10" />
             <span className="h-8 w-px bg-gray-800 hidden lg:block"></span>
           </div>
 
-          {/* Desktop Nav Links */}
-          <ul className="hidden md:flex space-x-6 lg:space-x-4 xl:space-x-10 text-base xl:  font-medium"> 
+          {/* Spacer */}
+          <div className="flex-1 hidden md:block"></div>
+
+          {/* Right: Nav Links */}
+          <ul className="hidden md:flex items-center space-x-4 lg:space-x-6 xl:space-x-10 text-base font-medium">
             <li><a href="#home" className="nav-link">Home</a></li>
             <li><a href="#Treks" className="nav-link">Treks</a></li>
             <li><a href="#Adventure" className="nav-link">Adventure Sports</a></li>
@@ -50,7 +50,7 @@ const Navbar = () => {
             <li><a href="#contact" className="nav-link">Contact</a></li>
           </ul>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Toggle Button */}
           <div className="md:hidden" ref={buttonRef}>
             <button onClick={() => setIsOpen(!isOpen)}>
               <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -63,12 +63,12 @@ const Navbar = () => {
             </button>
           </div>
         </div>
-      </div> 
+      </div>
 
-      {/* Mobile Nav Dropdown */}
+      {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden px-6 pb-4" ref={menuRef}>
-          <ul className="space-y-3 flex flex-col items-center text-base font-medium text-gray-800"> {/* ✅ Increased space-y */}
+          <ul className="space-y-3 flex flex-col items-center text-base font-medium text-gray-800">
             <li><a href="#home" className="nav-link block">Home</a></li>
             <li><a href="#Treks" className="nav-link block">Treks</a></li>
             <li><a href="#Adventure" className="nav-link block">Adventure Sports</a></li>
@@ -82,4 +82,5 @@ const Navbar = () => {
     </header>
   );
 };
-export default Navbar
+
+export default Navbar;
