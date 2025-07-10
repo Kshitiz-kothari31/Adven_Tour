@@ -1,3 +1,10 @@
+main {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #fdfaf6;
+}
+
 /* INFO: First Section Code Starts here 👇 */
 
 .firstSection {
@@ -12,7 +19,7 @@
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  color: white;
+  color: rgb(255, 255, 255);
   position: relative;
 }
 
@@ -30,26 +37,26 @@
   text-align: left;
 }
 
-.firstSection button{
-    position: absolute;
-    height: clamp(25px, 7vw, 45px);
-    width: clamp(60px, 20vw, 130px);
-    left: clamp(1.6rem, 9vw, 12rem);
-    top: clamp(13rem, 29vw, 27rem);
-    padding: 2px;
-    background-color: #16423c;
-    border-radius: clamp(8px, 1vw, 15px);
-    font-family: "Josefin Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 600;
-    font-style: normal;
-    font-size: clamp(10px, 3vw, 20px);
+.firstSection button {
+  position: absolute;
+  height: clamp(25px, 7vw, 45px);
+  width: clamp(60px, 20vw, 130px);
+  left: clamp(1.6rem, 9vw, 12rem);
+  top: clamp(13rem, 29vw, 27rem);
+  padding: 2px;
+  background-color: #16423c;
+  border-radius: clamp(8px, 1vw, 15px);
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+  font-size: clamp(10px, 3vw, 20px);
 }
 
-.firstSection button:hover{
-    background-color: transparent;
-    border: 2px solid #ffffff;
-    cursor: pointer;
+.firstSection button:hover {
+  background-color: transparent;
+  border: 2px solid #ffffff;
+  cursor: pointer;
 }
 
 .firstSection p {
@@ -63,161 +70,494 @@
   padding: 0 1rem;
   width: clamp(18rem, 50vw, 40rem);
   font-size: 0.75rem;
-  font-size: clamp(0.75rem, 0.5514705882352942rem + 1.0588235294117647vw, 1.875rem);
+  font-size: clamp(
+    0.75rem,
+    0.5514705882352942rem + 1.0588235294117647vw,
+    1.875rem
+  );
 }
 
-.blackText_heroSection{
-    width: 100%;
-    display: flex;
-    justify-content: center; /* horizontal */
-    align-items: center;  
+.blackText_heroSection {
+  width: 100%;
+  display: flex;
+  justify-content: center; /* horizontal */
+  align-items: center;
 }
 
-.blackText_heroSection p{
-    font-family: "Josefin Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    width: clamp(15rem, 50vw, 40rem);
-    font-size: 0.75rem;
-    font-size: clamp(0.75rem, 0.5514705882352942rem + 1.0588235294117647vw, 1.875rem);
-    text-align: center;
-    padding: 0 1rem;
+.blackText_heroSection p {
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  width: clamp(15rem, 50vw, 40rem);
+  font-size: 0.75rem;
+  font-size: clamp(
+    0.75rem,
+    0.5514705882352942rem + 1.0588235294117647vw,
+    1.875rem
+  );
+  text-align: center;
+  padding: 0 1rem;
 }
 
 /* INFO: First Section Code Ends here ☝️ */
 
-
 /* INFO: Down Arrow icon code start here 👇 */
-.dropdownArrow{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: auto;
-    width: 100%;
-    margin-top: clamp(2rem, 8vw, 10rem);
-    margin-bottom: clamp(2rem, 8vw, 10rem);
+.dropdownArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  width: 100%;
+  margin-top: clamp(2rem, 8vw, 10rem);
+  margin-bottom: clamp(2rem, 8vw, 10rem);
 }
 
-.dropdownArrow img{
-    height: clamp(25px, 5vw, 50px);
-    width: clamp(25px, 5vw, 50px);
-    background-color: #16423c;
-    border-radius: 50%;
-    padding: clamp(5px, 1vw, 10px);
+.dropdownArrow img {
+  height: clamp(25px, 5vw, 50px);
+  width: clamp(25px, 5vw, 50px);
+  background-color: #16423c;
+  border-radius: 50%;
+  padding: clamp(5px, 1vw, 10px);
 }
 /* INFO: Down Arrow icon code ends here ☝️ */
 
 /* INFO: Second section code starts here 👇 */
-.secondSection{
+.secondSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  height: auto;
+}
+
+.secondSection h2 {
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 0.9375rem;
+  font-size: clamp(
+    0.9375rem,
+    0.661764705882353rem + 1.4705882352941175vw,
+    2.5rem
+  );
+  width: clamp(40%, 80vw, 85%);
+}
+
+.secondSection p {
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.75rem;
+  font-size: clamp(
+    0.75rem,
+    0.5514705882352942rem + 1.0588235294117647vw,
+    1.875rem
+  );
+  margin-top: 20px;
+  width: 65%;
+}
+/* INFO: Second section code ends here ☝️ */
+
+/* INFO: Details section code starts here 👇 */
+.detailsSection {
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: clamp(2rem, 8vw, 10rem);
+  margin-bottom: clamp(2rem, 8vw, 10rem);
+}
+
+.detailsSection img {
+  height: clamp(250px, 50vw, 300px);
+  width: clamp(230px, 50vw, 280px);
+  border-radius: 10px;
+}
+
+.detailsSection .details {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.details h2 {
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 0.9375rem;
+  font-size: clamp(
+    0.9375rem,
+    0.661764705882353rem + 1.4705882352941175vw,
+    2.5rem
+  );
+  margin-top: 20px;
+  margin-bottom: 1rem;
+  text-decoration: underline;
+}
+
+.details p {
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.75rem;
+  font-size: clamp(
+    0.75rem,
+    0.5514705882352942rem + 1.0588235294117647vw,
+    1.875rem
+  );
+}
+/* INFO: Details section styling starts here ☝️ */
+
+/* INFO: Stories section styling starts here 👇 */
+.storySection {
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../../../assets/images/TrekMain/storySectionBgSVG.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 3rem;
+}
+
+.storySection hr {
+  border: none;
+  height: 1px;
+  width: 100%;
+  background-color: #000000;
+  margin-top: clamp(1rem, 3vw, 4rem);
+  margin-bottom: clamp(1rem, 2vw, 4rem);
+}
+
+.storySection h2 {
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 0.9375rem;
+  font-size: clamp(
+    0.9375rem,
+    0.661764705882353rem + 1.4705882352941175vw,
+    2.5rem
+  );
+  width: clamp(50%, 60vw, 65%);
+  text-align: center;
+  margin-bottom: clamp(1rem, 5vw, 3rem);
+}
+
+.storySection p {
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.75rem;
+  font-size: clamp(
+    0.75rem,
+    0.5514705882352942rem + 1.0588235294117647vw,
+    1.875rem
+  );
+  margin-top: 20px;
+  width: clamp(50%, 60vw, 65%);
+}
+/* INFO: Stories section styling ends here ☝️ */
+
+/* INFO: Days on trek section styling starts here 👇 */
+.daysSection {
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(2rem, 5vw, 10rem);
+  align-items: center;
+  margin-top: clamp(5rem, 6vw, 10rem);
+  background-image: url("../../../assets/images/TrekMain/wave1.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.daysSection .dayBox {
+  text-align: center;
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.75rem;
+  font-size: clamp(
+    0.75rem,
+    0.5514705882352942rem + 1.0588235294117647vw,
+    1.875rem
+  );
+  width: clamp(50%, 90vw, 65%);
+  height: auto;
+}
+
+.daysSection .dayBox h2 {
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 0.9375rem;
+  font-size: clamp(
+    0.9375rem,
+    0.661764705882353rem + 1.4705882352941175vw,
+    2.5rem
+  );
+  margin-bottom: clamp(1rem, 2vw, 4rem);
+}
+
+.dayBox .imgWithDetail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  height: auto;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.imgWithDetail .imgBox {
+  height: clamp(150px, 50vw, 350px);
+  width: clamp(200px, 60vw, 380px);
+  position: relative;
+  display: flex;
+  overflow: visible;
+  margin-bottom: 2rem;
+}
+
+.imgWithDetail .imgBox .firstimg {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-image: url("../../../assets/images/TrekMain/img1_a.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.imgWithDetail .imgBox .secondimg {
+  height: 40%;
+  width: 40%;
+  position: absolute;
+  background-image: url("../../../assets/images/TrekMain/img2_b.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  right: 0;
+}
+
+.daysSection .second {
+  border: 2px solid purple;
+}
+/* INFO: Days on trek styling ends here ☝️ */
+
+/* INFO: Checklist styling starts here 👇 */
+.checklistSection{
+    margin-top: clamp(4rem, 5vw, 10rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.box{
+    height: clamp(170px, 25vw, 270px);
+    width: clamp(250px, 50vw, 1000px);
+    background-color: #E4EFE7;
+    border-radius: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: clamp(20px, 50vw, 40px);
+    padding-right: clamp(20px, 50vw, 40px);
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 0.75rem;
+    font-size: clamp(
+      0.75rem,
+      0.5514705882352942rem + 1.0588235294117647vw,
+      1.875rem
+    );
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    width: 100%;
-    height: auto;
 }
 
-.secondSection h2{
+.checklistSection .box .downloadDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    gap: 15px;
+}
+
+.checklistSection .box .downloadDiv button{
+    background-color: #16423c;
+    border-radius: clamp(5px, 1vw, 15px);
+    color: white;
+    font-size: 0.625rem;
+    font-size: clamp(0.625rem, 0.5147058823529411rem + 0.5882352941176471vw, 1.25rem);
+    height: clamp(25px, 3vw, 44px);
+    width: clamp(60px, 8vw, 120px);
+    align-items: center;
+}
+
+.checklistSection .box .downloadDiv button:hover{
+    background-color: #E4EFE7;
+    border: 2px solid #16423c;
+    color: #16423c;
+    cursor: pointer;
+}
+/* INFO: CheckList Section section styling ends here ☝️ */
+
+/* INFO: What make special section styling starts here 👇 */
+.specialSection{
+    height: auto;
+    width: 100%;
+    margin-top: clamp(3rem, 9vw, 10rem);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.specialSection .content{
+    width: clamp(50%, 75vw, 90%);
+}
+
+.specialSection h2{
     font-family: "Josefin Sans", sans-serif;
     font-optical-sizing: auto;
     font-weight: 700;
     font-style: normal;
     font-size: 0.9375rem;
-    font-size: clamp(0.9375rem, 0.661764705882353rem + 1.4705882352941175vw, 2.5rem);
+    font-size: clamp(
+      0.9375rem,
+      0.661764705882353rem + 1.4705882352941175vw,
+      2.5rem
+    );
     width: clamp(40%, 80vw, 85%);
-    
 }
 
-.secondSection p{
+.specialSection ul{
+    list-style-type: disc;
+    line-height: clamp(25px, 5vw, 60px);
     font-family: "Josefin Sans", sans-serif;
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
     font-size: 0.75rem;
-    font-size: clamp(0.75rem, 0.5514705882352942rem + 1.0588235294117647vw, 1.875rem);
+    font-size: clamp(
+      0.75rem,
+      0.5514705882352942rem + 1.0588235294117647vw,
+      1.875rem
+    );
     margin-top: 20px;
-    width: 65%;
+    margin-left: clamp(20px, 10vw, 50px);
 }
-/* INFO: Second section code ends here ☝️ */
+/* INFO: What make special section styling ends here ☝️ */
 
-
-/* INFO: Details section code starts here 👇 */
-.detailsSection{
-    border: 2px solid red;
-    height: auto;
-    width: 100%;
+/* INFO: Time to Visit section styling starts here 👇 */
+.VisitingTimeSection{
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    margin-top: clamp(2rem, 8vw, 10rem);
-    margin-bottom: clamp(2rem, 8vw, 10rem);
+    margin-top: clamp(2rem, 5vw, 10rem);
 }
 
-.detailsSection img{
-    height: clamp(250px, 50vw, 300px);
-    width: clamp(230px, 50vw, 280px);
-    border-radius: 10px;
-}
-
-.detailsSection .details{
+.VisitingTimeSection .visitingCard{
+    height: clamp(200px, 57vw, 270px);
+    width: clamp(250px, 50vw, 1000px);
+    background-color: #E4EFE7;
+    border-radius: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: clamp(20px, 50vw, 40px);
+    padding-right: clamp(20px, 50vw, 40px);
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 0.75rem;
+    font-size: clamp(
+      0.75rem,
+      0.5514705882352942rem + 1.0588235294117647vw,
+      1.875rem
+    );
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
 }
 
-.details h2{
-    font-family: "Josefin Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 700;
-    font-style: normal;
-    font-size: 0.9375rem;
-    font-size: clamp(0.9375rem, 0.661764705882353rem + 1.4705882352941175vw, 2.5rem);
-    margin-top: 20px;
-    margin-bottom: 1rem;
+.visitingCard h3{
+    text-align: center;
     text-decoration: underline;
+    font-weight: 700;
+    margin-bottom: 1rem;
 }
+/* INFO: Time to Visit section styling ends here ☝️ */
 
-.details p{
-    font-family: "Josefin Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 0.75rem;
-    font-size: clamp(0.75rem, 0.5514705882352942rem + 1.0588235294117647vw, 1.875rem);
-}
-/* INFO: Details section code starts here ☝️ */
+@media (min-width: 768px) {
+  /* INFO: Details section code  */
+  .detailsSection {
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+  }
 
+  .detailsSection img {
+    height: clamp(190px, 20vw, 330px);
+    width: clamp(170px, 19vw, 300px);
+    border-radius: 10px;
+    position: absolute;
+    right: clamp(2rem, 15vw, 22.5rem);
+  }
 
+  .detailsSection .details {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-left: clamp(2rem, 7vw + 5rem, 40rem);
+    line-height: clamp(35px, 4vw, 50px);
+  }
 
-@media (min-width: 768px){
-    .detailsSection{
-        align-items: flex-start;
-        justify-content: center;
-        position: relative;
-    }
-    
-    .detailsSection img{
-        height: clamp(190px, 20vw, 330px);
-        width: clamp(170px, 19vw, 300px);
-        border-radius: 10px;
-        position: absolute;
-        right: clamp(2rem, 15vw, 22.5rem);
-    }
-    
-    .detailsSection .details{
-        display: flex;
-        flex-direction: column;
-        text-align: left;
-        margin-left: clamp(2rem, 7vw + 5rem, 40rem);
-        line-height: clamp(35px, 4vw, 50px);
-        border: 2px solid blue;
-    }
-    
-    .details h2{
-        margin-top: 0px;
-        margin-bottom: 1rem;
-    }
-    
+  .details h2 {
+    margin-top: 0px;
+    margin-bottom: 1rem;
+  }
+
+  /* INFO: days on trek info code  */
+
+  .daysSection .dayBox {
+    text-align: start;
+  }
+
+  .dayBox .imgWithDetail {
+    flex-direction: row;
+    text-align: start;
+    gap: 20px;
+  }
+
+  .imgWithDetail .imgBox {
+    height: clamp(150px, 20vw, 330px);
+    width: clamp(380px, 50vw, 480px);
+  }
+
+  /* INFO: What make it special section styling  */
 }
