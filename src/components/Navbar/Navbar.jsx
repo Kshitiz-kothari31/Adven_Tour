@@ -69,11 +69,11 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden px-6 pb-4" ref={menuRef}>
           <ul className="space-y-3 flex flex-col items-center text-base font-medium text-gray-800">
-            <li><a href="#home" className="nav-link block">Home</a></li>
-            <li><a href="#Treks" className="nav-link block">Treks</a></li>
+            <li><a href="/" className="nav-link block">Home</a></li>
+            <li><a href="#/trek" className="nav-link block">Treks</a></li>
             <li><a href="#Adventure" className="nav-link block">Adventure Sports</a></li>
             <li><a href="#Stays" className="nav-link block">Stays</a></li>
-            <li><a href="#Gallery" className="nav-link block">Gallery</a></li>
+            <li><a href="#/gallery" className="nav-link block">Gallery</a></li>
             <li><a href="#About" className="nav-link block">About</a></li>
             <li><a href="#contact" className="nav-link block">Contact</a></li>
           </ul>
