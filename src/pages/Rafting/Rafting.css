@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Jolly+Lodger&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jolly+Lodger&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+   
+.jolly-font {
+  font-family: 'Jolly Lodger', cursive;
+}
+.josefin-sans{
+  font-family: 'Josefin Sans' , cursive;
+}
+body{
+  background-color: #E0F7FA;
+}
+
+.clip-wave {
+  clip-path: path("M0,64 C480,160 960,-32 1440,64 L1440,160 L0,160 Z");
+}
+

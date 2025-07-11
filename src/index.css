@@ -8,3 +8,13 @@ html,body{
     overflow-y: hidden;
     scroll-behavior: smooth;
 }
+/* Hide scrollbar only for small devices */
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  body {
+    -ms-overflow-style: none;  /* IE/Edge */
+    scrollbar-width: none;     /* Firefox */
+  }
+}
