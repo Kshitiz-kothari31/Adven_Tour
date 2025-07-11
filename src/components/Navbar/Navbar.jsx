@@ -26,7 +26,7 @@ const Navbar = () => {
   }, [isOpen]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-cyan-50 shadow border-b border-gray-200">
+    <header className="fixed top-0 left-0 right-0 z-[1000] bg-cyan-50 shadow border-b border-gray-200">
       <div className="w-full px-4 xl:px-8 2xl:px-16">
         <div className="max-w-7xl 2xl:max-w-[1600px] mx-auto flex items-center justify-between py-4">
           
@@ -42,10 +42,11 @@ const Navbar = () => {
           {/* Right: Nav Links */}
           <ul className="hidden md:flex items-center space-x-4 lg:space-x-6 xl:space-x-10 text-base font-medium">
             <li><a href="/" className="nav-link">Home</a></li>
+            <li><a href="#trek" className="nav-link">Treks</a></li>
             <li><a href="#/trek" className="nav-link">Treks</a></li>
             <li><a href="#Adventure" className="nav-link">Adventure Sports</a></li>
             <li><a href="#Stays" className="nav-link">Stays</a></li>
-            <li><a href="#Gallery" className="nav-link">Gallery</a></li>
+            <li><a href="#gallery" className="nav-link">Gallery</a></li>
             <li><a href="#About" className="nav-link">About</a></li>
             <li><a href="#contact" className="nav-link">Contact</a></li>
           </ul>
@@ -70,6 +71,10 @@ const Navbar = () => {
         <div className="md:hidden px-6 pb-4" ref={menuRef}>
           <ul className="space-y-3 flex flex-col items-center text-base font-medium text-gray-800">
             <li><a href="/" className="nav-link block">Home</a></li>
+            <li><a href="#trek" className="nav-link block">Treks</a></li>
+            <li><a href="#Adventure" className="nav-link block">Adventure Sports</a></li>
+            <li><a href="#Stays" className="nav-link block">Stays</a></li>
+            <li><a href="#allery" className="nav-link block">Gallery</a></li>
             <li><a href="#/trek" className="nav-link block">Treks</a></li>
             <li><a href="#Adventure" className="nav-link block">Adventure Sports</a></li>
             <li><a href="#Stays" className="nav-link block">Stays</a></li>

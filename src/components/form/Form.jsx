@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const Form = () => {
   return (
-      <div className="min-h-screen bg-pink-50 flex items-center justify-center px-4 py-10">
+      <div className="min-h-screen bg-transparent flex items-center justify-center px-4 py-10">
         <div className="max-w-6xl w-full grid md:grid-cols-2 gap-10 bg-white rounded-3xl shadow-xl p-8 md:p-14">
           {/* Left Side */}
           <motion.div

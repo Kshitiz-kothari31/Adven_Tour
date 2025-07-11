@@ -18,12 +18,10 @@ const Gallery = () => {
     ];
 
     const [selectedImage, setSelectedImage] = useState(null);
-
   return (
-    <section >
-
-      {/* 1st section */}
-      <div className="mt-0 lg:mt-20 w-full max-w-7xl mx-auto px-4 py-10 flex flex-col md:flex-row items-center md:items-start justify-between gap-10">
+    <section className='bg-[#ffffff] mt-33'>
+        {/* 1st section */}
+        <div className="  w-full max-w-7xl mx-auto px-4 py-10 flex flex-col md:flex-row items-center md:items-start justify-between gap-10 -mt-15">
 
         {/* 🔵 Left Text */}
         <div className="flex-1 space-y-6 text-center md:text-left">
@@ -45,13 +43,26 @@ const Gallery = () => {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis deserunt obcaecati nobis accusamus eum quae quam tempora reprehenderit minus necessitatibus.
           </motion.p>
 
-          <motion.button
-            className="relative group overflow-hidden bg-gradient-to-r from-blue-700 to-purple-800 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-2xl transition-all duration-500 ease-in-out hover:scale-110"
-            whileHover={{ scale: 1.1, rotate: [0, 3, -3, 3, -3, 0] }}
-          >
-            <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-yellow-400 to-pink-500 opacity-0 group-hover:opacity-100 blur-md transition duration-700 scale-125"></span>
-            <span className="relative z-10">Book Now 🚀</span>
-          </motion.button>
+          <div className="flex flex-row flex-wrap items-center justify-center md:justify-start gap-4">
+            {/* 🚀 Book Now Button */}
+            <motion.button
+              className="relative group overflow-hidden bg-gradient-to-r from-blue-700 to-purple-800 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-2xl transition-all duration-500 ease-in-out hover:scale-110"
+              whileHover={{ scale: 1.1, rotate: [0, 3, -3, 3, -3, 0] }}
+            >
+              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-yellow-400 to-pink-500 opacity-0 group-hover:opacity-100 blur-md transition duration-700 scale-125"></span>
+              <span className="relative z-10">Book Now 🚀</span>
+            </motion.button>
+
+            {/* 🖼️ View Gallery Button with emoji */}
+            <motion.a
+              href="#gallery"
+              className="relative group overflow-hidden bg-gradient-to-r from-blue-700 to-purple-800 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-2xl transition-all duration-500 ease-in-out hover:scale-110"
+              whileHover={{ scale: 1.1, rotate: [0, 3, -3, 3, -3, 0] }}
+            >
+              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-yellow-400 to-pink-500 opacity-0 group-hover:opacity-100 blur-md transition duration-700 scale-125"></span>
+              <span className="relative z-10">View Gallery 🖼️</span>
+            </motion.a>
+          </div>
         </div>
 
         {/* 🟣 Right Image Grid */}
@@ -82,10 +93,11 @@ const Gallery = () => {
           >
             <img src={pic2} alt="center" className="w-full h-full object-cover" />
           </motion.div>
-      </motion.div></div>
+        </motion.div>
+        </div>
 
-      {/* 🔽 Scroll Button Centered */}
-      <div className="flex justify-center  sm:mt-1   mt-12 z-10">
+        {/* 🔽 Scroll Button Centered */}
+        <div className="flex justify-center  sm:mt-1   mt-12 z-10">
         <button
           onClick={scrollToBottom}
           className="bg-orange-300 text-white p-4 rounded-full text-2xl shadow-lg
@@ -95,12 +107,12 @@ const Gallery = () => {
         >
           ↓
         </button>
-      </div>
+        </div>
 
-      {/* 📍 Scroll Target (bottom) */}
-      <div ref={bottomRef} className="h-[300px] w-full bg-transparent" />
+        {/* 📍 Scroll Target (bottom) */}
+        <div ref={bottomRef} className="h-[300px] w-full bg-transparent" />
 
-      {/* 2nd section */}
+        {/* 2nd section */}
         <motion.div
           className="relative h-auto bg-[#F1EFEC] -mt-50 px-4 py-10"
           initial={{ opacity: 0, y: 50 }}
@@ -194,22 +206,22 @@ const Gallery = () => {
         </motion.div>
 
         {/* 4TH section */}
-        <div className="w-full px-4 py-12 md:py-20 overflow-hidden">
+        <div className="w-full px-4 mt-15 py-10 md:py-20 overflow-hidden josefin-sans">
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-10 items-center md:items-stretch">
 
-            {/* ✅ Heading ABOVE image on mobile+tablet only */}
+            {/* ✅ Mobile Heading */}
             <motion.h2
-              className="text-3xl md:text-5xl font-semibold font-josefin text-center md:hidden mb-6"
+              className="text-3xl md:text-5xl font-extrabold text-center text-black md:hidden mb-4"
               initial={{ scale: 0.8, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.3, duration: 0.7, ease: 'easeOut' }}
             >
-              Lorem Ipsum
+              WHY ADVENTURERS <br /> <span className="text-green-600">CHOOSE US</span>
             </motion.h2>
 
             {/* 🔥 Image Grid - LEFT */}
             <motion.div
-              className="flex-1 relative grid grid-cols-2 gap-[2px] w-full max-w-md bg-white rounded-3xl p-[2px] mt-16 md:mt-16 lg:mt-0"
+              className="flex-1 relative grid grid-cols-2 gap-[2px] w-full max-w-md bg-white rounded-3xl p-[2px] -mt-4 md:mt-16 lg:mt-0"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -222,19 +234,11 @@ const Gallery = () => {
                 },
               }}
             >
-              {[
-                { src: pic1, className: "rounded-br-3xl" },
-                { src: pic2, className: "rounded-bl-3xl" },
-                { src: pic2, className: "rounded-tr-3xl" },
-                { src: pic1, className: "rounded-tl-3xl" },
-              ].map((img, i) => (
+              {[{ src: pic1, className: "rounded-br-3xl" }, { src: pic2, className: "rounded-bl-3xl" }, { src: pic2, className: "rounded-tr-3xl" }, { src: pic1, className: "rounded-tl-3xl" }].map((img, i) => (
                 <motion.div
                   key={i}
                   className={`overflow-hidden shadow-lg h-44 md:h-56 ${img.className}`}
-                  variants={{
-                    hidden: { opacity: 0, y: 40 },
-                    visible: { opacity: 1, y: 0 },
-                  }}
+                  variants={{ hidden: { opacity: 0, y: 40 }, visible: { opacity: 1, y: 0 } }}
                   transition={{ duration: 0.6, ease: 'easeOut' }}
                   whileHover={{ scale: 1.05 }}
                 >
@@ -262,130 +266,163 @@ const Gallery = () => {
               transition={{ duration: 1, ease: 'easeOut' }}
               viewport={{ once: true }}
             >
-              <div className="space-y-4 text-center md:text-left">
+              <div className="space-y-6 text-center md:text-left">
 
-                {/* ✅ Desktop Heading only */}
+                {/* Desktop Heading */}
                 <motion.h2
-                  className="text-3xl md:text-5xl font-semibold font-josefin hidden md:flex"
+                  className="text-3xl md:text-5xl font-extrabold hidden md:block text-black leading-tight"
                   initial={{ scale: 0.8, opacity: 0 }}
                   whileInView={{ scale: 1, opacity: 1 }}
                   transition={{ delay: 0.3, duration: 0.7, ease: 'easeOut' }}
                 >
-                  Lorem Ipsum
+                  WHY ADVENTURERS <br /> <span className="text-green-600">CHOOSE US</span>
                 </motion.h2>
 
-                <p className="text-base md:text-lg leading-relaxed font-josefin">
-                  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                  when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-                  It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. <br /><br />
-                  Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-                  when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-                  It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                {/* Description */}
+                <p className="text-base md:text-lg text-black leading-relaxed max-w-xl font-medium">
+                  With over 15 years of wilderness expertise, we've guided thousands of adventurers through unforgettable journeys. Our certified guides, premium equipment, and commitment to safety ensure every expedition exceeds expectations.
                 </p>
+
+                {/* Feature List */}
+                <div className="space-y-6">
+                  {/* Expert Guides */}
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:gap-4 items-center text-center sm:text-left gap-2">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-400 to-yellow-400 flex items-center justify-center text-white text-xl">
+                      👥
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-black text-lg">Expert Guides</h4>
+                      <p className="text-sm text-gray-700">Certified professionals with decades of experience</p>
+                    </div>
+                  </div>
+
+                  {/* Premium Locations */}
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:gap-4 items-center text-center sm:text-left gap-2">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-400 to-green-400 flex items-center justify-center text-white text-xl">
+                      📍
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-black text-lg">Premium Locations</h4>
+                      <p className="text-sm text-gray-700">Access to exclusive wilderness destinations</p>
+                    </div>
+                  </div>
+
+                  {/* Safety First */}
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:gap-4 items-center text-center sm:text-left gap-2">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-green-400 to-yellow-300 flex items-center justify-center text-white text-xl">
+                      ⭐
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-black text-lg">Safety First</h4>
+                      <p className="text-sm text-gray-700">Industry-leading safety protocols and equipment</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </motion.div>
           </div>
         </div>
 
-        {/* image gallery */}
-        <div className="w-full px-6 md:px-12 py-12 overflow-hidden">
-          {/* Title & Button */}
-          <motion.div
-            className="text-center md:text-left mb-10"
-            initial={{ y: -50, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl md:text-5xl font-extrabold font-josefin text-gray-900 tracking-tight mb-4">
-              📸 Image Gallery
-            </h2>
-
-            <motion.button
-              whileHover={{ scale: 1.08, rotate: 1 }}
-              whileTap={{ scale: 0.95 }}
-              className="group relative inline-flex items-center px-6 py-2 bg-gradient-to-r from-purple-700 to-blue-700 text-white rounded-full text-sm md:text-base font-semibold shadow-xl transition-all duration-300"
+        {/* 5th image gallery */}
+        <section id='gallery'>
+          <div className="w-full px-6 md:px-12 py-12 overflow-hidden">
+            {/* Title & Button */}
+            <motion.div
+              className="text-center md:text-left mb-10"
+              initial={{ y: -50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, ease: 'easeOut' }}
+              viewport={{ once: true }}
             >
-              <span className="absolute left-0 top-0 w-full h-full bg-white/10 rounded-full blur-md opacity-0 group-hover:opacity-100 transition duration-300" />
-              🚀 Select Something
-              <span className="ml-2 group-hover:translate-y-1 transition-transform duration-300">👇</span>
-            </motion.button>
-          </motion.div>
+              <h2 className="text-4xl md:text-5xl font-extrabold font-josefin text-gray-900 tracking-tight mb-4">
+                📸 Image Gallery
+              </h2>
 
-          {/* Image Grid */}
-          <motion.div
-            className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4 max-w-7xl mx-auto"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={{
-              visible: {
-                transition: {
-                  staggerChildren: 0.1
+              <motion.button
+                whileHover={{ scale: 1.08, rotate: 1 }}
+                whileTap={{ scale: 0.95 }}
+                className="group relative inline-flex items-center px-6 py-2 bg-gradient-to-r from-purple-700 to-blue-700 text-white rounded-full text-sm md:text-base font-semibold shadow-xl transition-all duration-300"
+              >
+                <span className="absolute left-0 top-0 w-full h-full bg-white/10 rounded-full blur-md opacity-0 group-hover:opacity-100 transition duration-300" />
+                🚀 Select Something
+                <span className="ml-2 group-hover:translate-y-1 transition-transform duration-300">👇</span>
+              </motion.button>
+            </motion.div>
+
+            {/* Image Grid */}
+            <motion.div
+              className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-4 max-w-7xl mx-auto"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={{
+                visible: {
+                  transition: {
+                    staggerChildren: 0.1
+                  }
                 }
-              }
-            }}
-          >
-            {images.map((src, index) => (
-              <motion.div
-                key={index}
-                className={`overflow-hidden rounded-2xl p-1 cursor-pointer
-                  ${index === 0 ? 'rounded-tl-3xl' : ''}
-                  ${index === images.length - 1 ? 'rounded-br-3xl' : ''}
-                  shadow-md
-                `}
-                onClick={() => setSelectedImage(src)}
-                variants={{
-                  hidden: { opacity: 0, y: 30 },
-                  visible: { opacity: 1, y: 0 }
-                }}
-                transition={{ duration: 0.4, ease: 'easeOut' }}
-                whileHover={{ scale: 1.06, rotate: 1, zIndex: 10 }}
-              >
-                <img
-                  src={src}
-                  alt={`Gallery ${index + 1}`}
-                  className="object-cover w-full h-24 sm:h-28 md:h-32 lg:h-36 rounded-2xl transition duration-300"
-                />
-              </motion.div>
-            ))}
-          </motion.div>
-
-          {/* Fullscreen Modal */}
-          <AnimatePresence>
-            {selectedImage && (
-              <motion.div
-                className="fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm z-50 flex items-center justify-center"
-                onClick={() => setSelectedImage(null)}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-              >
+              }}
+            >
+              {images.map((src, index) => (
                 <motion.div
-                  className="relative max-w-3xl w-full mx-4"
-                  onClick={(e) => e.stopPropagation()}
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  exit={{ scale: 0.8, opacity: 0 }}
-                  transition={{ duration: 0.4, ease: "easeOut" }}
+                  key={index}
+                  className={`overflow-hidden rounded-2xl p-1 cursor-pointer
+                    ${index === 0 ? 'rounded-tl-3xl' : ''}
+                    ${index === images.length - 1 ? 'rounded-br-3xl' : ''}
+                    shadow-md
+                  `}
+                  onClick={() => setSelectedImage(src)}
+                  variants={{
+                    hidden: { opacity: 0, y: 30 },
+                    visible: { opacity: 1, y: 0 }
+                  }}
+                  transition={{ duration: 0.4, ease: 'easeOut' }}
+                  whileHover={{ scale: 1.06, rotate: 1, zIndex: 10 }}
                 >
-                  <button
-                    className="absolute top-3 right-3 text-white text-2xl font-bold bg-black bg-opacity-40 rounded-full px-3 py-1 hover:bg-opacity-60 transition"
-                    onClick={() => setSelectedImage(null)}
-                  >
-                    ×
-                  </button>
                   <img
-                    src={selectedImage}
-                    alt="Full View"
-                    className="w-full max-h-[80vh] object-contain rounded-xl shadow-lg"
+                    src={src}
+                    alt={`Gallery ${index + 1}`}
+                    className="object-cover w-full h-24 sm:h-28 md:h-32 lg:h-36 rounded-2xl transition duration-300"
                   />
                 </motion.div>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
+              ))}
+            </motion.div>
 
+            {/* Fullscreen Modal */}
+            <AnimatePresence>
+              {selectedImage && (
+                <motion.div
+                  className="fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm z-50 flex items-center justify-center"
+                  onClick={() => setSelectedImage(null)}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                >
+                  <motion.div
+                    className="relative max-w-3xl w-full mx-4"
+                    onClick={(e) => e.stopPropagation()}
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    exit={{ scale: 0.8, opacity: 0 }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
+                  >
+                    <button
+                      className="absolute top-3 right-3 text-white text-2xl font-bold bg-black bg-opacity-40 rounded-full px-3 py-1 hover:bg-opacity-60 transition"
+                      onClick={() => setSelectedImage(null)}
+                    >
+                      ×
+                    </button>
+                    <img
+                      src={selectedImage}
+                      alt="Full View"
+                      className="w-full max-h-[80vh] object-contain rounded-xl shadow-lg"
+                    />
+                  </motion.div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        </section>
     </section>
   )
 }
