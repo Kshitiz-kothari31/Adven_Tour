@@ -1,4 +1,4 @@
-.main {
+/* .main {
   height: 100%;
   width: 100vw;
   background-color: #e9efec;
@@ -13,50 +13,53 @@
   justify-content: space-between;
   width: 100vw;
   height: auto;
+  border: 2px solid red;
 }
 
 .firstSection .content {
-  margin: 10% 0% 0% 6%;
   position: relative;
+  border: 2px solid green;
 }
 
 .content h1 {
   font-family: "Kalnia", serif;
   font-weight: 500;
   font-style: normal;
-  font-size: 1rem;
-  font-size: clamp(
-    1rem,
-    -0.5357142857142858rem + 8.928571428571429vw,
-    2.8125rem
-  );
+  font-size: 0.9375rem;
+  font-size: clamp(0.9375rem, 0.38602941176470595rem + 2.941176470588235vw, 4.0625rem);
   position: absolute;
-  width: clamp(150px, 70vw, 370px);
+  width: clamp(150px, 70vw, 800px);
+  margin-top: clamp(-230px, -6vw, 0px);
 }
 
 .content p {
   font-family: "Josefin Sans", sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 0.9375rem;
-  font-size: clamp(0.9375rem, 0.3125rem + 5vw, 1.25rem);
-  line-height: clamp(20px, 7vw, 32px);
-  margin-top: clamp(5px, 30vw, 300px);
-  width: clamp(300px, 60vw, 700px);
+  font-size: 0.625rem;
+  font-size: clamp(0.625rem, 0.40441176470588236rem + 1.1764705882352942vw, 1.875rem);
+  line-height: clamp(20px, 5vw, 40px);
+  margin-top: clamp(40px, 6vw, 170px);
+  width: clamp(200px, 50vw, 800px);
   position: absolute;
+  border: 2px solid red;
 }
 
 .content .moreBtn {
   border: none;
-  border-radius: 10px;
-  height: 2rem;
-  width: 3rem;
+  border-radius: clamp(6px, 1vw, 10px);
+  height: clamp(1.4rem, 5vw, 2.3rem);
+  width: clamp(2.5rem, 5vw, 5rem);
   background-color: #16423c;
   color: white;
   font-family: "Josefin Sans", sans-serif;
   font-weight: 500;
   font-style: normal;
-  margin-top: clamp(100px, 75vw, 450px);
+  font-size: clamp(10px, 1.5vw, 20px);
+  margin-top: clamp(160px, 25vw, 260px);
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 .content .moreBtn:hover {
@@ -67,13 +70,13 @@
 }
 
 .firstSection .heroImg {
-  height: auto;
-  width: 50%;
-}
+  width: 50px;
+  height: 50px;
+} */
 
 /* INFO: DOWN BUTTON CSS */
 
-.main .downBtnDiv {
+/* .main .downBtnDiv {
   height: 40px;
   width: 40px;
   background-color: #16423c;
@@ -81,17 +84,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 5rem;
 }
 
 .downBtnDiv img {
   height: 20px;
   width: 20px;
-}
+} */
 
 /* INFO: Second section css styling */
 
-.main .secondSection {
+/* .main .secondSection {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -121,13 +123,13 @@
   margin-top: 20px;
   margin-bottom: clamp(1rem, 4vw, 5rem);
   line-height: clamp(20px, 5vw, 30px);
-}
+} */
 
 /* INFO: Trek section code */
 
 /* INFO: Trek 1 code */
 
-.main .Trek1 {
+/* .main .Trek1 {
   display: flex;
   flex-direction: column;
   margin-top: 5rem;
@@ -215,11 +217,11 @@
   font-weight: 400;
   font-style: normal;
   line-height: clamp(10px, 4vw, 26px);
-}
+} */
 
 /* INFO: Trek 2  code */
 
-.main .Trek2 {
+/* .main .Trek2 {
   display: flex;
   flex-direction: column;
   margin-top: 5rem;
@@ -306,11 +308,11 @@
   font-weight: 400;
   font-style: normal;
   line-height: clamp(10px, 4vw, 26px);
-}
+} */
 
 /* INFO: Guides images section */
 
-.ImageSection {
+/* .ImageSection {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -440,7 +442,7 @@
     margin: 15% 0% 0% 4%;
   }
 
-  .content h1 {
+  /* .content h1 {
     font-size: 2.8125rem;
     font-size: clamp(
       2.8125rem,
@@ -474,28 +476,28 @@
     border: 2px solid #16423c;
     color: #16423c;
     cursor: pointer;
-  }
+  } */
 
   /* INFO: DOWN BUTTON CSS */
 
-  .main .downBtnDiv {
+  /* .main .downBtnDiv {
     height: clamp(40px, 5vw, 60px);
     width: clamp(40px, 5vw, 60px);
   }
 
   /* INFO: Second Section Code */
 
-  .secondSection h2 {
+  /* .secondSection h2 {
     font-size: clamp(30px, 5vw, 35px);
   }
-}
-
+}  */
+/* 
 @media (min-width: 768px) {
   .firstSection .content {
     margin: 15% 0% 0% 4%;
-  }
+  } */
 
-  .content h1 {
+  /* .content h1 {
     font-size: 2.8125rem;
     font-size: clamp(
       2.8125rem,
@@ -522,10 +524,10 @@
     width: clamp(50px, 10vw, 80px);
     font-size: clamp(15px, 2vw, 20px);
     margin-top: clamp(470px, 80vw, 520px);
-  }
+  } */
 
   /* INFO: Second section code  */
-  .main .secondSection {
+  /* .main .secondSection {
     margin-top: 80px;
   }
 
@@ -542,11 +544,11 @@
       1.5625rem
     );
     margin-top: 25px;
-  }
+  } */
 
   /* INFO: Trek section code */
 
-  .main .Trek1 {
+  /* .main .Trek1 {
     display: flex;
     flex-direction: row;
     margin-top: 1rem;
@@ -668,11 +670,11 @@
     border: 1px solid #16423c;
     color: #16423c;
     cursor: pointer;
-  }
+  } */
 
   /* INFO: Trek 2 Card Code Design */
 
-  .main .Trek2 {
+  /* .main .Trek2 {
     display: flex;
     flex-direction: row;
     margin-top: 1rem;
@@ -781,11 +783,11 @@
     background-color: #ffffff;
     color: #16423c;
     cursor: pointer;
-  }
+  } */
 
   /* INFO: Guides images section */
 
-  .ImageSection h2 {
+  /* .ImageSection h2 {
     font-family: "Josefin Sans", sans-serif;
     font-optical-sizing: auto;
     font-weight: 700;
@@ -869,14 +871,14 @@
     transform: rotate(4.59deg);
     border-radius: clamp(5px, 1vw, 40px);
   }
-}
+} */
 
-@media (min-width: 992px) {
+/* @media (min-width: 992px) {
   .firstSection .content {
     margin: 10% 0% 0% 4%;
-  }
+  } */
 
-  .content h1 {
+  /* .content h1 {
     font-size: 3.4375rem;
     font-size: clamp(
       3.4375rem,
@@ -908,10 +910,10 @@
   .firstSection .heroImg {
     height: auto;
     width: 45%;
-  }
+  } */
 
   /* INFO: Second section code  */
-  .main .secondSection {
+  /* .main .secondSection {
     margin-top: 95px;
   }
 
@@ -931,20 +933,20 @@
     margin-top: 30px;
     line-height: clamp(20px, 5vw, 50px);
   }
-}
+} */
 
-@media (min-width: 1200px) {
+/* @media (min-width: 1200px) {
   .main .firstSection {
     width: 100%;
   }
 
   .firstSection .content {
     margin: 10% 0% 0% 5%;
-  }
+  } */
 
-  .content h1 {
-    font-size: 4.0625rem;
-    font-size: clamp(4.0625rem, 2.8125rem + 1.6666666666666667vw, 4.375rem);
+  /* .content h1 {
+    font-size: 3.4375rem;
+    font-size: clamp(3.4375rem, 0.9375rem + 3.3333333333333335vw, 4.0625rem);
     width: clamp(600px, 50vw, 750px);
   }
 
@@ -959,7 +961,7 @@
       2.1875rem
     );
     line-height: clamp(42px, 10vw, 50px);
-    margin-top: clamp(250px, 25vw, 320px);
+    margin-top: clamp(200px, 20vw, 320px);
     width: clamp(500px, 50vw, 700px);
     position: absolute;
   }
@@ -981,10 +983,10 @@
   .firstSection .heroImg {
     height: auto;
     width: 45%;
-  }
+  } */
 
   /* INFO: Second section code  */
-  .main .secondSection {
+  /* .main .secondSection {
     margin-top: 100px;
   }
 
@@ -996,23 +998,20 @@
   .secondSection p {
     width: 75%;
     font-size: 1.5625rem;
-    font-size: clamp(
-      1.5625rem,
-      0.07211538461538458rem + 2.403846153846154vw,
-      1.875rem
-    );
+    font-size: 0.9375rem;
+    font-size: clamp(0.9375rem, -0.3125rem + 1.6666666666666667vw, 1.25rem);
     margin-top: 30px;
     line-height: clamp(20px, 5vw, 50px);
-  }
+  } */
 
   /* INFO: Trek code below */
 
-  .Trek1 .leftContent {
+  /* .Trek1 .leftContent {
     gap: clamp(20px, 2vw, 40px);
   }
 }
 
-@media (min-width: 1500px) {
+@media (min-width: 1501px) {
   .firstSection .content {
     margin: 10% 0% 0% 7%;
   }
@@ -1028,7 +1027,7 @@
     font-size: 2.5rem;
     font-size: clamp(2.5rem, 0.625rem + 2vw, 3.125rem);
     line-height: clamp(42px, 10vw, 55px);
-    margin-top: clamp(250px, 25vw, 400px);
+    margin-top: clamp(200px, 20vw, 300px);
     width: clamp(500px, 50vw, 1000px);
     position: absolute;
   }
@@ -1037,16 +1036,16 @@
     height: clamp(40px, 5vw, 50px);
     width: clamp(80px, 10vw, 120px);
     font-size: clamp(15px, 2vw, 20px);
-    margin-top: clamp(650px, 50vw, 720px);
+    margin-top: clamp(650px, 20vw, 720px);
   }
 
   .firstSection .heroImg {
     height: clamp(500px, 100vw, 1250px);
     width: 50%;
-  }
+  } */ 
 
   /* INFO: Second section code  */
-  .main .secondSection {
+  /* .main .secondSection {
     margin-top: 150px;
   }
 
@@ -1063,4 +1062,4 @@
     margin-top: 40px;
     line-height: clamp(50px, 5vw, 60px);
   }
-}
+} */
