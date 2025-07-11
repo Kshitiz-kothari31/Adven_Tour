@@ -10,17 +10,17 @@ main {
 .firstSection {
   height: clamp(300px, 50vw, 850px);
   width: 100%;
-  background-image: url("../../../assets/images/TrekMain/tuungnath.jpg");
+  background-image: url("../../../assets/images/TrekMain/tuungnath.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  text-align: center;
+  flex-direction: column; 
+  text-align: center; 
   color: rgb(0, 0, 0);
-  position: relative;
+  position: relative; 
   mask-image: 
     linear-gradient(to top, transparent, black 40%),
     linear-gradient(to bottom, transparent, black 5%),

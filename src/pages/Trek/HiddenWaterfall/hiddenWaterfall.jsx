@@ -10,7 +10,7 @@ function HiddenWaterfall() {
       <section className={styles.firstSection}>
         <div className={styles.firstSectionContent}>
           <div className={styles.heroPageContent}>
-            <h1>Kedar Katha Trek</h1>
+            <h1>Hidden Waterfall Trek</h1>
             <p>
               Discover epic trails, expert tips, and inspiring stories to fuel
               your next mountain adventure Whether you're a beginner or a pro,
@@ -18,7 +18,9 @@ function HiddenWaterfall() {
             </p>
             <button>Book Now</button>
           </div>
-          <img src={img} />
+          <div className={styles.svgImg}>
+            {/* <img src={img} /> */}
+          </div>
         </div>
       </section>
       <div className={styles.bottomParagraph}>

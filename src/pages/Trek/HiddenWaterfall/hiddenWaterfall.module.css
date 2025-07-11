@@ -22,11 +22,24 @@ main {
   position: relative;
 }
 
-.firstSection img {
+.firstSectionContent .svgImg{
+  position: relative;
+  width: 300px;
+  height: 400px;
+  background-color: #4caf50;
+  clip-path: path("M0 0 H 100% V 100% H 30 Q 20 100, 20 90 V 70 Q 20 60, 10 60 H 0 Z");
+  -webkit-clip-path: path("M0 0 H 100% V 100% H 30 Q 20 100, 20 90 V 70 Q 20 60, 10 60 H 0 Z");
+}
+
+.firstSectionContent .svgImg img{
   height: clamp(270px, 55vw, 650px);
   width: clamp(200px, 60vw, 800px);
   margin-top: clamp(2rem, 5vw, 3rem);
-  margin-left: clamp(1rem, 15vw, 5rem); /* default for mobile */
+  margin-left: clamp(1rem, 15vw, 5rem); 
+  clip-path: "url(#rounded-notch)";
+  border-bottom-left-radius: "30px";
+  border-bottom-right-radius: "30px";
+  object-fit: "cover";
 }
 
 .firstSection .heroPageContent {
