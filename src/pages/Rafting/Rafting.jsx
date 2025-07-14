@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 import './Rafting.css'
 import Expe from './Expe'
 import AdventureAltHero from './hero'
@@ -136,10 +137,10 @@ const Rafting = () => {
       </div>
 
       {/* 5th section */}
-      <div className="mt-15 px-4 py-16 md:px-20 ">
+      <div className="mt-15 px-4 py-16 md:px-20">
         {/* Section Heading */}
         <motion.h2
-          className="text-3xl md:text-7xl jolly-font  font-bold text-center mb-12 font-josefin"
+          className="text-3xl md:text-7xl jolly-font font-bold text-center mb-12 font-josefin"
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -155,84 +156,133 @@ const Rafting = () => {
           transition={{ staggerChildren: 0.2 }}
           viewport={{ once: true }}
         >
-          {[
-            {
-              title: "Marine drive to shivpuri",
-              dist: "16 km",
-              price: 599,
-              description:
-                "Text ever since the 1500s, when an unknown printer took a galley of type and scrambled",
-            },
-            {
-              title: "Shivpuri To Nim Beach",
-              dist: "16 km",
-              price: 700,
-              description:
-                "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-            },
-            {
-              title: "Marine Drive to Shivpuri",
-              dist: "24 km",
-              price: 1200,
-              description:
-                "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-            },
-            {
-              title: "Kaudiala To Nim Beach",
-              dist: "36 km",
-              price: 2400,
-              description:
-                "Text ever since the 1500s, when an unknown printer took a galley of type and scrambled",
-            },
-          ]
-            .sort((a, b) => a.price - b.price)
-            .map((item, index) => (
-              <motion.div
-                key={index}
-                className="bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col snap-start
-                  h-[400px] sm:h-[440px] md:h-[480px]
-                  transition-transform hover:scale-[1.03] hover:-translate-y-1"
-                initial={{ opacity: 0, y: 100 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2, type: "spring" }}
-              >
-                {/* Image - 45% of height */}
-                <div className="relative h-[45%]">
-                  <img
-                    src={pic1}
-                    alt={item.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white/90 to-transparent" />
-                  <div className="absolute top-2 right-2 bg-black text-white text-xs px-3 py-1 rounded-full">
-                    Dist {item.dist}
-                  </div>
+          {/* Card 1 */}
+          <motion.div
+            className="bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col snap-start h-[400px] sm:h-[440px] md:h-[480px] transition-transform hover:scale-[1.03] hover:-translate-y-1"
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, type: "spring" }}
+          >
+            <div className="relative h-[45%]">
+              <img src={pic1} alt="Marine drive to shivpuri" className="w-full h-full object-cover" />
+              <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white/90 to-transparent" />
+            </div>
+            <div className="p-4 flex flex-col flex-1 justify-between">
+              <div>
+                <h3 className="text-lg font-semibold mb-1">Marine drive to shivpuri</h3>
+                <p className="text-sm text-gray-600 mb-3">Text ever since the 1500s, when an unknown printer took a galley of type and scrambled</p>
+                <div className="mb-2">
+                  <span className="inline-block bg-black text-white text-xs px-3 py-1 rounded-full">Dist 16 km</span>
                 </div>
+              </div>
+              <div className="mt-2 flex items-center justify-between">
+                <p className="text-sm font-bold">Cost : ₹599</p>
+                <Link
+                  to="/rafting/shivpuri"
+                  className="text-sm px-3 py-1 rounded-full bg-blue-500 text-white hover:bg-blue-600 hover:scale-110 transition-transform duration-300"
+                >
+                  more
+                </Link>
+              </div>
+            </div>
+          </motion.div>
 
-                {/* Text - 55% */}
-                <div className="p-4 flex flex-col flex-1 justify-between">
-                  <div>
-                    <h3 className="text-lg font-semibold mb-1">{item.title}</h3>
-                    <p className="text-sm text-gray-600">{item.description}</p>
-                  </div>
-                  <div className="mt-4 flex items-center justify-between">
-                    <p className="text-sm font-bold">Cost : ₹{item.price}</p>
-                    <button
-                      className={`text-sm ${
-                        index === 3
-                          ? "bg-black text-white"
-                          : "bg-blue-500 text-white hover:bg-blue-600"
-                      } px-3 py-1 rounded-full transition`}
-                    >
-                      more
-                    </button>
-                  </div>
+          {/* Card 2 */}
+          <motion.div
+            className="bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col snap-start h-[400px] sm:h-[440px] md:h-[480px] transition-transform hover:scale-[1.03] hover:-translate-y-1"
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.0, type: "spring" }}
+          >
+            <div className="relative h-[45%]">
+              <img src={pic1} alt="Shivpuri to Nim Beach" className="w-full h-full object-cover" />
+              <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white/90 to-transparent" />
+            </div>
+            <div className="p-4 flex flex-col flex-1 justify-between">
+              <div>
+                <h3 className="text-lg font-semibold mb-1">Shivpuri To Nim Beach</h3>
+                <p className="text-sm text-gray-600 mb-3">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                <div className="mb-2">
+                  <span className="inline-block bg-black text-white text-xs px-3 py-1 rounded-full">Dist 16 km</span>
                 </div>
-              </motion.div>
-            ))}
+              </div>
+              <div className="mt-2 flex items-center justify-between">
+                <p className="text-sm font-bold">Cost : ₹700</p>
+                <Link
+                  to="/rafting/nim"
+                  className="text-sm px-3 py-1 rounded-full bg-blue-500 text-white hover:bg-blue-600 hover:scale-110 transition-transform duration-300"
+                >
+                  more
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Card 3 */}
+          <motion.div
+            className="bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col snap-start h-[400px] sm:h-[440px] md:h-[480px] transition-transform hover:scale-[1.03] hover:-translate-y-1"
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, type: "spring" }}
+          >
+            <div className="relative h-[45%]">
+              <img src={pic1} alt="Marine Drive to Shivpuri" className="w-full h-full object-cover" />
+              <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white/90 to-transparent" />
+            </div>
+            <div className="p-4 flex flex-col flex-1 justify-between">
+              <div>
+                <h3 className="text-lg font-semibold mb-1">Marine Drive to Shivpuri</h3>
+                <p className="text-sm text-gray-600 mb-3">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                <div className="mb-2">
+                  <span className="inline-block bg-black text-white text-xs px-3 py-1 rounded-full">Dist 24 km</span>
+                </div>
+              </div>
+              <div className="mt-2 flex items-center justify-between">
+                <p className="text-sm font-bold">Cost : ₹1200</p>
+                <Link
+                  to="/Rafting/marine"
+                  className="text-sm px-3 py-1 rounded-full bg-blue-500 text-white hover:bg-blue-600 hover:scale-110 transition-transform duration-300"
+                >
+                  more
+                </Link>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Card 4 */}
+          <motion.div
+            className="bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col snap-start h-[400px] sm:h-[440px] md:h-[480px] transition-transform hover:scale-[1.03] hover:-translate-y-1"
+            initial={{ opacity: 0, y: 100 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.4, type: "spring" }}
+          >
+            <div className="relative h-[45%]">
+              <img src={pic1} alt="Kaudiala to Nim Beach" className="w-full h-full object-cover" />
+              <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white/90 to-transparent" />
+            </div>
+            <div className="p-4 flex flex-col flex-1 justify-between">
+              <div>
+                <h3 className="text-lg font-semibold mb-1">Kaudiala To Nim Beach</h3>
+                <p className="text-sm text-gray-600 mb-3">Text ever since the 1500s, when an unknown printer took a galley of type and scrambled</p>
+                <div className="mb-2">
+                  <span className="inline-block bg-black text-white text-xs px-3 py-1 rounded-full">Dist 36 km</span>
+                </div>
+              </div>
+              <div className="mt-2 flex items-center justify-between">
+                <p className="text-sm font-bold">Cost : ₹2400</p>
+                <Link
+                  to="/Rafting/kodilyla"
+                  className="text-sm px-3 py-1 rounded-full bg-blue-500 text-white hover:bg-blue-600 hover:scale-110 transition-transform duration-300"
+                >
+                  more
+                </Link>
+              </div>
+            </div>
+          </motion.div>
         </motion.div>
+
       </div>
-   
+
       {/* 6th section - Gallery */}
       <div className="py-16  sm:mt-20  px-4 md:px-2 bg-[#E0F7FA]">
         <h2 className="jolly-font text-3xl md:text-4xl font-bold text-center mb-12 font-josefin">

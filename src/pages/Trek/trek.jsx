@@ -1,303 +1,347 @@
-// Optimized Trek.jsx
-import heroImg from "../../assets/images/TrekMain/heroImage.png";
-import Trek1 from "../../assets/images/TrekMain/DayaraBuyalTrek.jpg";
-import downArrowImage from "../../assets/downArrow.png";
-import leftBtn from "../../assets/leftArrow.png";
-import rightBtn from "../../assets/rightArrow.png";
-import GuideImg1 from "../../assets/images/guidesImage/1.jpg";
-import GuideImg2 from "../../assets/images/guidesImage/2.jpg";
-import GuideImg3 from "../../assets/images/guidesImage/3.jpg";
-import GuideImg4 from "../../assets/images/guidesImage/4.jpg";
-import styles from "./trek.module.css";
-
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import Trek1 from "../../assets/images/TrekMain/DayaraBuyalTrek.jpg";
+import GuideScrolle from './guide'
 
-gsap.registerPlugin(ScrollTrigger);
+const images = [
+  "https://images3.alphacoders.com/134/thumb-1920-1345697.png",
+  "https://plus.unsplash.com/premium_photo-1677002240252-af3f88114efc?q=80&w=2025&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  "https://images.unsplash.com/photo-1611154046036-cd91e50978be?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+];
+const ImageSliderBox = () => {
+  const [current, setCurrent] = useState(0);
+  const [prev, setPrev] = useState(null);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setPrev(current);
+      setCurrent((prevIndex) => (prevIndex + 1) % images.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [current]);
+
+  return (
+    <motion.div
+      className="relative w-full h-[93vh] overflow-hidden bg-black font-josefin"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1.5 }}
+    >
+      {/* 🔁 Previous image */}
+      {prev !== null && (
+        <motion.img
+          key={`prev-${prev}`}
+          src={images[prev]}
+          initial={{ opacity: 1, scale: 1 }}
+          animate={{ opacity: 0, scale: 1.05 }}
+          transition={{ duration: 1.6, ease: "easeInOut" }}
+          className="absolute top-0 left-0 w-full h-full object-cover z-20"
+        />
+      )}
+
+      {/* 🖼️ Current image */}
+      <motion.img
+        key={`current-${current}`}
+        src={images[current]}
+        initial={{ opacity: 0, scale: 1.1 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.6, ease: "easeInOut" }}
+        className="absolute top-0 left-0 w-full h-full object-cover z-30"
+      />
+
+      {/* 🌫️ Fog overlay */}
+      <motion.div
+        className="absolute inset-0 z-40 pointer-events-none bg-[url('/fog.png')] bg-cover bg-center opacity-20"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.2 }}
+        transition={{ delay: 2, duration: 2, ease: "easeInOut" }}
+      />
+
+      {/* 🌓 Gradient overlay */}
+      <motion.div
+        className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/90 z-40"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.4, duration: 1.2, ease: "easeOut" }}
+      />
+
+      {/* ✨ Text Content */}
+      <motion.div
+        className="absolute inset-0 flex flex-col items-center justify-center z-50 text-white text-center px-4"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 2.5, duration: 1.2, ease: "easeOut" }}
+      >
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 3, duration: 1 }}
+          className="text-4xl md:text-6xl xl:text-7xl font-bold josefin-sans drop-shadow-xl leading-tight"
+        >
+          Embrace the Trekking Spirit
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 3.6, duration: 1 }}
+          className="text-lg md:text-xl mt-4 max-w-2xl text-white/80"
+        >
+          Climb new heights, feel the earth beneath your feet, and lose yourself
+          in breathtaking trails. Adventure awaits every step you take.
+        </motion.p>
+
+        {/* ✅ Redesigned forest-green button */}
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          transition={{ type: "spring", stiffness: 250, damping: 18 }}
+          className="mt-8 px-8 py-3 bg-green-700/70 hover:bg-green-800/80 text-white font-medium text-lg rounded-full backdrop-blur-sm border border-white/20 shadow-md"
+          onClick={() => {
+            const target = document.getElementById("second-section");
+            if (target) target.scrollIntoView({ behavior: "smooth" });
+          }}
+        >
+          Start the Journey
+        </motion.button>
+      </motion.div>
+
+      {/* 🏔️ Silhouette overlay */}
+      <motion.div
+        className="absolute bottom-0 left-0 w-full h-32 bg-[url('/mountains-silhouette.svg')] bg-bottom bg-repeat-x z-40 opacity-60"
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 0.6 }}
+        transition={{ delay: 4, duration: 1.2, ease: "easeOut" }}
+      />
+
+      {/* 🌊 Bottom wave */}
+      <motion.div
+        className="absolute -bottom-[1px] left-0 w-full overflow-hidden leading-[0] z-50"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 4.2, duration: 1 }}
+      >
+        <svg
+          className="block w-full h-[100px] pointer-events-none"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
+          preserveAspectRatio="none"
+        >
+          <path
+            fill="#ffffff"
+            d="M0,224 C360,100 1080,340 1440,160 L1440,320 L0,320 Z"
+          />
+        </svg>
+      </motion.div>
+    </motion.div>
+  );
+};
 
 function Trek() {
-  const downArrow = useRef();
-  const moreBtn = useRef();
-
-  useGSAP(() => {
-    const heroAnimation = gsap.utils.toArray(".heroAnimate");
-
-    gsap.from(heroAnimation, {
-      y: 30,
-      opacity: 0,
-      duration: 1,
-      delay: 0.5,
-      stagger: 0.6,
-    });
-
-    gsap.from(downArrow.current, {
-      opacity: 0,
-      y: 30,
-      duration: 1,
-      ease: "bounce.out",
-      scrollTrigger: {
-        trigger: downArrow.current,
-        start: "top bottom",
-        scroller: "body",
-        once: true,
-      },
-    });
-
-    gsap.from(".heroImg", {
-      opacity: 0,
-      duration: 1,
-      delay: 0.5,
-    });
-
-    const btn = moreBtn.current;
-    const enter = () =>
-      gsap.to(btn, { scale: 1.08, duration: 0.3, ease: "power2.out" });
-    const leave = () =>
-      gsap.to(btn, { scale: 1, duration: 0.3, ease: "power2.inOut" });
-
-    btn?.addEventListener("mouseenter", enter);
-    btn?.addEventListener("mouseleave", leave);
-
-    return () => {
-      btn?.removeEventListener("mouseenter", enter);
-      btn?.removeEventListener("mouseleave", leave);
-    };
-  }, []);
+  //  guide sectoin 
+  const scrollRef = useRef(null);
+  const scrollLeft = () => {
+    scrollRef.current.scrollBy({ left: -200, behavior: "smooth" });
+  };
+  const scrollRight = () => {
+    scrollRef.current.scrollBy({ left: 200, behavior: "smooth" });
+  };
 
   const treks = [
     {
-      title: "Dayara Buyal Trek",
-      cost: "\u20B97,999 /-",
-      desc: "Discover epic trails, expert tips, and inspiring stories to fuel your next mountain adventure. Discover epic trails,",
-      bg: "bg-green-100",
-      images: [Trek1, Trek1],
-      roundImages: false,
-      border: false,
-    },
-    {
-      title: "Kedar Katha Trek",
-      cost: "\u20B98,999 /-",
-      desc: "Discover epic trails, expert tips, and inspiring stories to fuel your next mountain adventure. Discover epic trails, expert tips, and inspiring stories to fuel your next mountain adventure.",
-      bg: "bg-white",
-      images: [Trek1, Trek1],
-      roundImages: false,
-      border: true,
-    },
-    {
-      title: "Gomukh Tapovan Trek",
-      cost: "\u20B914,999 /-",
-      desc: "Discover epic trails, expert tips, and inspiring stories to fuel your next mountain adventure. Discover epic trails, expert i",
-      bg: "bg-green-100",
-      images: [Trek1, Trek1],
-      roundImages: false,
-      border: false,
-    },
-    {
-      title: "Hidden WaterFall Trek",
-      cost: "\u20B92,500 /-",
-      desc: "Discover epic trails, expert tips, and inspiring stories to fuel your next mountain adventure. Discover epic trails, expert tips,",
-      bg: "bg-white",
-      images: [Trek1, Trek1],
-      roundImages: false,
-      border: true,
-    },
-    {
-      title: "Tungnath Chander Shila Trek",
-      cost: "\u20B95,999 /-",
+      title: "Dayara Bugyal Trek",
+      cost: "₹7,999 /-",
       desc: "Discover epic trails, expert tips, and inspiring stories to fuel your next mountain adventure.",
       bg: "bg-green-100",
       images: [Trek1, Trek1],
-      roundImages: true,
       border: false,
+      link: "/trek/dayarabuyal",
+    },
+    {
+      title: "Kedar Katha Trek",
+      cost: "₹8,999 /-",
+      desc: "Discover epic trails, expert tips, and inspiring stories to fuel your next mountain adventure.",
+      bg: "bg-white",
+      images: [Trek1, Trek1],
+      border: true,
+      link: "/trek/kedarKatha", 
+    },
+    {
+      title: "Gomukh Tapovan Trek",
+      cost: "₹14,999 /-",
+      desc: "Discover epic trails, expert tips, and inspiring stories to fuel your next mountain adventure.",
+      bg: "bg-green-100",
+      images: [Trek1, Trek1],
+      border: false,
+      link: "/trek/dayarabuyal", 
+    },
+    {
+      title: "Hidden Waterfall Trek",
+      cost: "₹2,500 /-",
+      desc: "Discover epic trails, expert tips, and inspiring stories to fuel your next mountain adventure.",
+      bg: "bg-white",
+      images: [Trek1, Trek1],
+      border: true,
+      link: "/trek/hiddenWaterFall", 
+    },
+    {
+      title: "Tungnath Chandrashila Trek",
+      cost: "₹5,999 /-",
+      desc: "Discover epic trails, expert tips, and inspiring stories to fuel your next mountain adventure.",
+      bg: "bg-green-100",
+      images: [Trek1, Trek1],
+      border: false,
+      link: "/trek/tungnath", 
     },
   ];
 
   return (
-    <div className={styles.main}>
-      <section className="relative min-h-[700px] pt-16 pb-24 px-4 sm:px-6 md:px-10 lg:px-12 xl:px-16 flex flex-col lg:flex-row items-start justify-between gap-6 lg:gap-10 overflow-hidden">
-        <img
-          src={heroImg}
-          alt="Hero"
-          className="absolute top-0 right-0 h-full w-[60%] sm:w-[55%] md:w-[50%] lg:w-[45%] xl:w-[40%] object-cover z-0 opacity-90 pointer-events-none heroImg"
+    <div >
+    {/* <GlobalBackgroundAnimation /> */}
+
+    {/*1st Hero Section */}
+      <ImageSliderBox/>
+
+    {/* 3nd para senction */}
+      <section className="relative text-center pt-24 pb-16 px-4 sm:px-8 md:px-16 lg:px-24 josefin-sans bg-transparent overflow-hidden">
+
+        {/* 🌟 Subtle Glow Background */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.25 }}
+          transition={{ duration: 1.5, ease: "easeOut" }}
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-teal-200/30 rounded-full blur-[140px] z-0"
         />
 
-        <div className="relative z-20 text-left ml-2 md:ml-6 xl:ml-[140px] max-w-sm sm:max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl space-y-6">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 heroAnimate leading-tight">
-            Conquer New Heights One Peak at a Time
-          </h1>
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-700 heroAnimate">
-            Discover epic trails, expert tips, and inspiring stories to fuel
-            your next mountain adventure. Whether you're a beginner or a pro, we
-            help you reach new heights with confidence.
-          </p>
-          <button
-            ref={moreBtn}
-            className="moreBtn bg-teal-700 hover:bg-teal-800 text-white px-6 py-3 rounded-full text-lg sm:text-xl heroAnimate cursor-pointer"
-          >
-            More
-          </button>
-        </div>
+        {/* 💬 Heading */}
+        <motion.h2
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.1 }}
+          viewport={{ once: true }}
+          className="relative z-10 text-3xl sm:text-4xl md:text-5xl font-bold text-teal-800 mb-6"
+        >
+          Come Join Us For the Ultimate Trekking Adventure.
+        </motion.h2>
+
+        {/* 📜 Sub Text */}
+        <motion.p
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="relative z-10 text-gray-700 max-w-3xl mx-auto text-base sm:text-lg leading-relaxed"
+        >
+          Discover epic trails, expert tips, and inspiring stories to fuel your next
+          mountain adventure. Whether you're a beginner or a pro, we help you reach
+          new heights with confidence.
+        </motion.p>
       </section>
 
-      <section className="text-center px-4 sm:px-8 md:px-16 lg:px-24 py-12">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-teal-800 mb-4">
-          Come Join Us For the Ultimate Treking Adventure.
-        </h2>
-        <p className="text-gray-700 max-w-3xl mx-auto text-sm sm:text-base">
-          Discover epic trails, expert tips, and inspiring stories to fuel your
-          next mountain adventure. Whether you're a beginner or a pro, we help
-          you reach new heights with confidence.
-        </p>
-      </section>
-
-      <div className="w-10 h-10 sm:w-12 sm:h-12 bg-teal-800 border-2 border-red-500 rounded-full flex items-center justify-center mx-auto mt-10">
-        <img
-          src={downArrowImage}
-          alt="Arrow"
-          className="w-5 h-5 sm:w-6 sm:h-6"
-        />
-      </div>
-
-      <section className="space-y-12 px-4 sm:px-12 md:px-20 lg:px-32 py-16">
-        {treks.map((trek, i) => (
-          <div
-            key={i}
-            className={`mx-auto max-w-4xl flex flex-col md:flex-row items-center justify-center gap-6 p-6 md:p-8 rounded-2xl min-h-[300px] relative ${
-              trek.bg
-            } ${trek.border ? "border-2 border-teal-800" : ""}`}
-          >
-            {/* Image Section */}
-            <div
-              className={`w-full md:w-[45%] flex relative ${
-                i === 1
-                  ? "flex-col gap-4 items-center"
-                  : i === 2
-                  ? "justify-center"
-                  : i === 3 || i === 4
-                  ? "justify-center items-center"
-                  : "flex-row gap-3 justify-center"
-              }`}
+    {/* 4th Section - Trek Cards List (Responsive, Clean, Optimized) */}
+      <section className="space-y-16 px-4 sm:px-10 md:px-16 lg:px-24 xl:px-32 py-20 bg-transparent">
+          {treks.map((trek, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: i * 0.2 }}
+              viewport={{ once: true }}
+              className={`mx-auto max-w-5xl flex flex-col md:flex-row items-center md:items-stretch justify-between gap-8 p-6 md:p-8 rounded-2xl min-h-[320px] backdrop-blur-md shadow-lg transition-all duration-300 ${
+                trek.bg
+              } ${trek.border ? "border-2 border-teal-800" : ""}`}
             >
-              {trek.images.map((img, j) => {
-                // Image size & variation logic
-                const styleByCard = {
-                  0: {
-                    className:
-                      j === 0
-                        ? "translate-x-[-6px] translate-y-[-6px]"
-                        : "translate-x-[6px] translate-y-[6px]",
-                    rounded: "rounded-xl",
-                  },
-                  1: {
-                    className: "",
-                    rounded: "rounded-2xl",
-                  },
-                  2: {
-                    className: "",
-                    rounded: "rounded-xl",
-                  },
-                  3: {
-                    className:
-                      j === 0
-                        ? "absolute top-0 left-4 z-10"
-                        : "absolute top-8 left-12 z-0",
-                    rounded: "rounded-md",
-                  },
-                  4: {
-                    className:
-                      j === 0
-                        ? "translate-x-[-8px] rotate-[-2deg] z-10"
-                        : "translate-x-[8px] rotate-[2deg] z-0",
-                    rounded: "rounded-xl",
-                  },
-                };
-
-                const { className, rounded } = styleByCard[i] || {
-                  className: "",
-                  rounded: "rounded-xl",
-                };
-
-                return (
-                  <img
-                    key={j}
-                    src={img}
-                    alt={`Trek ${i + 1}`}
-                    className={`w-44 h-32 sm:w-48 sm:h-36 object-cover ${rounded} shadow-md transition-transform duration-300 hover:scale-105 ${className}`}
-                  />
-                );
-              })}
-            </div>
-
-            {/* Text Content Section */}
-            <div className="w-full md:w-[55%] flex flex-col justify-center text-left space-y-3">
-              <h3 className="text-2xl font-semibold text-gray-900">
-                {trek.title}
-              </h3>
-              <p className="text-gray-700 text-sm sm:text-base">{trek.desc}</p>
-              <p className="font-bold text-gray-900 text-sm sm:text-base">
-                Cost : {trek.cost}
-              </p>
-              <button className="bg-teal-900 text-white px-4 py-2 rounded-full text-sm w-fit">
-                More Details
-              </button>
-            </div>
-          </div>
-        ))}
-      </section>
-
-      <section className="px-4 sm:px-8 md:px-16 lg:px-24 py-16 text-center space-y-6">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-teal-800">
-          Your Guides Your Travel Partners
-        </h2>
-
-        {/* Scrolling Image Carousel */}
-        <div className="relative flex items-center justify-center py-6">
-          {/* Left Arrow */}
-          <img
-            src={leftBtn}
-            alt="Left"
-            className="w-8 h-8 shrink-0 cursor-pointer z-10"
-          />
-
-          {/* Scrolling Image Container */}
-          <div className="flex overflow-x-auto gap-6 px-4 snap-x snap-mandatory scroll-smooth scrollbar-hide">
-            {[GuideImg1, GuideImg2, GuideImg3, GuideImg4].map((img, i) => (
-              <div
-                key={i}
-                className="snap-start shrink-0 w-40 h-40 rounded-[1rem] overflow-hidden bg-white shadow-md"
+              {/* 🖼️ Image Section */}
+              <div className="w-full md:w-[45%] flex justify-center items-center relative overflow-hidden">
+                  {/* Custom dual image logic per index */}
+                  {(() => {
+                    const imgCommonClass =
+                      "absolute w-40 h-28 sm:w-44 sm:h-32 object-cover rounded-xl bg-white shadow-xl";
+                    const imgProps = [
+                      {
+                        className: "top-0 left-0 border-pink-500 z-10",
+                        motion: { x: -20, rotate: -5 },
+                      },
+                      {
+                        className: "bottom-0 right-0 border-teal-500 z-0",
+                        motion: { x: 20, rotate: 5, delay: 0.1 },
+                      },
+                    ];
+                    return (
+                      <div className="relative w-[240px] h-[200px]">
+                        {trek.images.map((img, idx) => (
+                          <motion.img
+                            key={idx}
+                            src={img}
+                            alt={`Trek ${i + 1}-${idx + 1}`}
+                            initial={{ opacity: 0, ...(imgProps[idx].motion || {}) }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            whileHover={{ scale: 1.05 }}
+                            transition={{ duration: 0.8, delay: imgProps[idx].motion?.delay || 0 }}
+                            className={`${imgCommonClass} border-[3px] ${imgProps[idx].className}`}
+                          />
+                        ))}
+                      </div>
+                    );
+                  })()}
+                </div>
+              {/* 📄 Text Section */}
+              <motion.div
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7 }}
+                viewport={{ once: true }}
+                className="w-full md:w-[55%] flex flex-col justify-center text-left space-y-4 mt-4 md:mt-0"
               >
-                <img
-                  src={img}
-                  alt={`Guide ${i + 1}`}
-                  loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-300 ease-in-out hover:scale-105"
-                />
-              </div>
-            ))}
-          </div>
+                <motion.h3
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  className="text-2xl font-semibold text-gray-900"
+                >
+                  {trek.title}
+                </motion.h3>
 
-          {/* Right Arrow */}
-          <img
-            src={rightBtn}
-            alt="Right"
-            className="w-8 h-8 shrink-0 cursor-pointer z-10"
-          />
-        </div>
+                <motion.p
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.1 }}
+                  className="text-gray-700 text-sm sm:text-base leading-relaxed"
+                >
+                  {trek.desc}
+                </motion.p>
 
-        <p className="text-gray-700 max-w-4xl mx-auto text-sm sm:text-base">
-          Our expert guides are the heart of every journey we offer—passionate
-          storytellers, seasoned explorers, and friendly companions rolled into
-          one. With deep local knowledge and a genuine love for discovery, they
-          turn every trip into a rich, immersive experience.
-        </p>
-
-        <button className="bg-teal-700 hover:bg-teal-800 text-white px-6 py-2 rounded-full text-sm sm:text-base transition duration-300">
-          About Guides
-        </button>
+                <motion.p
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.15 }}
+                  className="font-bold text-gray-900 text-sm sm:text-base"
+                >
+                  Cost : {trek.cost}
+                </motion.p>
+                <motion.div
+                  whileHover={{ scale: 1.08 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-fit"
+                >
+                  <Link
+                    to={trek.link}
+                    className="mt-2 inline-block px-5 py-2 text-sm sm:text-base bg-teal-800 text-white rounded-full hover:bg-teal-700 transition-all duration-300 shadow-md"
+                  >
+                    More Details
+                  </Link>
+                </motion.div>
+              </motion.div>
+            </motion.div>
+          ))}
       </section>
-    </div>
+
+    {/* 5th guide section */}
+      <GuideScrolle/>
+  </div>
   );
 }
 

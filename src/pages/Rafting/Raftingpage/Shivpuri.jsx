@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../Rafting.css';
 import pic1 from '../../../assets/images/Home/img2.png';
 import { motion } from 'framer-motion';
@@ -61,6 +61,13 @@ const guidelines = [
 ];
 
 const Shivpuri = () => {
+useEffect(() => {
+  setTimeout(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, 0);
+}, []);
+
+
   const scrollToSecondSection = () => {
     const section = document.getElementById('second-section');
     if (section) {

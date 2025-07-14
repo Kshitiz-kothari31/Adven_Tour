@@ -7,10 +7,10 @@ function Layout(){
     return(
         <>
             <Navbar />
-            <main > 
+            <main className='mt-[80px] '> 
                 <Outlet/>
             </main>
-            <Form/>
+            <Form />
             <Footer/>
         </>
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../Rafting.css';
 import pic1 from '../../../assets/images/Home/img2.png';
 import { motion } from 'framer-motion';
@@ -69,7 +69,8 @@ const Kodilyla = () => {
   };
 
   return (
-    <section className='bg-[#ffffff]'>
+    
+    <section className='bg-[#ffffff]' >
       {/* 1 section */}
       <motion.div
         className="relative w-full h-[90vh] overflow-hidden font-josefin"
@@ -316,7 +317,6 @@ const Kodilyla = () => {
           </div>
         </motion.div>
       </div>
-
 
       {/* 4th section  major rapids */}
       <div className="bg-[#f5f5f5] py-14 px-4 md:px-20">

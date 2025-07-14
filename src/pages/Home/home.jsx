@@ -80,7 +80,7 @@ const ImageSliderBox = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 3, duration: 1 }}
-          className="text-4xl md:text-6xl xl:text-7xl font-bold jolly-font drop-shadow-xl leading-tight"
+          className="text-4xl md:text-6xl xl:text-7xl font-bold josefin-sans drop-shadow-xl leading-tight"
         >
           Unleash Your Wild Side
         </motion.h1>
@@ -130,7 +130,7 @@ const ImageSliderBox = () => {
           preserveAspectRatio="none"
         >
         <path
-          fill="#e6fcff"
+          fill="#fffff"
           d="M0,224 C360,100 1080,340 1440,160 L1440,320 L0,320 Z"
         />
         </svg>
@@ -139,8 +139,6 @@ const ImageSliderBox = () => {
   );
 };
 const home = () => {
-
-
   return (
     <section className='home'>
         {/* image section at top */}
