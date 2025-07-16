@@ -43,7 +43,6 @@ const Navbar = () => {
           <ul className="hidden md:flex items-center space-x-4 lg:space-x-6 xl:space-x-10 text-base font-medium">
             <li><a href="/" className="nav-link">Home</a></li>
             <li><a href="#trek" className="nav-link">Treks</a></li>
-            <li><a href="#/trek" className="nav-link">Treks</a></li>
             <li><a href="#Adventure" className="nav-link">Adventure Sports</a></li>
             <li><a href="#Stays" className="nav-link">Stays</a></li>
             <li><a href="#gallery" className="nav-link">Gallery</a></li>
