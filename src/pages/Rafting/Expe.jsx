@@ -1,8 +1,6 @@
-import { section } from 'framer-motion/client'
 import CountUp from 'react-countup';
 import './Rafting.css'
 import { motion } from 'framer-motion';
-import React from 'react'
 
 const stats = [
   { number: 5000, text: 'Happy Clients', duration: 10 },

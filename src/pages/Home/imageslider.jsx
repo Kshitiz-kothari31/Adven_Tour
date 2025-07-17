@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const items = [
   {
@@ -123,7 +123,8 @@ const ImageSlider = () => {
           {/* 🔍 Thumbnails */}
           <div className="absolute bottom-16 md:bottom-20 left-1/2 -translate-x-1/2 flex gap-2 md:gap-4 z-30">
             {getThumbnails().map((item) => {
-              const isActive = item.id === items[(currentIndex + 1) % items.length].id;
+              const isActive =
+                item.id === items[(currentIndex + 1) % items.length].id;
               return (
                 <div
                   key={item.id}
@@ -131,7 +132,9 @@ const ImageSlider = () => {
                     isActive ? "ring-2 ring-orange-500" : ""
                   }`}
                   style={{ backgroundImage: `url(${item.image})` }}
-                  onClick={() => setCurrentIndex(items.findIndex((i) => i.id === item.id))}
+                  onClick={() =>
+                    setCurrentIndex(items.findIndex((i) => i.id === item.id))
+                  }
                 />
               );
             })}
@@ -143,13 +146,13 @@ const ImageSlider = () => {
               onClick={handlePrev}
               className="w-8 h-8 md:w-10 md:h-9 rounded-lg border border-black cursor-pointer bg-white hover:bg-gray-600 hover:text-white transition-colors flex items-center justify-center"
             >
-              <FaArrowLeft size={16} />
+              <ArrowLeft size={16} />
             </button>
             <button
               onClick={handleNext}
               className="w-8 h-8 md:w-10 md:h-9 rounded-lg border border-black cursor-pointer bg-white hover:bg-gray-600 hover:text-white transition-colors flex items-center justify-center"
             >
-              <FaArrowRight size={16} />
+              <ArrowRight size={16} />
             </button>
           </div>
         </div>

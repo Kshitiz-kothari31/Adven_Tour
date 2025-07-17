@@ -1,13 +1,12 @@
-import React from 'react'
 import { Link } from "react-router-dom";
 import './Rafting.css'
+import Feedback from '../../components/Feedback';
+import Form from '../../components/form/Form'
 import Expe from './Expe'
 import AdventureAltHero from './hero'
 import pic1 from '../../assets/images/Home/img2.png'
 import { motion } from "framer-motion";
-import CountUp from 'react-countup';
 import FAQSection from './faq'
-
 
 const marqueeItems = [
   'Scenic river views',
@@ -27,12 +26,6 @@ const marqueeItems = [
   'Experience. Explore. Enjoy.',
 ];
 
-const stats = [
-  { number: 5000, text: 'Happy Clients', duration: 10 },
-  { number: 15, text: 'Years Of Experience', suffix: ' +', duration: 15 },
-  { number: 100, text: 'River Rafted', duration: 10 },
-];
-
 const Rafting = () => {
   const scrollToSection = () => {
     const next = document.getElementById('next-section');
@@ -48,7 +41,7 @@ const Rafting = () => {
       <AdventureAltHero/>
 
       {/* Second Section */}
-      <div className="bg-[#ecfeff] py-20 px-4 md:px-20 xl:px-40 relative text-black overflow-hidden">
+      <div className="bg-[#E0F7FA] py-20 px-4 md:px-20 xl:px-40 relative text-black overflow-hidden">
         <motion.div
           onClick={scrollToSection}
           whileHover={{ scale: 1.2, rotate: 360 }}
@@ -79,7 +72,7 @@ const Rafting = () => {
               transition={{ duration: 1, delay: 0.2 }}
               className="text-base md:text-lg xl:text-xl leading-relaxed text-gray-700"
             >
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+              Our passion flows with the river. We believe every splash tells a story and every current brings you closer to nature. Rafting is not just a sport for us—it's a journey of thrill, freedom, and connection. We aim to make every trip unforgettable, filled with laughter, courage, and breathtaking moments. Whether you’re conquering your first rapid or your tenth, our goal is to ignite your adventurous spirit. With years of experience and love for the outdoors, we bring you safely to the edge—and back—with memories to last a lifetime.
             </motion.p>
           </div>
 
@@ -114,7 +107,7 @@ const Rafting = () => {
 
         <div id="next-section" className="mt-20" />
       </div>
-
+      
       {/* Third Section */}
       <Expe/>
 
@@ -352,9 +345,19 @@ const Rafting = () => {
           })}
         </motion.div>
       </div>
-
+      
+      {/* feedback */}
+      <Feedback/>
+      
       {/* 7th section */}
       <FAQSection />
+
+      <Form
+        boxClass="bg-[#E0F7FA]"
+        headingClass="text-black"
+        buttonClass="bg-blue-600 hover:bg-blue-700"
+        focusClass="focus:outline-blue-500"
+      />
     </section>
   );
 };

@@ -1,8 +1,9 @@
-import React from 'react'
 import { motion } from "framer-motion";
+import Form from '../.././components/form/Form'
 import './Zipline.css'
 import pic1 from '../../assets/images/Home/download.jpeg'
 import pic2 from '../../assets/images/Home/download (5).jpeg' 
+import Feedback from "../../components/Feedback";
 
 const Zipline = () => {
 const scrollToBottom = () => {
@@ -13,7 +14,7 @@ const scrollToBottom = () => {
 };
 
   return (
-    <div className="w-full ">
+    <div className="w-full  ">
 
       {/* Hero Section */}
       <div className="relative w-full flex flex-col items-center justify-center text-center px-4 pt-20 pb-32 animated-gradient">
@@ -102,7 +103,7 @@ const scrollToBottom = () => {
       </div>
 
       {/* Mid Section */}
-      <div className="relative w-full px-6 py-40 bg-[#FFF5E4] overflow-hidden">
+      <div className="relative bg-[#FFF5E4]  w-full px-6 py-40  overflow-hidden">
         {/* ✅ Left Trapezoid - only slide in */}
         <motion.div
           className="absolute -left-24 top-[10%] w-[80vw] max-w-[550px] h-[300px] z-0 opacity-20 blur-sm"
@@ -189,110 +190,79 @@ const scrollToBottom = () => {
       </div>
 
       {/* 3rd Section */}
-      <div className="w-full px-4 py-32 bg-[#FFF5E4]">
-        <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-12">
-          {/* ✅ Text Content - Slide from Left */}
-          <motion.div
-            className="w-full flex-1 text-center lg:text-left"
-            initial={{ x: -100, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-3xl font-bold mb-4 text-black">
-              Loreum Ipsum is simply dummy text of the printing and typesetting industry
-            </h2>
-            <p className="text-black mb-6">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              Lorem Ipsum has been the industry's
-            </p>
-
-            <div className="grid sm:grid-cols-2 gap-8">
-              {/* Zipline */}
-              <div>
-                <h3 className="text-xl font-semibold text-black">Zipline</h3>
-                <p className="text-black/80 mb-3">
-                  is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-                </p>
-                <button className="relative inline-block px-6 py-3 font-semibold text-black group overflow-hidden rounded-full transition-transform duration-500 hover:scale-105">
-                  <span className="absolute inset-0 bg-gradient-to-r from-orange-400 to-orange-500 transition-opacity duration-500 group-hover:opacity-80"></span>
-                  <span className="absolute inset-0 w-full h-full translate-x-[-100%] bg-white/20 blur-sm group-hover:translate-x-[200%] transition-transform duration-700"></span>
-                  <span className="absolute inset-0 rounded-full border border-black opacity-0 group-hover:opacity-100 transition duration-500"></span>
-                  <span className="relative z-10">Book</span>
-                </button>
+      <section className="w-full bg-[#FFF5E4] px-4 py-16 sm:py-24 md:py-32 lg:py-40">
+          <div className="mx-auto max-w-7xl flex flex-col-reverse lg:flex-row gap-14 lg:gap-20 items-center">
+            {/* 📝 Text Content – slides in from left */}
+            <motion.div
+              className="w-full flex-1 text-center lg:text-left"
+              initial={{ x: -100, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-2xl text-center sm:text-3xl md:text-4xl font-bold mb-4 text-black leading-snug">
+                Lorem Ipsum is simply dummy text 
+              </h2>
+              {/* Features grid */}
+              <div className="flex justify-center px-4">
+                {/* Zipline card */}
+                <div className="max-w-md">
+                  <h3 className="text-lg sm:text-xl font-semibold text-black mb-1">Zipline</h3>
+                  <p className="text-black/80 mb-4">
+                    is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                  </p>
+                  <button className="relative inline-block px-6 py-3 font-semibold text-black group overflow-hidden rounded-full transition-transform duration-500 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500">
+                    <span className="absolute inset-0 bg-gradient-to-r from-orange-400 to-orange-500 transition-opacity duration-500 group-hover:opacity-80"></span>
+                    <span className="absolute inset-0 w-full h-full -translate-x-full bg-white/20 blur-sm group-hover:translate-x-full transition-transform duration-700"></span>
+                    <span className="absolute inset-0 rounded-full border border-black opacity-0 group-hover:opacity-100 transition duration-500"></span>
+                    <span className="relative z-10">Book</span>
+                  </button>
+                </div>
               </div>
 
-              {/* Kayaking */}
-              <div>
-                <h3 className="text-xl font-semibold text-black">Kayaking</h3>
-                <p className="text-black/80 mb-3">
-                  is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.
-                </p>
-                <button className="relative inline-block px-6 py-3 font-semibold text-black group overflow-hidden rounded-full transition-transform duration-500 hover:scale-105">
-                  <span className="absolute inset-0 bg-gradient-to-r from-orange-400 to-orange-500 transition-opacity duration-500 group-hover:opacity-80"></span>
-                  <span className="absolute inset-0 w-full h-full translate-x-[-100%] bg-white/20 blur-sm group-hover:translate-x-[200%] transition-transform duration-700"></span>
-                  <span className="absolute inset-0 rounded-full border border-black opacity-0 group-hover:opacity-100 transition duration-500"></span>
-                  <span className="relative z-10">Book</span>
-                </button>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* ✅ Image Group - Slide from Right */}
-          <motion.div
-            className="w-full flex flex-row flex-wrap justify-center gap-6 lg:flex-row lg:w-auto"
-            initial={{ x: 100, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            {/* Zipline Image with Giggle */}
-            <motion.div
-              className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-60 md:h-60 transform rotate-6"
-              animate={{
-                scale: [1, 1.03, 1],
-                rotate: [6, 7, 6],
-              }}
-              transition={{
-                repeat: Infinity,
-                duration: 3,
-                ease: "easeInOut",
-              }}
-            >
-              <div className="absolute inset-0 rounded-2xl bg-black scale-105 translate-x-2 translate-y-2 z-0"></div>
-              <img
-                src={pic1}
-                alt="Zipline"
-                className="relative w-full h-full object-cover rounded-2xl z-10 border-4 border-black"
-              />
             </motion.div>
 
-            {/* Kayaking Image with Giggle */}
+            {/* 📸 Image Group – slides in from right */}
             <motion.div
-              className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-60 md:h-60 transform -rotate-6"
-              animate={{
-                scale: [1, 1.03, 1],
-                rotate: [-6, -7, -6],
-              }}
-              transition={{
-                repeat: Infinity,
-                duration: 3,
-                ease: "easeInOut",
-              }}
+              className="flex flex-wrap justify-center gap-6 lg:w-auto"
+              initial={{ x: 100, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+              viewport={{ once: true }}
             >
-              <div className="absolute inset-0 rounded-2xl bg-black scale-105 translate-x-2 translate-y-2 z-0"></div>
-              <img
-                src={pic2}
-                alt="Kayaking"
-                className="relative w-full h-full object-cover rounded-2xl z-10 border-4 border-black"
-              />
+              {/* Zipline image */}
+              <motion.div
+                className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-56 md:h-56 lg:w-64  md: lg:h-64 transform rotate-6"
+                animate={{ scale: [1, 1.03, 1], rotate: [6, 7, 6] }}
+                transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+              >
+                <div className="absolute inset-0 rounded-2xl bg-black scale-105 translate-x-2 translate-y-2 z-0" />
+                <img
+                  src={pic1}
+                  alt="Zipline"
+                  className="relative w-full h-full object-cover rounded-2xl z-10 border-4 border-black"
+                />
+              </motion.div>
+
+              {/* Kayaking image */}
+              <motion.div
+                className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-56 md:h-56 lg:w-64 lg:h-64 transform -rotate-6"
+                animate={{ scale: [1, 1.03, 1], rotate: [-6, -7, -6] }}
+                transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+              >
+                <div className="absolute inset-0 rounded-2xl bg-black scale-105 translate-x-2 translate-y-2 z-0" />
+                <img
+                  src={pic2}
+                  alt="Kayaking"
+                  className="relative w-full h-full object-cover rounded-2xl z-10 border-4 border-black"
+                />
+              </motion.div>
             </motion.div>
-          </motion.div>
-        </div>
-      </div>
+          </div>
+      </section>
         
       {/* 4th section */}
-      <div className="bg-[#FFF5E4] px-6 py-12 md:py-20 md:px-20 font-sans text-gray-800 space-y-24">
+      <div className=" px-6 bg-[#FFF5E4] py-12 md:py-20 md:px-20 font-sans text-gray-800 space-y-24">
         {/* Zipline Section */}
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center"
@@ -329,45 +299,17 @@ const scrollToBottom = () => {
             </div>
           </div>
         </motion.div>
-
-        {/* Kayaking Section */}
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, ease: "easeOut", delay: 0.1 }}
-        >
-          {/* Text Left with More Padding */}
-          <div className="pl-8 md:pl-16">
-            <h2 className="text-xl font-bold mb-2">Kayaking</h2>
-            <p className="leading-relaxed text-sm md:text-base">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-              industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-              and scrambled it to make a type specimen book. It has survived not only five centuries, but also
-              the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the
-              1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with
-              desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-            </p>
-          </div>
-
-          {/* Image Right with Effects */}
-          <div className="flex justify-center">
-            <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-3xl overflow-hidden border-4 border-white shadow-2xl group">
-              {/* Gradient Glow BG */}
-              <div className="absolute -inset-2 bg-gradient-to-br from-blue-300 via-purple-200 to-pink-100 rounded-[2rem] blur-2xl opacity-40 group-hover:opacity-70 transition-all duration-500 z-0"></div>
-
-              {/* Image */}
-              <img
-                src={pic2}
-                alt="Kayaking"
-                className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition duration-500 ease-in-out"
-              />
-            </div>
-          </div>
-        </motion.div>
       </div>
 
+      {/* feedback */}
+      <Feedback/>
+
+      <Form
+        boxClass="bg-[#FFF5E4]"
+        headingClass="text-black"
+        buttonClass="bg-[#E26024] hover:bg-[#E26024]"
+        focusClass="focus:outline-[#E26024]"
+      />
     </div>
   )
 }

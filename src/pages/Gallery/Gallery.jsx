@@ -1,5 +1,6 @@
-import React, { useRef , useState } from 'react';
+import  { useRef , useState } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
+import Form from '../../components/form/Form';
 import './Gallery.css'
 import pic1 from '../../assets/images/Home/download.jpeg'
 import pic2 from '../../assets/images/Home/download (5).jpeg'
@@ -427,6 +428,13 @@ const Gallery = () => {
             </AnimatePresence>
           </div>
         </section>
+
+      <Form
+        boxClass="bg-[#FFF9E5]"
+        headingClass="text-[#000000]"
+        buttonClass="bg-[#DCD0A8] hover:bg-[#DCD0A8]"
+        focusClass="focus:outline-[#00786F]"
+      />
     </section>
   )
 }

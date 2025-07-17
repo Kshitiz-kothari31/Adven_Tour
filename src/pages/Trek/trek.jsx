@@ -1,6 +1,6 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
-import { useEffect, useState } from "react";
+import { motion} from "framer-motion";
+import { useEffect, useState , useRef} from "react";
+import Form from "../../components/form/Form";
 import { Link } from "react-router-dom";
 import Trek1 from "../../assets/images/TrekMain/DayaraBuyalTrek.jpg";
 import GuideScrolle from './guide'
@@ -141,14 +141,6 @@ const ImageSliderBox = () => {
 };
 
 function Trek() {
-  //  guide sectoin 
-  const scrollRef = useRef(null);
-  const scrollLeft = () => {
-    scrollRef.current.scrollBy({ left: -200, behavior: "smooth" });
-  };
-  const scrollRight = () => {
-    scrollRef.current.scrollBy({ left: 200, behavior: "smooth" });
-  };
 
   const treks = [
     {
@@ -176,7 +168,7 @@ function Trek() {
       bg: "bg-green-100",
       images: [Trek1, Trek1],
       border: false,
-      link: "/trek/dayarabuyal", 
+      link: "/trek/gaumukh", 
     },
     {
       title: "Hidden Waterfall Trek",
@@ -200,8 +192,6 @@ function Trek() {
 
   return (
     <div >
-    {/* <GlobalBackgroundAnimation /> */}
-
     {/*1st Hero Section */}
       <ImageSliderBox/>
 
@@ -341,6 +331,13 @@ function Trek() {
 
     {/* 5th guide section */}
       <GuideScrolle/>
+
+      <Form
+        boxClass="bg-[#DBFCE7]"
+        headingClass="text-[#00786F]"
+        buttonClass="bg-[#00786F] hover:bg-[#00786F]"
+        focusClass="focus:outline-[#00786F]"
+      />
   </div>
   );
 }
