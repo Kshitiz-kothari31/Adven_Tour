@@ -54,7 +54,6 @@ const Navbar = () => {
             <li><a href="/" className="nav-link">Home</a></li>
             <li><a href="#Rafting" className="nav-link">Rafting</a></li>
             <li><a href="#trek" className="nav-link">Treks</a></li>
-
             {/* Dropdown */}
             <li
               className="relative group"
