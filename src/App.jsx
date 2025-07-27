@@ -17,6 +17,7 @@ import Marine from "./pages/Rafting/Raftingpage/Marine";
 import KedarKatha from "./pages/Trek/KedarKatha/kedarKatha";
 import HiddenWaterfall from "./pages/Trek/HiddenWaterfall/hiddenWaterfall";
 import TungnathTrek from "./pages/Trek/TungnathTrek/tungnathTrek";
+import GomukhTrek from "./pages/Trek/GomukhTrek/gomukhTrek";
 
 function App() {
   return (
@@ -29,10 +30,11 @@ function App() {
           <Route path="/trek/kedarKatha" element={<KedarKatha />} />
           <Route path="/trek/hiddenWaterFall" element={<HiddenWaterfall />} />
           <Route path="/trek/tungnath" element={<TungnathTrek />} />
+          <Route path="/trek/gomukhTrek" element={<GomukhTrek />} />
           <Route path="/page2" element={<Page2 />} />
           <Route path="/zipline" element={<Zipline />} />
           <Route path="/gallery" element={<Gallery />} />
-          <Route path="/bungeeJumping" element={<BungeeJumping />} />
+          <Route path="/BungeeJumping" element={<BungeeJumping />} />
           <Route path="/rafting" element={<Rafting/>}  />
           <Route path="/shivpuri" element={<Shivpuri/>}  />
           <Route path="/kodilyla" element={<Kodilyla/>}  />

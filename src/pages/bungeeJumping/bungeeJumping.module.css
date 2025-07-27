@@ -457,6 +457,27 @@ main {
     height: clamp(120px, 12vw, 250px);
   }
   /* INFO: Third section styling ends here ☝️ */
+
+  /* INFO: Fouth section styling starts here 👇 */
+  /* INFO: Fourth section styling starts here 👇 */
+  .fouthSection .mainDiv {
+    justify-content: center;
+    gap: 0rem;
+    margin-top: 1rem;
+    padding-left: clamp(2rem, 10vw, 15rem);
+    padding-right: clamp(2rem, 10vw, 15rem);
+  }
+
+  .fouthSection .mainDiv .videoCard {
+    width: clamp(250px, 20vw, 330px);
+    height: clamp(250px, 30vw, 550px);
+    flex-shrink: 0; /* Prevent cards from shrinking */
+    margin: 1rem;
+    position: relative;
+    border-radius: 20px;
+  }
+
+  /* INFO: Fouth section styling ends here ☝️ */
 }
 
 @media (min-width: 1200px){

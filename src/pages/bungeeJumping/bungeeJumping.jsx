@@ -66,7 +66,7 @@ function BungeeJumping() {
       </section>
 
       <div className={styles.dropdownArrow}>
-        <img src={dropdownImg} />
+        <img loading="lazy" src={dropdownImg} />
       </div>
 
       <section className={styles.secondSection}>
