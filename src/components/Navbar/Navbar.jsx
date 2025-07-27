@@ -10,6 +10,7 @@ const Navbar = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const menuRef = useRef(null);
   const buttonRef = useRef(null);
+  const detailsRef = useRef(null); // 🔴 Ref for <details>
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -23,13 +24,18 @@ const Navbar = () => {
         setIsOpen(false);
       }
     };
-
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [isOpen]);
 
+  const closeMobileDropdown = () => {
+    if (detailsRef.current) {
+      detailsRef.current.open = false;
+    }
+  };
+
   return (
-    <header className="fixed top-0 left-0  right-0 z-[1000] bg-cyan-50 shadow border-b border-gray-200">
+    <header className="fixed top-0 left-0 right-0 z-[1000] bg-cyan-50 shadow border-b border-gray-200">
       <div className="w-full px-4 xl:px-8 2xl:px-16">
         <div className="mx-auto w-full flex items-center justify-between py-4 px-4 xl:px-16 3xl:px-32">
           {/* Logo */}
@@ -39,6 +45,7 @@ const Navbar = () => {
               <span className="h-8 w-px bg-gray-800 hidden lg:block"></span>
             </Link>
           </div>
+
           {/* Spacer */}
           <div className="flex-1 hidden md:block" />
 
@@ -92,7 +99,7 @@ const Navbar = () => {
           {/* Mobile Toggle */}
           <div className="md:hidden" ref={buttonRef}>
             <button onClick={() => setIsOpen(!isOpen)}>
-              <svg className="w-6 h-6 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-6 h-6 cursor-pointer text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {isOpen ? (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
                 ) : (
@@ -108,25 +115,25 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden px-6 pb-4" ref={menuRef}>
           <ul className="space-y-3 flex flex-col items-center text-base font-medium text-gray-800">
-            <li><a href="/" className="nav-link block text-center">Home</a></li>
-            <li><a href="#Rafting" className="nav-link block text-center">Rafting</a></li>
-            <li><a href="#trek" className="nav-link block text-center">Treks</a></li>
+            <li><a href="/" onClick={() => setIsOpen(false)} className="nav-link block text-center">Home</a></li>
+            <li><a href="#Rafting" onClick={() => setIsOpen(false)} className="nav-link block text-center">Rafting</a></li>
+            <li><a href="#trek" onClick={() => setIsOpen(false)} className="nav-link block text-center">Treks</a></li>
 
             {/* Mobile Dropdown */}
             <li className="w-full">
-              <details className="w-full text-center">
+              <details ref={detailsRef} className="w-full text-center">
                 <summary className="nav-link cursor-pointer flex justify-center items-center gap-2">Adventure Sports</summary>
-                <ul className="mt-2 space-y-2  josefin-sans text-sm text-center">
-                  <li><a href="#bungee" className="block px-2 py-2 rounded hover:bg-gray-100">Bungee Jumping</a></li>
-                  <li><a href="#kayaking" className="block px-2 py-2 rounded hover:bg-gray-100">Kayaking</a></li>
-                  <li><a href="#zipline" className="block px-2 py-2 rounded hover:bg-gray-100">Zipline</a></li>
+                <ul className="mt-2 space-y-2 josefin-sans text-sm text-center">
+                  <li><a href="#bungee" onClick={() => { closeMobileDropdown(); setIsOpen(false); }} className="block px-2 py-2 rounded hover:bg-gray-100">Bungee Jumping</a></li>
+                  <li><a href="#kayaking" onClick={() => { closeMobileDropdown(); setIsOpen(false); }} className="block px-2 py-2 rounded hover:bg-gray-100">Kayaking</a></li>
+                  <li><a href="#zipline" onClick={() => { closeMobileDropdown(); setIsOpen(false); }} className="block px-2 py-2 rounded hover:bg-gray-100">Zipline</a></li>
                 </ul>
               </details>
             </li>
 
-            <li><a href="#Stays" className="nav-link block text-center">Stays</a></li>
-            <li><a href="#gallery" className="nav-link block text-center">Gallery</a></li>
-            <li><a href="#contact" className="nav-link block text-center">Contact</a></li>
+            <li><a href="#Stays" onClick={() => setIsOpen(false)} className="nav-link block text-center">Stays</a></li>
+            <li><a href="#gallery" onClick={() => setIsOpen(false)} className="nav-link block text-center">Gallery</a></li>
+            <li><a href="#contact" onClick={() => setIsOpen(false)} className="nav-link block text-center">Contact</a></li>
           </ul>
         </div>
       )}

@@ -51,7 +51,7 @@ const scrollToBottom = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          Lorem Ipsum is simply<br />dummy text of the
+          Soar High Above the Ganges
         </motion.h1>
 
         {/* ✨ Animated Paragraph */}
@@ -61,8 +61,7 @@ const scrollToBottom = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
         >
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-          It has been the industry's standard dummy text ever since the 1500s.
+Feel the wind rush past you as you zip over emerald forests and the roaring Ganga in Shivpuri, Rishikesh. Adrenaline meets awe in every second.
         </motion.p>
 
         {/* 🚀 Book Now Button */}
@@ -201,7 +200,7 @@ const scrollToBottom = () => {
               viewport={{ once: true }}
             >
               <h2 className="text-2xl text-center sm:text-3xl md:text-4xl font-bold mb-4 text-black leading-snug">
-                Lorem Ipsum is simply dummy text 
+                Zipline Through Nature’s Heart
               </h2>
               {/* Features grid */}
               <div className="flex justify-center px-4">
@@ -209,7 +208,7 @@ const scrollToBottom = () => {
                 <div className="max-w-md">
                   <h3 className="text-lg sm:text-xl font-semibold text-black mb-1">Zipline</h3>
                   <p className="text-black/80 mb-4">
-                    is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+Experience the thrill of gliding over canopies, cliffs, and sparkling rivers. Our Rishikesh zipline adventure offers unmatched aerial views and pure excitement.
                   </p>
                   <button className="relative inline-block px-6 py-3 font-semibold text-black group overflow-hidden rounded-full transition-transform duration-500 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500">
                     <span className="absolute inset-0 bg-gradient-to-r from-orange-400 to-orange-500 transition-opacity duration-500 group-hover:opacity-80"></span>
@@ -275,12 +274,7 @@ const scrollToBottom = () => {
           <div className="pl-8 md:pl-16">
             <h2 className="text-xl font-bold mb-2">Zipline</h2>
             <p className="leading-relaxed text-sm md:text-base">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-              industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-              and scrambled it to make a type specimen book. It has survived not only five centuries, but also
-              the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the
-              1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with
-              desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+              Lorem Ipsum is simply dummy text of the printing and Soar like a bird above the breathtaking landscapes of Rishikesh. Our Shivpuri zipline ride stretches across the valley, giving you panoramic views of the Himalayan foothills and the sacred Ganga below. Whether you're a thrill-seeker or a nature lover, this high-flying adventure promises memories that last a lifetime. Safety-certified, beginner-friendly, and absolutely unforgettable.
             </p>
           </div>
 

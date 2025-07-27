@@ -17,7 +17,7 @@ const Kayaking = () => {
   document.getElementById("next-section")?.scrollIntoView({ behavior: "smooth" });
 
   return (
-    <section>
+    <section className='josefin-sansS'>
         {/* hero section */}
         <motion.section
           className="relative w-full h-[90vh]  overflow-hidden text-white josefin-sans"
@@ -46,7 +46,7 @@ const Kayaking = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 1 }}
             >
-              Lorem Ipsum is simply<br />dummy text of the
+              Discover the Thrill of Kayaking in <br />Shivpuri, Rishikesh
             </motion.h1>
 
             <motion.p
@@ -55,8 +55,7 @@ const Kayaking = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 1 }}
             >
-              Lorem Ipsum has been the printing industry’s standard dummy text
-              ever since the 1500s—it survived five centuries and the digital leap!
+              Glide through the Ganges with breathtaking Himalayan views. Your adventure begins where the river calls.
             </motion.p>
             <motion.button
               /* ▶ entrance: fade + slide up */
@@ -85,27 +84,29 @@ const Kayaking = () => {
 
           {/* 🟠 Zig‑zag bottom */}
           {/* 🌄 Uneven, smooth zig‑zag bottom */}
-          <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-30">
-            <svg
-              className="block w-full h-[140px]"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 1440 320"
-              preserveAspectRatio="none"
-            >
-              <path
-                fill="#E0F7FA"
-                d="
-                  M0,288 
-                  C80,260 160,180 240,192 
-                  C320,204 400,288 480,288 
-                  C560,288 640,208 720,192 
-                  C800,176 880,224 960,240 
-                  C1040,256 1120,224 1200,208 
-                  C1280,192 1360,240 1440,224 
-                  L1440,320 L0,320 Z
-                "
-              />
-            </svg>
+          <div className=" absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-30">
+          <svg
+            className="block w-full h-[140px] [shape-rendering:geometricPrecision] -mb-[2px]"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 1440 320"
+            preserveAspectRatio="none"
+          >
+            <path
+              fill="#FDFAF6"
+              stroke="none"
+              d="
+                M0,288 
+                C80,260 160,180 240,192 
+                C320,204 400,288 480,288 
+                C560,288 640,208 720,192 
+                C800,176 880,224 960,240 
+                C1040,256 1120,224 1200,208 
+                C1280,192 1360,240 1440,224 
+                L1440,320 L0,320 Z
+              "
+            />
+          </svg>
+
           </div>
 
 
@@ -115,7 +116,7 @@ const Kayaking = () => {
         <motion.button
           onClick={handleScroll}
           className="
-            mx-auto mt-2 flex items-center justify-center
+            mx-auto mt-6 flex items-center justify-center
             w-15 h-15 rounded-full
             bg-[#E0F7FA] hover:bg-[#C5EEF4]
             text-black shadow-lg cursor-pointer
@@ -170,25 +171,23 @@ const Kayaking = () => {
             {/* ✍️ Copy */}
             <div className="w-full md:w-1/2 space-y-6">
               <motion.h2
-                className="text-2xl sm:text-3xl md:text-4xl font-bold font-josefin"
+                className="text-2xl sm:text-3xl mt-6 md:text-4xl font-bold font-josefin"
                 initial={{ y: 40, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.7, ease: 'easeOut' }}
                 viewport={{ once: true }}
               >
-                lorem epsum
+                The Adventure Capital of India
               </motion.h2>
 
               <motion.p
-                className="text-gray-700 text-base sm:text-lg leading-relaxed"
+                className="text-gray-700  text-base sm:text-lg leading-relaxed"
                 initial={{ y: 40, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.7, ease: 'easeOut', delay: 0.2 }}
                 viewport={{ once: true }}
               >
-                is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                been the industry's standard dummy text ever since the 1500s, when an unknown
-                printer took a galley of type and.
+Shivpuri, just a few kilometers upstream from Rishikesh, is known for its pristine natural beauty, powerful river currents, and serene Himalayan backdrop. Whether you're seeking the adrenaline rush of Grade III rapids or a peaceful drift through calm waters, this stretch of the Ganges delivers it all. It's not just kayaking—it's a full-body connection with nature.          
               </motion.p>
 
               {/* 📊 Stats */}
@@ -240,11 +239,10 @@ const Kayaking = () => {
             <div className="relative z-20 text-center max-w-2xl flex flex-col items-center">
               {/* ▶️ Play‑icon block removed */}
 
-              <h1 className="text-3xl md:text-5xl text-white font-bold mb-4">lorem epsum</h1>
+              <h1 className="text-3xl md:text-5xl text-white font-bold mb-4">Ride the Rapids of Shivpuri</h1>
 
               <p className="text-sm md:text-base text-white leading-relaxed mb-8">
-                is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                been the industry's standard dummy text ever since the 1500s…
+Experience the pulse of the Ganges as you kayak through Rishikesh’s wildest waters. Guided by nature, driven by thrill—this is where your river story begins.
               </p>
 
               <button className="bg-blue-400 hover:bg-blue-500 text-white font-semibold px-10 py-3 rounded-full shadow-lg transition hover:scale-105">
@@ -269,7 +267,7 @@ const Kayaking = () => {
                 transition={{ delay: 0.2, duration: 0.6 }}
                 className="font-josefin text-4xl md:text-5xl font-extrabold mb-6 text-gray-900"
               >
-                Zipline
+                Kayaking, Adventure Meets Spiritual Call
               </motion.h2>
 
               <motion.p
@@ -278,11 +276,7 @@ const Kayaking = () => {
                 transition={{ delay: 0.4, duration: 0.6 }}
                 className="text-gray-700 text-lg leading-relaxed"
               >
-                is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                been the industry’s standard dummy text ever since the 1500s, when an unknown
-                printer took a galley of type and made a type specimen book.
-                <br /><br />
-                It has survived five centuries and the leap into electronic typesetting.
+After your paddle, explore nearby yoga retreats, peaceful forests, and vibrant local culture. Shivpuri offers not just adrenaline—but balance. Watch the sunrise on the riverbank and let the Ganges guide your inner peace.
               </motion.p>
             </motion.div>
 
@@ -313,17 +307,17 @@ const Kayaking = () => {
         </section>
 
         {/* 6th section */}
-        <div className="w-full px-4 -mt-20 sm:mt-0 py-32">
+        <div className="w-full px-4  -mt-20 sm:mt-0 py-32">
           <div className="max-w-6xl mx-auto">
             {/* 🔹 Heading – fade‑in & centered */}
             <motion.h2
-              className="text-3xl font-bold mb-10 text-center text-black"
+              className="text-3xl font-bold  mb-10 text-center text-black"
               initial={{ opacity: 0, y: -40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
               viewport={{ once: true }}
             >
-              Loreum Ipsum is simply dummy text of the printing and typesetting industry
+              This Isn’t Just a Trip. It’s a Memory in Motion.
             </motion.h2>
 
             {/* 🔸 Two‑column layout under the heading */}
@@ -338,8 +332,7 @@ const Kayaking = () => {
               >
                 <h3 className="text-xl font-semibold text-black mb-3">Kayaking</h3>
                 <p className="text-black/80 mb-6">
-                  is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
-                  been the industry's standard dummy text ever since.
+Kayaking in Rishikesh Shivpuri is more than water and paddle—it's about connection, thrill, and stories you’ll tell forever. Join us today..
                 </p>
 
                 <button className="relative inline-block px-6 py-3 font-semibold text-black group overflow-hidden rounded-full transition-transform duration-500 hover:scale-105">
