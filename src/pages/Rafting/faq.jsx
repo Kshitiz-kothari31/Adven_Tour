@@ -49,7 +49,7 @@ const faqData = [
 
 export default function FAQSection() {
   return (
-    <section className="josefin-sans py-16 px-6 md:px-20 max-w-5xl mx-auto font-josefin">
+    <section className="josefin-sans bg-[#E0F7FA] py-16 px-6 md:px-20 max-w-5xl mx-auto font-josefin">
       <motion.h2
         initial={{ opacity: 0, y: -30 }}
         whileInView={{ opacity: 1, y: 0 }}

@@ -1,8 +1,8 @@
-import React from 'react';
 import '../Rafting.css';
+import Form from '../../../components/form/Form';
 import pic1 from '../../../assets/images/Home/img2.png';
+import { ChevronDown } from "lucide-react";
 import { motion } from 'framer-motion';
-import { FaChevronDown } from 'react-icons/fa';
 
 const data = [
   {
@@ -69,7 +69,8 @@ const Kodilyla = () => {
   };
 
   return (
-    <section className='bg-[#ffffff]'>
+    
+    <section>
       {/* 1 section */}
       <motion.div
         className="relative w-full h-[90vh] overflow-hidden font-josefin"
@@ -156,7 +157,7 @@ const Kodilyla = () => {
             preserveAspectRatio="none"
           >
           <path
-            fill="#ffffff"
+            fill="#E0F7FA"
             d="M0,224 C360,100 1080,340 1440,160 L1440,320 L0,320 Z"
           />
           </svg>
@@ -178,7 +179,7 @@ const Kodilyla = () => {
       </motion.div>
 
       {/* ⬇️ Drop Button Between Sections */}
-      <div className="w-full hidden md:flex justify-center md:mt-2 -mt-6 z-20 relative">
+      <div className="w-full bg-[#E0F7FA] hidden md:flex justify-center -mt-6 md:mt-0 z-20 relative"> 
         <motion.button
           whileHover={{
             scale: 1.2,
@@ -196,7 +197,7 @@ const Kodilyla = () => {
             animate={{ scale: 1 }}
             transition={{ duration: 1, ease: 'easeOut' }}
           >
-            <FaChevronDown className="text-xl" />
+            <ChevronDown className="text-xl" />
           </motion.div>
         </motion.button>
       </div>
@@ -204,7 +205,7 @@ const Kodilyla = () => {
       {/* 🟫 2nd Section: Overview */}
       <div
         id="second-section"
-        className="w-full py-16 px-4 md:px-20 "
+        className="w-full bg-[#E0F7FA]   py-16 px-4 md:px-20 "
       >
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-start justify-between gap-10">
           {/* 📝 Text Section */}
@@ -260,7 +261,7 @@ const Kodilyla = () => {
       </div>
 
       {/* 3rd section */}
-      <div className="w-full flex justify-center items-center py-10 px-4 bg-[#f5f5f5]">
+      <div className="w-full flex justify-center items-center py-10 px-4 ">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -317,9 +318,8 @@ const Kodilyla = () => {
         </motion.div>
       </div>
 
-
       {/* 4th section  major rapids */}
-      <div className="bg-[#f5f5f5] py-14 px-4 md:px-20">
+      <div className="bg-[#E0F7FA]   py-14 px-4 md:px-20">
         {/* 🎯 Section Title */}
         <div className="max-w-4xl mx-auto text-center mb-12">
           <div className="w-20 h-1 mx-auto mb-3 bg-gradient-to-r from-sky-400 via-sky-600 to-sky-400 rounded-full" />
@@ -371,7 +371,7 @@ const Kodilyla = () => {
       </div>
 
       {/* 5th section include */}
-      <div className="bg-[#f3f3f3] py-20 px-4 flex justify-center items-center">
+      <div className=" py-20 px-4 flex justify-center items-center">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -461,7 +461,7 @@ const Kodilyla = () => {
       </div>
 
       {/* 6th section  */}
-      <div className="relative bg-gray-100 min-h-screen flex items-center justify-center px-4 sm:px-8 md:px-16 lg:px-28 overflow-hidden text-black text-center">
+      <div className="relative bg-[#E0F7FA]  min-h-screen flex items-center justify-center px-4 sm:px-8 md:px-16 lg:px-28 overflow-hidden text-black text-center">
           {/* 🔁 Background Animation */}
           <motion.div
             initial={{ x: "-100%" }}
@@ -506,6 +506,13 @@ const Kodilyla = () => {
             </div>
           </div>
       </div>
+
+      <Form
+        boxClass="bg-[#E0F7FA]"
+        headingClass="text-black"
+        buttonClass="bg-blue-600 hover:bg-blue-700"
+        focusClass="focus:outline-blue-500"
+      />
         
      </section> 
   )

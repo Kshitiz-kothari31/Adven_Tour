@@ -1,5 +1,6 @@
-import React, { useRef , useState } from 'react';
+import  { useRef , useState } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
+import Form from '../../components/form/Form';
 import './Gallery.css'
 import pic1 from '../../assets/images/Home/download.jpeg'
 import pic2 from '../../assets/images/Home/download (5).jpeg'
@@ -11,15 +12,15 @@ const Gallery = () => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
-    const images = [
+  const images = [
     pic1, pic2, pic2, pic1, pic1, pic2,
     pic2, pic1, pic1, pic2, pic2, pic1,
     pic1, pic2, pic2,
-    ];
+  ];
 
-    const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(null);
   return (
-    <section className='bg-[#ffffff] mt-33'>
+    <section className='bg-[#ffffff]  md:pt-30'>
         {/* 1st section */}
         <div className="  w-full max-w-7xl mx-auto px-4 py-10 flex flex-col md:flex-row items-center md:items-start justify-between gap-10 -mt-15">
 
@@ -54,14 +55,18 @@ const Gallery = () => {
             </motion.button>
 
             {/* 🖼️ View Gallery Button with emoji */}
-            <motion.a
-              href="#gallery"
+            <motion.button
+              onClick={() => {
+                const el = document.getElementById("gallery");
+                if (el) el.scrollIntoView({ behavior: "smooth" });
+              }}
               className="relative group overflow-hidden bg-gradient-to-r from-blue-700 to-purple-800 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-2xl transition-all duration-500 ease-in-out hover:scale-110"
               whileHover={{ scale: 1.1, rotate: [0, 3, -3, 3, -3, 0] }}
             >
               <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-yellow-400 to-pink-500 opacity-0 group-hover:opacity-100 blur-md transition duration-700 scale-125"></span>
               <span className="relative z-10">View Gallery 🖼️</span>
-            </motion.a>
+            </motion.button>
+
           </div>
         </div>
 
@@ -324,7 +329,7 @@ const Gallery = () => {
         </div>
 
         {/* 5th image gallery */}
-        <section id='gallery'>
+        <section id='gallery' className="scroll-mt-32">
           <div className="w-full px-6 md:px-12 py-12 overflow-hidden">
             {/* Title & Button */}
             <motion.div
@@ -423,6 +428,13 @@ const Gallery = () => {
             </AnimatePresence>
           </div>
         </section>
+
+      <Form
+        boxClass="bg-[#FFF9E5]"
+        headingClass="text-[#000000]"
+        buttonClass="bg-[#DCD0A8] hover:bg-[#DCD0A8]"
+        focusClass="focus:outline-[#00786F]"
+      />
     </section>
   )
 }
