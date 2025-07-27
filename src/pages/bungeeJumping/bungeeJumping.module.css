@@ -466,6 +466,7 @@ main {
     margin-top: 1rem;
     padding-left: clamp(2rem, 10vw, 15rem);
     padding-right: clamp(2rem, 10vw, 15rem);
+    overflow-x: hidden;
   }
 
   .fouthSection .mainDiv .videoCard {

@@ -89,7 +89,6 @@ const Navbar = () => {
                 )}
               </AnimatePresence>
             </li>
-            <li><a href="#Adventure" className="nav-link">Adventure Sports</a></li>
             <li><a href="#Stays" className="nav-link">Stays</a></li>
             <li><a href="#gallery" className="nav-link">Gallery</a></li>
             <li><a href="#contact" className="nav-link">Contact</a></li>
