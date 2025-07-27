@@ -18,7 +18,15 @@ function GomukhTrek() {
             </p>
             <button>Book Now</button>
           </div>
-          <img src={img} />
+          <div className={styles.img}>
+            <svg>
+              <defs>
+                <clipPath id="clip-shape" clipPathUnits="userSpaceOnUse">
+                  <path d="M877.45 447.105C894.932 535.797 856.481 629.319 786.004 696.212C716.607 762.08 614.043 783.983 512.83 793.183C310.77 811.55 299.269 798.674 210.312 748.542C105.65 689.56 26.7613 580.557 7.26953 472.477C-13.8808 355.199 17.7354 261.165 105.835 169.223C196.519 74.5833 328.901 -18.23 466.232 4.03469C596.473 25.1499 572.27 96.7734 676.27 243.773C798.77 352.773 861.344 365.394 877.45 447.105Z" />
+                </clipPath>
+              </defs>
+            </svg>
+          </div>
         </div>
       </section>
       <div className={styles.bottomParagraph}>

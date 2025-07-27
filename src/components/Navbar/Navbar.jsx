@@ -54,7 +54,6 @@ const Navbar = () => {
             <li><a href="/" className="nav-link">Home</a></li>
             <li><a href="#Rafting" className="nav-link">Rafting</a></li>
             <li><a href="#trek" className="nav-link">Treks</a></li>
-
             {/* Dropdown */}
             <li
               className="relative group"
@@ -90,7 +89,7 @@ const Navbar = () => {
                 )}
               </AnimatePresence>
             </li>
-
+            <li><a href="#Adventure" className="nav-link">Adventure Sports</a></li>
             <li><a href="#Stays" className="nav-link">Stays</a></li>
             <li><a href="#gallery" className="nav-link">Gallery</a></li>
             <li><a href="#contact" className="nav-link">Contact</a></li>

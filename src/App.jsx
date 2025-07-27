@@ -9,6 +9,9 @@ import DayaraBuyal from "./pages/Trek/DayaraBugyal/dayarabugyal";
 import Layout from "./layout";
 import Zipline from "./pages/Zip&kay/Zipline";
 import Gallery from "./pages/Gallery/Gallery";
+
+import BungeeJumping from "./pages/bungeeJumping/bungeeJumping";
+
 import Rafting from "./pages/Rafting/Rafting";
 import Shivpuri from "./pages/Rafting/Raftingpage/Shivpuri";
 import Nim from "./pages/Rafting/Raftingpage/Nim";

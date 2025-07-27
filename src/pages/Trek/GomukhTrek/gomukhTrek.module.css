@@ -20,20 +20,26 @@ main {
   height: auto;
   width: auto;
   position: relative;
+  display: flex;
 }
 
-.firstSection img {
+.firstSectionContent .img {
   height: clamp(270px, 55vw, 650px);
   width: clamp(200px, 60vw, 800px);
   margin-top: clamp(2rem, 5vw, 3rem);
-  margin-left: clamp(1rem, 15vw, 5rem); /* default for mobile */
+  margin-left: clamp(1rem, 15vw, 5rem);
+  background-image: url('../../../assets/images/TrekMain/DayaraBuyalTrek.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  clip-path: url(#clip-shape);
+  -webkit-clip-path: url(#clip-shape); /* default for mobile */
 }
 
 .firstSection .heroPageContent {
   color: #000000;
   height: 100%;
   width: auto;
-  position: absolute;
   display: flex;
   flex-direction: column;
   align-items: start;
