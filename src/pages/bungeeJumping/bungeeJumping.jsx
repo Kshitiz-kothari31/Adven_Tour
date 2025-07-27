@@ -3,7 +3,7 @@ import video1 from "../../assets/videos/bungeejumping/IMG_7232.MOV";
 import video2 from "../../assets/videos/bungeejumping/IMG_7233.MOV";
 import React, { useRef, useState } from "react";
 import playIcon from "../../assets/icons8-play-50.png";
-
+import Form from "../../components/form/Form";
 import styles from "./bungeeJumping.module.css";
 
 function VideoCard({ videoSrc, title, description }) {
@@ -224,6 +224,12 @@ function BungeeJumping() {
           />
         </div>
       </section>
+      <Form
+        boxClass="bg-[#00508D]"
+        headingClass="text-white"
+        buttonClass="bg-[#F47302] hover:bg-blue-700"
+        focusClass="focus:outline-blue-500"
+      />
     </main>
   );
 }

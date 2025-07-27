@@ -54,6 +54,7 @@ function App() {
               <Route path="/trek/hiddenWaterFall" element={<HiddenWaterfall />} />
               <Route path="/trek/tungnath" element={<TungnathTrek />} />
               <Route path="/trek/gaumukh" element={<GomukhTrek/>} />
+              <Route path="/bungeeJumping" element={<BungeeJumping/>} />
               <Route path="/zipline" element={<Zipline />} />
               <Route path="/kayaking" element={<Kayaking />} />
               <Route path="/Gallery" element={<Gallery />} />
