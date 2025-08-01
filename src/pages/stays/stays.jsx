@@ -120,7 +120,19 @@ function Stays() {
 
           <div className={styles.cardContent}>
             <h2>Coller Cottage</h2>
-            <p>lorem Epsum</p>
+            <p className={styles.mainPara}>
+              There are many variations of passages of Lorem Ipsum available,
+              but the majority have suffered alteration in some form, by
+              injected humour, or randomised words which don't look even
+              slightly believable. If you are going to use a passage of Lorem
+              Ipsum, you need to be sure there isn't anything embarrassing
+              hidden in the middle of text. All the Lorem Ipsum generators on
+              the Internet tend to repeat predefined chunks as necessary, making
+              this the first true generator on the Internet.
+            </p>
+            <p className={styles.mobilePara}>
+              There are many variations of passages of Lorem Ipsum available.
+            </p>
             <p>
               <b>Cost: ₹1,500 /-</b>
             </p>
@@ -129,6 +141,7 @@ function Stays() {
 
           <img src={ArrowImg} alt="arrow_img" className={styles.arrow_img} />
         </div>
+
         <div className={styles.card2}>
           <svg width="0" height="0" xmlns="http://www.w3.org/2000/svg">
             <defs>
@@ -147,8 +160,20 @@ function Stays() {
           </svg>
 
           <div className={styles.cardContent}>
-            <h2>Luxry Camps with Cottage and Attach Washrooom</h2>
-            <p>lorem Epsum</p>
+            <h2>Luxry Camps with Cottage</h2>
+            <p className={styles.mainPara}>
+              There are many variations of passages of Lorem Ipsum available,
+              but the majority have suffered alteration in some form, by
+              injected humour, or randomised words which don't look even
+              slightly believable. If you are going to use a passage of Lorem
+              Ipsum, you need to be sure there isn't anything embarrassing
+              hidden in the middle of text. All the Lorem Ipsum generators on
+              the Internet tend to repeat predefined chunks as necessary, making
+              this the first true generator on the Internet.
+            </p>
+            <p className={styles.mobilePara}>
+              There are many variations of passages of Lorem Ipsum available.
+            </p>
             <p>
               <b>Cost: ₹1,500 /-</b>
             </p>
@@ -166,6 +191,7 @@ function Stays() {
 
           <img src={ArrowImg} alt="arrow_img" className={styles.arrow_img} />
         </div>
+
         <div className={styles.card1}>
           <svg width="0" height="0" xmlns="http://www.w3.org/2000/svg">
             <defs>
@@ -194,7 +220,19 @@ function Stays() {
 
           <div className={styles.cardContent}>
             <h2>A.C Cottage</h2>
-            <p>lorem Epsum</p>
+            <p className={styles.mainPara}>
+              There are many variations of passages of Lorem Ipsum available,
+              but the majority have suffered alteration in some form, by
+              injected humour, or randomised words which don't look even
+              slightly believable. If you are going to use a passage of Lorem
+              Ipsum, you need to be sure there isn't anything embarrassing
+              hidden in the middle of text. All the Lorem Ipsum generators on
+              the Internet tend to repeat predefined chunks as necessary, making
+              this the first true generator on the Internet.
+            </p>
+            <p className={styles.mobilePara}>
+              There are many variations of passages of Lorem Ipsum available.
+            </p>
             <p>Cost: ₹1,500 /-</p>
             <button>Book Now</button>
           </div>
