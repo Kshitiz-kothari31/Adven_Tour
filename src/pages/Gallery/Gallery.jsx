@@ -20,8 +20,8 @@ const Gallery = () => {
 
   const [selectedImage, setSelectedImage] = useState(null);
   return (
-    <section className='bg-[#ffffff]  md:pt-30'>
-        {/* 1st section */}
+    <section className=' bg-gradient-to-r from-[#ffffff] to-[#f1daff] pt-20 josefin-sans'>
+        {/* 1st section */}        
         <div className="  w-full max-w-7xl mx-auto px-4 py-10 flex flex-col md:flex-row items-center md:items-start justify-between gap-10 -mt-15">
 
         {/* 🔵 Left Text */}
@@ -32,7 +32,7 @@ const Gallery = () => {
             animate={{ width: '100%' }}
             transition={{ duration: 3, ease: 'easeInOut' }}
           >
-            Lorem Ipsum is <br /> simply dummy <br /> text of the
+            Dive into the <br /> Thrill of Adventure <br /> in Rishikesh
           </motion.h1>
 
           <motion.p
@@ -41,7 +41,7 @@ const Gallery = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
           >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis deserunt obcaecati nobis accusamus eum quae quam tempora reprehenderit minus necessitatibus.
+            Experience the ultimate adrenaline rush with white-water rafting, bungee jumping, kayaking, and trekking in the heart of Rishikesh. Whether you're chasing rapids or scaling trails, every moment here is packed with energy, nature, and unforgettable memories.
           </motion.p>
 
           <div className="flex flex-row flex-wrap items-center justify-center md:justify-start gap-4">
@@ -54,7 +54,7 @@ const Gallery = () => {
               <span className="relative z-10">Book Now 🚀</span>
             </motion.button>
 
-            {/* 🖼️ View Gallery Button with emoji */}
+            {/* 🖼️ View Gallery Button */}
             <motion.button
               onClick={() => {
                 const el = document.getElementById("gallery");
@@ -66,7 +66,6 @@ const Gallery = () => {
               <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-yellow-400 to-pink-500 opacity-0 group-hover:opacity-100 blur-md transition duration-700 scale-125"></span>
               <span className="relative z-10">View Gallery 🖼️</span>
             </motion.button>
-
           </div>
         </div>
 
@@ -116,99 +115,87 @@ const Gallery = () => {
 
         {/* 📍 Scroll Target (bottom) */}
         <div ref={bottomRef} className="h-[300px] w-full bg-transparent" />
-
+        
         {/* 2nd section */}
         <motion.div
-          className="relative h-auto bg-[#F1EFEC] -mt-50 px-4 py-10"
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 1 }}
+          className="max-w-5xl mx-auto -mt-60 px-4 py-6"
+        >
+          <p className="text-lg md:text-xl text-gray-800 leading-relaxed text-center">
+            Discover the pulse of Rishikesh through an unforgettable journey of adventure. From heart-racing <span className="text-blue-700 font-medium">white-water rafting</span> on the Ganges, scenic <span className="text-blue-700 font-medium">treks</span> through the Himalayas, thrilling <span className="text-blue-700 font-medium">kayaking</span> escapes, to the extreme rush of <span className="text-blue-700 font-medium">bungee jumping</span> — this gallery captures the raw beauty and adrenaline of nature and sport colliding in one epic destination.
+          </p>
+        </motion.div>
+
+        {/* VIDEO GALLERY SECTION */}
+        <motion.section
+          className="relative py-16 px-4 md:px-20"
+          id='bottomRef'
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          {/* Striped Background */}
-          <div className="absolute inset-0 bg-[repeating-linear-gradient(to right, rgba(0,0,0,0.05) 0, rgba(0,0,0,0.05) 1px, transparent 1px, transparent 80px)] pointer-events-none" />
+          {/* Background Stripes */}
+          <div className="absolute inset-0 bg-[repeating-linear-gradient(to right, rgba(0,0,0,0.03) 0, rgba(0,0,0,0.03) 1px, transparent 1px, transparent 80px)] pointer-events-none z-0" />
 
-          <div className="relative z-10 max-w-7xl mx-auto text-center space-y-8">
+          {/* Content Wrapper */}
+          <div className="relative z-10 max-w-7xl mx-auto text-center space-y-10">
             {/* Heading */}
             <motion.h2
-              className="text-3xl md:text-5xl font-josefin font-semibold"
+              className="text-3xl sm:text-4xl md:text-5xl font-semibold font-josefin text-black"
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ duration: 0.6 }}
             >
-              Lorem Ipsum
+              Experience the Adventure
             </motion.h2>
 
-            {/* Images */}
+            {/* Video Grid */}
             <motion.div
-              className="flex flex-wrap justify-center gap-4 md:gap-6"
+              className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.7, delay: 0.4 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
             >
-              {[pic1, pic2, pic1, pic2].map((img, index) => (
-                <motion.img
+              {[
+                "https://videos.pexels.com/video-files/852382/852382-hd_1280_720_24fps.mp4",
+                "https://videos.pexels.com/video-files/2324274/2324274-uhd_2560_1440_25fps.mp4",
+                "https://videos.pexels.com/video-files/852382/852382-hd_1280_720_24fps.mp4",
+                "https://videos.pexels.com/video-files/2324274/2324274-uhd_2560_1440_25fps.mp4",
+                "https://videos.pexels.com/video-files/852382/852382-hd_1280_720_24fps.mp4",
+                "https://videos.pexels.com/video-files/2324274/2324274-uhd_2560_1440_25fps.mp4",
+              ].map((vid, index) => (
+                <motion.div
                   key={index}
-                  src={img}
-                  alt={`Gallery ${index + 1}`}
-                  className="w-36 h-36 md:w-52 md:h-52 rounded-3xl object-cover shadow-md"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ type: "spring", stiffness: 200 }}
-                />
+                  className="overflow-hidden rounded-2xl shadow-lg"
+                  whileHover={{ scale: 1.03 }}
+                  transition={{ type: "spring", stiffness: 150 }}
+                >
+                  <video
+                    src={vid}
+                    className="w-full h-52 md:h-64 object-cover rounded-2xl"
+                    muted
+                    autoPlay
+                    loop
+                    playsInline
+                  />
+                </motion.div>
               ))}
             </motion.div>
 
             {/* Paragraph */}
             <motion.p
-              className="text-sm md:text-base max-w-4xl mx-auto leading-relaxed font-josefin px-2"
+              className="text-sm md:text-base max-w-3xl mx-auto text-gray-700 font-josefin leading-relaxed px-2"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.6 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
             >
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-              industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-              scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged.
+              These real clips showcase our adventure experiences – live from Rishikesh’s whitewater. Play, paddle, and feel the adrenaline.
             </motion.p>
           </div>
-        </motion.div>
-
-        {/* 3rd section */}
-        <motion.div
-          className="relative mt-16 h-auto md:h-[50vh] flex items-center justify-center bg-[#e0d0c5] text-black px-4 py-12 md:py-0"
-          initial={{ opacity: 0, y: 80 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          viewport={{ once: true }}
-        >
-          {/* Striped Background */}
-          <div className="absolute inset-0 bg-[repeating-linear-gradient(to right, rgba(0,0,0,0.05) 0, rgba(0,0,0,0.05) 1px, transparent 1px, transparent 80px)] pointer-events-none" />
-
-          <div className="relative z-10 text-center max-w-3xl space-y-6 font-josefin">
-            {/* Crazy Heading */}
-            <motion.h1
-              className="text-3xl md:text-5xl font-semibold"
-              initial={{ y: -100, rotate: -15, scale: 0.8, opacity: 0 }}
-              animate={{ y: 0, rotate: 0, scale: 1, opacity: 1 }}
-              transition={{ type: "spring", stiffness: 120, damping: 10, delay: 0.3 }}
-            >
-              Lorem Ipsum
-            </motion.h1>
-
-            {/* Animated Paragraph */}
-            <motion.p
-              className="text-base md:text-lg leading-relaxed"
-              initial={{ y: 40, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ type: "spring", bounce: 0.4, duration: 1, delay: 0.5 }}
-            >
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. <br />
-              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took
-              a galley of type and scrambled it to make a type specimen book. <br />
-              It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged
-            </motion.p>
-          </div>
-        </motion.div>
+        </motion.section>
 
         {/* 4TH section */}
         <div className="w-full px-4 mt-15 py-10 md:py-20 overflow-hidden josefin-sans">
@@ -430,9 +417,9 @@ const Gallery = () => {
         </section>
 
       <Form
-        boxClass="bg-[#FFF9E5]"
+        boxClass="bg-gradient-to-l from-[#ffffff] to-[#f1daff]"
         headingClass="text-[#000000]"
-        buttonClass="bg-[#DCD0A8] hover:bg-[#DCD0A8]"
+        buttonClass="bg-[#DCD0A8] hover:bg-[#f1daff]"
         focusClass="focus:outline-[#00786F]"
       />
     </section>

@@ -77,7 +77,7 @@ useEffect(() => {
   };
 
   return (
-    <section >
+    <section className='josefin-sans'  >
       {/* 1 section */}
       <motion.div
             className="relative w-full h-[90vh] overflow-hidden font-josefin"
@@ -148,43 +148,28 @@ useEffect(() => {
 
             {/* 🌊 Bottom SVG Wave */}
             <motion.div
-              className="absolute -bottom-[1px] left-0 w-full overflow-hidden leading-[0] z-40"
+              className="absolute -bottom-[2px] left-0 w-full z-50 pointer-events-none"
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.5, duration: 1 }}
             >
               <svg
-                className="block w-full h-[100px] pointer-events-none"
+                className="block w-full h-[100px]"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 1440 320"
                 preserveAspectRatio="none"
               >
-              <path
-                fill="#E0F7FA "
-                d="M0,224 C360,100 1080,340 1440,160 L1440,320 L0,320 Z"
-              />
+                <path
+                  fill="#E0F7FA"
+                  d="M0,224 C360,100 1080,340 1440,160 L1440,320 L0,320 Z"
+                />
               </svg>
             </motion.div>
 
-            {/* 📜 Ripple Animation CSS */}
-            <style>
-              {`
-                @keyframes rippleZoom {
-                  0% { transform: scale(1.02); }
-                  50% { transform: scale(1.05); }
-                  100% { transform: scale(1.02); }
-                }
-
-                .animate-ripple {
-                  animation: rippleZoom 10s ease-in-out infinite;
-                }
-              `}
-            </style>
       </motion.div>
 
       {/* ⬇️ Drop Button Between Sections */}
-      <div className="w-full bg-[#E0F7FA] hidden md:flex justify-center -mt-6 md:mt-0 z-20 relative">
-
+      <div className="w-full bg-[#E0F7FA] hidden md:flex justify-center mt-0 pt-4 z-50 relative">
         <motion.button
           whileHover={{
             scale: 1.2,

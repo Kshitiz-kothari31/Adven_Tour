@@ -131,7 +131,7 @@ const ImageSliderBox = () => {
           preserveAspectRatio="none"
         >
           <path
-            fill="#ffffff"
+            fill="bg-gradient-to-r from-[#fafafa] to-[#DBFCE7]"
             d="M0,224 C360,100 1080,340 1440,160 L1440,320 L0,320 Z"
           />
         </svg>
@@ -191,147 +191,149 @@ function Trek() {
   ];
 
   return (
-    <div >
+    <div className="bg-gradient-to-r from-[#fafafa] to-[#DBFCE7] josefin-sans ">
     {/*1st Hero Section */}
-      <ImageSliderBox/>
+    <ImageSliderBox/>
 
     {/* 3nd para senction */}
-      <section className="relative text-center pt-24 pb-16 px-4 sm:px-8 md:px-16 lg:px-24 josefin-sans bg-transparent overflow-hidden">
+    <section className="relative text-center pt-24 pb-16 px-4 sm:px-8 md:px-16 lg:px-24 josefin-sans bg-transparent overflow-hidden">
 
-        {/* 🌟 Subtle Glow Background */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.25 }}
-          transition={{ duration: 1.5, ease: "easeOut" }}
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-teal-200/30 rounded-full blur-[140px] z-0"
-        />
+      {/* 🌟 Subtle Glow Background */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.25 }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-teal-200/30 rounded-full blur-[140px] z-0"
+      />
 
-        {/* 💬 Heading */}
-        <motion.h2
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.1 }}
-          viewport={{ once: true }}
-          className="relative z-10 text-3xl sm:text-4xl md:text-5xl font-bold text-teal-800 mb-6"
-        >
-          Come Join Us For the Ultimate Trekking Adventure.
-        </motion.h2>
+      {/* 💬 Heading */}
+      <motion.h2
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1.1 }}
+        viewport={{ once: true }}
+        className="relative z-10 text-3xl sm:text-4xl md:text-5xl font-bold text-teal-800 mb-6"
+      >
+        Come Join Us For the Ultimate Trekking Adventure.
+      </motion.h2>
 
-        {/* 📜 Sub Text */}
-        <motion.p
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="relative z-10 text-gray-700 max-w-3xl mx-auto text-base sm:text-lg leading-relaxed"
-        >
-          Discover epic trails, expert tips, and inspiring stories to fuel your next
-          mountain adventure. Whether you're a beginner or a pro, we help you reach
-          new heights with confidence.
-        </motion.p>
-      </section>
+      {/* 📜 Sub Text */}
+      <motion.p
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.2 }}
+        viewport={{ once: true }}
+        className="relative z-10 text-gray-700 max-w-3xl mx-auto text-base sm:text-lg leading-relaxed"
+      >
+        Discover epic trails, expert tips, and inspiring stories to fuel your next
+        mountain adventure. Whether you're a beginner or a pro, we help you reach
+        new heights with confidence.
+      </motion.p>
+    </section>
 
     {/* 4th Section - Trek Cards List (Responsive, Clean, Optimized) */}
-      <section className="space-y-16 px-4 sm:px-10 md:px-16 lg:px-24 xl:px-32 py-20 bg-transparent">
-          {treks.map((trek, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: i * 0.2 }}
-              viewport={{ once: true }}
-              className={`mx-auto max-w-5xl flex flex-col md:flex-row items-center md:items-stretch justify-between gap-8 p-6 md:p-8 rounded-2xl min-h-[320px] backdrop-blur-md shadow-lg transition-all duration-300 ${
-                trek.bg
-              } ${trek.border ? "border-2 border-teal-800" : ""}`}
-            >
-              {/* 🖼️ Image Section */}
-              <div className="w-full md:w-[45%] flex justify-center items-center relative overflow-hidden">
-                  {/* Custom dual image logic per index */}
-                  {(() => {
-                    const imgCommonClass =
-                      "absolute w-40 h-28 sm:w-44 sm:h-32 object-cover rounded-xl bg-white shadow-xl";
-                    const imgProps = [
-                      {
-                        className: "top-0 left-0 border-pink-500 z-10",
-                        motion: { x: -20, rotate: -5 },
-                      },
-                      {
-                        className: "bottom-0 right-0 border-teal-500 z-0",
-                        motion: { x: 20, rotate: 5, delay: 0.1 },
-                      },
-                    ];
-                    return (
-                      <div className="relative w-[240px] h-[200px]">
-                        {trek.images.map((img, idx) => (
-                          <motion.img
-                            key={idx}
-                            src={img}
-                            alt={`Trek ${i + 1}-${idx + 1}`}
-                            initial={{ opacity: 0, ...(imgProps[idx].motion || {}) }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            whileHover={{ scale: 1.05 }}
-                            transition={{ duration: 0.8, delay: imgProps[idx].motion?.delay || 0 }}
-                            className={`${imgCommonClass} border-[3px] ${imgProps[idx].className}`}
-                          />
-                        ))}
-                      </div>
-                    );
-                  })()}
+    <section className="space-y-16 px-4 sm:px-10 md:px-16 lg:px-24 xl:px-32 py-20 bg-transparent">
+      {treks.map((trek, i) => (
+        <motion.div
+          key={i}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: i * 0.2 }}
+          viewport={{ once: true }}
+          className={`mx-auto max-w-5xl flex flex-col md:flex-row items-center md:items-stretch justify-between gap-8 p-6 md:p-8 rounded-2xl min-h-[320px] backdrop-blur-md shadow-lg transition-all duration-300 ${
+            trek.bg
+          } ${trek.border ? "border-2 border-teal-800" : ""}`}
+        >
+          {/* 🖼️ Image Section */}
+          <div className="w-full md:w-[45%] flex justify-center items-center relative overflow-hidden">
+            {/* Custom dual image logic per index */}
+            {(() => {
+              const imgCommonClass =
+                "absolute w-40 h-28 sm:w-44 sm:h-32 object-cover rounded-xl bg-white shadow-md border border-gray-200";
+              const imgProps = [
+                {
+                  className: "top-0 left-0 z-10",
+                  motion: { x: -20, rotate: -5 },
+                },
+                {
+                  className: "bottom-0 right-0 z-0",
+                  motion: { x: 20, rotate: 5, delay: 0.1 },
+                },
+              ];
+              return (
+                <div className="relative w-[240px] h-[200px]">
+                  {trek.images.map((img, idx) => (
+                    <motion.img
+                      key={idx}
+                      src={img}
+                      alt={`Trek ${i + 1}-${idx + 1}`}
+                      initial={{ opacity: 0, ...(imgProps[idx].motion || {}) }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.8, delay: imgProps[idx].motion?.delay || 0 }}
+                      className={`${imgCommonClass} ${imgProps[idx].className}`}
+                    />
+                  ))}
                 </div>
-              {/* 📄 Text Section */}
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.7 }}
-                viewport={{ once: true }}
-                className="w-full md:w-[55%] flex flex-col justify-center text-left space-y-4 mt-4 md:mt-0"
+              );
+            })()}
+          </div>
+
+          {/* 📄 Text Section */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+            className="w-full md:w-[55%] flex flex-col justify-center text-left space-y-4 mt-4 md:mt-0"
+          >
+            <motion.h3
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-2xl font-semibold text-gray-900"
+            >
+              {trek.title}
+            </motion.h3>
+
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-gray-700 text-sm sm:text-base leading-relaxed"
+            >
+              {trek.desc}
+            </motion.p>
+
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="font-bold text-gray-900 text-sm sm:text-base"
+            >
+              Cost : {trek.cost}
+            </motion.p>
+
+            <motion.div
+              whileHover={{ scale: 1.08 }}
+              whileTap={{ scale: 0.95 }}
+              className="w-fit"
+            >
+              <Link
+                to={trek.link}
+                className="mt-2 inline-block px-5 py-2 text-sm sm:text-base bg-teal-800 text-white rounded-full hover:bg-teal-700 transition-all duration-300 shadow-md"
               >
-                <motion.h3
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6 }}
-                  className="text-2xl font-semibold text-gray-900"
-                >
-                  {trek.title}
-                </motion.h3>
-
-                <motion.p
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.1 }}
-                  className="text-gray-700 text-sm sm:text-base leading-relaxed"
-                >
-                  {trek.desc}
-                </motion.p>
-
-                <motion.p
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.15 }}
-                  className="font-bold text-gray-900 text-sm sm:text-base"
-                >
-                  Cost : {trek.cost}
-                </motion.p>
-                <motion.div
-                  whileHover={{ scale: 1.08 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="w-fit"
-                >
-                  <Link
-                    to={trek.link}
-                    className="mt-2 inline-block px-5 py-2 text-sm sm:text-base bg-teal-800 text-white rounded-full hover:bg-teal-700 transition-all duration-300 shadow-md"
-                  >
-                    More Details
-                  </Link>
-                </motion.div>
-              </motion.div>
+                More Details
+              </Link>
             </motion.div>
-          ))}
-      </section>
+          </motion.div>
+        </motion.div>
+      ))}
+    </section>
+
 
     {/* 5th guide section */}
       <GuideScrolle/>
-
       <Form
         boxClass="bg-[#DBFCE7]"
         headingClass="text-[#00786F]"

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import  { useRef, useState } from 'react';
 import Form from '../.././components/form/Form'
 import './Zipline.css'
 import pic1 from '../../assets/images/Home/download.jpeg'
@@ -12,9 +13,24 @@ const scrollToBottom = () => {
     behavior: 'smooth',
   });
 };
+  const videoRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(true);
+
+  const togglePlayback = () => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (video.paused) {
+      video.play();
+      setIsPlaying(true);
+    } else {
+      video.pause();
+      setIsPlaying(false);
+    }
+  };
 
   return (
-    <div className="w-full  ">
+    <div className="w-full bg-gradient-to-r from-[#fafafa] to-[#FFF5E4] josefin-sans">
 
       {/* Hero Section */}
       <div className="relative w-full flex flex-col items-center justify-center text-center px-4 pt-20 pb-32 animated-gradient">
@@ -46,7 +62,7 @@ const scrollToBottom = () => {
 
         {/* ✨ Animated Heading */}
         <motion.h1
-          className="text-5xl md:text-6xl font-light text-white drop-shadow-sm mb-6 leading-tight relative z-10"
+          className="text-5xl md:text-6xl font-bold text-white drop-shadow-sm mb-6 leading-tight relative z-10"
           initial={{ y: -60, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -56,12 +72,14 @@ const scrollToBottom = () => {
 
         {/* ✨ Animated Paragraph */}
         <motion.p
-          className="max-w-2xl text-white text-sm md:text-base mb-8 relative z-10"
+          className="max-w-3xl text-white text-2xl md:text-2xl font-medium mb-8 leading-relaxed relative z-10"
           initial={{ y: -40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
         >
-Feel the wind rush past you as you zip over emerald forests and the roaring Ganga in Shivpuri, Rishikesh. Adrenaline meets awe in every second.
+          Feel the wind rush past you as you zip over emerald forests and the roaring Ganga in Shivpuri, Rishikesh.
+          <br className="hidden md:block" />
+          <span className="text-teal-400 font-semibold">Adrenaline meets awe</span> in every second.
         </motion.p>
 
         {/* 🚀 Book Now Button */}
@@ -102,8 +120,8 @@ Feel the wind rush past you as you zip over emerald forests and the roaring Gang
       </div>
 
       {/* Mid Section */}
-      <div className="relative bg-[#FFF5E4]  w-full px-6 py-40  overflow-hidden">
-        {/* ✅ Left Trapezoid - only slide in */}
+      <div className="relative w-full px-6 py-40 overflow-hidden font-josefin">
+        {/* Left Trapezoid */}
         <motion.div
           className="absolute -left-24 top-[10%] w-[80vw] max-w-[550px] h-[300px] z-0 opacity-20 blur-sm"
           style={{
@@ -121,7 +139,7 @@ Feel the wind rush past you as you zip over emerald forests and the roaring Gang
           viewport={{ once: true }}
         />
 
-        {/* ✅ Right Trapezoid - slide in + giggle */}
+        {/* Right Trapezoid */}
         <motion.div
           className="absolute -right-24 bottom-[10%] w-[80vw] max-w-[550px] h-[300px] z-0 opacity-20 blur-sm"
           style={{
@@ -152,9 +170,9 @@ Feel the wind rush past you as you zip over emerald forests and the roaring Gang
           viewport={{ once: true }}
         />
 
-        {/* ✅ Content */}
+        {/* Paragraphs Section */}
         <div className="relative z-10 max-w-6xl mx-auto space-y-24">
-          {/* Paragraph 1 - Slide In Left */}
+          {/* Zipline / Paragliding */}
           <motion.div
             className="text-left w-full md:w-[70%]"
             initial={{ x: -100, opacity: 0 }}
@@ -162,15 +180,12 @@ Feel the wind rush past you as you zip over emerald forests and the roaring Gang
             transition={{ duration: 0.7, ease: "easeOut" }}
             viewport={{ once: true }}
           >
-            <p className="text-gray-800 text-base md:text-lg leading-relaxed">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-              when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-              It has survived not only five centuries, but also the leap into electronic typesetting.
+            <p className="text-gray-800 text-lg md:text-xl leading-relaxed font-medium">
+              Soar through the skies with an electrifying <span className="text-teal-600 font-bold">zipline</span> across the majestic Ganga or experience the thrill of <span className="text-teal-600 font-bold">paragliding</span> over the lush Himalayan foothills. Rishikesh offers you adrenaline from the sky, with panoramic views that’ll leave you breathless.
             </p>
           </motion.div>
 
-          {/* Paragraph 2 - Slide In Right */}
+          {/* Rafting / Rishikesh Vibe */}
           <motion.div
             className="text-right w-full md:w-[70%] ml-auto"
             initial={{ x: 100, opacity: 0 }}
@@ -178,18 +193,78 @@ Feel the wind rush past you as you zip over emerald forests and the roaring Gang
             transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <p className="text-gray-800 text-base md:text-lg leading-relaxed">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              It has been the industry's standard dummy text ever since the 1500s,
-              when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-              It has survived not only five centuries, but also the leap into electronic typesetting.
+            <p className="text-gray-800 text-lg md:text-xl leading-relaxed font-medium">
+              Ride the wild rapids with <span className="text-teal-600 font-bold">white water rafting</span> that made Rishikesh a global thrill destination. From Grade I to Grade IV rapids, the Ganga challenges you to conquer it. Combine this with serene sunsets and a spiritual vibe that’s uniquely Rishikesh.
+            </p>
+          </motion.div>
+
+          {/* Accommodations / Local Experience */}
+          <motion.div
+            className="text-left w-full md:w-[70%]"
+            initial={{ x: -100, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.7, ease: "easeOut", delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-gray-800 text-lg md:text-xl leading-relaxed font-medium">
+              After your adventures, unwind in our cozy <span className="text-teal-600 font-bold">accommodations</span> ranging from riverside tents to boutique cottages. Wake up to the sound of the Ganga and fresh mountain air. The perfect mix of comfort and adventure in the heart of Rishikesh.
             </p>
           </motion.div>
         </div>
       </div>
 
+      {/* video section */}
+      <div className="relative w-full h-screen overflow-hidden flex items-center justify-center">
+        {/* 🔥 BACKGROUND GRADIENT GLOW */}
+        <div className="absolute inset-0 z-0">
+          {/* Layered blurred glows */}
+          <div className="absolute top-20 left-10 w-[300px] h-[300px] bg-cyan-400 rounded-full blur-[200px] opacity-30 animate-pulse" />
+          <div className="absolute bottom-20 right-10 w-[300px] h-[300px] bg-purple-500 rounded-full blur-[200px] opacity-30 animate-pulse" />
+        </div>
+
+        {/* 🔳 VIDEO CARD */}
+        <motion.div
+          className="relative z-10 w-[90%] h-[70vh] rounded-3xl overflow-hidden bg-white/10 border border-white/20 shadow-[0_0_60px_rgba(0,255,255,0.25)] backdrop-blur-xl"
+          initial={{ opacity: 0, scale: 1.1 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+        >
+          {/* ✨ Animated Border Pulse */}
+          <motion.div
+            className="absolute inset-0 rounded-3xl pointer-events-none border-2 border-cyan-300/50"
+            initial={{ opacity: 0.2 }}
+            animate={{ opacity: 0.6 }}
+            transition={{
+              duration: 2,
+              ease: "easeInOut",
+              repeat: Infinity,
+              repeatType: "reverse",
+            }}
+          />
+
+          {/* 🎥 Video */}
+          <video
+            ref={videoRef}
+            src="https://media.istockphoto.com/id/2151710894/video/exhilarating-mountain-zipline-adventure.mp4?s=mp4-640x640-is&k=20&c=0CGxR2rGeUoNS0EnqhQlman5iwQ412FojtCSsIdRcnE="
+            className="w-full h-full object-cover rounded-3xl"
+            autoPlay
+            muted
+            loop
+            playsInline
+          />
+
+          {/* 🎮 Play/Pause Button */}
+          <button
+            onClick={togglePlayback}
+            className="absolute bottom-4 right-4 bg-white/20 backdrop-blur-md hover:bg-white/30 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-xl border border-white/30 transition-all duration-200"
+          >
+            {isPlaying ? "Pause" : "Play"}
+          </button>
+        </motion.div>
+      </div>
+
       {/* 3rd Section */}
-      <section className="w-full bg-[#FFF5E4] px-4 py-16 sm:py-24 md:py-32 lg:py-40">
+      <section className="w-full px-4 py-16 sm:py-24 md:py-32 lg:py-40">
           <div className="mx-auto max-w-7xl flex flex-col-reverse lg:flex-row gap-14 lg:gap-20 items-center">
             {/* 📝 Text Content – slides in from left */}
             <motion.div
@@ -261,7 +336,7 @@ Experience the thrill of gliding over canopies, cliffs, and sparkling rivers. Ou
       </section>
         
       {/* 4th section */}
-      <div className=" px-6 bg-[#FFF5E4] py-12 md:py-20 md:px-20 font-sans text-gray-800 space-y-24">
+      <div className=" px-6 py-12 md:py-20 md:px-20 font-sans text-gray-800 space-y-24">
         {/* Zipline Section */}
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center"

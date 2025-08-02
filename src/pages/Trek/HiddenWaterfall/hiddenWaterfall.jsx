@@ -8,7 +8,7 @@ import styles from "./hiddenWaterfall.module.css";
 
 function HiddenWaterfall() {
   return (
-    <main>
+    <main className='josefin-sans' >
       <motion.section
         className="relative w-full h-[90vh] overflow-hidden font-josefin"
         initial={{ opacity: 0 }}
@@ -202,10 +202,11 @@ function HiddenWaterfall() {
               <img
                 src={img}
                 alt="Dayara Buyal Trek"
-                className="rounded-xl shadow-lg object-cover w-[300px] h-[300px] sm:w-[320px] sm:h-[320px] lg:w-[340px] lg:h-[340px]"
+                className="rounded-xl object-cover w-[300px] h-[300px] sm:w-[320px] sm:h-[320px] lg:w-[340px] lg:h-[340px]
+                          border-[4px] border-black shadow-[0_10px_25px_rgba(0,0,0,0.6)]"
               />
             </motion.div>
-          </div>
+            </div>
       </motion.section>
 
       <section className={styles.storySection}>

@@ -1,73 +1,149 @@
 import { style } from "framer-motion/client";
-import dropdownImg from "../../../assets/downArrow.png";
+import { motion } from "framer-motion";
+import ScrollDownButton from "../button";
 import img from "../../../assets/images/TrekMain/DayaraBuyalTrek.jpg";
 import img2 from "../../../assets/images/TrekMain/img2.svg";
 import styles from "./gomukhTrek.module.css";
+import Form from "../../../components/form/Form";
+import SpecialSection from '../points';
 
 function GomukhTrek() {
   return (
-    <main>
-      <section className={styles.firstSection}>
-        <div className={styles.firstSectionContent}>
-          <div className={styles.heroPageContent}>
-            <h1>Kedar Katha Trek</h1>
-            <p>
-              Discover epic trails, expert tips, and inspiring stories to fuel
-              your next mountain adventure Whether you're a beginner or a pro,
-              we help you reach new heights with confidence.
-            </p>
-            <button>Book Now</button>
-          </div>
-          <div className={styles.img}>
-            <svg>
-              <defs>
-                <clipPath id="clip-shape" clipPathUnits="userSpaceOnUse">
-                  <path d="M877.45 447.105C894.932 535.797 856.481 629.319 786.004 696.212C716.607 762.08 614.043 783.983 512.83 793.183C310.77 811.55 299.269 798.674 210.312 748.542C105.65 689.56 26.7613 580.557 7.26953 472.477C-13.8808 355.199 17.7354 261.165 105.835 169.223C196.519 74.5833 328.901 -18.23 466.232 4.03469C596.473 25.1499 572.27 96.7734 676.27 243.773C798.77 352.773 861.344 365.394 877.45 447.105Z" />
-                </clipPath>
-              </defs>
-            </svg>
-          </div>
-        </div>
-      </section>
-      <div className={styles.bottomParagraph}>
-        <p>
-          Discover epic trails, expert tips, and inspiring stories to fuel your
-          next mountain adventure Whether you're a beginner or a pro, we help
-          you reach new heights with confidence.Discover epic trails, expert
-          tips, and inspiring stories to fuel your next mountain adventure
-          Whether you're a beginner or a pro, we help you reach new heights with
-          confidence.
-        </p>
-      </div>
+    <main className='josefin-sans' >
+      {/* first section */}
+      <motion.section
+        className="relative josefin-sans w-full h-[90vh] overflow-hidden font-josefin text-white snap-start"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.2 }}
+      >
+        {/* 🌄 Background Image with Smooth Zoom (parallax feel) */}
+        <motion.img
+          src="https://images6.alphacoders.com/676/thumb-1920-676755.jpg"
+          alt="Trek Adventure"
+          className="absolute w-full h-full object-cover z-10"
+          initial={{ scale: 1 }}
+          animate={{ scale: 1.1 }}
+          transition={{ duration: 20, ease: "linear" }}
+        />
 
-      <div className={styles.dropdownArrow}>
-        <img src={dropdownImg} />
-      </div>
+        {/* 🖤 Dark Overlay */}
+        <div className="absolute inset-0 bg-black/50 z-20" />
 
-      <section className={styles.secondSection}>
-        <h2>Come Join Us for the Ultimate Climbing Adventure</h2>
-        <p>
-          Discover epic trails, expert tips, and inspiring stories to fuel your
-          next mountain adventure. Whether you're a beginner or a pro, we help
-          you reach new heights with confidence.
-        </p>
-      </section>
+        {/* 📝 Text Content */}
+        <motion.div
+          className="relative z-30 flex flex-col items-center justify-center h-full px-6 text-center"
+          initial={{ opacity: 0, y: 80 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 0.5 }}
+        >
+          <motion.h1
+            className="text-4xl md:text-6xl font-bold leading-tight tracking-wider drop-shadow-lg"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1, duration: 1 }}
+          >
+            Into the Gaumukh Tapovan
+          </motion.h1>
 
-      <section className={styles.detailsSection}>
-        <img src={img} />
-        <div className={styles.details}>
-          <h2>Dayara Buyal Trek</h2>
-          <p>
-            {" "}
-            <b>Location :</b> Uttarkashi district, Uttarakhand <br />
-            <b>Altitude :</b> ~12,000 ft (3,658 m) <br />
-            <b>Duration :</b> 4 to 6 days <br />
-            <b>Difficulty :</b> Easy to Moderate <br />
-            <b>Base Camp :</b> Raithal or Natin village <br />
-            <b>Trek Distance :</b> ~21–24 km round trip
+          <motion.p
+            className="mt-4 text-lg md:text-xl max-w-xl text-white/90"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.4, duration: 1 }}
+          >
+            Trek deep into nature’s heart. Let the trails test your spirit.
+          </motion.p>
+
+          <motion.button
+            className="mt-8 px-6 py-3 rounded-xl bg-orange-600 hover:bg-orange-700 transition-all shadow-md border border-white/10"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Start the Journey
+          </motion.button>
+        </motion.div>
+
+        {/* 🏔️ Mountain silhouette with fixed background image */}
+        <div
+          className="absolute bottom-0 left-0 w-full h-28 bg-no-repeat bg-bottom bg-cover z-30 opacity-60"
+          style={{
+            backgroundImage:
+              "url('https://raw.githubusercontent.com/ajaymarathe/mountain-silhouettes/main/mountain-3.svg')",
+          }}
+        />
+
+        {/* 🌫️ Bottom gradient */}
+        <div className="absolute bottom-0 w-full h-32 bg-gradient-to-t from-black to-transparent z-20" />
+      </motion.section>
+
+      {/* drop button  */}
+      <ScrollDownButton  />
+
+      {/* 2nd section */}
+      <motion.section
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+        className="bg-[#fdfaf6] py-16 px-4 md:px-12 xl:px-28 font-josefin mt-24"
+      >
+        {/* Hero Heading */}
+        <div className="text-center mb-14 max-w-5xl mx-auto px-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-black mb-6">
+            Come Join Us for the Ultimate Climbing Adventure
+          </h2>
+          <p className="text-base md:text-lg lg:text-xl text-gray-800 leading-relaxed">
+            Discover epic trails, expert tips, and inspiring stories to fuel your next mountain adventure. Whether you're a beginner or a pro, we help you reach new heights with confidence.
           </p>
         </div>
-      </section>
+
+        {/* Trek Info Row */}
+        <div className="flex flex-col-reverse lg:flex-row items-start lg:items-center justify-between gap-4 max-w-screen-xl mx-auto">
+          {/* Left Text Block */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="flex-[1.5] text-black text-base md:text-lg lg:text-[22px] leading-relaxed mx-4 md:mx-6 mt-10"
+          >
+            <h3 className="text-2xl md:text-3xl font-bold underline mb-4">Gaumukh Trek</h3>
+            <p className="mb-2"><strong>Location :</strong> Uttarkashi district, Uttarakhand</p>
+            <p className="mb-2"><strong>Altitude :</strong> ~12,000 ft (3,658 m)</p>
+            <p className="mb-2"><strong>Duration :</strong> 4 to 6 days</p>
+            <p className="mb-2"><strong>Difficulty :</strong> Easy to Moderate</p>
+            <p className="mb-2"><strong>Base Camp :</strong> Raithal or Natin village</p>
+            <p className="mb-6"><strong>Trek Distance :</strong> ~21–24 km round trip</p>
+            <p className="mb-6 text-3xl"><strong>Cost :</strong> ₹7,999 /-</p>
+
+            {/* Book Now Button */}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="mt-4 px-6 py-3 bg-green-700 text-white rounded-xl text-center shadow-md hover:bg-green-800 transition-all duration-300"
+            >
+              Book Now
+            </motion.button>
+          </motion.div>
+
+          {/* Right Image */}
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 1 }}
+            className="flex-[1] flex justify-center mx-4 md:mx-6 mb-10 lg:mb-0"
+          >
+            <img
+              src={img}
+              alt="Dayara Buyal Trek"
+              className="rounded-xl object-cover w-[300px] h-[300px] sm:w-[320px] sm:h-[320px] lg:w-[340px] lg:h-[340px]
+                        border-[4px] border-black shadow-[0_10px_25px_rgba(0,0,0,0.6)]"
+            />
+          </motion.div>
+
+        </div>
+      </motion.section>
 
       <section className={styles.storySection}>
         <h2>
@@ -148,39 +224,8 @@ function GomukhTrek() {
         </div>
       </section>
 
-      <section className={styles.specialSection}>
-        <div className={styles.content}>
-          <h2>What Makes It Special</h2>
-          <ul>
-            <li>
-              <b>Meadows (Bugyals):</b> Vast alpine grasslands that feel almost
-              surreal{" "}
-            </li>
-            <li>
-              <b>Forests:</b> Walk through pine, oak, maple, and rhododendron
-              groves
-            </li>
-            <li>
-              <b>Panoramic Views:</b> Bandarpoonch, Kala Nag, Srikanth, and
-              Draupadi Ka Danda peaks
-            </li>
-            <li>
-              <b>All-Season Beauty:</b> Snow in winter, wildflowers in summer,
-              golden grass in autumn
-            </li>
-            <li>
-              <b>Peaceful Trails:</b> Unlike more crowded treks, Dayara offers
-              solitude and serenity, making it ideal for reflection and
-              reconnection with nature.
-            </li>
-            <li>
-              <b>Cultural Charm:</b> The base villages like Raithal and Barsu
-              offer a glimpse into Garhwali traditions, warm hospitality, and
-              even unique festivals like Butter Holi.
-            </li>
-          </ul>
-        </div>
-      </section>
+      {/* 5th section */}
+      <SpecialSection/>
 
       <section className={styles.VisitingTimeSection}>
         <div className={styles.visitingCard}>
@@ -193,6 +238,13 @@ function GomukhTrek() {
           </p>
         </div>
       </section>
+
+      <Form
+      boxClass="bg-[#DBFCE7]"
+      headingClass="text-[#00786F]"
+      buttonClass="bg-[#00786F] hover:bg-[#00786F]"
+      focusClass="focus:outline-[#00786F]"
+      />
     </main>
   );
 }

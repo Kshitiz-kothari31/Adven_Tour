@@ -4,45 +4,45 @@ import { motion, AnimatePresence } from "framer-motion";
 const items = [
   {
     id: 1,
-    name: "Switzerland",
-    description: "Glide past glaciers and alpine rivers.",
-    image: "https://images.unsplash.com/photo-1504446659705-07c22b96c3fd?q=80&w=1171&auto=format&fit=crop",
-    tag: "🏔️ Alpine Trek",
+    name: "Rafting",
+    description: "Ride roaring rapids and conquer wild Himalayan rivers.",
+    image: "https://images.unsplash.com/photo-1620641788421-1f4432fd6bbf?q=80&w=1170&auto=format&fit=crop",
+    tag: "🌊 River Thrill",
   },
   {
     id: 2,
-    name: "Finland",
-    description: "Chase the northern lights in snow-packed forests.",
-    image: "https://images.unsplash.com/photo-1492963060540-65e3aae73127?q=80&w=1112&auto=format&fit=crop",
-    tag: "❄️ Arctic Escape",
+    name: "Trekking",
+    description: "Ascend rugged trails and witness majestic summit views.",
+    image: "https://images.unsplash.com/photo-1500048993953-d23a436266cf?q=80&w=1170&auto=format&fit=crop",
+    tag: "🥾 Summit Quest",
   },
   {
     id: 3,
-    name: "Iceland",
-    description: "Explore volcanic rivers and wild terrain.",
-    image: "https://images.unsplash.com/photo-1519021228607-ef6e4c22d821?q=80&w=1170&auto=format&fit=crop",
-    tag: "🌋 Epic Terrain",
+    name: "Bungee Jumping",
+    description: "Freefall from dizzying heights in adrenaline-pumping leaps.",
+    image: "https://images.unsplash.com/photo-1594363324123-c3035c46980a?q=80&w=1170&auto=format&fit=crop",
+    tag: "🪂 Gravity Drop",
   },
   {
     id: 4,
-    name: "Australia",
-    description: "Outback rivers and waterfall adventures.",
-    image: "https://images.unsplash.com/photo-1533589374394-7a2ad76b0cd3?q=80&w=988&auto=format&fit=crop",
-    tag: "🦘 Wild Trails",
+    name: "Kayaking",
+    description: "Navigate twisting river bends and paddle through serenity.",
+    image: "https://images.unsplash.com/photo-1501854140801-50d01698950b?q=80&w=1170&auto=format&fit=crop",
+    tag: "🚣 River Drift",
   },
   {
     id: 5,
-    name: "Netherlands",
-    description: "Peaceful water routes & windmill views.",
-    image: "https://images.unsplash.com/photo-1617877730222-04e11fa96b91?q=80&w=1029&auto=format&fit=crop",
-    tag: "🚴 Scenic Ride",
+    name: "Zipline",
+    description: "Soar over forests and valleys with breathtaking speed.",
+    image: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=1170&auto=format&fit=crop",
+    tag: "⚡ Sky Glide",
   },
   {
     id: 6,
-    name: "Ireland",
-    description: "Mystical rivers & emerald landscapes.",
-    image: "https://i.ibb.co/RNkk6L0/img6.jpg",
-    tag: "🌿 Celtic Wild",
+    name: "Stays",
+    description: "Unwind in cozy cabins nestled in nature’s lap.",
+    image: "https://images.unsplash.com/photo-1505685296765-3a2736de412f?q=80&w=1170&auto=format&fit=crop",
+    tag: "🏕️ Nature Retreat",
   },
 ];
 
@@ -92,7 +92,7 @@ const ImageSlider = () => {
   };
 
   return (
-    <div className="w-full overflow-hidden relative" ref={sliderRef}>
+    <div className="w-full overflow-hidden relative josefin-sans" ref={sliderRef}>
       {/* Whitish blur gradients */}
       <div className="absolute top-0 w-full h-10 z-30 bg-gradient-to-b from-white/60 to-transparent blur-sm pointer-events-none" />
       <div className="absolute bottom-0 w-full h-10 z-30 bg-gradient-to-t from-white/60 to-transparent blur-sm pointer-events-none" />

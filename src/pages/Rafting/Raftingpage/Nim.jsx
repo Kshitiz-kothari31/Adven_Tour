@@ -77,15 +77,15 @@ useEffect(() => {
   };
 
   return (
-    <section >
+    <section className='josefin-sans'  >
       {/* 1 section */}
       <motion.div
-        className="relative  w-full h-[90vh] overflow-hidden bg-black font-josefin"
+        className="relative w-full h-[90vh] overflow-hidden font-josefin"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.5 }}
       >
-        {/* 🎥 Background Zoomed Image */}
+        {/* 🎥 Background Image */}
         <motion.img
           src={pic1}
           alt="Shivpuri to Nim Beach"
@@ -95,19 +95,21 @@ useEffect(() => {
           transition={{ duration: 5, ease: 'easeOut' }}
         />
 
-        {/* 🌫 Fog & Particles */}
+        {/* 🌫 Fog Layer */}
         <motion.div
           className="absolute inset-0 z-20 bg-[url('/fog.png')] bg-cover bg-center opacity-20 pointer-events-none"
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.2 }}
           transition={{ delay: 1, duration: 2 }}
         />
+
+        {/* ✨ Particle Layer */}
         <div className="absolute inset-0 z-20 bg-[url('/particles.gif')] bg-cover bg-center opacity-10 mix-blend-screen pointer-events-none" />
 
         {/* 🌌 Gradient Overlay */}
-        <div className="absolute inset-0 z-30 bg-gradient-to-br from-black/80 via-black/40 to-transparent" />
+        <div className="absolute inset-0 z-30 bg-gradient-to-br from-black/80 via-black/30 to-transparent pointer-events-none" />
 
-        {/* 🚣 Boat Image */}
+        {/* 🚣 Boat */}
         <motion.div
           className="absolute bottom-10 left-10 w-[140px] h-[90px] bg-[url('/boat-silhouette.png')] bg-contain bg-no-repeat z-40 opacity-70"
           initial={{ x: -100, opacity: 0 }}
@@ -115,37 +117,29 @@ useEffect(() => {
           transition={{ delay: 1.5, duration: 1.2 }}
         />
 
-        {/* 🧭 Content Section */}
+        {/* 📢 Text Content */}
         <motion.div
           className="absolute inset-0 flex items-center justify-start px-6 md:px-20 z-40"
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 1.2 }}
         >
-          <div className="text-left max-w-3xl">
-            {/* 🎬 Typing Text Animation */}
-            <h1
-              className="text-yellow-300 text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight drop-shadow-[0_4px_6px_rgba(0,0,0,0.4)] whitespace-nowrap overflow-hidden border-r-4 border-yellow-400 pr-2 animate-typing"
-            >
+          <div className="text-left max-w-3xl text-white">
+            <h1 className="text-yellow-300 text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight drop-shadow-[0_4px_6px_rgba(0,0,0,0.4)] whitespace-nowrap overflow-hidden border-r-4 border-yellow-400 pr-2 animate-typing">
               Shivpuri to Nim Beach
             </h1>
 
-            {/* 📍 Location + Rating */}
             <div className="flex items-center gap-3 mt-3">
               <span className="bg-yellow-400 text-black text-xs md:text-sm font-semibold px-3 py-1 rounded-full shadow">
                 📍 Uttarakhand, India
               </span>
-              <div className="flex gap-1 text-yellow-300 text-base md:text-lg">
-                ★ ★ ★ ★ ☆
-              </div>
+              <div className="flex gap-1 text-yellow-300 text-base md:text-lg">★ ★ ★ ★ ☆</div>
             </div>
 
-            {/* 🌊 Description */}
             <p className="text-white/80 mt-4 text-sm sm:text-base md:text-lg xl:text-xl max-w-xl leading-relaxed">
               A half-day rafting adventure packed with thrilling rapids, perfect for groups and families!
             </p>
 
-            {/* 🎯 CTA Button */}
             <motion.button
               whileHover={{
                 scale: 1.1,
@@ -159,75 +153,50 @@ useEffect(() => {
           </div>
         </motion.div>
 
-        {/* 🌊 Wavy SVG Bottom */}
+        {/* 🌊 Wave */}
         <motion.div
-          className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-40"
+          className="absolute bottom-[-1px] left-0 w-full overflow-hidden leading-[0] z-40"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.6, duration: 1 }}
         >
           <svg
-            className="block w-full h-[100px] pointer-events-none"
+            className="block w-full h-[100px]"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 1440 320"
             preserveAspectRatio="none"
           >
-          <path
-            fill="#E0F7FA"
-            d="M0,224 C360,100 1080,340 1440,160 L1440,320 L0,320 Z"
-          />
-
+            <path
+              fill="#E0F7FA"
+              d="M0,224 C360,100 1080,340 1440,160 L1440,320 L0,320 Z"
+            />
           </svg>
         </motion.div>
-
-        {/* 🔁 Animations */}
-        <style>
-          {`
-            @keyframes heroZoom {
-              0% { transform: scale(1.2); }
-              100% { transform: scale(1); }
-            }
-
-            .animate-heroZoom {
-              animation: heroZoom 12s ease-in-out forwards;
-            }
-
-            @keyframes typing {
-              from { width: 0 }
-              to { width: 100% }
-            }
-
-            .animate-typing {
-              animation: typing 3s steps(30, end) 1 forwards;
-              overflow: hidden;
-            }
-          `}
-        </style>
       </motion.div>
+
 
       {/* ⬇️ Drop Button Between Sections */}
       <div className="w-full bg-[#E0F7FA] hidden md:flex justify-center -mt-6 md:mt-0 z-20 relative">
-
-              <motion.button
-                whileHover={{
-                  scale: 1.2,
-                  rotate: [0, 10, -10, 10, 0],
-                  transition: { duration: 0.6 },
-                }}
-                onClick={scrollToSecondSection}
-                className="border-2 text-black p-3 px-5 rounded-full shadow-xl hover:bg-yellow-300 hover:text-black transition-all duration-300 animate-bounce"
-                style={{
-                  clipPath: 'polygon(25% 5%, 75% 5%, 95% 50%, 75% 95%, 25% 95%, 5% 50%)',
-                }}
-              >
-                <motion.div
-                  initial={{ scale: 0.8 }}
-                  animate={{ scale: 1 }}
-                  transition={{ duration: 1, ease: 'easeOut' }}
-                >
-                  <ChevronDown className="text-xl" />
-                </motion.div>
-              </motion.button>
+        <motion.button
+          whileHover={{
+            scale: 1.2,
+            rotate: [0, 10, -10, 10, 0],
+            transition: { duration: 0.6 },
+          }}
+          onClick={scrollToSecondSection}
+          className="border-2 text-black p-3 px-5 rounded-full shadow-xl hover:bg-yellow-300 hover:text-black transition-all duration-300 animate-bounce"
+          style={{
+            clipPath: 'polygon(25% 5%, 75% 5%, 95% 50%, 75% 95%, 25% 95%, 5% 50%)',
+          }}
+        >
+          <motion.div
+            initial={{ scale: 0.8 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 1, ease: 'easeOut' }}
+          >
+            <ChevronDown className="text-xl" />
+          </motion.div>
+        </motion.button>
       </div>
 
       {/* 🟫 2nd Section: Overview */}

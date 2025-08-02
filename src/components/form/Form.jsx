@@ -30,7 +30,7 @@ export default function Form({
       .catch((err) => console.error("Email error:", err));
   };
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 py-10 font-josefin">
+    <div className="min-h-screen flex items-center justify-center px-4 py-10 josefin-sans">
       <div className="max-w-6xl w-full grid md:grid-cols-2 gap-10
                       bg-white/20 backdrop-blur-md rounded-3xl shadow-2xl
                       border border-white/70 p-8 md:p-14">

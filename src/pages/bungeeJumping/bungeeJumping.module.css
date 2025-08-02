@@ -1,7 +1,7 @@
 main {
-  background-color: #f8f8f8;
-  height: 100%;
   width: 100%;
+  min-height: 100vh; 
+  scroll-behavior: smooth;
 }
 
 /* INFO: First section styling starts here 👇 */
@@ -44,29 +44,10 @@ main {
 }
 /* INFO: First section styling ends here ☝️ */
 
-/* INFO: Down Arrow icon code start here 👇 */
-.dropdownArrow {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: auto;
-  width: 100%;
-  margin-top: clamp(2rem, 8vw, 5rem);
-  margin-bottom: clamp(2rem, 8vw, 5rem);
-}
-
-.dropdownArrow img {
-  height: clamp(25px, 5vw, 50px);
-  width: clamp(25px, 5vw, 50px);
-  background-color: #f47302;
-  border-radius: 50%;
-  padding: clamp(5px, 1vw, 10px);
-}
-/* INFO: Down Arrow icon code ends here ☝️ */
-
 /* INFO: Second section code starts here 👇 */
 .secondSection {
   display: flex;
+  margin-top: 5%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -105,16 +86,6 @@ main {
 }
 /* INFO: Second section code ends here ☝️ */
 
-/* INFO: Divider section styling starts 👇 */
-.divider {
-  background-color: #00508d;
-  height: clamp(10px, 10vw, 50px);
-  width: 150%;
-  margin-top: clamp(2rem, 6vw, 8rem);
-  margin-bottom: clamp(2rem, 6vw, 8rem);
-  transform: rotate(-0.5deg);
-}
-/* INFO: Divider section styling ends ☝️ */
 
 /* INFO: Third Section styling starts here 👇 */
 .thirdSection {
@@ -257,141 +228,6 @@ main {
 
 /* INFO: Third Section styling ends here ☝️ */
 
-/* INFO: Fouth section styling starts here 👇 */
-.fouthSection {
-  height: auto;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: clamp(3rem, 5vw, 5rem);
-  padding: 5rem 0;
-}
-
-.fouthSection .topHeading {
-  border: 2px solid blue;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-family: "Josefin Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-  width: 75%;
-  gap: 1rem;
-}
-
-.topHeading h2 {
-  font-weight: 700;
-  text-decoration: underline;
-  font-size: 1.25rem;
-  font-size: clamp(
-    1.25rem,
-    1.0294117647058822rem + 1.1764705882352942vw,
-    2.5rem
-  );
-}
-
-.topHeading p {
-  font-size: 0.75rem;
-  font-size: clamp(
-    0.75rem,
-    0.5514705882352942rem + 1.0588235294117647vw,
-    1.875rem
-  );
-}
-
-.fouthSection .mainDiv {
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  overflow-x: auto;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  scroll-snap-type: x mandatory;
-  gap: 1rem;
-  margin-top: 1rem;
-  padding-left: clamp(2rem, 9vw, 7rem);
-  padding-right: clamp(2rem, 9vw, 7rem);
-}
-
-.fouthSection .mainDiv .videoCard {
-  width: 290px;
-  height: 300px;
-  flex-shrink: 0; /* Prevent cards from shrinking */
-  margin: 1rem;
-  position: relative;
-  border-radius: 20px;
-}
-
-.videoCard video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  border-radius: 20px;
-}
-
-.videoCard .overlayContent {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2;
-  color: white;
-  text-align: center;
-  padding: 0.5rem 1rem; /* optional for readability */
-  border-radius: 8px;
-  font-family: "Josefin Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-  width: 85%; /* 👈 makes it wider */
-  max-width: 260px;
-}
-
-.overlayContent h3 {
-  font-size: 0.9375rem;
-  font-size: clamp(
-    0.9375rem,
-    0.8020231213872833rem + 0.7225433526011561vw,
-    1.25rem
-  );
-}
-
-.overlayContent p {
-  font-size: 0.625rem;
-  font-size: clamp(
-    0.625rem,
-    0.48952312138728327rem + 0.7225433526011561vw,
-    0.9375rem
-  );
-}
-
-.playButton {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 3;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-}
-
-.playButton img {
-  width: 60px;
-  height: 60px;
-}
-
-/* INFO: Fouth section styling ends here ☝️ */
-
 @media (min-width: 993px) {
   .thirdSection .top {
     gap: clamp(80px, 15vw, 600px);
@@ -460,23 +296,7 @@ main {
 
   /* INFO: Fouth section styling starts here 👇 */
   /* INFO: Fourth section styling starts here 👇 */
-  .fouthSection .mainDiv {
-    justify-content: center;
-    gap: 0rem;
-    margin-top: 1rem;
-    padding-left: clamp(2rem, 10vw, 15rem);
-    padding-right: clamp(2rem, 10vw, 15rem);
-    overflow-x: hidden;
-  }
 
-  .fouthSection .mainDiv .videoCard {
-    width: clamp(250px, 20vw, 330px);
-    height: clamp(250px, 30vw, 550px);
-    flex-shrink: 0; /* Prevent cards from shrinking */
-    margin: 1rem;
-    position: relative;
-    border-radius: 20px;
-  }
 
   /* INFO: Fouth section styling ends here ☝️ */
 }

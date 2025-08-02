@@ -25,7 +25,7 @@ const guideData = [
 
 export default function GuideScroller() {
   return (
-    <div className="relative py-20 px-4 mt-10 md:px-10 xl:px-24 overflow-hidden bg-transparent">
+    <div className="relative py-20 px-4 mt-10 md:px-10 xl:px-24 overflow-hidden bg-transparent josefin-sans ">
       
       {/* 🧭 Section Heading */}
       <div className="mb-16 text-center">

@@ -1,5 +1,6 @@
 import { motion} from 'framer-motion';
 import { Link } from "react-router-dom";
+import HighlightsStats from './sample';
 import { useEffect , useState } from 'react';
 import Feedback from '../../components/Feedback';
 import img1 from '../../assets/images/Home/img1.png'
@@ -141,8 +142,26 @@ const ImageSliderBox = () => {
   );
 };
 const home = () => {
+  const cardVariants = {
+    initial: { opacity: 0, y: 50 },
+    animate: { opacity: 1, y: 0 },
+  };
+
+  const cards = [
+    { src: pic2, label: "Rafting", link: "/rafting" },
+    { src: pic1, label: "Trekking", link: "/trek" },
+    { src: pic2, label: "Bungee", link: "/bungee" },
+    { src: pic1, label: "Others", link: "/others" },
+  ];
+
+  const stays = [
+    { src: pic2, label: "Rafting", link: "/stays/rafting" },
+    { src: pic1, label: "Trekking", link: "/stays/trekking" },
+    { src: pic1, label: "Bungee", link: "/stays/bungee" },
+  ];
+
   return (
-    <section className='home'> 
+    <section className='home josein-sans bg-gradient-to-r from-[#ffffff] via-[#f6fbf9] to-[#e9f5f1]'> 
       {/* image section at top */}
       <ImageSliderBox />
 
@@ -207,7 +226,8 @@ const home = () => {
             <span className="font-semibold">Adventure Pulse</span> brings adrenaline to life with rafting, hiking, kayaking, and more — right from the scenic banks of the Ganga.
           </p>
           <p className="text-gray-700 leading-relaxed josefin-sans text-[1rem] hidden md:block">
-            <span className="font-semibold">Adventure Pulse</span> is your adventure base in Shivpuri, Rishikesh — a hotspot for thrill-seekers across India. From the roar of the Ganga beneath your raft to the chill of Himalayan trails beneath your boots, every moment is an experience.
+            <span className="font-semibold">Adventure Pulse</span> is your adventure base in Shivpuri, Rishikesh — a hotspot for thrill-seekers across India.
+            From the roar of the Ganga beneath your raft to the chill of Himalayan trails beneath your boots, every moment is an experience.
             Whether it's soaring from a bungee platform or zipping across lush valleys, our certified guides ensure it's all safe, wild, and unforgettable.
             <br /><br />
             Disconnect from the ordinary. Reconnect with the wild. Let's go.{" "}
@@ -243,105 +263,167 @@ const home = () => {
           ))}
         </motion.div>
       </motion.div>
+   
+      <HighlightsStats />
+
+      {/* video section */}
+      <motion.section
+        className="relative josefin-sans py-12 px-4 sm:px-6 md:px-10 lg:px-20"
+        id="bottomRef"
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        viewport={{ once: true }}
+      >
+        {/* Background Stripes */}
+        <div className="absolute inset-0 bg-[repeating-linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 80px)] pointer-events-none z-0" />
+
+        {/* Content Wrapper */}
+        <div className="relative z-10 max-w-6xl mx-auto text-center space-y-10">
+          {/* Heading */}
+          <motion.h2
+            className="text-2xl sm:text-3xl md:text-4xl font-semibold font-josefin text-black"
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            Experience the Adventure
+          </motion.h2>
+
+          {/* Video Grid */}
+          <motion.div
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+          >
+            {[
+              "https://videos.pexels.com/video-files/852382/852382-hd_1280_720_24fps.mp4",
+              "https://videos.pexels.com/video-files/2324274/2324274-uhd_2560_1440_25fps.mp4",
+              "https://videos.pexels.com/video-files/852382/852382-hd_1280_720_24fps.mp4",
+              "https://videos.pexels.com/video-files/2324274/2324274-uhd_2560_1440_25fps.mp4",
+              "https://videos.pexels.com/video-files/852382/852382-hd_1280_720_24fps.mp4",
+              "https://videos.pexels.com/video-files/2324274/2324274-uhd_2560_1440_25fps.mp4",
+            ].map((vid, index) => (
+              <motion.div
+                key={index}
+                className="overflow-hidden rounded-2xl shadow-md transition-all duration-300 hover:shadow-lg hover:scale-[1.02]"
+                whileHover={{ scale: 1.02 }}
+                transition={{ type: "spring", stiffness: 140 }}
+              >
+                <video
+                  src={vid}
+                  className="w-full h-48 sm:h-56 md:h-64 object-cover rounded-2xl"
+                  muted
+                  autoPlay
+                  loop
+                  playsInline
+                />
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Paragraph */}
+          <motion.p
+            className="text-sm sm:text-base max-w-2xl mx-auto text-gray-700 font-josefin leading-relaxed px-2"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+          >
+            These real clips showcase our adventure experiences – live from Rishikesh’s whitewater. Play, paddle, and feel the adrenaline.
+          </motion.p>
+        </div>
+      </motion.section>
 
       {/* Cards Section */}
-      <div className="py-16 px-4 md:px-10 xl:px-24 space-y-12">
-        {/* ───────────────── Packages ───────────────── */}
-        <div>
-          <h2 className="text-3xl font-semibold josefin-sans mb-6 text-center md:text-left">
-            Packages
-          </h2>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 josefin-sans">
-            {[
-              { src: pic2, label: "Rafting", link: "/rafting" },
-              { src: pic1, label: "Trekking", link: "/trek" },
-              { src: pic2, label: "Bungee", link: "/bungee" },
-              { src: pic1, label: "Others", link: "/others" },
-            ].map((item, index) => (
-              <motion.div
-                key={item.label}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.96 }}
-                transition={{ duration: 0.5, delay: index * 0.15 }}
-                viewport={{ once: true }}
-                className="group w-[80%] sm:w-full mx-auto"
-              >
-                <div className="flex flex-col items-center">
-                  <div className="relative rounded-xl overflow-hidden shadow-md w-full aspect-[4/2.5] sm:aspect-[3/4] bg-gray-100 transition-all duration-500 ease-in-out group-hover:shadow-xl">
-                    <motion.img
-                      src={item.src}
-                      alt={item.label}
-                      className="w-full h-full object-cover"
-                      whileHover={{ scale: 1.08 }}
-                      whileTap={{ scale: 0.96 }}
-                    />
-                    <Link to={item.link}>
-                      <motion.button
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                        className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-orange-300 text-black px-4 py-1 text-sm rounded-md shadow group-hover:bg-orange-400 cursor-pointer transition duration-300"
-                      >
-                        More
-                      </motion.button>
-                    </Link>
-                  </div>
-                  <p className="mt-2 font-bold text-lg">{item.label}</p>
+      <div className="py-16 px-4 md:px-10 xl:px-24 space-y-16">
+      {/* ───────────────── Packages ───────────────── */}
+      <div>
+        <h2 className="text-3xl font-semibold josefin-sans mb-6 text-center md:text-left">
+          Packages
+        </h2>
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+          {cards.map((item, index) => (
+            <motion.div
+              key={item.label}
+              variants={cardVariants}
+              initial="initial"
+              whileInView="animate"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.96 }}
+              transition={{ duration: 0.5, delay: index * 0.15 }}
+              viewport={{ once: true }}
+              className="group w-full max-w-[280px] mx-auto"
+            >
+              <div className="flex flex-col items-center">
+                <div className="relative rounded-xl overflow-hidden shadow-md w-full aspect-[5/4] bg-gray-100 transition-all duration-500 group-hover:shadow-xl">
+                  <motion.img
+                    src={item.src}
+                    alt={item.label}
+                    className="w-full h-full object-cover"
+                    whileHover={{ scale: 1.08 }}
+                    whileTap={{ scale: 0.96 }}
+                  />
+                  <Link to={item.link}>
+                    <motion.button
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                      className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-orange-300 text-black px-4 py-1 text-sm rounded-md shadow group-hover:bg-orange-400 transition duration-300"
+                    >
+                      More
+                    </motion.button>
+                  </Link>
                 </div>
-              </motion.div>
-            ))}
-          </div>
+                <p className="mt-2 font-bold text-lg">{item.label}</p>
+              </div>
+            </motion.div>
+          ))}
         </div>
+      </div>
 
-        {/* ───────────────── Stays ───────────────── */}
-        <div>
-          <h2 className="text-3xl font-semibold josefin-sans mb-6 text-center md:text-left">
-            Stays
-          </h2>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 josefin-sans">
-            {[
-              { src: pic2, label: "Rafting", link: "/stays/rafting" },
-              { src: pic1, label: "Trekking", link: "/stays/trekking" },
-              { src: pic1, label: "Bungee", link: "/stays/bungee" },
-            ].map((item, index) => (
-              <motion.div
-                key={item.label}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.96 }}
-                transition={{ duration: 0.5, delay: index * 0.15 }}
-                viewport={{ once: true }}
-                className="group w-[80%] sm:w-full mx-auto"
-              >
-                <div className="flex flex-col items-center">
-                  <div className="relative rounded-xl overflow-hidden shadow-md w-full aspect-[4/2.5] sm:aspect-[3/4] bg-gray-100 transition-all duration-500 ease-in-out group-hover:shadow-xl">
-                    <motion.img
-                      src={item.src}
-                      alt={item.label}
-                      className="w-full h-full object-cover"
-                      whileHover={{ scale: 1.08 }}
-                      whileTap={{ scale: 0.96 }}
-                    />
-                    <Link to={item.link}>
-                      <motion.button
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                        className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-orange-300 text-black px-4 py-1 text-sm rounded-md shadow group-hover:bg-orange-400 cursor-pointer transition duration-300"
-                      >
-                        More
-                      </motion.button>
-                    </Link>
-                  </div>
-                  <p className="mt-2 font-bold text-lg">{item.label}</p>
+      {/* ───────────────── Stays ───────────────── */}
+      <div>
+        <h2 className="text-3xl font-semibold josefin-sans mb-6 text-center md:text-left">
+          Stays
+        </h2>
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+          {stays.map((item, index) => (
+            <motion.div
+              key={item.label}
+              variants={cardVariants}
+              initial="initial"
+              whileInView="animate"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.96 }}
+              transition={{ duration: 0.5, delay: index * 0.15 }}
+              viewport={{ once: true }}
+              className="group w-full max-w-[280px] mx-auto"
+            >
+              <div className="flex flex-col items-center">
+                <div className="relative rounded-xl overflow-hidden shadow-md w-full aspect-[5/4] bg-gray-100 transition-all duration-500 group-hover:shadow-xl">
+                  <motion.img
+                    src={item.src}
+                    alt={item.label}
+                    className="w-full h-full object-cover"
+                    whileHover={{ scale: 1.08 }}
+                    whileTap={{ scale: 0.96 }}
+                  />
+                  <Link to={item.link}>
+                    <motion.button
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                      className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-orange-300 text-black px-4 py-1 text-sm rounded-md shadow group-hover:bg-orange-400 transition duration-300"
+                    >
+                      More
+                    </motion.button>
+                  </Link>
                 </div>
-              </motion.div>
-            ))}
-          </div>
+                <p className="mt-2 font-bold text-lg">{item.label}</p>
+              </div>
+            </motion.div>
+          ))}
         </div>
+      </div>
       </div>
 
       {/* image slider */}

@@ -36,12 +36,12 @@ const Rafting = () => {
   const dummyImages = Array(imageCount).fill(pic1);
 
   return (
-    <section>
+    <section className="bg-gradient-to-r from-[#fafafa] to-[#B2EBF2]  josefin-sans">
       {/* Background Image */}
       <AdventureAltHero/>
 
       {/* Second Section */}
-      <div className="bg-[#E0F7FA] py-20 px-4 md:px-20 xl:px-40 relative text-black overflow-hidden">
+      <div className="py-20 px-4 md:px-20 xl:px-40 relative text-black overflow-hidden">
         <motion.div
           onClick={scrollToSection}
           whileHover={{ scale: 1.2, rotate: 360 }}
@@ -277,7 +277,7 @@ const Rafting = () => {
       </div>
 
       {/* 6th section - Gallery */}
-      <div className="py-16  sm:mt-20  px-4 md:px-2 bg-[#E0F7FA]">
+      <div className="py-16  sm:mt-20  px-4 md:px-2  ">
         <h2 className="jolly-font text-3xl md:text-4xl font-bold text-center mb-12 font-josefin">
           Rafting Memories to Inspire You
         </h2>

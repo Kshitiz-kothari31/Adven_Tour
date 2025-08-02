@@ -16,7 +16,7 @@ const Expe = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
         viewport={{ once: true }}
-        className="bg-[#5656eb] hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 transition-all duration-700 py-6 px-6 text-white text-center font-josefin"
+        className="bg-[#5656eb] hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 transition-all duration-700 py-6 px-6 text-white text-center josefin-sans"
       >
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6">
           {stats.map((item, index) => (
