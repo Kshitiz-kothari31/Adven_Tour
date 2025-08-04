@@ -7,12 +7,12 @@ import pic2 from '../../assets/images/Home/download (5).jpeg'
 import Feedback from "../../components/Feedback";
 
 const Zipline = () => {
-const scrollToBottom = () => {
-  window.scrollTo({
-    top: document.documentElement.scrollHeight,
-    behavior: 'smooth',
-  });
-};
+  const scrollToBottom = () => {
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: "smooth",
+    });
+  };
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(true);
 
@@ -33,10 +33,17 @@ const scrollToBottom = () => {
     <div className="w-full bg-gradient-to-r from-[#fafafa] to-[#FFF5E4] josefin-sans">
 
       {/* Hero Section */}
-      <div className="relative w-full flex flex-col items-center justify-center text-center px-4 pt-20 pb-32 animated-gradient">
-
-        {/* 🔵 Animated Bubbles */}
-        {[...Array(12)].map((_, i) => (
+      <motion.section
+        className="relative w-full h-[100vh] flex flex-col items-center justify-center text-center px-4 sm:px-8 pt-20 pb-32 overflow-hidden bg-cover bg-center"
+        style={{
+          backgroundImage: `url(https://images.unsplash.com/photo-1664735094820-c6c40d862d5b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)`,
+        }}
+        initial={{ opacity: 0.3, scale: 0.98 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+      >
+        {/* 🔵 Floating Bubbles */}
+        {[...Array(10)].map((_, i) => (
           <motion.div
             key={i}
             className="absolute rounded-full bg-white opacity-10 blur-2xl"
@@ -60,64 +67,55 @@ const scrollToBottom = () => {
           />
         ))}
 
-        {/* ✨ Animated Heading */}
+        {/* 🧭 Title */}
         <motion.h1
-          className="text-5xl md:text-6xl font-bold text-white drop-shadow-sm mb-6 leading-tight relative z-10"
-          initial={{ y: -60, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-white text-4xl sm:text-6xl font-bold drop-shadow-lg leading-tight z-10"
+          initial={{ opacity: 0, y: -60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
         >
-          Soar High Above the Ganges
+          Soar Over the Forests of Rishikesh
         </motion.h1>
 
-        {/* ✨ Animated Paragraph */}
+        {/* 📜 Subtitle */}
         <motion.p
-          className="max-w-3xl text-white text-2xl md:text-2xl font-medium mb-8 leading-relaxed relative z-10"
-          initial={{ y: -40, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+          className="max-w-2xl text-lg sm:text-2xl text-white font-medium mt-6 mb-8 z-10"
+          initial={{ opacity: 0, y: -30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.3 }}
         >
-          Feel the wind rush past you as you zip over emerald forests and the roaring Ganga in Shivpuri, Rishikesh.
-          <br className="hidden md:block" />
-          <span className="text-teal-400 font-semibold">Adrenaline meets awe</span> in every second.
+          Experience the thrill of ziplining over lush valleys and mighty rivers in Shivpuri.
         </motion.p>
 
         {/* 🚀 Book Now Button */}
-        <motion.button 
-          className="relative px-10 py-3 sm:mt-9 text-white font-bold rounded-full shadow-xl
-                    bg-gradient-to-r from-orange-400 to-orange-500
-                    overflow-hidden transition-all duration-700 ease-in-out transform
-                    group hover:scale-110 hover:-rotate-1 z-10"
-          initial={{ y: -30, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
+        <motion.button
+          onClick={() => window.location.href = "/book-now"}
+          className="relative px-10 py-3 text-white font-bold rounded-full shadow-xl bg-gradient-to-r from-orange-400 to-orange-500 overflow-hidden transition-all duration-700 transform group hover:scale-110 hover:-rotate-1 z-10"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.6 }}
         >
-          <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent
-                          translate-x-[-100%] group-hover:translate-x-[200%]
-                          transition-transform duration-1000 ease-out blur-sm"></span>
-
-          <span className="absolute inset-0 w-full h-full bg-orange-400 rounded-full opacity-0
-                          group-hover:opacity-30 group-hover:scale-125 group-hover:blur-2xl
-                          transition-all duration-700"></span>
-
+          <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-out blur-sm"></span>
+          <span className="absolute inset-0 w-full h-full bg-orange-400 rounded-full opacity-0 group-hover:opacity-30 group-hover:scale-125 group-hover:blur-2xl transition-all duration-700"></span>
           <span className="relative z-10 tracking-wide group-hover:tracking-widest group-hover:animate-pulse">
             Book Now
           </span>
         </motion.button>
 
-        {/* ↓ Scroll Arrow */}
-        <div className="mt-12 sm:mt-18 z-10">
-          <button onClick={scrollToBottom} className="bg-orange-300 text-white p-4 rounded-full text-2xl shadow-lg
-                            transition-all duration-700
-                            hover:bg-orange-500 hover:rotate-[360deg] hover:scale-150
-                            hover:shadow-2xl hover:animate-bounce">
+        {/* ↓ Scroll Button */}
+        <div className="mt-12 z-10">
+          <motion.button
+            onClick={scrollToBottom}
+            className="bg-orange-300 text-white p-4 rounded-full text-2xl shadow-lg transition-all duration-700 hover:bg-orange-500 hover:rotate-[360deg] hover:scale-150 hover:shadow-2xl hover:animate-bounce"
+            whileHover={{ scale: 1.2 }}
+          >
             ↓
-          </button>
+          </motion.button>
         </div>
 
-        {/* Smooth fade bottom */}
+        {/* 🌄 Bottom Gradient */}
         <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-b from-transparent to-[#FFF5E4] z-10" />
-      </div>
+      </motion.section>
 
       {/* Mid Section */}
       <div className="relative w-full px-6 py-40 overflow-hidden font-josefin">
@@ -215,12 +213,6 @@ const scrollToBottom = () => {
 
       {/* video section */}
       <div className="relative w-full h-screen overflow-hidden flex items-center justify-center">
-        {/* 🔥 BACKGROUND GRADIENT GLOW */}
-        <div className="absolute inset-0 z-0">
-          {/* Layered blurred glows */}
-          <div className="absolute top-20 left-10 w-[300px] h-[300px] bg-cyan-400 rounded-full blur-[200px] opacity-30 animate-pulse" />
-          <div className="absolute bottom-20 right-10 w-[300px] h-[300px] bg-purple-500 rounded-full blur-[200px] opacity-30 animate-pulse" />
-        </div>
 
         {/* 🔳 VIDEO CARD */}
         <motion.div
@@ -229,18 +221,7 @@ const scrollToBottom = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, ease: "easeOut" }}
         >
-          {/* ✨ Animated Border Pulse */}
-          <motion.div
-            className="absolute inset-0 rounded-3xl pointer-events-none border-2 border-cyan-300/50"
-            initial={{ opacity: 0.2 }}
-            animate={{ opacity: 0.6 }}
-            transition={{
-              duration: 2,
-              ease: "easeInOut",
-              repeat: Infinity,
-              repeatType: "reverse",
-            }}
-          />
+
 
           {/* 🎥 Video */}
           <video

@@ -292,7 +292,7 @@ const home = () => {
 
           {/* Video Grid */}
           <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6"
+            className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-5"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
@@ -304,23 +304,38 @@ const home = () => {
               "https://videos.pexels.com/video-files/2324274/2324274-uhd_2560_1440_25fps.mp4",
               "https://videos.pexels.com/video-files/852382/852382-hd_1280_720_24fps.mp4",
               "https://videos.pexels.com/video-files/2324274/2324274-uhd_2560_1440_25fps.mp4",
-            ].map((vid, index) => (
-              <motion.div
-                key={index}
-                className="overflow-hidden rounded-2xl shadow-md transition-all duration-300 hover:shadow-lg hover:scale-[1.02]"
-                whileHover={{ scale: 1.02 }}
-                transition={{ type: "spring", stiffness: 140 }}
-              >
-                <video
-                  src={vid}
-                  className="w-full h-48 sm:h-56 md:h-64 object-cover rounded-2xl"
-                  muted
-                  autoPlay
-                  loop
-                  playsInline
-                />
-              </motion.div>
-            ))}
+            ].map((vid, index) => {
+              const funkyMobileClass = [
+                "rotate-3 -translate-x-2",
+                "-rotate-2 translate-y-1",
+                "rotate-1 translate-x-2",
+                "-rotate-1 -translate-y-1",
+                "rotate-2 translate-x-1",
+                "-rotate-3 translate-y-2",
+              ][index % 6];
+
+              const isBigMobile = index % 3 === 0; // every 3rd item wider on mobile
+              const colSpanClass = isBigMobile ? "col-span-2 sm:col-span-1" : "col-span-1";
+
+              return (
+                <motion.div
+                  key={index}
+                  className={`overflow-hidden rounded-2xl shadow-md transition-all duration-300 hover:shadow-lg hover:scale-[1.02]
+                    ${colSpanClass} sm:rotate-0 sm:translate-x-0 sm:translate-y-0 ${funkyMobileClass}`}
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ type: "spring", stiffness: 140 }}
+                >
+                  <video
+                    src={vid}
+                    className="w-full h-48 sm:h-56 md:h-64 object-cover rounded-2xl"
+                    muted
+                    autoPlay
+                    loop
+                    playsInline
+                  />
+                </motion.div>
+              );
+            })}
           </motion.div>
 
           {/* Paragraph */}
@@ -334,96 +349,96 @@ const home = () => {
           </motion.p>
         </div>
       </motion.section>
-
+         
       {/* Cards Section */}
-      <div className="py-16 px-4 md:px-10 xl:px-24 space-y-16">
-      {/* ───────────────── Packages ───────────────── */}
-      <div>
-        <h2 className="text-3xl font-semibold josefin-sans mb-6 text-center md:text-left">
-          Packages
-        </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-          {cards.map((item, index) => (
-            <motion.div
-              key={item.label}
-              variants={cardVariants}
-              initial="initial"
-              whileInView="animate"
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.96 }}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
-              viewport={{ once: true }}
-              className="group w-full max-w-[280px] mx-auto"
-            >
-              <div className="flex flex-col items-center">
-                <div className="relative rounded-xl overflow-hidden shadow-md w-full aspect-[5/4] bg-gray-100 transition-all duration-500 group-hover:shadow-xl">
-                  <motion.img
-                    src={item.src}
-                    alt={item.label}
-                    className="w-full h-full object-cover"
-                    whileHover={{ scale: 1.08 }}
-                    whileTap={{ scale: 0.96 }}
-                  />
-                  <Link to={item.link}>
-                    <motion.button
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                      className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-orange-300 text-black px-4 py-1 text-sm rounded-md shadow group-hover:bg-orange-400 transition duration-300"
-                    >
-                      More
-                    </motion.button>
-                  </Link>
+      <div className="py-16 px-4 md:px-10 xl:px-24 josefin-sans space-y-20">
+        {/* ───────────────── Packages ───────────────── */}
+        <div>
+          <h2 className="text-3xl font-semibold josefin-sans mb-6 text-center md:text-left">
+            Packages
+          </h2>
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10 justify-center">
+            {cards.map((item, index) => (
+              <motion.div
+                key={item.label}
+                variants={cardVariants}
+                initial="initial"
+                whileInView="animate"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.96 }}
+                transition={{ duration: 0.5, delay: index * 0.15 }}
+                viewport={{ once: true }}
+                className="group w-full"
+              >
+                <div className="flex flex-col items-center">
+                  <div className="relative rounded-xl overflow-hidden shadow-md w-full aspect-[5/4] bg-gray-100 transition-all duration-500 group-hover:shadow-xl">
+                    <motion.img
+                      src={item.src}
+                      alt={item.label}
+                      className="w-full h-full object-cover"
+                      whileHover={{ scale: 1.08 }}
+                      whileTap={{ scale: 0.96 }}
+                    />
+                    <Link to={item.link}>
+                      <motion.button
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                        className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-orange-300 text-black px-4 py-1 text-sm rounded-md shadow group-hover:bg-orange-400 transition duration-300"
+                      >
+                        More
+                      </motion.button>
+                    </Link>
+                  </div>
+                  <p className="mt-2 text-base font-medium opacity-80">{item.label}</p>
                 </div>
-                <p className="mt-2 font-bold text-lg">{item.label}</p>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
-      </div>
 
-      {/* ───────────────── Stays ───────────────── */}
-      <div>
-        <h2 className="text-3xl font-semibold josefin-sans mb-6 text-center md:text-left">
-          Stays
-        </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-          {stays.map((item, index) => (
-            <motion.div
-              key={item.label}
-              variants={cardVariants}
-              initial="initial"
-              whileInView="animate"
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.96 }}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
-              viewport={{ once: true }}
-              className="group w-full max-w-[280px] mx-auto"
-            >
-              <div className="flex flex-col items-center">
-                <div className="relative rounded-xl overflow-hidden shadow-md w-full aspect-[5/4] bg-gray-100 transition-all duration-500 group-hover:shadow-xl">
-                  <motion.img
-                    src={item.src}
-                    alt={item.label}
-                    className="w-full h-full object-cover"
-                    whileHover={{ scale: 1.08 }}
-                    whileTap={{ scale: 0.96 }}
-                  />
-                  <Link to={item.link}>
-                    <motion.button
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                      className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-orange-300 text-black px-4 py-1 text-sm rounded-md shadow group-hover:bg-orange-400 transition duration-300"
-                    >
-                      More
-                    </motion.button>
-                  </Link>
+        {/* ───────────────── Stays ───────────────── */}
+        <div>
+          <h2 className="text-3xl font-semibold josefin-sans mb-6 text-center md:text-left">
+            Stays
+          </h2>
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10 justify-center">
+            {stays.map((item, index) => (
+              <motion.div
+                key={item.label}
+                variants={cardVariants}
+                initial="initial"
+                whileInView="animate"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.96 }}
+                transition={{ duration: 0.5, delay: index * 0.15 }}
+                viewport={{ once: true }}
+                className="group w-full"
+              >
+                <div className="flex flex-col items-center">
+                  <div className="relative rounded-xl overflow-hidden shadow-md w-full aspect-[5/4] bg-gray-100 transition-all duration-500 group-hover:shadow-xl">
+                    <motion.img
+                      src={item.src}
+                      alt={item.label}
+                      className="w-full h-full object-cover"
+                      whileHover={{ scale: 1.08 }}
+                      whileTap={{ scale: 0.96 }}
+                    />
+                    <Link to={item.link}>
+                      <motion.button
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                        className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-orange-300 text-black px-4 py-1 text-sm rounded-md shadow group-hover:bg-orange-400 transition duration-300"
+                      >
+                        More
+                      </motion.button>
+                    </Link>
+                  </div>
+                  <p className="mt-2 text-base font-light opacity-80">{item.label}</p>
                 </div>
-                <p className="mt-2 font-bold text-lg">{item.label}</p>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
-      </div>
       </div>
 
       {/* image slider */}

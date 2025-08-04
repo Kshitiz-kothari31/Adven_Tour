@@ -6,6 +6,7 @@ import pic1 from '../../assets/images/Home/download.jpeg'
 import pic2 from '../../assets/images/Home/download (5).jpeg'
 
 const Gallery = () => {
+  
   const bottomRef = useRef(null);
 
   const scrollToBottom = () => {
@@ -17,7 +18,7 @@ const Gallery = () => {
     pic2, pic1, pic1, pic2, pic2, pic1,
     pic1, pic2, pic2,
   ];
-
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   return (
     <section className=' bg-gradient-to-r from-[#ffffff] to-[#f1daff] pt-20 josefin-sans'>
@@ -316,29 +317,80 @@ const Gallery = () => {
         </div>
 
         {/* 5th image gallery */}
-        <section id='gallery' className="scroll-mt-32">
+        <section
+          id="gallery alpha"
+          className="scroll-mt-32"
+          onMouseEnter={() => setDropdownOpen(true)}
+          onMouseLeave={() => setDropdownOpen(false)}
+        >
           <div className="w-full px-6 md:px-12 py-12 overflow-hidden">
             {/* Title & Button */}
             <motion.div
-              className="text-center md:text-left mb-10"
-              initial={{ y: -50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8, ease: 'easeOut' }}
-              viewport={{ once: true }}
+            className="text-center md:text-left mb-10"
+            initial={{ y: -50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
             >
-              <h2 className="text-4xl md:text-5xl font-extrabold font-josefin text-gray-900 tracking-tight mb-4">
-                📸 Image Gallery
-              </h2>
+            <h2 className="text-4xl md:text-5xl font-extrabold font-josefin text-gray-900 tracking-tight mb-4">
+              📸 Image Gallery
+            </h2>
 
+            {/* Dropdown Wrapper */}
+            <div
+              className="relative inline-block text-left"
+              onMouseEnter={() => setDropdownOpen(true)}
+              onMouseLeave={() => setDropdownOpen(false)}
+            >
+              {/* Dropdown Button */}
               <motion.button
                 whileHover={{ scale: 1.08, rotate: 1 }}
                 whileTap={{ scale: 0.95 }}
-                className="group relative inline-flex items-center px-6 py-2 bg-gradient-to-r from-purple-700 to-blue-700 text-white rounded-full text-sm md:text-base font-semibold shadow-xl transition-all duration-300"
+                className="group inline-flex items-center px-6 py-2 bg-gradient-to-r from-purple-700 to-blue-700 text-white rounded-full text-sm md:text-base font-semibold shadow-xl transition-all duration-300 cursor-pointer"
               >
                 <span className="absolute left-0 top-0 w-full h-full bg-white/10 rounded-full blur-md opacity-0 group-hover:opacity-100 transition duration-300" />
                 🚀 Select Something
                 <span className="ml-2 group-hover:translate-y-1 transition-transform duration-300">👇</span>
               </motion.button>
+
+              {/* Dropdown Items */}
+              <AnimatePresence>
+                {dropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.25, ease: "easeOut" }}
+                    className="absolute top-full left-0 mt-3 w-56 bg-white border border-gray-200 rounded-xl shadow-xl z-50 overflow-hidden font-josefin"
+                  >
+                    <a
+                      href="#rafting"
+                      className="block px-5 py-3 text-sm hover:bg-gray-100 font-medium transition cursor-pointer"
+                    >
+                      🚣‍♂️ Rafting
+                    </a>
+                    <a
+                      href="#stays"
+                      className="block px-5 py-3 text-sm hover:bg-gray-100 font-medium transition cursor-pointer"
+                    >
+                      🏕️ Stays
+                    </a>
+                    <a
+                      href="#trekking"
+                      className="block px-5 py-3 text-sm hover:bg-gray-100 font-medium transition cursor-pointer"
+                    >
+                      🥾 Trekking
+                    </a>
+                    <a
+                      href="#bungee"
+                      className="block px-5 py-3 text-sm hover:bg-gray-100 font-medium transition cursor-pointer"
+                    >
+                      🪂 Bungee
+                    </a>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
             </motion.div>
 
             {/* Image Grid */}
@@ -358,10 +410,10 @@ const Gallery = () => {
               {images.map((src, index) => (
                 <motion.div
                   key={index}
-                  className={`overflow-hidden rounded-2xl p-1 cursor-pointer
+                  className={`overflow-hidden rounded-2xl p-1 cursor-pointer 
                     ${index === 0 ? 'rounded-tl-3xl' : ''}
                     ${index === images.length - 1 ? 'rounded-br-3xl' : ''}
-                    shadow-md
+                    shadow-md relative group
                   `}
                   onClick={() => setSelectedImage(src)}
                   variants={{
@@ -369,7 +421,8 @@ const Gallery = () => {
                     visible: { opacity: 1, y: 0 }
                   }}
                   transition={{ duration: 0.4, ease: 'easeOut' }}
-                  whileHover={{ scale: 1.06, rotate: 1, zIndex: 10 }}
+                  whileHover={{ scale: 1.08, rotate: 1, zIndex: 10 }}
+                  whileTap={{ scale: 0.96, rotate: -1, zIndex: 10 }}
                 >
                   <img
                     src={src}
@@ -416,12 +469,12 @@ const Gallery = () => {
           </div>
         </section>
 
-      <Form
-        boxClass="bg-gradient-to-l from-[#ffffff] to-[#f1daff]"
-        headingClass="text-[#000000]"
-        buttonClass="bg-[#DCD0A8] hover:bg-[#f1daff]"
-        focusClass="focus:outline-[#00786F]"
-      />
+        <Form
+          boxClass="bg-gradient-to-l from-[#ffffff] to-[#f1daff]"
+          headingClass="text-[#000000]"
+          buttonClass="bg-[#DCD0A8] hover:bg-[#f1daff]"
+          focusClass="focus:outline-[#00786F]"
+        />
     </section>
   )
 }
