@@ -3,7 +3,7 @@ import { Instagram, } from "lucide-react";
 
 const ContactSection = () => {
   return (
-    <div className="w-full font-sans">
+    <div className="w-full josefin-sans">
       {/* 🔹 Hero Section */}
       <section className="relative h-[350px] bg-black text-white flex flex-col justify-center items-center text-center px-4">
         <img

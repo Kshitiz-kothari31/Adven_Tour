@@ -4,7 +4,7 @@ import pic1 from "../../assets/images/Home/img2.png";
 const AdventureAltHero = () => {
 return (
   <motion.div
-    className="relative w-full h-[90vh] overflow-hidden font-josefin"
+    className="relative w-full h-[90vh] overflow-hidden josefin-sans"
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
     transition={{ duration: 1.5 }}
@@ -84,7 +84,7 @@ return (
         preserveAspectRatio="none"
       >
         <path
-          fill="#ecfeff"
+          fill="bg-gradient-to-r from-[#fafafa] to-[#B2EBF2] "
           d="M0,224 C360,100 1080,340 1440,160 L1440,320 L0,320 Z"
         />
       </svg>

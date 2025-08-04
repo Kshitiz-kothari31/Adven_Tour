@@ -1,11 +1,12 @@
 import Marquee from "react-fast-marquee";
+import { useNavigate } from "react-router-dom";
 import styles from "./stays.module.css";
-
 import strokeImg from "../../assets/images/stays/stroke.svg";
 import ellipse49 from "../../assets/images/stays/Ellipse49.svg";
 import ArrowImg from "../../assets/images/stays/Arrow15.svg";
 import arrow from "../../assets/rightArrow.png";
-
+import Feedback from '../../components/Feedback';
+import Form from '../../components/form/Form'
 import video1 from "../../assets/videos/bungeejumping/IMG_7232.MOV";
 
 import React, { useRef, useEffect } from "react";
@@ -44,6 +45,7 @@ function Stays() {
 
   return (
     <main className={styles.main}>
+
       <section className={styles.heroSection}>
         <div className={styles.heroDiv}>
           <div className={styles.heroContent}>
@@ -113,9 +115,11 @@ function Stays() {
             <div className={styles.mainImg}></div>
             <img src={strokeImg} className={styles.stroke_Img} />
             <img src={ellipse49} alt="second_img" className={styles.secImg} />
-            <button className={styles.arrowBtn}>
-              <img src={arrow} alt="arrow_button_img" />
-            </button>
+            <a href="/#gallery#gallery">
+              <button className={styles.arrowBtn}>
+                <img src={arrow} alt="arrow_button_img" />
+              </button>
+            </a>
           </div>
 
           <div className={styles.cardContent}>
@@ -184,9 +188,11 @@ function Stays() {
             <div className={styles.mainImg}></div>
             <img src={strokeImg} className={styles.stroke_Img} />
             <img src={ellipse49} alt="second_img" className={styles.secImg} />
-            <button className={styles.arrowBtn}>
-              <img src={arrow} alt="arrow_button_img" />
-            </button>
+            <a href="/#gallery#gallery">
+              <button className={styles.arrowBtn}>
+                <img src={arrow} alt="arrow_button_img" />
+              </button>
+            </a>
           </div>
 
           <img src={ArrowImg} alt="arrow_img" className={styles.arrow_img} />
@@ -213,9 +219,11 @@ function Stays() {
             <div className={styles.mainImg}></div>
             <img src={strokeImg} className={styles.stroke_Img} />
             <img src={ellipse49} alt="second_img" className={styles.secImg} />
-            <button className={styles.arrowBtn}>
-              <img src={arrow} alt="arrow_button_img" />
-            </button>
+            <a href="/#gallery#gallery">
+              <button className={styles.arrowBtn}>
+                <img src={arrow} alt="arrow_button_img" />
+              </button>
+            </a>
           </div>
 
           <div className={styles.cardContent}>
@@ -259,6 +267,10 @@ function Stays() {
           className={styles.video}
         ></video>
       </section>
+
+      <Feedback />
+      <Form />
+
     </main>
   );
 }

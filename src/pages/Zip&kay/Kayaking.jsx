@@ -17,7 +17,7 @@ const Kayaking = () => {
   document.getElementById("next-section")?.scrollIntoView({ behavior: "smooth" });
 
   return (
-    <section className='josefin-sansS'>
+    <section className='josefin-sans'>
         {/* hero section */}
         <motion.section
           className="relative w-full h-[90vh]  overflow-hidden text-white josefin-sans"

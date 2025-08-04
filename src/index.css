@@ -7,13 +7,15 @@ html {
 body {
   background-color: transparent !important;
 }
-html,body{
-    width: 100%;
-    height: 100vh;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-behavior: auto;
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
+  overflow-y: auto;
+  scroll-behavior: smooth;
 }
+
 /* Hide scrollbar only for small devices */
 @media (max-width: 768px) {
   ::-webkit-scrollbar {
@@ -21,6 +23,6 @@ html,body{
   }
   body {
     -ms-overflow-style: none; 
-    scrollbar-width: none;     
+    scrollbar-width: none;
   }
 }

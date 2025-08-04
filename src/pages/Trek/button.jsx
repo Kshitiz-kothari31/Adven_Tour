@@ -14,17 +14,20 @@ import { ChevronDown } from "lucide-react";
  */
 export default function ScrollDownButton({ targetId }) {
   const handleScroll = () => {
-    // 1️⃣ Try explicit targetId first
     let el = targetId && document.getElementById(targetId);
 
-    // 2️⃣ Fallback: second <section> element in the DOM
+    // Fallback: second <section>
     if (!el) {
       const sections = document.querySelectorAll("section");
-      if (sections.length > 1) el = sections[1]; // 0‑indexed
+      if (sections.length > 1) el = sections[1];
     }
 
-    // 3️⃣ Scroll if we found something
-    el?.scrollIntoView({ behavior: "smooth" });
+    if (el) {
+      const yOffset = -80; // 👉 adjust based on navbar height (in pixels)
+      const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
   };
 
   return (

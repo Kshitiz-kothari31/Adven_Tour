@@ -8,9 +8,10 @@ import '../../index.css';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+
   const menuRef = useRef(null);
   const buttonRef = useRef(null);
-  const detailsRef = useRef(null); // 🔴 Ref for <details>
+  const detailsRef = useRef(null);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -35,7 +36,10 @@ const Navbar = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-[1000] bg-cyan-50 shadow border-b border-gray-200">
+    <header
+      className={`sticky top-0 z-[1000] w-full transition-all duration-300 ease-in-out bg-white josefin-sans `}
+
+    >
       <div className="w-full px-4 xl:px-8 2xl:px-16">
         <div className="mx-auto w-full flex items-center justify-between py-4 px-4 xl:px-16 3xl:px-32">
           {/* Logo */}
@@ -54,7 +58,7 @@ const Navbar = () => {
             <li><a href="/" className="nav-link">Home</a></li>
             <li><a href="#Rafting" className="nav-link">Rafting</a></li>
             <li><a href="#trek" className="nav-link">Treks</a></li>
-            {/* Dropdown */}
+
             <li
               className="relative group"
               onMouseEnter={() => setDropdownOpen(true)}
@@ -89,6 +93,7 @@ const Navbar = () => {
                 )}
               </AnimatePresence>
             </li>
+
             <li><a href="#Stays" className="nav-link">Stays</a></li>
             <li><a href="#gallery" className="nav-link">Gallery</a></li>
             <li><a href="#contact" className="nav-link">Contact</a></li>
@@ -117,7 +122,6 @@ const Navbar = () => {
             <li><a href="#Rafting" onClick={() => setIsOpen(false)} className="nav-link block text-center">Rafting</a></li>
             <li><a href="#trek" onClick={() => setIsOpen(false)} className="nav-link block text-center">Treks</a></li>
 
-            {/* Mobile Dropdown */}
             <li className="w-full">
               <details ref={detailsRef} className="w-full text-center">
                 <summary className="nav-link cursor-pointer flex justify-center items-center gap-2">Adventure Sports</summary>

@@ -70,7 +70,7 @@ const Kodilyla = () => {
 
   return (
     
-    <section>
+    <section className='josefin-sans' >
       {/* 1 section */}
       <motion.div
         className="relative w-full h-[90vh] overflow-hidden font-josefin"
@@ -99,10 +99,10 @@ const Kodilyla = () => {
         {/* ✨ Soft Particles */}
         <div className="absolute inset-0 z-20 bg-[url('/particles.gif')] bg-cover bg-center opacity-10 mix-blend-screen pointer-events-none" />
 
-        {/* 🟠 Diagonal Split Gradient */}
+        {/* 🟠 Diagonal Gradient Overlay */}
         <div className="absolute inset-0 z-30 bg-gradient-to-tl from-black/80 via-black/30 to-transparent [clip-path:polygon(100%_0,100%_100%,60%_100%,30%_0)]" />
 
-        {/* 🚣 Top-Right Floating Boat */}
+        {/* 🚣 Floating Boat */}
         <motion.div
           className="absolute top-10 right-10 w-[150px] h-[100px] bg-[url('/boat-silhouette.png')] bg-contain bg-no-repeat bg-top z-40 opacity-70"
           initial={{ y: -100, opacity: 0 }}
@@ -110,7 +110,7 @@ const Kodilyla = () => {
           transition={{ delay: 1.5, duration: 1.2, ease: "easeOut" }}
         />
 
-        {/* 🧭 Right-Aligned Content */}
+        {/* 🧭 Content */}
         <motion.div
           className="absolute top-[30%] right-10 md:right-20 text-right z-40"
           initial={{ opacity: 0, x: 80 }}
@@ -145,7 +145,7 @@ const Kodilyla = () => {
 
         {/* 🌊 Wavy Bottom */}
         <motion.div
-          className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-40"
+          className="absolute -bottom-[2px] left-0 w-full overflow-hidden leading-[0] z-40"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5, duration: 1 }}
@@ -156,30 +156,16 @@ const Kodilyla = () => {
             viewBox="0 0 1440 320"
             preserveAspectRatio="none"
           >
-          <path
-            fill="#E0F7FA"
-            d="M0,224 C360,100 1080,340 1440,160 L1440,320 L0,320 Z"
-          />
+            <path
+              fill="#E0F7FA"
+              d="M0,224 C360,100 1080,340 1440,160 L1440,320 L0,320 Z"
+            />
           </svg>
         </motion.div>
-
-        {/* 💫 Custom Animation */}
-        <style>
-          {`
-            @keyframes slowZoom {
-              0% { transform: scale(1.25); }
-              100% { transform: scale(1); }
-            }
-
-            .animate-slowZoom {
-              animation: slowZoom 12s ease-in-out forwards;
-            }
-          `}
-        </style>
       </motion.div>
 
       {/* ⬇️ Drop Button Between Sections */}
-      <div className="w-full bg-[#E0F7FA] hidden md:flex justify-center -mt-6 md:mt-0 z-20 relative"> 
+      <div className="w-full bg-[#E0F7FA] hidden md:flex justify-center mt-0 pt-4 z-50 relative">
         <motion.button
           whileHover={{
             scale: 1.2,

@@ -77,7 +77,7 @@ useEffect(() => {
   };
 
   return (
-    <section>
+    <section className='josefin-sans' >
       {/* 1 section */}
       <motion.div
         className="relative w-full h-[90vh] overflow-hidden font-josefin"

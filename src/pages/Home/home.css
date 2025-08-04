@@ -2,6 +2,7 @@
 body{
   font-family: 'josefin-sans' , cursive;
 }
+
 @layer utilities {
   @keyframes slideIn {
     0% {

@@ -7,11 +7,10 @@ import Trek from "./pages/Trek/trek";
 import ContactSection from "./components/Contact";
 import DayaraBuyal from "./pages/Trek/DayaraBugyal/dayarabugyal";
 import Layout from "./layout";
+import BungeeJumping from "./pages/bungeeJumping/BungeeJumping";
 import Zipline from "./pages/Zip&kay/Zipline";
 import Gallery from "./pages/Gallery/Gallery";
-import BungeeJumping from "./pages/bungeeJumping/bungeeJumping";
 import Stays from "./pages/stays/stays";
-
 import Rafting from "./pages/Rafting/Rafting";
 import Shivpuri from "./pages/Rafting/Raftingpage/Shivpuri";
 import Nim from "./pages/Rafting/Raftingpage/Nim";
@@ -57,6 +56,7 @@ function App() {
               <Route path="/bungee" element={<BungeeJumping />} />
               <Route path="/stays" element={<Stays />} />
               <Route path="/zipline" element={<Zipline />} />
+              <Route path="/bungee" element={<BungeeJumping/>} />
               <Route path="/kayaking" element={<Kayaking />} />
               <Route path="/Gallery" element={<Gallery />} />
               <Route path="/rafting" element={<Rafting/>}  />
