@@ -44,7 +44,7 @@ const stats = [
 
 export default function HighlightsStats() {
   return (
-    <section className="relative w-full py-12 px-4 sm:px-6 md:px-10 lg:px-20 josefin-sans bg-transparent">
+    <section className="relative w-full mt-30 py-12 px-4 sm:px-6 md:px-10 lg:px-20 josefin-sans bg-transparent">
       <motion.h2
         className="text-2xl sm:text-3xl md:text-4xl font-semibold text-center mb-10 text-black"
         initial={{ opacity: 0, y: -30 }}

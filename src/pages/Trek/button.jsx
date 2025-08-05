@@ -31,7 +31,7 @@ export default function ScrollDownButton({ targetId }) {
   };
 
   return (
-    <div className="relative inset-0 z-50 flex items-center justify-center mt-6 pointer-events-none">
+    <div className="relative inset-0 z-50 flex items-center justify-center mt-15 pointer-events-none">
       <motion.button
         aria-label="Scroll to next section"
         onClick={handleScroll}

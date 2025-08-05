@@ -93,17 +93,13 @@ const ImageSlider = () => {
 
   return (
     <div className="w-full overflow-hidden relative josefin-sans" ref={sliderRef}>
-      {/* Whitish blur gradients */}
-      <div className="absolute top-0 w-full h-10 z-30 bg-gradient-to-b from-white/60 to-transparent blur-sm pointer-events-none" />
-      <div className="absolute bottom-0 w-full h-10 z-30 bg-gradient-to-t from-white/60 to-transparent blur-sm pointer-events-none" />
+      {/* ✅ Removed all top & bottom fades and glows */}
 
-      {/* Glowing gradient side borders */}
+      {/* Optional: Keep or remove these side glows */}
       <div className="absolute top-0 left-0 h-full w-4 z-30 bg-gradient-to-r from-orange-400/40 to-transparent blur-lg pointer-events-none" />
       <div className="absolute top-0 right-0 h-full w-4 z-30 bg-gradient-to-l from-orange-400/40 to-transparent blur-lg pointer-events-none" />
 
-      {/* Glowing top & bottom neon borders */}
-      <div className="absolute top-0 left-0 w-full h-1 z-30 bg-gradient-to-r from-pink-400 via-orange-400 to-yellow-400 blur-md" />
-      <div className="absolute bottom-0 left-0 w-full h-1 z-30 bg-gradient-to-r from-pink-400 via-orange-400 to-yellow-400 blur-md" />
+      {/* ✅ REMOVED glowing top & bottom neon lines */}
 
       {/* Slider Container */}
       <div className="w-full h-[400px] md:h-[600px] relative">

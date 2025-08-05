@@ -155,7 +155,7 @@ main {
 
 /* INFO: Checklist styling starts here 👇 */
 .checklistSection {
-  margin-top: clamp(4rem, 5vw, 10rem);
+  margin-top: 150px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -224,7 +224,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: clamp(2rem, 5vw, 10rem);
+  margin-top: 150px;
 }
 
 .VisitingTimeSection .visitingCard {

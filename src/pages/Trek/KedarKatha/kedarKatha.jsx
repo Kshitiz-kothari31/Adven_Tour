@@ -186,8 +186,8 @@ function KedarKatha() {
               <p className="mb-2"><strong>Duration :</strong> 5–6 days</p>
               <p className="mb-2"><strong>Difficulty :</strong> Easy to Moderate(great for beginners)</p>
               <p className="mb-2"><strong>Base Camp :</strong> Sankri village (reachable from Dehradun)</p>
-              <p className="mb-6"><strong>Trek Distance :</strong> ~20–23 km round trip</p>
-              <p className="mb-6 text-3xl"><strong>Cost :</strong> ₹7,999 /-</p>
+              <p className="mb-2"><strong>Trek Distance :</strong> ~20–23 km round trip</p>
+              <p className="mb-2 text-3xl"><strong>Cost :</strong> ₹7,999 /-</p>
 
               {/* Book Now Button */}
               <motion.button

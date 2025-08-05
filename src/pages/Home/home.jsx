@@ -268,7 +268,7 @@ const home = () => {
 
       {/* video section */}
       <motion.section
-        className="relative josefin-sans py-12 px-4 sm:px-6 md:px-10 lg:px-20"
+        className="relative josefin-sans mt-25 py-12 px-4 sm:px-6 md:px-10 lg:px-20"
         id="bottomRef"
         initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -398,7 +398,7 @@ const home = () => {
 
         {/* ───────────────── Stays ───────────────── */}
         <div>
-          <h2 className="text-3xl font-semibold josefin-sans mb-6 text-center md:text-left">
+          <h2 className="text-3xl font-semibold josefin-sans mb-6 md:-mt-15 text-center md:text-left">
             Stays
           </h2>
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10 justify-center">

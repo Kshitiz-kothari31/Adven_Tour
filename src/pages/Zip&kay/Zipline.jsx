@@ -8,10 +8,7 @@ import Feedback from "../../components/Feedback";
 
 const Zipline = () => {
   const scrollToBottom = () => {
-    window.scrollTo({
-      top: document.body.scrollHeight,
-      behavior: "smooth",
-    });
+    secondSectionRef.current?.scrollIntoView({ behavior: "smooth" });
   };
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(true);
@@ -103,22 +100,22 @@ const Zipline = () => {
         </motion.button>
 
         {/* ↓ Scroll Button */}
-        <div className="mt-12 z-10">
-          <motion.button
-            onClick={scrollToBottom}
-            className="bg-orange-300 text-white p-4 rounded-full text-2xl shadow-lg transition-all duration-700 hover:bg-orange-500 hover:rotate-[360deg] hover:scale-150 hover:shadow-2xl hover:animate-bounce"
-            whileHover={{ scale: 1.2 }}
-          >
-            ↓
-          </motion.button>
-        </div>
-
+      <div className="mt-12 z-10">
+        <motion.button
+          onClick={scrollToBottom}
+          className="bg-orange-300 text-white p-4 rounded-full text-2xl shadow-lg transition-all duration-700 hover:bg-orange-500 hover:rotate-[360deg] hover:scale-150 hover:shadow-2xl hover:animate-bounce"
+          whileHover={{ scale: 1.2 }}
+        >
+          ↓
+        </motion.button>
+      </div>
         {/* 🌄 Bottom Gradient */}
         <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-b from-transparent to-[#FFF5E4] z-10" />
       </motion.section>
 
       {/* Mid Section */}
-      <div className="relative w-full px-6 py-40 overflow-hidden font-josefin">
+      <div 
+      className="relative w-full px-6 py-40 overflow-hidden font-josefin">
         {/* Left Trapezoid */}
         <motion.div
           className="absolute -left-24 top-[10%] w-[80vw] max-w-[550px] h-[300px] z-0 opacity-20 blur-sm"
