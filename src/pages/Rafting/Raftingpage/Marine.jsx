@@ -152,7 +152,7 @@ useEffect(() => {
 
         {/* 🔄 Top Wave (Flipped) */}
         <motion.div
-          className="absolute top-[1px] left-0 w-full overflow-hidden leading-[0] rotate-180 z-40"
+          className="absolute top-[-1px] left-0 w-full overflow-hidden leading-[0] rotate-180 z-40"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5, duration: 1 }}

@@ -433,7 +433,7 @@ const home = () => {
                       </motion.button>
                     </Link>
                   </div>
-                  <p className="mt-2 text-base font-light opacity-80">{item.label}</p>
+                  <p className="mt-2 text-base opacity-80">{item.label}</p>
                 </div>
               </motion.div>
             ))}
