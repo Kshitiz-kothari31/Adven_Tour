@@ -106,17 +106,12 @@ function DayaraBugyal() {
   viewBox="0 0 1440 320"
   preserveAspectRatio="none"
 >
-  <defs>
-    <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stopColor="#fafafa" />
-      <stop offset="100%" stopColor="#DBFCE7" />
-    </linearGradient>
-  </defs>
   <path
-    fill="url(#waveGradient)" // Reference the gradient
+    fill="#FDFAF6"
     d="M0,224 C360,100 1080,340 1440,160 L1440,320 L0,320 Z"
   />
 </svg>
+
           </motion.div>
         </motion.div>
 
