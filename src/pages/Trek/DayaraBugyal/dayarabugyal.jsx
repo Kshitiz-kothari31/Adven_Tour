@@ -11,7 +11,7 @@ function DayaraBugyal() {
     <main className='josefin-sans' >
       {/* Hero sectoin */}
         <motion.div
-          className="relative w-full h-[90vh] overflow-hidden font-josefin"
+          className="relative w-full h-[93vh] overflow-hidden font-josefin"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5 }}
@@ -100,17 +100,18 @@ function DayaraBugyal() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 4.4, duration: 1 }}
           >
-            <svg
-              className="block w-full h-[100px] pointer-events-none"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 1440 320"
-              preserveAspectRatio="none"
-            >
-              <path
-                fill="#ffffff"
-                d="M0,224 C360,100 1080,340 1440,160 L1440,320 L0,320 Z"
-              />
-            </svg>
+<svg
+  className="block w-full h-[100px] pointer-events-none"
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 1440 320"
+  preserveAspectRatio="none"
+>
+  <path
+    fill="#FDFAF6"
+    d="M0,224 C360,100 1080,340 1440,160 L1440,320 L0,320 Z"
+  />
+</svg>
+
           </motion.div>
         </motion.div>
 
@@ -151,8 +152,8 @@ function DayaraBugyal() {
               <p className="mb-2"><strong>Duration :</strong> 4 to 6 days</p>
               <p className="mb-2"><strong>Difficulty :</strong> Easy to Moderate</p>
               <p className="mb-2"><strong>Base Camp :</strong> Raithal or Natin village</p>
-              <p className="mb-6"><strong>Trek Distance :</strong> ~21–24 km round trip</p>
-              <p className="mb-6 text-3xl"><strong>Cost :</strong> ₹7,999 /-</p>
+              <p className="mb-2"><strong>Trek Distance :</strong> ~21–24 km round trip</p>
+              <p className="mb-2 text-3xl"><strong>Cost :</strong> ₹7,999 /-</p>
 
               {/* Book Now Button */}
               <motion.button

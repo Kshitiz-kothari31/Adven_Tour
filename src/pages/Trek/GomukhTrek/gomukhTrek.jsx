@@ -81,69 +81,69 @@ function GomukhTrek() {
       <ScrollDownButton  />
 
       {/* 2nd section */}
-      <motion.section
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        viewport={{ once: true }}
-        className="bg-[#fdfaf6] py-16 px-4 md:px-12 xl:px-28 font-josefin mt-24"
-      >
-        {/* Hero Heading */}
-        <div className="text-center mb-14 max-w-5xl mx-auto px-4">
-          <h2 className="text-3xl md:text-5xl font-bold text-black mb-6">
-            Come Join Us for the Ultimate Climbing Adventure
-          </h2>
-          <p className="text-base md:text-lg lg:text-xl text-gray-800 leading-relaxed">
-            Discover epic trails, expert tips, and inspiring stories to fuel your next mountain adventure. Whether you're a beginner or a pro, we help you reach new heights with confidence.
-          </p>
-        </div>
+        <motion.section
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+          className="bg-[#fdfaf6] py-16 px-4 md:px-12 xl:px-28 font-josefin mt-24"
+        >
+          {/* Hero Heading */}
+          <div className="text-center mb-14 max-w-5xl mx-auto px-4">
+            <h2 className="text-3xl md:text-5xl font-bold text-black mb-6">
+              Come Join Us for the Ultimate Climbing Adventure
+            </h2>
+            <p className="text-base md:text-lg lg:text-xl text-gray-800 leading-relaxed">
+              Discover epic trails, expert tips, and inspiring stories to fuel your next mountain adventure. Whether you're a beginner or a pro, we help you reach new heights with confidence.
+            </p>
+          </div>
 
-        {/* Trek Info Row */}
-        <div className="flex flex-col-reverse lg:flex-row items-start lg:items-center justify-between gap-4 max-w-screen-xl mx-auto">
-          {/* Left Text Block */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="flex-[1.5] text-black text-base md:text-lg lg:text-[22px] leading-relaxed mx-4 md:mx-6 mt-10"
-          >
-            <h3 className="text-2xl md:text-3xl font-bold underline mb-4">Gaumukh Trek</h3>
-            <p className="mb-2"><strong>Location :</strong> Uttarkashi district, Uttarakhand</p>
-            <p className="mb-2"><strong>Altitude :</strong> ~12,000 ft (3,658 m)</p>
-            <p className="mb-2"><strong>Duration :</strong> 4 to 6 days</p>
-            <p className="mb-2"><strong>Difficulty :</strong> Easy to Moderate</p>
-            <p className="mb-2"><strong>Base Camp :</strong> Raithal or Natin village</p>
-            <p className="mb-6"><strong>Trek Distance :</strong> ~21–24 km round trip</p>
-            <p className="mb-6 text-3xl"><strong>Cost :</strong> ₹7,999 /-</p>
-
-            {/* Book Now Button */}
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="mt-4 px-6 py-3 bg-green-700 text-white rounded-xl text-center shadow-md hover:bg-green-800 transition-all duration-300"
+          {/* Trek Info Row */}
+          <div className="flex flex-col-reverse lg:flex-row items-start lg:items-center justify-between gap-4 max-w-screen-xl mx-auto">
+            {/* Left Text Block */}
+            <motion.div
+              initial={{ opacity: 0, x: -40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="flex-[1.5] text-black text-base md:text-lg lg:text-[22px] leading-relaxed mx-4 md:mx-6 mt-10"
             >
-              Book Now
-            </motion.button>
-          </motion.div>
+              <h3 className="text-2xl md:text-3xl font-bold underline mb-4">Gaumukh Trek</h3>
+              <p className="mb-2"><strong>Location :</strong> Uttarkashi district, Uttarakhand</p>
+              <p className="mb-2"><strong>Altitude :</strong> ~12,000 ft (3,658 m)</p>
+              <p className="mb-2"><strong>Duration :</strong> 4 to 6 days</p>
+              <p className="mb-2"><strong>Difficulty :</strong> Easy to Moderate</p>
+              <p className="mb-2"><strong>Base Camp :</strong> Raithal or Natin village</p>
+              <p className="mb-2"><strong>Trek Distance :</strong> ~21–24 km round trip</p>
+              <p className="mb-2 text-3xl"><strong>Cost :</strong> ₹7,999 /-</p>
 
-          {/* Right Image */}
-          <motion.div
-            initial={{ scale: 0.9, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 1 }}
-            className="flex-[1] flex justify-center mx-4 md:mx-6 mb-10 lg:mb-0"
-          >
-            <img
-              src={img}
-              alt="Dayara Buyal Trek"
-              className="rounded-xl object-cover w-[300px] h-[300px] sm:w-[320px] sm:h-[320px] lg:w-[340px] lg:h-[340px]
-                        border-[4px] border-black shadow-[0_10px_25px_rgba(0,0,0,0.6)]"
-            />
-          </motion.div>
+              {/* Book Now Button */}
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="mt-4 px-6 py-3 bg-green-700 text-white rounded-xl text-center shadow-md hover:bg-green-800 transition-all duration-300"
+              >
+                Book Now
+              </motion.button>
+            </motion.div>
 
-        </div>
-      </motion.section>
+            {/* Right Image */}
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 1 }}
+              className="flex-[1] flex justify-center mx-4 md:mx-6 mb-10 lg:mb-0"
+            >
+              <img
+                src={img}
+                alt="Dayara Buyal Trek"
+                className="rounded-xl object-cover w-[300px] h-[300px] sm:w-[320px] sm:h-[320px] lg:w-[340px] lg:h-[340px]
+                          border-[4px] border-black shadow-[0_10px_25px_rgba(0,0,0,0.6)]"
+              />
+            </motion.div>
+
+          </div>
+        </motion.section>
 
       <section className={styles.storySection}>
         <h2>

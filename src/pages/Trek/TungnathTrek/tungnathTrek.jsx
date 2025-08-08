@@ -100,7 +100,7 @@ function TungnathTrek() {
 
       {/* 🔄 Top flipped wave */}
       <motion.div
-        className="absolute top-[1px] left-0 w-full overflow-hidden leading-[0] rotate-180 z-40"
+        className="absolute top-[0px] left-0 w-full overflow-hidden leading-[0] rotate-180 z-40"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.5, duration: 1 }}
@@ -201,8 +201,8 @@ function TungnathTrek() {
             <p className="mb-2"><strong>Duration :</strong> 8 days</p>
             <p className="mb-2"><strong>Difficulty :</strong> Moderate to Difficult</p>
             <p className="mb-2"><strong>Base Camp :</strong>Gangotri</p>
-            <p className="mb-6"><strong>Trek Distance :</strong> ~41 - 46 km round trip</p>
-            <p className="mb-6 text-3xl"><strong>Cost :</strong> ₹7,999 /-</p>
+            <p className="mb-2"><strong>Trek Distance :</strong> ~41 - 46 km round trip</p>
+            <p className="mb-2 text-3xl"><strong>Cost :</strong> ₹7,999 /-</p>
 
             {/* Book Now Button */}
             <motion.button

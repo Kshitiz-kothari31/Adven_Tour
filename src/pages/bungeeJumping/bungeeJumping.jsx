@@ -147,7 +147,7 @@ function BungeeJumping() {
     </motion.section>
 
     <div className="josefin-sans  md:mt-10 overflow-hidden mt-4">
-      <div className="relative w-full bg-gradient-to-r from-white to-[#8028F9] h-[60px] flex items-center">
+      <div className="relative w-full bg-gradient-to-r from-white to-[#89dcfa]  h-[60px] flex items-center">
         {/* A much longer scroll distance = slower speed */}
         <motion.div
           className="flex whitespace-nowrap text-black font-light text-3xl gap-16 px-10 min-w-[300%]"

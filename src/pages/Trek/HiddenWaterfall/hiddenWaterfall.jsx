@@ -179,8 +179,8 @@ function HiddenWaterfall() {
               <p className="mb-2"><strong>Duration :</strong> 8 days</p>
               <p className="mb-2"><strong>Difficulty :</strong> Moderate to Difficult</p>
               <p className="mb-2"><strong>Base Camp :</strong> Gangotri</p>
-              <p className="mb-6"><strong>Trek Distance :</strong>  ~41 - 46 km round trip</p>
-              <p className="mb-6 text-3xl"><strong>Cost :</strong> ₹7,999 /-</p>
+              <p className="mb-2"><strong>Trek Distance :</strong>  ~41 - 46 km round trip</p>
+              <p className="mb-2 text-3xl"><strong>Cost :</strong> ₹7,999 /-</p>
 
               {/* Book Now Button */}
               <motion.button

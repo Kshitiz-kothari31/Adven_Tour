@@ -41,7 +41,7 @@ const Rafting = () => {
       <AdventureAltHero/>
 
       {/* Second Section */}
-      <div className="py-20 px-4 md:px-20 xl:px-40 relative text-black overflow-hidden">
+      <div className="py-20 px-4 mt-15 md:px-20 xl:px-40 relative text-black overflow-hidden">
         <motion.div
           onClick={scrollToSection}
           whileHover={{ scale: 1.2, rotate: 360 }}
@@ -128,8 +128,6 @@ const Rafting = () => {
             ))}
         </motion.div>
       </div>
-
-      {/* 5th section */}
       <div className="mt-15 px-4 py-16 md:px-20">
         {/* Section Heading */}
         <motion.h2
@@ -151,14 +149,19 @@ const Rafting = () => {
         >
           {/* Card 1 */}
           <motion.div
-            className="bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col snap-start h-[400px] sm:h-[440px] md:h-[480px] transition-transform hover:scale-[1.03] hover:-translate-y-1"
+            className="bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col snap-start h-[400px] sm:h-[440px] md:h-[480px] group transition-transform hover:scale-[1.03] hover:-translate-y-1"
             initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, type: "spring" }}
           >
-            <div className="relative h-[45%]">
-              <img src={pic1} alt="Marine drive to shivpuri" className="w-full h-full object-cover" />
-              <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white/90 to-transparent" />
+            <div className="relative h-[48%] overflow-hidden group">
+              <img
+                src={pic1}
+                alt="Marine drive to shivpuri"
+                className="w-full h-full object-cover transform transition-all duration-500 group-hover:scale-105 group-hover:brightness-90 will-change-transform"
+                style={{ transform: 'translateZ(0)' }}
+              />
+              <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white/95 via-white/60 to-transparent pointer-events-none" />
             </div>
             <div className="p-4 flex flex-col flex-1 justify-between">
               <div>
@@ -182,14 +185,19 @@ const Rafting = () => {
 
           {/* Card 2 */}
           <motion.div
-            className="bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col snap-start h-[400px] sm:h-[440px] md:h-[480px] transition-transform hover:scale-[1.03] hover:-translate-y-1"
+            className="bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col snap-start h-[400px] sm:h-[440px] md:h-[480px] group transition-transform hover:scale-[1.03] hover:-translate-y-1"
             initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.0, type: "spring" }}
           >
-            <div className="relative h-[45%]">
-              <img src={pic1} alt="Shivpuri to Nim Beach" className="w-full h-full object-cover" />
-              <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white/90 to-transparent" />
+            <div className="relative h-[48%] overflow-hidden group">
+              <img
+                src={pic1}
+                alt="Shivpuri to Nim Beach"
+                className="w-full h-full object-cover transform transition-all duration-500 group-hover:scale-105 group-hover:brightness-90 will-change-transform"
+                style={{ transform: 'translateZ(0)' }}
+              />
+              <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white/95 via-white/60 to-transparent pointer-events-none" />
             </div>
             <div className="p-4 flex flex-col flex-1 justify-between">
               <div>
@@ -213,14 +221,19 @@ const Rafting = () => {
 
           {/* Card 3 */}
           <motion.div
-            className="bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col snap-start h-[400px] sm:h-[440px] md:h-[480px] transition-transform hover:scale-[1.03] hover:-translate-y-1"
+            className="bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col snap-start h-[400px] sm:h-[440px] md:h-[480px] group transition-transform hover:scale-[1.03] hover:-translate-y-1"
             initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, type: "spring" }}
           >
-            <div className="relative h-[45%]">
-              <img src={pic1} alt="Marine Drive to Shivpuri" className="w-full h-full object-cover" />
-              <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white/90 to-transparent" />
+            <div className="relative h-[48%] overflow-hidden group">
+              <img
+                src={pic1}
+                alt="Marine Drive to Shivpuri"
+                className="w-full h-full object-cover transform transition-all duration-500 group-hover:scale-105 group-hover:brightness-90 will-change-transform"
+                style={{ transform: 'translateZ(0)' }}
+              />
+              <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white/95 via-white/60 to-transparent pointer-events-none" />
             </div>
             <div className="p-4 flex flex-col flex-1 justify-between">
               <div>
@@ -244,14 +257,19 @@ const Rafting = () => {
 
           {/* Card 4 */}
           <motion.div
-            className="bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col snap-start h-[400px] sm:h-[440px] md:h-[480px] transition-transform hover:scale-[1.03] hover:-translate-y-1"
+            className="bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col snap-start h-[400px] sm:h-[440px] md:h-[480px] group transition-transform hover:scale-[1.03] hover:-translate-y-1"
             initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.4, type: "spring" }}
           >
-            <div className="relative h-[45%]">
-              <img src={pic1} alt="Kaudiala to Nim Beach" className="w-full h-full object-cover" />
-              <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-white/90 to-transparent" />
+            <div className="relative h-[48%] overflow-hidden group">
+              <img
+                src={pic1}
+                alt="Kaudiala to Nim Beach"
+                className="w-full h-full object-cover transform transition-all duration-500 group-hover:scale-105 group-hover:brightness-90 will-change-transform"
+                style={{ transform: 'translateZ(0)' }}
+              />
+              <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white/95 via-white/60 to-transparent pointer-events-none" />
             </div>
             <div className="p-4 flex flex-col flex-1 justify-between">
               <div>
@@ -273,7 +291,6 @@ const Rafting = () => {
             </div>
           </motion.div>
         </motion.div>
-
       </div>
 
       {/* 6th section - Gallery */}
@@ -345,7 +362,7 @@ const Rafting = () => {
           })}
         </motion.div>
       </div>
-      
+        
       {/* feedback */}
       <Feedback/>
       
