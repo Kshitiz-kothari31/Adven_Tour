@@ -4,7 +4,7 @@ import pic1 from "../../assets/images/Home/img2.png";
 const AdventureAltHero = () => {
   return (
     <motion.div
-      className="relative w-full h-[92vh] overflow-hidden josefin-sans"
+      className="relative w-full h-[92vh] overflow-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
@@ -49,10 +49,10 @@ const AdventureAltHero = () => {
         viewport={{ once: true }}
       >
         <div className="max-w-3xl">
-          <h1 className="text-white text-xl joseifn-sans md:text-8xl xl:text-9xl font-bold josefin-sans drop-shadow-xl">
+          <h1 className="text-white text-6xl md:text-8xl xl:text-9xl font-kalnia font-medium drop-shadow-xl">
             Rafting
           </h1>
-          <p className="text-white text-lg md:text-2xl mt-3 drop-shadow-md">
+          <p className="text-white text-lg md:text-2xl mt-3 drop-shadow-md josefin-sans">
             Paddle through adrenaline. Ride the rapids of Shivpuri. Discover the Ganga like never before.
           </p>
         </div>

@@ -77,7 +77,7 @@ useEffect(() => {
   };
 
   return (
-    <section className='josefin-sans'  >
+    <section className='josefin-sans bg-gradient-to-b from-[#dff6ff] via-[#b7e4f4] to-[#dff6ff]  '  >
       {/* 1 section */}
       <motion.div
         className="relative w-full h-[90vh] overflow-hidden font-josefin"
@@ -125,10 +125,9 @@ useEffect(() => {
           transition={{ delay: 0.5, duration: 1.2 }}
         >
           <div className="text-left max-w-3xl text-white">
-            <h1 className="text-yellow-300 text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight drop-shadow-[0_4px_6px_rgba(0,0,0,0.4)] whitespace-nowrap overflow-hidden border-r-4 border-yellow-400 pr-2 animate-typing">
+            <h1 className="text-yellow-300 font-kalnia text-3xl md:text-5xl lg:text-[2.8rem] xl:text-6xl font-extrabold tracking-tight drop-shadow-[0_4px_6px_rgba(0,0,0,0.4)] whitespace-nowrap overflow-hidden border-r-4 border-yellow-400 pr-2 animate-typing">
               Shivpuri to Nim Beach
-            </h1>
-
+            </h1> 
             <div className="flex items-center gap-3 mt-3">
               <span className="bg-yellow-400 text-black text-xs md:text-sm font-semibold px-3 py-1 rounded-full shadow">
                 📍 Uttarakhand, India
@@ -167,7 +166,7 @@ useEffect(() => {
             preserveAspectRatio="none"
           >
             <path
-              fill="#E0F7FA"
+              fill="#D3F1FC"
               d="M0,224 C360,100 1080,340 1440,160 L1440,320 L0,320 Z"
             />
           </svg>
@@ -176,7 +175,7 @@ useEffect(() => {
 
 
       {/* ⬇️ Drop Button Between Sections */}
-      <div className="w-full bg-[#E0F7FA] hidden md:flex justify-center -mt-6 md:mt-0 z-20 relative">
+      <div className="w-full  hidden md:flex justify-center -mt-6 md:mt-0 z-20 relative">
         <motion.button
           whileHover={{
             scale: 1.2,
@@ -213,7 +212,7 @@ useEffect(() => {
             viewport={{ once: true }}
             className="flex-1 text-black space-y-4"
           >
-            <h2 className="text-3xl sm:text-left text-center jolly-font md:text-5xl font-bold">
+            <h2 className="text-3xl sm:text-left text-center josefin-sans md:text-5xl font-medium">
               OVERVIEW
             </h2>
             <p className="text-sm josefin-sans leading-relaxed">
@@ -258,7 +257,7 @@ useEffect(() => {
       </div>
 
       {/* 3rd section */}
-      <div className="w-full flex justify-center items-center py-10 px-4 ">
+      <div className="w-full flex md:mt-15 justify-center items-center py-10 px-4 ">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -317,7 +316,7 @@ useEffect(() => {
 
 
       {/* 4th section  major rapids */}
-      <div className=" py-14 bg-[#E0F7FA]  px-4 md:px-20">
+      <div className=" py-14 px-4 md:mt-15 md:px-20 ">
         {/* 🎯 Section Title */}
         <div className="max-w-4xl mx-auto text-center mb-12">
           <div className="w-20 h-1 mx-auto mb-3 bg-gradient-to-r from-sky-400 via-sky-600 to-sky-400 rounded-full" />
@@ -369,7 +368,7 @@ useEffect(() => {
       </div>
 
       {/* 5th section include */}
-      <div className=" py-20 px-4 flex justify-center items-center">
+      <div className=" py-20 px-4 flex md:mt-15  justify-center items-center">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -459,7 +458,7 @@ useEffect(() => {
       </div>
 
       {/* 6th section  */}
-      <div className="relative bg-[#E0F7FA]  min-h-screen flex items-center justify-center px-4 sm:px-8 md:px-16 lg:px-28 overflow-hidden text-black text-center">
+      <div className="relative min-h-screen md:mt-15 flex items-center justify-center px-4 sm:px-8 md:px-16 lg:px-28 overflow-hidden text-black text-center">
           {/* 🔁 Background Animation */}
           <motion.div
             initial={{ x: "-100%" }}
@@ -506,7 +505,7 @@ useEffect(() => {
       </div>
         
       <Form
-        boxClass="bg-[#E0F7FA]"
+        boxClass="bg-gradient-to-l from-[#b7e4f4] via-[#ffffff]"
         headingClass="text-black"
         buttonClass="bg-blue-600 hover:bg-blue-700"
         focusClass="focus:outline-blue-500"

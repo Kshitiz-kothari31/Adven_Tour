@@ -8,7 +8,6 @@ const ScrollToTop = () => {
     const root = document.getElementById('root') || document.documentElement;
 
     setTimeout(() => {
-      console.log("🔥 Brutally forcing scroll to top");
       root.scrollTop = 0;
       document.body.scrollTop = 0;
       window.scrollTo({ top: 0, behavior: 'auto' });

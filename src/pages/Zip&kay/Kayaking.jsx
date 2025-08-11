@@ -17,10 +17,10 @@ const Kayaking = () => {
   document.getElementById("next-section")?.scrollIntoView({ behavior: "smooth" });
 
   return (
-    <section className='josefin-sans'>
+    <section className='josefin-sans bg-gradient-to-r from-blue-100 via-cyan-50 to-teal-100'>
         {/* hero section */}
         <motion.section
-          className="relative w-full h-[90vh]  overflow-hidden text-white josefin-sans"
+          className="relative w-full h-[90vh]  overflow-hidden text-white "
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5 }}
@@ -41,7 +41,7 @@ const Kayaking = () => {
           {/* 🎯 Centered copy */}
           <div className="relative z-20 flex flex-col items-center justify-center h-full text-center px-4">
             <motion.h1
-              className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4"
+              className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 font-kalnia"
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 1 }}
@@ -50,7 +50,7 @@ const Kayaking = () => {
             </motion.h1>
 
             <motion.p
-              className="text-white/90 text-sm md:text-lg max-w-2xl mb-6"
+              className="text-white/90 text-sm md:text-lg max-w-2xl mb-6 josefin-sans"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 1 }}
@@ -85,31 +85,36 @@ const Kayaking = () => {
           {/* 🟠 Zig‑zag bottom */}
           {/* 🌄 Uneven, smooth zig‑zag bottom */}
           <div className=" absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-30">
-          <svg
-            className="block w-full h-[140px] [shape-rendering:geometricPrecision] -mb-[2px]"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1440 320"
-            preserveAspectRatio="none"
-          >
-            <path
-              fill="#FDFAF6"
-              stroke="none"
-              d="
-                M0,288 
-                C80,260 160,180 240,192 
-                C320,204 400,288 480,288 
-                C560,288 640,208 720,192 
-                C800,176 880,224 960,240 
-                C1040,256 1120,224 1200,208 
-                C1280,192 1360,240 1440,224 
-                L1440,320 L0,320 Z
-              "
-            />
-          </svg>
+            <svg
+              className="block w-full h-[140px] [shape-rendering:geometricPrecision] -mb-[2px]"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 1440 320"
+              preserveAspectRatio="none"
+            >
+              <defs>
+                <linearGradient id="gradientFill" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#bfdbfe" />    {/* blue-100 */}
+                  <stop offset="50%" stopColor="#ecfeff" />   {/* cyan-50 */}
+                  <stop offset="100%" stopColor="#ccfbf1" />  {/* teal-100 */}
+                </linearGradient>
+              </defs>
 
+              <path
+                fill="url(#gradientFill)"
+                stroke="none"
+                d="
+                  M0,288 
+                  C80,260 160,180 240,192 
+                  C320,204 400,288 480,288 
+                  C560,288 640,208 720,192 
+                  C800,176 880,224 960,240 
+                  C1040,256 1120,224 1200,208 
+                  C1280,192 1360,240 1440,224 
+                  L1440,320 L0,320 Z
+                "
+              />
+            </svg>
           </div>
-
-
         </motion.section>
 
         {/* drop button */}
@@ -307,17 +312,17 @@ After your paddle, explore nearby yoga retreats, peaceful forests, and vibrant l
         </section>
 
         {/* 6th section */}
-        <div className="w-full px-4  -mt-20 sm:mt-0 py-32">
+        <div className="w-full px-4 -mt-20 sm:mt-0 py-32">
           <div className="max-w-6xl mx-auto">
             {/* 🔹 Heading – fade‑in & centered */}
             <motion.h2
-              className="text-3xl font-bold  mb-10 text-center text-black"
+              className="text-4xl font-semibold  mb-10 text-center josefin-sans text-black"
               initial={{ opacity: 0, y: -40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
               viewport={{ once: true }}
             >
-              This Isn’t Just a Trip. It’s a Memory in Motion.
+              Adventure That Stays With You Forever
             </motion.h2>
 
             {/* 🔸 Two‑column layout under the heading */}
@@ -330,9 +335,9 @@ After your paddle, explore nearby yoga retreats, peaceful forests, and vibrant l
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 viewport={{ once: true }}
               >
-                <h3 className="text-xl font-semibold text-black mb-3">Kayaking</h3>
+                <h3 className="text-5xl font-semibold text-black mb-3">Kayaking</h3>
                 <p className="text-black/80 mb-6">
-Kayaking in Rishikesh Shivpuri is more than water and paddle—it's about connection, thrill, and stories you’ll tell forever. Join us today..
+                Kayaking in Rishikesh Shivpuri is more than water and paddle—it's about connection, thrill, and stories you’ll tell forever. Join us today..
                 </p>
 
                 <button className="relative inline-block px-6 py-3 font-semibold text-black group overflow-hidden rounded-full transition-transform duration-500 hover:scale-105">
@@ -400,12 +405,12 @@ Kayaking in Rishikesh Shivpuri is more than water and paddle—it's about connec
         {/* feedback */}
         <Feedback/>
 
-      <Form
-        boxClass="bg-[#E0F7FA]"
-        headingClass="text-black"
-        buttonClass="bg-blue-600 hover:bg-blue-700"
-        focusClass="focus:outline-blue-500"
-      />
+        <Form
+          boxClass="bg-gradient-to-r from-teal-100 via-cyan-50 to-blue-100"
+          headingClass="text-black"
+          buttonClass="bg-blue-600 hover:bg-blue-700"
+          focusClass="focus:outline-blue-500"
+        />
     </section>
 
   )

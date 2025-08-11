@@ -4,8 +4,18 @@
 html {
   background-color: transparent !important;
 }
+
 body {
   background-color: transparent !important;
+}
+
+@layer utilities {
+  .font-kalnia {
+    font-family: 'Kalnia', serif;
+  }
+  .font-josefin {
+    font-family: 'Josefin Sans', sans-serif;
+  }
 }
 
 html, body {

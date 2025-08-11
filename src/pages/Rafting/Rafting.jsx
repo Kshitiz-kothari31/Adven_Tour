@@ -36,7 +36,7 @@ const Rafting = () => {
   const dummyImages = Array(imageCount).fill(pic1);
 
   return (
-    <section className="bg-gradient-to-r from-[#fafafa] to-[#B2EBF2]  josefin-sans">
+    <section className="bg-gradient-to-r from-[#fafafa] to-[#B2EBF2] ">
       {/* Background Image */}
       <AdventureAltHero/>
 
@@ -61,7 +61,7 @@ const Rafting = () => {
               initial={{ opacity: 0, y: -40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="text-3xl md:text-4xl mt-3 xl:text-5xl md:text-left text-center font-bold mb-3 xl:mb-5"
+              className="text-3xl md:text-4xl mt-3 xl:text-5xl josefin-sans md:text-left text-center font-bold mb-3 xl:mb-5"
             >
               About Our Passion
             </motion.h2>
@@ -70,7 +70,7 @@ const Rafting = () => {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="text-base md:text-lg xl:text-xl leading-relaxed text-gray-700"
+              className="text-base md:text-lg xl:text-xl leading-relaxed text-gray-700 josefin-sans "
             >
               Our passion flows with the river. We believe every splash tells a story and every current brings you closer to nature. Rafting is not just a sport for us—it's a journey of thrill, freedom, and connection. We aim to make every trip unforgettable, filled with laughter, courage, and breathtaking moments. Whether you’re conquering your first rapid or your tenth, our goal is to ignite your adventurous spirit. With years of experience and love for the outdoors, we bring you safely to the edge—and back—with memories to last a lifetime.
             </motion.p>
@@ -131,7 +131,7 @@ const Rafting = () => {
       <div className="mt-15 px-4 py-16 md:px-20">
         {/* Section Heading */}
         <motion.h2
-          className="text-3xl md:text-7xl jolly-font font-bold text-center mb-12 font-josefin"
+          className="text-3xl md:text-7xl jolly-font font-bold text-center mb-12 josefin-sans"
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -294,8 +294,8 @@ const Rafting = () => {
       </div>
 
       {/* 6th section - Gallery */}
-      <div className="py-16  sm:mt-20  px-4 md:px-2  ">
-        <h2 className="jolly-font text-3xl md:text-4xl font-bold text-center mb-12 font-josefin">
+      <div className="py-16  sm:mt-20  px-4 md:px-2  mt-4">
+        <h2 className="jolly-font text-3xl md:text-4xl font-bold text-center mb-12 josefin-sans">
           Rafting Memories to Inspire You
         </h2>
 
@@ -370,7 +370,7 @@ const Rafting = () => {
       <FAQSection />
 
       <Form
-        boxClass="bg-[#E0F7FA]"
+        boxClass="bg-gradient-to-l from-[#fafafa] to-[#B2EBF2]"
         headingClass="text-black"
         buttonClass="bg-blue-600 hover:bg-blue-700"
         focusClass="focus:outline-blue-500"

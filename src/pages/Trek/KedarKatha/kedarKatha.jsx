@@ -56,7 +56,7 @@ function KedarKatha() {
         >
           <div className="text-left max-w-3xl">
             {/* Typing headline */}
-            <h1 className="text-green-300 text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight drop-shadow-[0_4px_6px_rgba(0,0,0,0.4)] whitespace-nowrap overflow-hidden border-r-4 border-green-400 pr-2 animate-typing">
+            <h1 className="text-green-300 text-3xl md:text-5xl  font-kalnia  lg:text-6xl xl:text-7xl font-extrabold tracking-tight drop-shadow-[0_4px_6px_rgba(0,0,0,0.4)] whitespace-nowrap overflow-hidden border-r-4 border-green-400 pr-2 animate-typing">
               Kedar Katha Trek
             </h1>
 
@@ -154,67 +154,87 @@ function KedarKatha() {
 
       {/* trek info */}
       <motion.section
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-          className="bg-[#fdfaf6] py-16 px-4 md:px-12 xl:px-28 font-josefin mt-24"
-        >
-          {/* Hero Heading */}
-          <div className="text-center mb-14 max-w-5xl mx-auto px-4">
-            <h2 className="text-3xl md:text-5xl font-bold text-black mb-6">
-              Come Join Us for the Ultimate Climbing Adventure
-            </h2>
-            <p className="text-base md:text-lg lg:text-xl text-gray-800 leading-relaxed">
-              Discover epic trails, expert tips, and inspiring stories to fuel your next mountain adventure. Whether you're a beginner or a pro, we help you reach new heights with confidence.
-            </p>
-          </div>
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+        className="bg-[#fdfaf6] py-16 px-4 md:px-12 font-josefin"
+      >
+        {/* Hero Heading */}
+        <div className="text-center mb-14 max-w-5xl mx-auto px-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-black mb-6">
+            Come Join Us for the Ultimate Climbing Adventure
+          </h2>
+          <p className="text-base md:text-lg lg:text-xl text-gray-800 leading-relaxed">
+            Discover epic trails, expert tips, and inspiring stories to fuel your next mountain adventure.
+            Whether you're a beginner or a pro, we help you reach new heights with confidence.
+          </p>
+        </div>
 
-          {/* Trek Info Row */}
-          <div className="flex  flex-col-reverse lg:flex-row items-start lg:items-center justify-between gap-4 max-w-screen-xl mx-auto">
-            {/* Left Text Block */}
-            <motion.div
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              className="flex-[1.5] text-black text-base md:text-lg lg:text-[22px] leading-relaxed mx-4 md:mx-6 mt-10"
-            >
-              <h3 className="text-2xl md:text-3xl font-bold underline mb-4">Kedar Katha Trek</h3>
-              <p className="mb-2"><strong>Location :</strong> Uttarkashi district, Uttarakhand</p>
-              <p className="mb-2"><strong>Altitude :</strong> 12,500 ft (3,800 m)</p>
-              <p className="mb-2"><strong>Duration :</strong> 5–6 days</p>
-              <p className="mb-2"><strong>Difficulty :</strong> Easy to Moderate(great for beginners)</p>
-              <p className="mb-2"><strong>Base Camp :</strong> Sankri village (reachable from Dehradun)</p>
-              <p className="mb-2"><strong>Trek Distance :</strong> ~20–23 km round trip</p>
-              <p className="mb-2 text-3xl"><strong>Cost :</strong> ₹7,999 /-</p>
-
-              {/* Book Now Button */}
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="mt-4 px-6 py-3 bg-green-700 text-white rounded-xl text-center shadow-md hover:bg-green-800 transition-all duration-300"
-              >
-                Book Now
-              </motion.button>
-            </motion.div>
-
-            {/* Right Image */}
+        {/* Trek Info Row - Modified for better centering */}
+        <div className="w-full min-h-screen flex items-center justify-center relative bg-transparent px-6 py-16 font-josefin-sans">
+        <div className="max-w-7xl w-full flex flex-col lg:flex-row items-center justify-center gap-14 relative z-10">
+          {/* Image Section */}
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1 }}
-            className="flex-[1] flex justify-center mx-4 md:mx-6 mb-10 lg:mb-0"
+            viewport={{ once: true }}
+            className="relative group w-full max-w-sm lg:max-w-md"
           >
+            <div className="absolute -inset-3 rounded-2xl bg-gradient-to-tr from-green-400 via-green-600 to-green-800 blur-2xl opacity-30 group-hover:opacity-50 transition"></div>
             <img
               src={img}
               alt="Dayara Buyal Trek"
-              className="rounded-xl object-cover w-[300px] h-[300px] sm:w-[320px] sm:h-[320px] lg:w-[340px] lg:h-[340px]
-                        border-[4px] border-black shadow-[0_10px_25px_rgba(0,0,0,0.6)]"
+              className="relative rounded-2xl border-4 border-black shadow-2xl object-cover w-full aspect-square group-hover:scale-105 transition-transform duration-500"
             />
           </motion.div>
-          </div>
+
+          {/* Text Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="bg-transparent rounded-3xl p-10 shadow-2xl max-w-2xl border border-white/20 relative josefin-sans text-black"
+          >
+            {/* Price Badge */}
+            <div className="absolute top-4 right-4 bg-green-700 text-white px-6 py-3 rounded-xl shadow-lg text-xl font-bold">
+              ₹7,999 /-
+            </div>
+
+            {/* Title */}
+            <h3 className="text-5xl font-bold mt-7 md:mt-10 mb-10 text-center">
+              Kedar Katha Trek
+              <span className="block w-24 h-1 bg-green-500 mx-auto mt-3 rounded-full"></span>
+            </h3>
+
+            {/* Info Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="flex items-center gap-3"><span className="text-green-400 text-3xl">📍</span> Location: Uttarkashi, Uttarakhand</div>
+              <div className="flex items-center gap-3"><span className="text-green-400 text-3xl">⛰️</span> Altitude: ~12,000 ft</div>
+              <div className="flex items-center gap-3"><span className="text-green-400 text-3xl">🗓️</span> Duration: 4-6 days</div>
+              <div className="flex items-center gap-3"><span className="text-green-400 text-3xl">💪</span> Difficulty: Easy–Moderate</div>
+              <div className="flex items-center gap-3"><span className="text-green-400 text-3xl">🏠</span> Base Camp: Raithal / Natin</div>
+              <div className="flex items-center gap-3"><span className="text-green-400 text-3xl">📏</span> Distance: ~21–24 km</div>
+            </div>
+
+            {/* Button */}
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              animate={{ scale: [1, 1.05, 1] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+              className="mt-10 px-10 py-4 bg-green-700 text-white rounded-full font-semibold shadow-lg hover:bg-green-800 transition duration-300 block mx-auto"
+            >
+              🚀 Book Now
+            </motion.button>
+          </motion.div>
+        </div>
+        </div>
+
       </motion.section>
+
 
       {/* section */}
       <section className={styles.storySection}>
@@ -282,32 +302,56 @@ function KedarKatha() {
         </div>
       </section>
 
-      <section className={styles.checklistSection}>
-        <div className={styles.box}>
+      <section className="md:mt-[120px] mt-18 flex justify-center items-center text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="h-[clamp(170px,25vw,270px)] w-[clamp(250px,50vw,1000px)] bg-[#E4EFE7] rounded-[40px] py-5 px-[clamp(20px,50vw,40px)] font-[400] text-[clamp(0.75rem,0.55rem+1.05vw,1.875rem)] flex flex-col justify-center items-center"
+        >
           <p>
-            {" "}
-            Here’s a checklist of essentials to make sure you’re safe,
-            comfortable, and ready to soak in those Himalayan views:
+            Here’s a checklist of essentials to make sure you’re safe, comfortable, 
+            and ready to soak in those Himalayan views:
           </p>
-          <div className={styles.downloadDiv}>
+          <div className="flex justify-center items-center mt-4 gap-[15px]">
             <p>Download</p>
-            <button>Checklist</button>
+            <motion.button
+              whileHover={{
+                scale: 1.05,
+                backgroundColor: "#E4EFE7",
+                color: "#16423c",
+                border: "2px solid #16423c",
+              }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-[#16423c] rounded-[clamp(5px,1vw,15px)] text-white text-[clamp(0.625rem,0.5147rem+0.58vw,1.25rem)] h-[clamp(25px,3vw,44px)] w-[clamp(60px,8vw,120px)] flex items-center justify-center"
+            >
+              Checklist
+            </motion.button>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       <SpecialSection/>
 
-      <section className={styles.VisitingTimeSection}>
-        <div className={styles.visitingCard}>
-          <h3>Best Time to Visit</h3>
-          <p>
+      <section className="flex justify-center items-center mt-5 md:mt-[120px]">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className="bg-[#E4EFE7] rounded-[40px] flex flex-col justify-center items-center text-center font-[Josefin_Sans] font-normal px-5 py-5 md:px-10 md:py-8 w-[clamp(250px,50vw,1000px)] h-[clamp(200px,57vw,270px)]"
+        >
+          <h3 className="underline font-bold mb-4 text-lg md:text-2xl">
+            Best Time to Visit
+          </h3>
+          <p className="text-xs md:text-base lg:text-xl">
             Spring (Mar–Apr): Rhododendron blooms <br />
-            Summer (May–Jun): Lush green <br />
-            meadows Autumn (Sep–Nov): Clear skies, golden hues <br />
+            Summer (May–Jun): Lush green meadows <br />
+            Autumn (Sep–Nov): Clear skies, golden hues <br />
             Winter (Dec–Feb): Snow-covered wonderland
           </p>
-        </div>
+        </motion.div>
       </section>
 
       <Form

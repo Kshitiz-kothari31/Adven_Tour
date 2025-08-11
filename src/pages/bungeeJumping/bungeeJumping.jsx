@@ -146,7 +146,7 @@ function BungeeJumping() {
       </motion.p>
     </motion.section>
 
-    <div className="josefin-sans  md:mt-10 overflow-hidden mt-4">
+    <div className="josefin-sans  md:mt-15 overflow-hidden mt-4">
       <div className="relative w-full bg-gradient-to-r from-white to-[#89dcfa]  h-[60px] flex items-center">
         {/* A much longer scroll distance = slower speed */}
         <motion.div
@@ -167,7 +167,7 @@ function BungeeJumping() {
     </div>
 
     {/* plans section  */}
-    <section className="py-16 px-4 sm:px-6 md:px-10 xl:px-32 2xl:px-60 text-black josefin-sans">
+    <section className="py-16  md:mt-15  px-4 sm:px-6 md:px-10 xl:px-32 2xl:px-60 text-black josefin-sans">
       <motion.h2
         className="text-3xl sm:text-4xl md:text-5xl font-semibold text-center text-black underline underline-offset-8 mb-6"
         initial={{ opacity: 0, y: -20 }}
@@ -227,7 +227,7 @@ function BungeeJumping() {
         ))}
       </motion.div>
     </section>
-    <section className="py-20 px-4 mt-10 sm:px-6 md:px-10 xl:px-32 2xl:px-60 text-center text-black josefin-sans">
+    <section className="py-20 px-4 md:mt-15 sm:px-6 md:px-10 xl:px-32 2xl:px-60 text-center text-black josefin-sans">
       {/* Section Animation */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -283,7 +283,7 @@ function BungeeJumping() {
               loop
               muted
               playsInline
-              className="w-full h-[220px] sm:h-[260px] md:h-[300px] lg:h-[360px] xl:h-[400px] 2xl:h-[440px] object-cover transition-all duration-500 group-hover:brightness-90"
+              className="w-full h-[200px] sm:h-[240px] md:h-[260px] lg:h-[280px] xl:h-[300px] object-cover transition-all duration-500 group-hover:brightness-90"
             />
 
             {/* Gradient Overlay */}
