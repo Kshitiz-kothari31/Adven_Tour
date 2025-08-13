@@ -1,11 +1,17 @@
-import { MapPin, Phone, Mail } from "lucide-react";
-import { Instagram, } from "lucide-react";
+import { motion } from "framer-motion";
+import { MapPin, Phone, Mail, Instagram } from "lucide-react";
 
 const ContactSection = () => {
   return (
     <div className="w-full josefin-sans">
       {/* 🔹 Hero Section */}
-      <section className="relative h-[350px] bg-black text-white flex flex-col justify-center items-center text-center px-4">
+      <motion.section
+        initial={{ opacity: 0, y: -50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+        className="relative h-[350px] bg-black text-white flex flex-col justify-center items-center text-center px-4"
+      >
         <img
           src="https://images3.alphacoders.com/134/thumb-1920-1345697.png"
           alt="Hero"
@@ -14,63 +20,102 @@ const ContactSection = () => {
         <div className="relative z-10">
           <h1 className="text-4xl font-bold mb-2">Contact Us</h1>
           <p className="text-sm max-w-xl mx-auto">
-              For rafting inquiries, tour availability, or custom adventure bookings, feel free to reach out to our team. We're here to help you plan an unforgettable river experience.
+            For rafting inquiries, tour availability, or custom adventure
+            bookings, feel free to reach out to our team. We're here to help
+            you plan an unforgettable river experience.
           </p>
         </div>
-      </section>
+      </motion.section>
 
       {/* 🔹 Reach Us Section */}
       <section className="bg-[#f4ede4] py-16 px-6 text-center">
-        <h2 className="text-3xl font-bold mb-2">Reach Us</h2>
-        <p className="text-sm text-gray-700 mb-10 max-w-xl mx-auto">
-              For rafting inquiries, tour availability, or custom adventure bookings, feel free to reach out to our team. We're here to help you plan an unforgettable river experience.
-        </p>
+        <motion.h2
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-3xl font-bold mb-2"
+        >
+          Reach Us
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-sm text-gray-700 mb-10 max-w-xl mx-auto"
+        >
+          For rafting inquiries, tour availability, or custom adventure
+          bookings, feel free to reach out to our team. We're here to help you
+          plan an unforgettable river experience.
+        </motion.p>
 
         {/* Contact Info Cards */}
         <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-8">
-
-          {/* Address */}
-          <a
-            href="https://www.google.com/maps/place/Shivpuri,+Uttarakhand+249413"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-white p-6 rounded-lg shadow text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
-          >
-            <MapPin className="mx-auto text-orange-500 mb-4" size={28} />
-            <h3 className="text-xl font-semibold mb-1">Address</h3>
-            <p className="text-gray-600 text-sm">Shivpuri, Rishikesh, Uttarakhand</p>
-          </a>
-
-          {/* Phone */}
-          <div className="bg-white p-6 rounded-lg shadow text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-            <Phone className="mx-auto text-orange-500 mb-4" size={28} />
-            <h3 className="text-xl font-semibold mb-1">Call Us</h3>
-            <p className="text-gray-600 text-sm">
-              <a href="tel:+919898123198" className="hover:underline">+91 98981 23198</a>
-            </p>
-            <p className="text-gray-600 text-sm">
-              <a href="tel:+9112312313123" className="hover:underline">+91 12312 313123</a>
-            </p>
-          </div>
-
-          {/* Email */}
-          <div className="bg-white p-6 rounded-lg shadow text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-            <Mail className="mx-auto text-orange-500 mb-4" size={28} />
-            <h3 className="text-xl font-semibold mb-1">Email Us</h3>
-            <p className="text-gray-600 text-sm">
-              <a href="mailto:contact@domain.com" className="hover:underline">contact@domain.com</a>
-            </p>
-            <p className="text-gray-600 text-sm">
-              <a href="mailto:partner@studio.com" className="hover:underline">partner@studio.com</a>
-            </p>
-          </div>
-
+          {[
+            {
+              icon: <MapPin className="mx-auto text-orange-500 mb-4" size={28} />,
+              title: "Address",
+              desc: "Shivpuri, Rishikesh, Uttarakhand",
+              link: "https://www.google.com/maps/place/Shivpuri,+Uttarakhand+249413",
+            },
+            {
+              icon: <Phone className="mx-auto text-orange-500 mb-4" size={28} />,
+              title: "Call Us",
+              desc: (
+                <>
+                  <a href="tel:+919898123198" className="hover:underline">
+                    +91 98981 23198
+                  </a>
+                  <br />
+                  <a href="tel:+9112312313123" className="hover:underline">
+                    +91 12312 313123
+                  </a>
+                </>
+              ),
+            },
+            {
+              icon: <Mail className="mx-auto text-orange-500 mb-4" size={28} />,
+              title: "Email Us",
+              desc: (
+                <>
+                  <a href="mailto:contact@domain.com" className="hover:underline">
+                    contact@domain.com
+                  </a>
+                  <br />
+                  <a href="mailto:partner@studio.com" className="hover:underline">
+                    partner@studio.com
+                  </a>
+                </>
+              ),
+            },
+          ].map((item, i) => (
+            <motion.a
+              key={i}
+              href={item.link || undefined}
+              target={item.link ? "_blank" : undefined}
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.2, duration: 0.6 }}
+              viewport={{ once: true }}
+              className="bg-white p-6 rounded-lg shadow text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 block"
+            >
+              {item.icon}
+              <h3 className="text-xl font-semibold mb-1">{item.title}</h3>
+              <p className="text-gray-600 text-sm">{item.desc}</p>
+            </motion.a>
+          ))}
         </div>
 
         {/* Contact Buttons with Icons */}
-        <div className="flex justify-center gap-6 mt-10">
-
-          {/* Instagram */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6, duration: 0.6 }}
+          viewport={{ once: true }}
+          className="flex justify-center gap-6 mt-10"
+        >
           <a
             href="https://www.instagram.com/your_instagram_id/"
             target="_blank"
@@ -80,13 +125,13 @@ const ContactSection = () => {
             <Instagram className="w-6 h-6 text-white" />
           </a>
 
-          {/* WhatsApp (Official Logo SVG) */}
           <a
             href="https://wa.me/919876543210?text=Hi%20I%20am%20interested%20in%20rafting%20in%20Shivpuri!"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-[#25D366] p-4 rounded-full shadow-lg hover:scale-110 transition-transform duration-300"
           >
+            {/* WhatsApp SVG */}
             <svg
               className="w-6 h-6 text-white"
               fill="currentColor"
@@ -97,7 +142,6 @@ const ContactSection = () => {
             </svg>
           </a>
 
-          {/* Google Maps */}
           <a
             href="https://www.google.com/maps/place/Shivpuri,+Uttarakhand+249413"
             target="_blank"
@@ -106,21 +150,26 @@ const ContactSection = () => {
           >
             <MapPin className="w-6 h-6 text-white" />
           </a>
+        </motion.div>
+      </section>
 
-        </div>  
-      </section>
-      
       {/* 🔹 Google Map Section */}
-      <section className="w-full h-[400px]">
-          <iframe
-            title="Shivpuri Rishikesh Map"
-            className="w-full h-full border-0"
-            loading="lazy"
-            allowFullScreen
-            referrerPolicy="no-referrer-when-downgrade"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3492.687932174049!2d78.41623807451863!3d30.08713857489601!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390915f3f09b36d1%3A0x1f05f04c54a82dd2!2sShivpuri%2C%20Uttarakhand%20249413!5e0!3m2!1sen!2sin!4v1720880116997!5m2!1sen!2sin"
-          />
-      </section>
+      <motion.section
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+        className="w-full h-[400px]"
+      >
+        <iframe
+          title="Shivpuri Rishikesh Map"
+          className="w-full h-full border-0"
+          loading="lazy"
+          allowFullScreen
+          referrerPolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3492.687932174049!2d78.41623807451863!3d30.08713857489601!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390915f3f09b36d1%3A0x1f05f04c54a82dd2!2sShivpuri%2C%20Uttarakhand%20249413!5e0!3m2!1sen!2sin!4v1720880116997!5m2!1sen!2sin"
+        />
+      </motion.section>
     </div>
   );
 };

@@ -77,10 +77,10 @@ useEffect(() => {
   };
 
   return (
-    <section className='josefin-sans'  >
+    <section className='josefin-sans bg-gradient-to-b from-[#dff6ff] via-[#b7e4f4] to-[#dff6ff]         '  >
       {/* 1 section */}
       <motion.div
-            className="relative w-full h-[90vh] overflow-hidden font-josefin"
+            className="relative w-full h-[90vh] overflow-hidden font-kalnias"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1.5 }}
@@ -123,16 +123,26 @@ useEffect(() => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, type: "spring" }}
               className="absolute inset-0 flex flex-col items-start justify-start px-6 md:px-20 pt-24 z-40"
-            >
-              <motion.h1
-                initial={{ opacity: 0, y: -40 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.8, type: "spring" }}
-                className="text-white jolly-font font-bold text-4xl md:text-7xl mb-6 drop-shadow-xl"
-              >
-                Marine Drive to Shivpuri
-              </motion.h1>
+                          >
+              <div className="max-w-3xl px-4 text-left">
+                <motion.h1
+                  initial={{ opacity: 0, y: -40 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3, duration: 0.8, type: "spring" }}
+                  className="text-white font-kalnia font-medium text-4xl md:text-5xl lg:text-[2.5rem] xl:text-7xl mb-4 drop-shadow-xl"
+                >
+                  Marine Drive to Shivpuri
+                </motion.h1>
 
+                <motion.p
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.6, duration: 0.8, type: "spring" }}
+                  className="text-gray-200 text-base md:text-lg lg:text-xl leading-relaxed josefin-sans"
+                >
+                  Experience the thrill of rafting from the stunning Marine Drive to Shivpuri stretch. 
+                </motion.p>
+              </div>
               <motion.button
                 whileHover={{
                   scale: 1.1,
@@ -160,7 +170,7 @@ useEffect(() => {
                 preserveAspectRatio="none"
               >
                 <path
-                  fill="#E0F7FA"
+                  fill="#D3F1FC"
                   d="M0,224 C360,100 1080,340 1440,160 L1440,320 L0,320 Z"
                 />
               </svg>
@@ -169,7 +179,7 @@ useEffect(() => {
       </motion.div>
 
       {/* ⬇️ Drop Button Between Sections */}
-      <div className="w-full bg-[#E0F7FA] hidden md:flex justify-center mt-0 pt-4 z-50 relative">
+      <div className="w-full hidden md:flex justify-center mt-0 pt-4 z-50 relative">
         <motion.button
           whileHover={{
             scale: 1.2,
@@ -195,7 +205,7 @@ useEffect(() => {
       {/* 🟫 2nd Section: Overview */}
       <div
         id="second-section"
-        className="w-full bg-[#E0F7FA] py-16 px-4 md:px-20 "
+        className="w-full  py-16 px-4 md:px-20 "
       >
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-start justify-between gap-10">
           {/* 📝 Text Section */}
@@ -206,7 +216,7 @@ useEffect(() => {
             viewport={{ once: true }}
             className="flex-1 text-black space-y-4"
           >
-            <h2 className="text-3xl sm:text-left text-center jolly-font md:text-5xl font-bold">
+            <h2 className="text-3xl sm:text-left text-center josefin-sans md:text-5xl font-medium">
               OVERVIEW
             </h2>
             <p className="text-sm josefin-sans leading-relaxed">
@@ -251,7 +261,7 @@ useEffect(() => {
       </div>
 
       {/* 3rd section */}
-      <div className="w-full flex justify-center items-center py-10 px-4 ">
+      <div className="w-full flex justify-center items-center py-10 px-4 md:mt-15 ">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -310,7 +320,7 @@ useEffect(() => {
 
 
       {/* 4th section  major rapids */}
-      <div className="py-14 bg-[#E0F7FA] px-4 md:px-20">
+      <div className="py-14 px-4 md:px-20 md:mt-15">
         {/* 🎯 Section Title */}
         <div className="max-w-4xl mx-auto text-center mb-12">
           <div className="w-20 h-1 mx-auto mb-3 bg-gradient-to-r from-sky-400 via-sky-600 to-sky-400 rounded-full" />
@@ -362,7 +372,7 @@ useEffect(() => {
       </div>
 
       {/* 5th section include */}
-      <div className="py-20 px-4 flex justify-center items-center">
+      <div className="md:mt-15 py-20 px-4 flex justify-center items-center">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -452,7 +462,7 @@ useEffect(() => {
       </div>
 
       {/* 6th section  */}
-      <div className="relative bg-[#E0F7FA]   min-h-screen flex items-center justify-center px-4 sm:px-8 md:px-16 lg:px-28 overflow-hidden text-black text-center">
+      <div className="relative md:mt-15  min-h-screen flex items-center justify-center px-4 sm:px-8 md:px-16 lg:px-28 overflow-hidden text-black text-center">
           {/* 🔁 Background Animation */}
           <motion.div
             initial={{ x: "-100%" }}
@@ -499,7 +509,7 @@ useEffect(() => {
       </div>
 
       <Form
-        boxClass="bg-[#E0F7FA]"
+        boxClass="bg-gradient-to-l from-[#b7e4f4] via-[#ffffff]"
         headingClass="text-black"
         buttonClass="bg-blue-600 hover:bg-blue-700"
         focusClass="focus:outline-blue-500"

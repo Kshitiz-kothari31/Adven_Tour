@@ -28,7 +28,7 @@ const ImageSliderBox = () => {
 
   return (
     <motion.div
-      className="relative w-full h-[93vh] overflow-hidden bg-black font-josefin"
+      className="relative w-full h-[93vh] overflow-hidden bg-black"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
@@ -82,7 +82,7 @@ const ImageSliderBox = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 3, duration: 1 }}
-          className="text-4xl md:text-6xl xl:text-6xl font-bold josefin-sans drop-shadow-xl leading-tight"
+          className="text-4xl md:text-6xl xl:text-6xl font-medium font-kalnia drop-shadow-xl leading-tight"
         >
                     Adventure Pulse  <br/> 
           Beyond Limits. Into the Wild.
@@ -168,7 +168,7 @@ const home = () => {
       {/* Paragraph Section */}
       <motion.div
         id="second-section"
-        className="mt-24 py-10 px-4 text-center josefin-sans text-gray-800"
+        className="md:mt-24 py-10 px-4 mt-10 text-center josefin-sans text-gray-800"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.4 }}
@@ -202,7 +202,7 @@ const home = () => {
 
       {/* Image and Text Section */}
       <motion.div
-        className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 xl:gap-32 items-center mt-32 px-4 md:px-10 xl:px-24"
+        className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 xl:gap-32 items-center md:mt-32 mt-10 px-4 md:px-10 xl:px-24"
         initial={{ opacity: 0, y: 80 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, ease: "easeOut" }}
@@ -268,15 +268,13 @@ const home = () => {
 
       {/* video section */}
       <motion.section
-        className="relative josefin-sans mt-25 py-12 px-4 sm:px-6 md:px-10 lg:px-20"
+        className="relative josefin-sans md:mt-25 py-12 px-4 sm:px-6 md:px-10 lg:px-20"
         id="bottomRef"
         initial={{ opacity: 0, y: 60 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        {/* Background Stripes */}
-        <div className="absolute inset-0 bg-[repeating-linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 80px)] pointer-events-none z-0" />
 
         {/* Content Wrapper */}
         <div className="relative z-10 max-w-6xl mx-auto text-center space-y-10">
@@ -321,7 +319,7 @@ const home = () => {
                 <motion.div
                   key={index}
                   className={`overflow-hidden rounded-2xl shadow-md transition-all duration-300 hover:shadow-lg hover:scale-[1.02]
-                    ${colSpanClass} sm:rotate-0 sm:translate-x-0 sm:translate-y-0 ${funkyMobileClass}`}
+                    ${colSpanClass} rotate-0 translate-x-0 translate-y-0 sm:${funkyMobileClass}`}
                   whileHover={{ scale: 1.02 }}
                   transition={{ type: "spring", stiffness: 140 }}
                 >
@@ -349,6 +347,7 @@ const home = () => {
           </motion.p>
         </div>
       </motion.section>
+
          
       {/* Cards Section */}
       <div className="py-16 px-4 md:px-10 xl:px-24 josefin-sans space-y-20">

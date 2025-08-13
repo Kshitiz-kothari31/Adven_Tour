@@ -314,40 +314,78 @@ Experience the thrill of gliding over canopies, cliffs, and sparkling rivers. Ou
       </section>
         
       {/* 4th section */}
-      <div className=" px-6 py-12 md:py-20 md:px-20 font-sans text-gray-800 space-y-24">
+      <div className="px-6 py-12 md:px-16 josefin-sans text-gray-800">
         {/* Zipline Section */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center"
+          className="flex flex-col lg:flex-row gap-8 lg:gap-10 items-center"
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
-          {/* Text Left with More Padding */}
-          <div className="pl-8 md:pl-16">
-            <h2 className="text-xl font-bold mb-2">Zipline</h2>
-            <p className="leading-relaxed text-sm md:text-base">
-              Lorem Ipsum is simply dummy text of the printing and Soar like a bird above the breathtaking landscapes of Rishikesh. Our Shivpuri zipline ride stretches across the valley, giving you panoramic views of the Himalayan foothills and the sacred Ganga below. Whether you're a thrill-seeker or a nature lover, this high-flying adventure promises memories that last a lifetime. Safety-certified, beginner-friendly, and absolutely unforgettable.
+          {/* Text Content */}
+          <div className="w-full lg:w-1/2 space-y-6 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-amber-600 to-pink-500">
+              Himalayan Zipline Adventure
+            </h2>
+            <p className="text-sm md:text-base text-gray-700 leading-relaxed">
+              Experience the thrill of soaring 300 feet above the lush valleys of Rishikesh at 40-50 km/h speeds. 
+              Our eco-friendly zipline course offers breathtaking panoramic views of the Himalayan foothills and 
+              the sacred Ganges river below.
             </p>
+            
+            {/* Book Now Button */}
+            <motion.button 
+              className="px-7 py-3 text-sm font-medium text-white bg-gradient-to-r from-amber-500 to-pink-500 rounded-full shadow-lg relative overflow-hidden group mx-auto"
+              whileHover={{ 
+                scale: 1.05,
+                boxShadow: "0 10px 25px -5px rgba(245, 158, 11, 0.4)"
+              }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <span className="relative z-10 flex items-center justify-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Book Now - ₹1,499 Only
+              </span>
+              <span className="absolute inset-0 bg-gradient-to-r from-pink-600 to-amber-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></span>
+            </motion.button>
           </div>
 
-          {/* Image Right with Effects */}
-          <div className="flex justify-center">
-            <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-3xl overflow-hidden border-4 border-white shadow-2xl group">
-              {/* Gradient Glow BG */}
-              <div className="absolute -inset-2 bg-gradient-to-br from-orange-300 via-yellow-100 to-pink-200 rounded-[2rem] blur-2xl opacity-40 group-hover:opacity-70 transition-all duration-500 z-0"></div>
+          {/* Image Grid - Larger Images & Smaller Gap */}
+          <div className="w-full lg:w-1/2">
+            <div className="grid grid-cols-2 gap-1 md:gap-0">
+              {/* Main Image - Increased Size */}
+              <div className="relative aspect-square w-full max-w-[180px] sm:max-w-[240px] md:max-w-[280px] lg:max-w-[320px] mx-auto overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all group">
+                <img
+                  src={pic1}
+                  alt="Zipline aerial view"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent p-4 flex flex-col justify-end">
+                  <span className="text-xs font-semibold text-white/90">300ft Height</span>
+                  <span className="text-[0.65rem] text-amber-300 mt-0.5">Breathtaking Views</span>
+                </div>
+              </div>
 
-              {/* Image */}
-              <img
-                src={pic1}
-                alt="Zipline"
-                className="w-full h-full object-cover relative z-10 group-hover:scale-105 transition duration-500 ease-in-out"
-              />
+              {/* Secondary Image - Increased Size */}
+              <div className="relative aspect-square w-full max-w-[180px] sm:max-w-[240px] md:max-w-[280px] lg:max-w-[320px] mx-auto overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all group">
+                <img
+                  src={pic2}
+                  alt="Zipline platform"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent p-4 flex flex-col justify-end">
+                  <span className="text-xs font-semibold text-white/90">500m Length</span>
+                  <span className="text-[0.65rem] text-amber-300 mt-0.5">Adrenaline Rush</span>
+                </div>
+              </div>
             </div>
           </div>
+
         </motion.div>
       </div>
-
       {/* feedback */}
       <Feedback/>
 

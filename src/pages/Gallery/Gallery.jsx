@@ -200,7 +200,7 @@ const Gallery = () => {
 
         {/* 4TH section */}
         <div className="w-full px-4 mt-15 py-10 md:py-20 overflow-hidden josefin-sans">
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-10 items-center md:items-stretch">
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-10 items-center">
 
             {/* ✅ Mobile Heading */}
             <motion.h2
@@ -213,8 +213,9 @@ const Gallery = () => {
             </motion.h2>
 
             {/* 🔥 Image Grid - LEFT */}
+            {/* 🔥 Image Grid - LEFT */}
             <motion.div
-              className="flex-1 relative grid grid-cols-2 gap-[2px] w-full max-w-md bg-white rounded-3xl p-[2px] -mt-4 md:mt-16 lg:mt-0"
+              className="flex-1 relative grid grid-cols-2 gap-[2px] w-full max-w-md mx-auto md:ml-20 bg-white rounded-3xl p-[2px]"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -227,7 +228,12 @@ const Gallery = () => {
                 },
               }}
             >
-              {[{ src: pic1, className: "rounded-br-3xl" }, { src: pic2, className: "rounded-bl-3xl" }, { src: pic2, className: "rounded-tr-3xl" }, { src: pic1, className: "rounded-tl-3xl" }].map((img, i) => (
+              {[
+                { src: pic1, className: "rounded-br-3xl" },
+                { src: pic2, className: "rounded-bl-3xl" },
+                { src: pic2, className: "rounded-tr-3xl" },
+                { src: pic1, className: "rounded-tl-3xl" }
+              ].map((img, i) => (
                 <motion.div
                   key={i}
                   className={`overflow-hidden shadow-lg h-44 md:h-56 ${img.className}`}
@@ -319,7 +325,7 @@ const Gallery = () => {
         {/* 5th image gallery */}
         <section
           id="gallery alpha"
-          className="scroll-mt-32"
+          className="scroll-mt-32 mt-20"
           onMouseEnter={() => setDropdownOpen(true)}
           onMouseLeave={() => setDropdownOpen(false)}
         >
