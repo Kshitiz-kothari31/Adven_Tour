@@ -85,17 +85,24 @@ function TungnathTrek() {
           panoramas dusted in snow!
         </p>
 
-        <motion.button
-          whileHover={{
-            scale: 1.1,
-            rotate: [0, 2, -2, 2, 0],
-            boxShadow: '0 0 28px rgba(34,197,94,0.85)',
-          }}
-          whileTap={{ scale: 0.95 }}
-          className="mt-8 bg-gradient-to-r from-green-400 to-green-500 hover:from-green-500 hover:to-green-600 text-black font-bold px-10 py-3 rounded-full shadow-xl transition-all duration-300"
-        >
-          Book Now
-        </motion.button>
+<motion.button
+  whileHover={{
+    scale: 1.1,
+    rotate: [0, 2, -2, 2, 0],
+    boxShadow: "0 0 28px rgba(34,197,94,0.85)",
+  }}
+  whileTap={{ scale: 0.95 }}
+  className="mt-8 bg-gradient-to-r from-green-400 to-green-500 hover:from-green-500 hover:to-green-600 text-black font-bold px-10 py-3 rounded-full shadow-xl transition-all duration-300"
+  onClick={() =>
+    window.open(
+      "https://wa.me/919876543210?text=Hi%20I%20am%20interested%20in%20booking%20a%20tour",
+      "_blank"
+    )
+  }
+>
+  Book Now
+</motion.button>
+
       </motion.div>
 
       {/* 🔄 Top flipped wave */}
@@ -150,6 +157,7 @@ function TungnathTrek() {
     
     {/* para */}
       <motion.section
+      id="target-section"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}
@@ -200,6 +208,7 @@ function TungnathTrek() {
             <div className="absolute -inset-3 rounded-2xl bg-gradient-to-tr from-green-400 via-green-600 to-green-800 blur-2xl opacity-30 group-hover:opacity-50 transition"></div>
             <img
               src={img}
+              loading='lazy'
               alt="Dayara Buyal Trek"
               className="relative rounded-2xl border-4 border-black shadow-2xl object-cover w-full aspect-square group-hover:scale-105 transition-transform duration-500"
             />
@@ -235,15 +244,22 @@ function TungnathTrek() {
             </div>
 
             {/* Button */}
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              animate={{ scale: [1, 1.05, 1] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-              className="mt-10 px-10 py-4 bg-green-700 text-white rounded-full font-semibold shadow-lg hover:bg-green-800 transition duration-300 block mx-auto"
-            >
-              🚀 Book Now
-            </motion.button>
+<motion.button
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+  animate={{ scale: [1, 1.05, 1] }}
+  transition={{ duration: 1.5, repeat: Infinity }}
+  className="mt-10 px-10 py-4 bg-green-700 text-white rounded-full font-semibold shadow-lg hover:bg-green-800 transition duration-300 block mx-auto"
+  onClick={() =>
+    window.open(
+      "https://wa.me/919876543210?text=Hi%20I%20am%20interested%20in%20booking%20a%20tour",
+      "_blank"
+    )
+  }
+>
+  🚀 Book Now
+</motion.button>
+
           </motion.div>
         </div>
         </div>

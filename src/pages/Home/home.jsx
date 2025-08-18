@@ -247,6 +247,7 @@ const home = () => {
             <motion.img
               key={i}
               src={src}
+              loading='lazy'
               alt={`Image ${i}`}
               className="w-[160px] lg:w-[220px] xl:w-[260px] h-auto object-cover rounded-[50%_30%_50%_30%/30%_50%_30%_50%] shadow-lg"
               animate={{
@@ -347,7 +348,6 @@ const home = () => {
           </motion.p>
         </div>
       </motion.section>
-
          
       {/* Cards Section */}
       <div className="py-16 px-4 md:px-10 xl:px-24 josefin-sans space-y-20">
@@ -446,8 +446,6 @@ const home = () => {
       {/* detail */}
       <Feedback />
     </section>
-
-
   )
 }
 

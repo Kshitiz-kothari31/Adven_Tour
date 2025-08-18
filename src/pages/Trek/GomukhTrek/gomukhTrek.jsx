@@ -8,6 +8,12 @@ import Form from "../../../components/form/Form";
 import SpecialSection from '../points';
 
 function GomukhTrek() {
+    const handleScroll = () => {
+    const target = document.getElementById("target-section"); // 👈 change this id to your section id
+    if (target) {
+    target.scrollIntoView({ behavior: "smooth" });
+    }
+    };
   return (
     <main className='josefin-sans' >
       {/* first section */}
@@ -56,7 +62,8 @@ function GomukhTrek() {
           </motion.p>
 
           <motion.button
-            className="mt-8 px-6 py-3 rounded-xl bg-orange-600 hover:bg-orange-700 transition-all shadow-md border border-white/10"
+            onClick={handleScroll}
+            className="mt-8 px-6 py-3 cursor-pointer rounded-xl bg-orange-600 hover:bg-orange-700 transition-all shadow-md border border-white/10"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -82,6 +89,7 @@ function GomukhTrek() {
 
       {/* 2nd section */}
       <motion.section
+        id="target-section"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
@@ -113,6 +121,7 @@ function GomukhTrek() {
             <div className="absolute -inset-3 rounded-2xl bg-gradient-to-tr from-green-400 via-green-600 to-green-800 blur-2xl opacity-30 group-hover:opacity-50 transition"></div>
             <img
               src={img}
+              loading='lazy'
               alt="Dayara Buyal Trek"
               className="relative rounded-2xl border-4 border-black shadow-2xl object-cover w-full aspect-square group-hover:scale-105 transition-transform duration-500"
             />
@@ -148,15 +157,22 @@ function GomukhTrek() {
             </div>
 
             {/* Button */}
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              animate={{ scale: [1, 1.05, 1] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-              className="mt-10 px-10 py-4 bg-green-700 text-white rounded-full font-semibold shadow-lg hover:bg-green-800 transition duration-300 block mx-auto"
-            >
-              🚀 Book Now
-            </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                animate={{ scale: [1, 1.05, 1] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+                className="mt-10 px-10 py-4 bg-green-700 text-white rounded-full font-semibold shadow-lg hover:bg-green-800 transition duration-300 block mx-auto"
+                onClick={() =>
+                  window.open(
+                    "https://wa.me/919876543210?text=Hi%20I%20am%20interested%20in%20booking%20a%20tour",
+                    "_blank"
+                  )
+                }
+              >
+                🚀 Book Now
+              </motion.button>
+
           </motion.div>
         </div>
         </div>

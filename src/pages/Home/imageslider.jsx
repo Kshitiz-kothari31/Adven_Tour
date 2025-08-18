@@ -106,10 +106,7 @@ const ImageSlider = () => {
         <AnimatePresence custom={direction} initial={false}>
           <motion.div
             key={index}
-            className="absolute w-full h-full bg-cover bg-center"
-            style={{
-              backgroundImage: `url(${items[index].image})`,
-            }}
+            className="absolute w-full h-full bg-center"
             custom={direction}
             variants={variants}
             initial="enter"
@@ -120,6 +117,14 @@ const ImageSlider = () => {
               opacity: { duration: 0.4 },
             }}
           >
+            {/* ✅ Lazy loaded image instead of backgroundImage */}
+            <img
+              src={items[index].image}
+              alt={items[index].name}
+              loading="lazy"
+              className="absolute inset-0 w-full h-full object-cover z-0"
+            />
+
             <div className="absolute top-1/2 left-8 md:left-20 transform -translate-y-1/2 text-white z-10">
               <motion.div
                 variants={textVariants}
@@ -163,7 +168,6 @@ const ImageSlider = () => {
           </motion.div>
         </AnimatePresence>
       </div>
-
       {/* Dots */}
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-30">
         {items.map((_, i) => (

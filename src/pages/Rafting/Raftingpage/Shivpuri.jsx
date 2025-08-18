@@ -68,13 +68,12 @@ useEffect(() => {
   }, 0);
 }, []);
 
-
-  const scrollToSecondSection = () => {
-    const section = document.getElementById('second-section');
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+const scrollToSecondSection = () => {
+  const section = document.getElementById('second-section');
+  if (section) {
+    section.scrollIntoView({ behavior: 'smooth' });
+  }
+};
 
   return (
     <section className='josefin-sans bg-gradient-to-b from-[#dff6ff] via-[#b7e4f4] to-[#dff6ff]         '  >
@@ -143,17 +142,24 @@ useEffect(() => {
                   Experience the thrill of rafting from the stunning Marine Drive to Shivpuri stretch. 
                 </motion.p>
               </div>
-              <motion.button
-                whileHover={{
-                  scale: 1.1,
-                  rotate: [0, 3, -3, 3, 0],
-                  boxShadow: "0px 0px 25px rgba(255, 255, 0, 0.8)",
-                }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-black font-bold px-8 py-3 rounded-full transition-all duration-300 shadow-lg"
-              >
-                Book Now
-              </motion.button>
+<motion.button
+  whileHover={{
+    scale: 1.1,
+    rotate: [0, 3, -3, 3, 0],
+    boxShadow: "0px 0px 25px rgba(255, 255, 0, 0.8)",
+  }}
+  whileTap={{ scale: 0.95 }}
+  className="bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-black font-bold px-8 py-3 rounded-full transition-all duration-300 shadow-lg"
+  onClick={() =>
+    window.open(
+      "https://wa.me/919876543210?text=Hi%20I%20am%20interested%20in%20booking%20a%20tour",
+      "_blank"
+    )
+  }
+>
+  Book Now
+</motion.button>
+
             </motion.div>
 
             {/* 🌊 Bottom SVG Wave */}
@@ -250,6 +256,7 @@ useEffect(() => {
               <div className="bg-white rounded-[24px] overflow-hidden transition-transform duration-500 hover:scale-105">
                 <img
                   src={pic1}
+                  laoding="lazy"
                   alt="Adventure"
                   className="w-full h-full object-cover rounded-[24px]"
                 />
@@ -288,6 +295,12 @@ useEffect(() => {
               whileHover={{ scale: 1.08 }}
               whileTap={{ scale: 0.96 }}
               className="mt-4 px-6 py-2.5 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-400 text-black font-bold rounded-full shadow-lg transition-all duration-300 relative overflow-hidden group"
+              onClick={() =>
+                window.open(
+                  "https://wa.me/919876543210?text=Hi%20I%20am%20interested%20in%20booking%20a%20tour",
+                  "_blank"
+                )
+              }
             >
               <span className="relative z-10">Book Now</span>
               <span className="absolute inset-0 w-full h-full bg-white opacity-10 blur-lg group-hover:animate-pulse" />
@@ -298,6 +311,7 @@ useEffect(() => {
           <div className="flex-1 relative h-[280px] md:h-[340px] flex justify-center items-center z-0">
             <motion.img
               src={pic1}
+              loading='lazy'
               alt="Rafting 1"
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -307,6 +321,7 @@ useEffect(() => {
             />
             <motion.img
               src={pic1}
+              loading='lazy'
               alt="Rafting 2"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -345,6 +360,7 @@ useEffect(() => {
             >
               {/* 📷 Image */}
               <motion.img
+              loading='lazy'
                 whileHover={{ scale: 1.05 }}
                 src={pic1}
                 alt={item.title}
@@ -390,6 +406,7 @@ useEffect(() => {
           >
             <img
               src={pic1}
+              loading='lazy'
               alt="Rafting"
               className="w-full h-full object-cover"
             />
@@ -509,7 +526,7 @@ useEffect(() => {
       </div>
 
       <Form
-        boxClass="bg-gradient-to-l from-[#b7e4f4] via-[#ffffff]"
+        boxClass="bg-[#B4F4FA]"
         headingClass="text-black"
         buttonClass="bg-blue-600 hover:bg-blue-700"
         focusClass="focus:outline-blue-500"

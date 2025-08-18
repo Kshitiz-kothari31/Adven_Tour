@@ -25,6 +25,7 @@ export default function Loader({ visible = true, onHidden }) {
       <img
         src={logo}
         alt="Site logo"
+        loading="lazy"
         className="h-20 w-auto mb-10 drop-shadow-[0_4px_8px_rgba(0,0,0,0.3)] select-none"
         draggable="false"
       />

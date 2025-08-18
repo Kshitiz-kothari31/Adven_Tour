@@ -1,34 +1,53 @@
 import { Facebook, Instagram, PhoneCall, Mail, MapPin, Twitter } from "lucide-react";
 import { motion } from "framer-motion";
 
+// ✅ Lazy Image Component
+const LazyImage = ({ src, alt, className }) => (
+  <img src={src} alt={alt} loading="lazy" className={className} />
+);
+
+// ✅ Lazy Video Component
+const LazyVideo = ({ src, type = "video/mp4", poster, className, controls = true }) => (
+  <video
+    controls={controls}
+    preload="none"
+    poster={poster}
+    className={className}
+  >
+    <source src={src} type={type} />
+    Your browser does not support the video tag.
+  </video>
+);
+
 const footerVariants = {
   hidden: { opacity: 0, y: 50 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: {
-      duration: 1,
-      ease: "easeOut",
-    },
+    transition: { duration: 1, ease: "easeOut" },
   },
 };
 
-const Footer = () => {
+const Footer = ({ bgClass = "bg-transparent" }) => {
   return (
     <motion.footer
       variants={footerVariants}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      className="bg-[#fef7f5] text-gray-800 px-4 md:px-12 py-8 md:py-12 border-t josefin-sans border-gray-300 font-josefin"
+      className={`${bgClass} text-gray-800 px-4 sm:px-6 md:px-10 lg:px-12 py-8 md:py-12 josefin-sans border-white`}
     >
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-8 sm:gap-y-10 gap-x-8 text-center md:text-left">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-y-8 sm:gap-y-10 gap-x-6 md:gap-x-8 text-center md:text-left">
         
         {/* Brand + Socials */}
         <div>
-          <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 font-playfair">Adventure Pulse</h3>
-          <p className="text-xs sm:text-sm mb-4 opacity-80">Beyond Limits, Into the Wild.</p>
-          <div className="flex justify-center md:justify-start space-x-2">
+          <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-2 sm:mb-3 font-playfair">
+            Adventure Pulse
+          </h3>
+          <p className="text-xs sm:text-sm md:text-base mb-4 opacity-80">
+            Beyond Limits, Into the Wild.
+          </p>
+          <div className="flex justify-center md:justify-start space-x-2 sm:space-x-3">
             {[
               { icon: Twitter, color: "bg-black", link: "https://x.com/yourprofile" },
               { icon: Facebook, color: "bg-blue-600", link: "https://www.facebook.com/Cristiano/" },
@@ -37,12 +56,12 @@ const Footer = () => {
               <motion.a
                 key={idx}
                 whileHover={{ scale: 1.15 }}
-                className={`${social.color} text-white p-2 sm:p-1.5 rounded-full transition`}
+                className={`${social.color} text-white p-2 sm:p-2.5 rounded-full transition`}
                 href={social.link}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <social.icon className="w-4 h-4" />
+                <social.icon className="w-4 h-4 sm:w-5 sm:h-5" />
               </motion.a>
             ))}
           </div>
@@ -50,8 +69,10 @@ const Footer = () => {
 
         {/* Navigation */}
         <div>
-          <h3 className="text-lg sm:text-xl font-bold mb-3 font-playfair">Navigation</h3>
-          <ul className="space-y-2 sm:space-y-3 text-sm font-medium font-josefin">
+          <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 font-playfair">
+            Navigation
+          </h3>
+          <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base font-medium font-josefin">
             {[
               { name: "Home", link: "#" },
               { name: "About", link: "#contact" },
@@ -76,42 +97,44 @@ const Footer = () => {
 
         {/* Contact Info */}
         <div>
-          <h3 className="text-lg sm:text-xl font-bold mb-3 font-playfair">Connect Us</h3>
-          <ul className="text-xs sm:text-sm space-y-2.5 opacity-90">
+          <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-3 font-playfair">
+            Connect Us
+          </h3>
+          <ul className="text-xs sm:text-sm md:text-base space-y-2.5 opacity-90">
             <motion.li
               whileHover={{ scale: 1.03 }}
               className="flex justify-center md:justify-start items-center gap-2"
             >
-              <MapPin className="w-4 h-4" />
+              <MapPin className="w-4 h-4 sm:w-5 sm:h-5" />
               Rishikesh, Tapovan
             </motion.li>
             <motion.li
               whileHover={{ scale: 1.03 }}
               className="flex justify-center md:justify-start items-center gap-2"
             >
-              <PhoneCall className="w-4 h-4" />
+              <PhoneCall className="w-4 h-4 sm:w-5 sm:h-5" />
               (+91) 63982xxxx
             </motion.li>
             <motion.li
               whileHover={{ scale: 1.03 }}
               className="flex justify-center md:justify-start items-center gap-2 break-all"
             >
-              <Mail className="w-4 h-4" />
+              <Mail className="w-4 h-4 sm:w-5 sm:h-5" />
               kshitizkothari69@gmail.com
             </motion.li>
           </ul>
         </div>
       </div>
-
+      
       {/* Divider */}
       <motion.div
         variants={footerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="border-t border-gray-400/50 mt-7 pt-4 text-center text-xs text-gray-600"
+        className="border-t border-gray-400/50 mt-3 pt-5 pb-1 text-center text-xs sm:text-sm leading-none text-gray-600"
       >
-        © 2025 <strong>Adventure Pulse</strong> • All rights reserved.
+        © 2025 <strong className="mt-0">Adventure Pulse</strong> • All rights reserved.
       </motion.div>
     </motion.footer>
   );

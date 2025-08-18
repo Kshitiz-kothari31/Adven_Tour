@@ -1,9 +1,26 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import logo from '../Navbar/21.svg';
 import '../Navbar/Navbar.css';
 import '../../index.css';
+
+const LazyImage = ({ src, alt, className }) => (
+  <img src={src} alt={alt} loading="lazy" className={className} />
+);
+
+
+const LazyVideo = ({ src, type = "video/mp4", poster, className, controls = true }) => (
+  <video
+    controls={controls}
+    preload="none"   // 👈 prevent auto-download
+    poster={poster} // 👈 optional preview image
+    className={className}
+  >
+    <source src={src} type={type} />
+    Your browser does not support the video tag.
+  </video>
+);
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,6 +30,7 @@ const Navbar = () => {
   const buttonRef = useRef(null);
   const detailsRef = useRef(null);
 
+  // Close desktop menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -30,22 +48,19 @@ const Navbar = () => {
   }, [isOpen]);
 
   const closeMobileDropdown = () => {
-    if (detailsRef.current) {
-      detailsRef.current.open = false;
-    }
+    if (detailsRef.current) detailsRef.current.open = false;
   };
 
   return (
-    <header
-      className={`sticky top-0 z-[1000] w-full transition-all duration-300 ease-in-out bg-white josefin-sans `}
+    <header className="sticky top-0 z-[1000] w-auto bg-white/30 backdrop-blur-md shadow-xl transition-all duration-300 ease-in-out josefin-sans">
 
-    >
-      <div className="w-full px-4 xl:px-8 2xl:px-16">
-        <div className="mx-auto w-full flex items-center justify-between py-4 px-4 xl:px-16 3xl:px-32">
+      <div className="w-full px-4 xl:px-8">
+        <div className="mx-auto w-full flex items-center justify-between py-4 xl:px-16 3xl:px-32">
+          
           {/* Logo */}
           <div className="flex items-center space-x-4">
             <Link to="/" className="flex items-center space-x-4 hover:opacity-80 transition">
-              <img src={logo} alt="logo" className="h-10 w-10" />
+              <LazyImage src={logo} alt="logo" className="h-10 w-10" />
               <span className="h-8 w-px bg-gray-800 hidden lg:block"></span>
             </Link>
           </div>
@@ -55,19 +70,19 @@ const Navbar = () => {
 
           {/* Desktop Nav */}
           <ul className="hidden md:flex items-center space-x-6 xl:space-x-10 text-base font-medium text-gray-800">
-            <li><a href="/" className="nav-link">Home</a></li>
             <li><a href="#Rafting" className="nav-link">Rafting</a></li>
             <li><a href="#trek" className="nav-link">Treks</a></li>
 
+            {/* Adventure Sports Dropdown */}
             <li
               className="relative group"
               onMouseEnter={() => setDropdownOpen(true)}
               onMouseLeave={() => setDropdownOpen(false)}
             >
-              <div className={`nav-link flex items-center gap-2 cursor-pointer transition duration-300 ${dropdownOpen ? "text-cyan-700 scale-[1.03]" : ""}`}>
+              <div className={`nav-link flex items-center gap-2 cursor-pointer transition duration-300 ${dropdownOpen ? 'text-cyan-700 scale-[1.03]' : ''}`}>
                 <span>Adventure Sports</span>
                 <svg
-                  className={`w-4 h-4 transition-transform duration-300 ${dropdownOpen ? "rotate-180 text-cyan-700" : ""}`}
+                  className={`w-4 h-4 transition-transform duration-300 ${dropdownOpen ? 'rotate-180 text-cyan-700' : ''}`}
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="2"
@@ -84,7 +99,7 @@ const Navbar = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -10 }}
                     transition={{ duration: 0.25, ease: 'easeOut' }}
-                    className="absolute top-full josefin-sans left-0 mt-3 w-56 bg-white border border-gray-200 rounded-xl shadow-xl z-50 overflow-hidden"
+                    className="absolute top-full left-0 mt-3 w-56 bg-white border border-gray-200 rounded-xl shadow-xl z-50 overflow-hidden josefin-sans"
                   >
                     <a href="#bungee" className="block px-5 py-3 text-sm hover:bg-gray-100 font-medium transition">Bungee Jumping</a>
                     <a href="#kayaking" className="block px-5 py-3 text-sm hover:bg-gray-100 font-medium transition">Kayaking</a>
@@ -115,30 +130,38 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden px-6 pb-4" ref={menuRef}>
-          <ul className="space-y-3 flex flex-col items-center text-base font-medium text-gray-800">
-            <li><a href="/" onClick={() => setIsOpen(false)} className="nav-link block text-center">Home</a></li>
-            <li><a href="#Rafting" onClick={() => setIsOpen(false)} className="nav-link block text-center">Rafting</a></li>
-            <li><a href="#trek" onClick={() => setIsOpen(false)} className="nav-link block text-center">Treks</a></li>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            ref={menuRef}
+            className="md:hidden px-6 pb-4"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.25, ease: 'easeOut' }}
+          >
+            <ul className="space-y-3 flex flex-col items-center text-base font-medium text-gray-800">
+              <li><a href="#Rafting" onClick={() => setIsOpen(false)} className="nav-link block text-center">Rafting</a></li>
+              <li><a href="#trek" onClick={() => setIsOpen(false)} className="nav-link block text-center">Treks</a></li>
 
-            <li className="w-full">
-              <details ref={detailsRef} className="w-full text-center">
-                <summary className="nav-link cursor-pointer flex justify-center items-center gap-2">Adventure Sports</summary>
-                <ul className="mt-2 space-y-2 josefin-sans text-sm text-center">
-                  <li><a href="#bungee" onClick={() => { closeMobileDropdown(); setIsOpen(false); }} className="block px-2 py-2 rounded hover:bg-gray-100">Bungee Jumping</a></li>
-                  <li><a href="#kayaking" onClick={() => { closeMobileDropdown(); setIsOpen(false); }} className="block px-2 py-2 rounded hover:bg-gray-100">Kayaking</a></li>
-                  <li><a href="#zipline" onClick={() => { closeMobileDropdown(); setIsOpen(false); }} className="block px-2 py-2 rounded hover:bg-gray-100">Zipline</a></li>
-                </ul>
-              </details>
-            </li>
+              <li className="w-full">
+                <details ref={detailsRef} className="w-full text-center">
+                  <summary className="nav-link cursor-pointer flex justify-center items-center gap-2">Adventure Sports</summary>
+                  <ul className="mt-2 space-y-2 text-sm text-center josefin-sans">
+                    <li><a href="#bungee" onClick={() => { closeMobileDropdown(); setIsOpen(false); }} className="block px-2 py-2 rounded hover:bg-gray-100">Bungee Jumping</a></li>
+                    <li><a href="#kayaking" onClick={() => { closeMobileDropdown(); setIsOpen(false); }} className="block px-2 py-2 rounded hover:bg-gray-100">Kayaking</a></li>
+                    <li><a href="#zipline" onClick={() => { closeMobileDropdown(); setIsOpen(false); }} className="block px-2 py-2 rounded hover:bg-gray-100">Zipline</a></li>
+                  </ul>
+                </details>
+              </li>
 
-            <li><a href="#Stays" onClick={() => setIsOpen(false)} className="nav-link block text-center">Stays</a></li>
-            <li><a href="#gallery" onClick={() => setIsOpen(false)} className="nav-link block text-center">Gallery</a></li>
-            <li><a href="#contact" onClick={() => setIsOpen(false)} className="nav-link block text-center">Contact</a></li>
-          </ul>
-        </div>
-      )}
+              <li><a href="#Stays" onClick={() => setIsOpen(false)} className="nav-link block text-center">Stays</a></li>
+              <li><a href="#gallery" onClick={() => setIsOpen(false)} className="nav-link block text-center">Gallery</a></li>
+              <li><a href="#contact" onClick={() => setIsOpen(false)} className="nav-link block text-center">Contact</a></li>
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 };

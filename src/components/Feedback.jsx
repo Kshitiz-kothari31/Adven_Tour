@@ -62,6 +62,7 @@ export default function Feedback() {
                 <img
                   src={item.image}
                   alt={item.name}
+                  loading="lazy"   // ✅ lazy loading added
                   className="w-16 h-16 rounded-full object-cover border-2 border-gray-300 shadow-sm"
                 />
               </div>
