@@ -76,16 +76,23 @@ function KedarKatha() {
             </p>
 
             {/* CTA */}
-            <motion.button
-              whileHover={{
-                scale: 1.1,
-                boxShadow: '0 0 28px rgba(110,231,183,0.8)',
-              }}
-              whileTap={{ scale: 0.95 }}
-              className="mt-6 bg-green-400 hover:bg-green-500 text-black font-bold px-7 py-3 rounded-full shadow-md transition-all duration-300 text-sm md:text-base"
-            >
-              Book Now
-            </motion.button>
+<motion.button
+  whileHover={{
+    scale: 1.1,
+    boxShadow: "0 0 28px rgba(110,231,183,0.8)",
+  }}
+  whileTap={{ scale: 0.95 }}
+  className="mt-6 bg-green-400 hover:bg-green-500 text-black font-bold px-7 py-3 rounded-full shadow-md transition-all duration-300 text-sm md:text-base"
+  onClick={() =>
+    window.open(
+      "https://wa.me/919876543210?text=Hi%20I%20am%20interested%20in%20booking%20a%20tour",
+      "_blank"
+    )
+  }
+>
+  Book Now
+</motion.button>
+
           </div>
         </motion.div>
 
@@ -134,6 +141,7 @@ function KedarKatha() {
 
       {/* para */}
       <motion.section
+      id="target-section"
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}
@@ -185,6 +193,7 @@ function KedarKatha() {
             <div className="absolute -inset-3 rounded-2xl bg-gradient-to-tr from-green-400 via-green-600 to-green-800 blur-2xl opacity-30 group-hover:opacity-50 transition"></div>
             <img
               src={img}
+              loading='lazy'
               alt="Dayara Buyal Trek"
               className="relative rounded-2xl border-4 border-black shadow-2xl object-cover w-full aspect-square group-hover:scale-105 transition-transform duration-500"
             />
@@ -220,15 +229,22 @@ function KedarKatha() {
             </div>
 
             {/* Button */}
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              animate={{ scale: [1, 1.05, 1] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-              className="mt-10 px-10 py-4 bg-green-700 text-white rounded-full font-semibold shadow-lg hover:bg-green-800 transition duration-300 block mx-auto"
-            >
-              🚀 Book Now
-            </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                animate={{ scale: [1, 1.05, 1] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+                className="mt-10 px-10 py-4 bg-green-700 text-white rounded-full font-semibold shadow-lg hover:bg-green-800 transition duration-300 block mx-auto"
+                onClick={() =>
+                  window.open(
+                    "https://wa.me/919876543210?text=Hi%20I%20am%20interested%20in%20booking%20a%20tour",
+                    "_blank"
+                  )
+                }
+              >
+                🚀 Book Now
+              </motion.button>
+
           </motion.div>
         </div>
         </div>

@@ -1,54 +1,60 @@
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import { useEffect, useRef } from "react";
 
-/**
- * ScrollDownButton
- * ----------------
- * • Click → scroll smoothly to:
- *   1.  An element whose id === targetId   (if provided & found)
- *   2.  Otherwise, the second <section> on the page
- *
- * Props
- * -----
- * @param {string} [targetId] – optional id of a specific element
- */
-export default function ScrollDownButton({ targetId }) {
+export default function ScrollDownButton() {
+  const buttonRef = useRef(null);
+
   const handleScroll = () => {
-    let el = targetId && document.getElementById(targetId);
-
-    // Fallback: second <section>
-    if (!el) {
-      const sections = document.querySelectorAll("section");
-      if (sections.length > 1) el = sections[1];
-    }
-
-    if (el) {
-      const yOffset = -80; // 👉 adjust based on navbar height (in pixels)
-      const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
-
-      window.scrollTo({ top: y, behavior: "smooth" });
+    const targetSection = document.getElementById("target-section");
+    if (targetSection) {
+      targetSection.scrollIntoView({ 
+        behavior: "smooth",
+        block: "start"  // Aligns the top of the element to the top of the viewport
+      });
     }
   };
 
+  // Keyboard accessibility
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        handleScroll();
+      }
+    };
+
+    const button = buttonRef.current;
+    if (button) {
+      button.addEventListener("keydown", handleKeyDown);
+    }
+
+    return () => {
+      if (button) {
+        button.removeEventListener("keydown", handleKeyDown);
+      }
+    };
+  }, []);
+
   return (
-    <div className="relative inset-0 z-50 flex items-center justify-center mt-15 pointer-events-none">
+    <div className="flex justify-center mt-12">
       <motion.button
-        aria-label="Scroll to next section"
+        ref={buttonRef}
+        type="button"
         onClick={handleScroll}
-        className="pointer-events-auto cursor-pointer flex items-center justify-center w-16 h-16 rounded-full bg-green-600 text-white shadow-lg"
-        animate={{
-          y: [0, -6, 0],
-          boxShadow: [
-            "0 0 0 rgba(34,197,94,0.7)",
-            "0 0 18px rgba(34,197,94,0.7)",
-            "0 0 0 rgba(34,197,94,0.7)",
-          ],
+        aria-label="Scroll to target section"
+        className="relative flex h-14 w-14 items-center justify-center rounded-full
+                   bg-green-600 text-white shadow-lg cursor-pointer
+                   hover:bg-green-700 focus:outline-none focus:ring-4 focus:ring-green-300"
+        animate={{ y: [0, -8, 0] }}
+        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        whileHover={{
+          scale: 1.2,
+          rotate: 6,
+          boxShadow: "0 0 20px rgba(34,197,94,0.6)",
         }}
-        transition={{ duration: 3, ease: "easeInOut", repeat: Infinity }}
-        whileHover={{ scale: 1.15 }}
-        whileTap={{ scale: 0.95 }}
+        whileTap={{ scale: 0.9 }}
       >
-        <ChevronDown className="w-8 h-8" />
+        <ChevronDown className="h-7 w-7" />
       </motion.button>
     </div>
   );

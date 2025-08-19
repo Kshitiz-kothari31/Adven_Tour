@@ -15,6 +15,7 @@ const ContactSection = () => {
         <img
           src="https://images3.alphacoders.com/134/thumb-1920-1345697.png"
           alt="Hero"
+          loading="lazy"   // ✅ lazy loading added
           className="absolute top-0 left-0 w-full h-full object-cover opacity-40"
         />
         <div className="relative z-10">
@@ -131,7 +132,6 @@ const ContactSection = () => {
             rel="noopener noreferrer"
             className="bg-[#25D366] p-4 rounded-full shadow-lg hover:scale-110 transition-transform duration-300"
           >
-            {/* WhatsApp SVG */}
             <svg
               className="w-6 h-6 text-white"
               fill="currentColor"
@@ -164,7 +164,7 @@ const ContactSection = () => {
         <iframe
           title="Shivpuri Rishikesh Map"
           className="w-full h-full border-0"
-          loading="lazy"
+          loading="lazy"   // ✅ lazy loading added
           allowFullScreen
           referrerPolicy="no-referrer-when-downgrade"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3492.687932174049!2d78.41623807451863!3d30.08713857489601!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390915f3f09b36d1%3A0x1f05f04c54a82dd2!2sShivpuri%2C%20Uttarakhand%20249413!5e0!3m2!1sen!2sin!4v1720880116997!5m2!1sen!2sin"

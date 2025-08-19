@@ -16,7 +16,7 @@ const marqueeItems = [
   'Memories await you',
   'Thrill-packed journeys',
   'Unleash your wild side',
-  'Nature’s rollercoaster ride',
+  'Nature rollercoaster ride',
   'Waves. Laughs. Memories.',
   'Guided by river pros',
   'Unmatched river thrills',
@@ -25,6 +25,246 @@ const marqueeItems = [
   'Breathtaking river trails',
   'Experience. Explore. Enjoy.',
 ];
+
+const RiverRaftingBackground = () => {
+  const riverColors = {
+    primary: "#1E88E5",
+    secondary: "#42A5F5",
+    whitewater: "#E3F2FD",
+    rapid: "#0D47A1"
+  };
+
+  return (
+    <motion.div 
+      className="fixed inset-0 z-0 pointer-events-none overflow-hidden"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 0.3 }}
+      transition={{ duration: 2 }}
+    >
+      <motion.div 
+        className="absolute inset-0 bg-gradient-to-b from-blue-50 to-blue-100 opacity-20"
+        style={{
+          backgroundImage: `
+            radial-gradient(circle at 20% 30%, ${riverColors.secondary} 0%, transparent 15%),
+            radial-gradient(circle at 80% 70%, ${riverColors.primary} 0%, transparent 15%)
+          `,
+        }}
+      />
+      
+      <motion.svg
+        width="100%"
+        height="100%"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+        className="absolute inset-0"
+      >
+        <motion.path
+          d="M-10,50 
+             C20,40 30,60 50,50 
+             C70,40 80,60 110,50"
+          fill="none"
+          stroke={riverColors.primary}
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          initial={{ pathLength: 0 }}
+          animate={{ 
+            pathLength: 1,
+            strokeDashoffset: [0, -20],
+          }}
+          transition={{
+            duration: 15,
+            ease: "linear",
+            repeat: Infinity
+          }}
+        />
+        
+        {[25, 45, 65, 85].map((x, i) => (
+          <motion.g
+            key={`rapid-${i}`}
+            initial={{ opacity: 0, y: -2 }}
+            animate={{ 
+              opacity: [0.8, 1, 0.8],
+              y: [0, -1, 0],
+            }}
+            transition={{
+              duration: 1.5 + Math.random(),
+              delay: i * 0.3,
+              repeat: Infinity
+            }}
+          >
+            <motion.path
+              d={`M${x},50 Q${x+3},47 ${x+6},50 T${x+12},50`}
+              fill="none"
+              stroke={riverColors.whitewater}
+              strokeWidth="0.8"
+              strokeLinecap="round"
+            />
+          </motion.g>
+        ))}
+        
+        {[0, 1, 2].map((i) => (
+          <motion.g
+            key={i}
+            initial={{ opacity: 0 }}
+            animate={{
+              opacity: [0, 1, 1, 0],
+              x: ["-10", "20", "35", "50", "65", "80", "110"],
+              y: ["50", "48", "52", "49", "51", "50"]
+            }}
+            transition={{
+              duration: 18,
+              delay: i * 5,
+              ease: "linear",
+              repeat: Infinity
+            }}
+          >
+            <motion.g
+              animate={{
+                rotate: [0, -5, 5, -3, 0],
+                y: [0, -1, 1, -0.5, 0]
+              }}
+              transition={{
+                duration: 2 + Math.random(),
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
+              <motion.rect
+                x="-2"
+                y="-1"
+                width="4"
+                height="2"
+                rx="0.5"
+                fill="#795548"
+                stroke="#5D4037"
+                strokeWidth="0.1"
+              />
+              {[-1, 0, 1].map((p) => (
+                <motion.circle
+                  key={p}
+                  cx={p * 0.8}
+                  cy={-0.5}
+                  r="0.4"
+                  fill={p === 0 ? "#FF5722" : "#2196F3"}
+                  stroke="#212121"
+                  strokeWidth="0.05"
+                />
+              ))}
+              <motion.line
+                x1="-1.5"
+                y1="0"
+                x2="-2.5"
+                y2="-1.5"
+                stroke="#5D4037"
+                strokeWidth="0.15"
+              />
+              <motion.line
+                x1="1.5"
+                y1="0"
+                x2="2.5"
+                y2="-1.5"
+                stroke="#5D4037"
+                strokeWidth="0.15"
+              />
+            </motion.g>
+          </motion.g>
+        ))}
+        
+        <motion.path
+          d="M-10,30 L-10,40 C20,35 30,55 50,45 C70,35 80,55 110,45 L110,30 Z"
+          fill="#5D4037"
+          fillOpacity="0.1"
+          stroke="#4E342E"
+          strokeWidth="0.2"
+          strokeDasharray="2 1"
+        />
+        
+        {[20, 35, 50, 65, 80].map((x, i) => (
+          <motion.g
+            key={`splash-${i}`}
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ 
+              opacity: [0, 0.8, 0],
+              scale: [0.5, 1.2, 0.8],
+            }}
+            transition={{
+              duration: 1.5,
+              delay: i * 0.5 + Math.random(),
+              repeat: Infinity
+            }}
+            transform={`translate(${x}, 50)`}
+          >
+            <motion.path
+              d="M-1,0 Q0,-1 1,0 Q0,1 -1,0 Z"
+              fill={riverColors.whitewater}
+              stroke={riverColors.primary}
+              strokeWidth="0.05"
+            />
+          </motion.g>
+        ))}
+        
+        <motion.g
+          initial={{ opacity: 0 }}
+          animate={{ opacity: [0.6, 0.9, 0.6] }}
+          transition={{ duration: 3, repeat: Infinity }}
+        >
+          {[15, 30, 45, 60, 75, 90].map((x, i) => (
+            <motion.path
+              key={`current-${i}`}
+              d={`M${x},50 L${x+3},50`}
+              fill="none"
+              stroke={riverColors.primary}
+              strokeWidth="0.3"
+              strokeDasharray="0.5 0.5"
+            />
+          ))}
+        </motion.g>
+        
+        <motion.g
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.8 }}
+          transition={{ delay: 1 }}
+        >
+          {[25, 75].map((x, i) => (
+            <motion.g key={`buoy-${i}`} transform={`translate(${x}, 48)`}>
+              <motion.circle cx="0" cy="0" r="0.5" fill="#FFC107" stroke="#FFA000" strokeWidth="0.1" />
+              <motion.rect x="-0.1" y="-1" width="0.2" height="1" fill="#795548" />
+            </motion.g>
+          ))}
+        </motion.g>
+        
+        <motion.g
+          initial={{ opacity: 0 }}
+          animate={{ opacity: [0.7, 0.9, 0.7] }}
+          transition={{ duration: 5, repeat: Infinity }}
+        >
+          <motion.text
+            x="30"
+            y="45"
+            fontSize="1.2"
+            fill={riverColors.rapid}
+            fontFamily="Arial"
+            fontWeight="bold"
+            textAnchor="middle"
+          >
+            Rapids
+          </motion.text>
+          <motion.text
+            x="70"
+            y="55"
+            fontSize="1.5"
+            fill={riverColors.rapid}
+            fontFamily="Arial"
+            fontWeight="bold"
+            textAnchor="middle"
+          >
+            Rapids
+          </motion.text>
+        </motion.g>
+      </motion.svg>
+    </motion.div>
+  );
+};
 
 const Rafting = () => {
   const scrollToSection = () => {
@@ -36,11 +276,11 @@ const Rafting = () => {
   const dummyImages = Array(imageCount).fill(pic1);
 
   return (
-    <section className="bg-gradient-to-r from-[#fafafa] to-[#B2EBF2] ">
-      {/* Background Image */}
+    <section className="bg-gradient-to-r from-[#fafafa] to-[#B2EBF2] relative">
+      <RiverRaftingBackground />
+      
       <AdventureAltHero/>
 
-      {/* Second Section */}
       <div className="py-20 px-4 mt-15 md:px-20 xl:px-40 relative text-black overflow-hidden">
         <motion.div
           onClick={scrollToSection}
@@ -72,7 +312,7 @@ const Rafting = () => {
               transition={{ duration: 1, delay: 0.2 }}
               className="text-base md:text-lg xl:text-xl leading-relaxed text-gray-700 josefin-sans "
             >
-              Our passion flows with the river. We believe every splash tells a story and every current brings you closer to nature. Rafting is not just a sport for us—it's a journey of thrill, freedom, and connection. We aim to make every trip unforgettable, filled with laughter, courage, and breathtaking moments. Whether you’re conquering your first rapid or your tenth, our goal is to ignite your adventurous spirit. With years of experience and love for the outdoors, we bring you safely to the edge—and back—with memories to last a lifetime.
+              Our passion flows with the river. We believe every splash tells a story and every current brings you closer to nature. Rafting is not just a sport for us—it's a journey of thrill, freedom, and connection. We aim to make every trip unforgettable, filled with laughter, courage, and breathtaking moments. Whether you're conquering your first rapid or your tenth, our goal is to ignite your adventurous spirit. With years of experience and love for the outdoors, we bring you safely to the edge—and back—with memories to last a lifetime.
             </motion.p>
           </div>
 
@@ -86,6 +326,7 @@ const Rafting = () => {
               <img
                 src={pic1}
                 alt="Rafting 1"
+                loading="lazy"
                 className="w-80 h-52 md:w-96 md:h-60 xl:w-[420px] xl:h-[270px] object-cover rounded-2xl"
               />
             </motion.div>
@@ -99,6 +340,7 @@ const Rafting = () => {
               <img
                 src={pic1}
                 alt="Rafting 2"
+                loading="lazy"
                 className="w-80 h-52 md:w-96 md:h-60 xl:w-[420px] xl:h-[270px] object-cover rounded-2xl"
               />
             </motion.div>
@@ -107,11 +349,10 @@ const Rafting = () => {
 
         <div id="next-section" className="mt-20" />
       </div>
+
       
-      {/* Third Section */}
       <Expe/>
 
-      {/* Fourth Section - Marquee */}
       <div className=" josefin-sans md:mt-12 overflow-hidden mt-9 py-3">
         <motion.div
           className="flex whitespace-nowrap text-black font-medium text-3xl gap-12 px-6"
@@ -129,7 +370,6 @@ const Rafting = () => {
         </motion.div>
       </div>
       <div className="mt-15 px-4 py-16 md:px-20">
-        {/* Section Heading */}
         <motion.h2
           className="text-3xl md:text-7xl jolly-font font-bold text-center mb-12 josefin-sans"
           initial={{ opacity: 0, y: -30 }}
@@ -139,7 +379,6 @@ const Rafting = () => {
           Rafting Plans
         </motion.h2>
 
-        {/* Cards Grid */}
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
           initial="hidden"
@@ -147,7 +386,6 @@ const Rafting = () => {
           transition={{ staggerChildren: 0.2 }}
           viewport={{ once: true }}
         >
-          {/* Card 1 */}
           <motion.div
             className="bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col snap-start h-[400px] sm:h-[440px] md:h-[480px] group transition-transform hover:scale-[1.03] hover:-translate-y-1"
             initial={{ opacity: 0, y: 100 }}
@@ -183,7 +421,6 @@ const Rafting = () => {
             </div>
           </motion.div>
 
-          {/* Card 2 */}
           <motion.div
             className="bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col snap-start h-[400px] sm:h-[440px] md:h-[480px] group transition-transform hover:scale-[1.03] hover:-translate-y-1"
             initial={{ opacity: 0, y: 100 }}
@@ -219,7 +456,6 @@ const Rafting = () => {
             </div>
           </motion.div>
 
-          {/* Card 3 */}
           <motion.div
             className="bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col snap-start h-[400px] sm:h-[440px] md:h-[480px] group transition-transform hover:scale-[1.03] hover:-translate-y-1"
             initial={{ opacity: 0, y: 100 }}
@@ -255,7 +491,6 @@ const Rafting = () => {
             </div>
           </motion.div>
 
-          {/* Card 4 */}
           <motion.div
             className="bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col snap-start h-[400px] sm:h-[440px] md:h-[480px] group transition-transform hover:scale-[1.03] hover:-translate-y-1"
             initial={{ opacity: 0, y: 100 }}
@@ -293,8 +528,7 @@ const Rafting = () => {
         </motion.div>
       </div>
 
-      {/* 6th section - Gallery */}
-      <div className="py-16  sm:mt-20  px-4 md:px-2  mt-4">
+      <div className="py-16 sm:mt-20 px-4 md:px-2 mt-4">
         <h2 className="jolly-font text-3xl md:text-4xl font-bold text-center mb-12 josefin-sans">
           Rafting Memories to Inspire You
         </h2>
@@ -314,7 +548,6 @@ const Rafting = () => {
           viewport={{ once: true, amount: 0.2 }}
         >
           {dummyImages.map((src, i) => {
-            // 🌀 Shape classes
             const shapeClass =
               i % 4 === 0
                 ? 'rounded-full'
@@ -354,6 +587,7 @@ const Rafting = () => {
                   <img
                     src={src}
                     alt={`rafting-${i}`}
+                    loading="lazy"   // ✅ Lazy loading added
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -361,16 +595,13 @@ const Rafting = () => {
             );
           })}
         </motion.div>
-      </div>
-        
-      {/* feedback */}
+      </div>     
       <Feedback/>
       
-      {/* 7th section */}
       <FAQSection />
 
       <Form
-        boxClass="bg-gradient-to-l from-[#fafafa] to-[#B2EBF2]"
+        boxClass="bg-[#B4F4FA]"
         headingClass="text-black"
         buttonClass="bg-blue-600 hover:bg-blue-700"
         focusClass="focus:outline-blue-500"

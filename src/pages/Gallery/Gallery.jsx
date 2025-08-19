@@ -1,4 +1,4 @@
-import  { useRef , useState } from 'react';
+import { useRef, useState } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
 import Form from '../../components/form/Form';
 import './Gallery.css'
@@ -6,7 +6,7 @@ import pic1 from '../../assets/images/Home/download.jpeg'
 import pic2 from '../../assets/images/Home/download (5).jpeg'
 
 const Gallery = () => {
-  
+  const tutanRef = useRef(null);
   const bottomRef = useRef(null);
 
   const scrollToBottom = () => {
@@ -14,16 +14,35 @@ const Gallery = () => {
   };
 
   const images = [
-    pic1, pic2, pic2, pic1, pic1, pic2,
-    pic2, pic1, pic1, pic2, pic2, pic1,
-    pic1, pic2, pic2,
+    { src: pic1, category: "rafting" },
+    { src: pic2, category: "rafting" },
+    { src: pic2, category: "trekking" },
+    { src: pic1, category: "trekking" },
+    { src: pic1, category: "stays" },
+    { src: pic2, category: "stays" },
+    { src: pic2, category: "bungee" },
+    { src: pic1, category: "bungee" },
+    { src: pic1, category: "rafting" },
+    { src: pic2, category: "trekking" },
+    { src: pic2, category: "stays" },
+    { src: pic1, category: "bungee" },
+    { src: pic1, category: "rafting" },
+    { src: pic2, category: "trekking" },
+    { src: pic2, category: "stays" },
   ];
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState("all");
   const [selectedImage, setSelectedImage] = useState(null);
+
+  const filteredImages =
+    selectedCategory === "all"
+      ? images
+      : images.filter((img) => img.category === selectedCategory);
+
   return (
     <section className=' bg-gradient-to-r from-[#ffffff] to-[#f1daff] pt-20 josefin-sans'>
         {/* 1st section */}        
-        <div className="  w-full max-w-7xl mx-auto px-4 py-10 flex flex-col md:flex-row items-center md:items-start justify-between gap-10 -mt-15">
+        <div className="w-full max-w-7xl mx-auto px-4 py-10 flex flex-col md:flex-row items-center md:items-start justify-between gap-10 -mt-15">
 
         {/* 🔵 Left Text */}
         <div className="flex-1 space-y-6 text-center md:text-left">
@@ -47,26 +66,33 @@ const Gallery = () => {
 
           <div className="flex flex-row flex-wrap items-center justify-center md:justify-start gap-4">
             {/* 🚀 Book Now Button */}
+          <a
+            href="https://wa.me/919876543210?text=Hi%20I%20am%20interested%20in%20booking%20a%20tour"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <motion.button
-              className="relative group overflow-hidden bg-gradient-to-r from-blue-700 to-purple-800 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-2xl transition-all duration-500 ease-in-out hover:scale-110"
+              className="relative group cursor-pointer overflow-hidden bg-gradient-to-r from-blue-700 to-purple-800 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-2xl transition-all duration-500 ease-in-out hover:scale-110"
               whileHover={{ scale: 1.1, rotate: [0, 3, -3, 3, -3, 0] }}
             >
               <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-yellow-400 to-pink-500 opacity-0 group-hover:opacity-100 blur-md transition duration-700 scale-125"></span>
               <span className="relative z-10">Book Now 🚀</span>
             </motion.button>
+          </a>
 
-            {/* 🖼️ View Gallery Button */}
-            <motion.button
-              onClick={() => {
-                const el = document.getElementById("gallery");
-                if (el) el.scrollIntoView({ behavior: "smooth" });
-              }}
-              className="relative group overflow-hidden bg-gradient-to-r from-blue-700 to-purple-800 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-2xl transition-all duration-500 ease-in-out hover:scale-110"
-              whileHover={{ scale: 1.1, rotate: [0, 3, -3, 3, -3, 0] }}
-            >
-              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-yellow-400 to-pink-500 opacity-0 group-hover:opacity-100 blur-md transition duration-700 scale-125"></span>
-              <span className="relative z-10">View Gallery 🖼️</span>
-            </motion.button>
+
+        {/* 🖼️ View Gallery Button */}
+      <motion.button
+        onClick={() => {
+          tutanRef.current?.scrollIntoView({ behavior: "smooth" });
+        }}
+        className="relative cursor-pointer group overflow-hidden bg-gradient-to-r from-blue-700 to-purple-800 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-2xl transition-all duration-500 ease-in-out hover:scale-110"
+        whileHover={{ scale: 1.1, rotate: [0, 3, -3, 3, -3, 0] }}
+      >
+        <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-yellow-400 to-pink-500 opacity-0 group-hover:opacity-100 blur-md transition duration-700 scale-125"></span>
+        <span className="relative z-10">View Gallery 🖼️</span>
+      </motion.button>
+
           </div>
         </div>
 
@@ -78,16 +104,36 @@ const Gallery = () => {
           transition={{ duration: 1 }}
         >
           <motion.div whileHover={{ scale: 1.05 }} className="overflow-hidden shadow-lg h-48 md:h-64 rounded-br-3xl">
-            <img src={pic1} alt="img1" className="w-full h-full object-cover" />
+            <img 
+              src={pic1} 
+              alt="img1" 
+              className="w-full h-full object-cover" 
+              loading="lazy"
+            />
           </motion.div>
           <motion.div whileHover={{ scale: 1.05 }} className="overflow-hidden shadow-lg h-48 md:h-64 rounded-bl-3xl">
-            <img src={pic2} alt="img2" className="w-full h-full object-cover" />
+            <img 
+              src={pic2} 
+              alt="img2" 
+              className="w-full h-full object-cover" 
+              loading="lazy"
+            />
           </motion.div>
           <motion.div whileHover={{ scale: 1.05 }} className="overflow-hidden shadow-lg h-48 md:h-64 rounded-tr-3xl">
-            <img src={pic2} alt="img3" className="w-full h-full object-cover" />
+            <img 
+              src={pic2} 
+              alt="img3" 
+              className="w-full h-full object-cover" 
+              loading="lazy"
+            />
           </motion.div>
           <motion.div whileHover={{ scale: 1.05 }} className="overflow-hidden shadow-lg h-48 md:h-64 rounded-tl-3xl">
-            <img src={pic1} alt="img4" className="w-full h-full object-cover" />
+            <img 
+              src={pic1} 
+              alt="img4" 
+              className="w-full h-full object-cover" 
+              loading="lazy"
+            />
           </motion.div>
           <motion.div
             className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-36 h-36 rounded-full overflow-hidden border-[2px] border-white shadow-xl z-10 bg-white"
@@ -96,7 +142,12 @@ const Gallery = () => {
             whileHover={{ scale: 1.2 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <img src={pic2} alt="center" className="w-full h-full object-cover" />
+            <img 
+              src={pic2} 
+              alt="center" 
+              className="w-full h-full object-cover" 
+              loading="lazy"
+            />
           </motion.div>
         </motion.div>
         </div>
@@ -181,6 +232,8 @@ const Gallery = () => {
                     autoPlay
                     loop
                     playsInline
+                    preload="none"
+                    loading="lazy"
                   />
                 </motion.div>
               ))}
@@ -193,7 +246,7 @@ const Gallery = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
             >
-              These real clips showcase our adventure experiences – live from Rishikesh’s whitewater. Play, paddle, and feel the adrenaline.
+              These real clips showcase our adventure experiences – live from Rishikesh's whitewater. Play, paddle, and feel the adrenaline.
             </motion.p>
           </div>
         </motion.section>
@@ -212,7 +265,6 @@ const Gallery = () => {
               WHY ADVENTURERS <br /> <span className="text-green-600">CHOOSE US</span>
             </motion.h2>
 
-            {/* 🔥 Image Grid - LEFT */}
             {/* 🔥 Image Grid - LEFT */}
             <motion.div
               className="flex-1 relative grid grid-cols-2 gap-[2px] w-full max-w-md mx-auto md:ml-20 bg-white rounded-3xl p-[2px]"
@@ -241,7 +293,12 @@ const Gallery = () => {
                   transition={{ duration: 0.6, ease: 'easeOut' }}
                   whileHover={{ scale: 1.05 }}
                 >
-                  <img src={img.src} alt={`img${i + 1}`} className="w-full h-full object-cover" />
+                  <img 
+                    src={img.src} 
+                    alt={`img${i + 1}`} 
+                    className="w-full h-full object-cover" 
+                    loading="lazy"
+                  />
                 </motion.div>
               ))}
 
@@ -253,7 +310,12 @@ const Gallery = () => {
                 whileHover={{ scale: 1.2, rotate: 6 }}
                 transition={{ type: "spring", stiffness: 200, damping: 12, delay: 0.6 }}
               >
-                <img src={pic2} alt="center" className="w-full h-full object-cover" />
+                <img 
+                  src={pic2} 
+                  alt="center" 
+                  className="w-full h-full object-cover" 
+                  loading="lazy"
+                />
               </motion.div>
             </motion.div>
 
@@ -323,80 +385,63 @@ const Gallery = () => {
         </div>
 
         {/* 5th image gallery */}
-        <section
-          id="gallery alpha"
-          className="scroll-mt-32 mt-20"
-          onMouseEnter={() => setDropdownOpen(true)}
-          onMouseLeave={() => setDropdownOpen(false)}
-        >
+        <section ref={tutanRef} className="scroll-mt-32 mt-20">
           <div className="w-full px-6 md:px-12 py-12 overflow-hidden">
-            {/* Title & Button */}
+            {/* Title & Dropdown */}
             <motion.div
-            className="text-center md:text-left mb-10"
-            initial={{ y: -50, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: true }}
+              className="text-center md:text-left mb-10"
+              initial={{ y: -50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true }}
             >
-            <h2 className="text-4xl md:text-5xl font-extrabold font-josefin text-gray-900 tracking-tight mb-4">
-              📸 Image Gallery
-            </h2>
+              <h2 className="text-4xl md:text-5xl font-extrabold font-josefin text-gray-900 tracking-tight mb-4">
+                📸 Image Gallery
+              </h2>
 
-            {/* Dropdown Wrapper */}
-            <div
-              className="relative inline-block text-left"
-              onMouseEnter={() => setDropdownOpen(true)}
-              onMouseLeave={() => setDropdownOpen(false)}
-            >
-              {/* Dropdown Button */}
-              <motion.button
-                whileHover={{ scale: 1.08, rotate: 1 }}
-                whileTap={{ scale: 0.95 }}
-                className="group inline-flex items-center px-6 py-2 bg-gradient-to-r from-purple-700 to-blue-700 text-white rounded-full text-sm md:text-base font-semibold shadow-xl transition-all duration-300 cursor-pointer"
+              {/* Dropdown */}
+              <div
+                className="relative inline-block text-left"
+                onMouseEnter={() => setDropdownOpen(true)}
+                onMouseLeave={() => setDropdownOpen(false)}
               >
-                <span className="absolute left-0 top-0 w-full h-full bg-white/10 rounded-full blur-md opacity-0 group-hover:opacity-100 transition duration-300" />
-                🚀 Select Something
-                <span className="ml-2 group-hover:translate-y-1 transition-transform duration-300">👇</span>
-              </motion.button>
+                <motion.button
+                  whileHover={{ scale: 1.08, rotate: 1 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="group inline-flex items-center px-6 py-2 bg-gradient-to-r from-purple-700 to-blue-700 text-white rounded-full text-sm md:text-base font-semibold shadow-xl transition-all duration-300 cursor-pointer"
+                >
+                  <span className="absolute left-0 top-0 w-full h-full bg-white/10 rounded-full blur-md opacity-0 group-hover:opacity-100 transition duration-300" />
+                  🚀 Select Category
+                  <span className="ml-2 group-hover:translate-y-1 transition-transform duration-300">
+                    👇
+                  </span>
+                </motion.button>
 
-              {/* Dropdown Items */}
-              <AnimatePresence>
-                {dropdownOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: -10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.25, ease: "easeOut" }}
-                    className="absolute top-full left-0 mt-3 w-56 bg-white border border-gray-200 rounded-xl shadow-xl z-50 overflow-hidden font-josefin"
-                  >
-                    <a
-                      href="#rafting"
-                      className="block px-5 py-3 text-sm hover:bg-gray-100 font-medium transition cursor-pointer"
+                <AnimatePresence>
+                  {dropdownOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.25, ease: "easeOut" }}
+                      className="absolute top-full left-0 mt-3 w-56 bg-white border border-gray-200 rounded-xl shadow-xl z-50 overflow-hidden font-josefin"
                     >
-                      🚣‍♂️ Rafting
-                    </a>
-                    <a
-                      href="#stays"
-                      className="block px-5 py-3 text-sm hover:bg-gray-100 font-medium transition cursor-pointer"
-                    >
-                      🏕️ Stays
-                    </a>
-                    <a
-                      href="#trekking"
-                      className="block px-5 py-3 text-sm hover:bg-gray-100 font-medium transition cursor-pointer"
-                    >
-                      🥾 Trekking
-                    </a>
-                    <a
-                      href="#bungee"
-                      className="block px-5 py-3 text-sm hover:bg-gray-100 font-medium transition cursor-pointer"
-                    >
-                      🪂 Bungee
-                    </a>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+                      {["rafting", "stays", "trekking", "bungee"].map((cat) => (
+                        <a
+                          key={cat}
+                          onClick={() => setSelectedCategory(cat)}
+                          className="block px-5 py-3 text-sm hover:bg-gray-100 font-medium transition cursor-pointer"
+                        >
+                          {cat === "rafting" && "🚣‍♂️ Rafting"}
+                          {cat === "stays" && "🏕️ Stays"}
+                          {cat === "trekking" && "🥾 Trekking"}
+                          {cat === "bungee" && "🪂 Bungee"}
+                        </a>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
             </motion.div>
 
             {/* Image Grid */}
@@ -406,34 +451,27 @@ const Gallery = () => {
               whileInView="visible"
               viewport={{ once: true }}
               variants={{
-                visible: {
-                  transition: {
-                    staggerChildren: 0.1
-                  }
-                }
+                visible: { transition: { staggerChildren: 0.1 } },
               }}
             >
-              {images.map((src, index) => (
+              {filteredImages.map((img, index) => (
                 <motion.div
                   key={index}
-                  className={`overflow-hidden rounded-2xl p-1 cursor-pointer 
-                    ${index === 0 ? 'rounded-tl-3xl' : ''}
-                    ${index === images.length - 1 ? 'rounded-br-3xl' : ''}
-                    shadow-md relative group
-                  `}
-                  onClick={() => setSelectedImage(src)}
+                  className="overflow-hidden rounded-2xl p-1 cursor-pointer shadow-md relative group"
+                  onClick={() => setSelectedImage(img.src)}
                   variants={{
                     hidden: { opacity: 0, y: 30 },
-                    visible: { opacity: 1, y: 0 }
+                    visible: { opacity: 1, y: 0 },
                   }}
-                  transition={{ duration: 0.4, ease: 'easeOut' }}
+                  transition={{ duration: 0.4, ease: "easeOut" }}
                   whileHover={{ scale: 1.08, rotate: 1, zIndex: 10 }}
                   whileTap={{ scale: 0.96, rotate: -1, zIndex: 10 }}
                 >
                   <img
-                    src={src}
+                    src={img.src}
                     alt={`Gallery ${index + 1}`}
                     className="object-cover w-full h-24 sm:h-28 md:h-32 lg:h-36 rounded-2xl transition duration-300"
+                    loading="lazy"
                   />
                 </motion.div>
               ))}
@@ -467,6 +505,7 @@ const Gallery = () => {
                       src={selectedImage}
                       alt="Full View"
                       className="w-full max-h-[80vh] object-contain rounded-xl shadow-lg"
+                      loading="eager" // Eager load the fullscreen image
                     />
                   </motion.div>
                 </motion.div>

@@ -1,4 +1,3 @@
-
 import video1 from "../../assets/videos/bungeejumping/IMG_7232.MOV";
 import video2 from "../../assets/videos/bungeejumping/IMG_7233.MOV";
 import { useRef } from "react";
@@ -9,7 +8,7 @@ import Feedback from "../../components/Feedback";
 
 const marqueeItems = [
   'Leap into adrenaline',
-  'India’s best bungee spot',
+  'India best bungee spot',
   'Face your fears head-on',
   'Gravity-defying thrill',
   'Ultimate free-fall rush',
@@ -37,7 +36,7 @@ const videos = [
     id: 2,
     src: video2,
     title: "Scream Worthy Heights",
-    subtitle: "India’s highest bungee spot",
+    subtitle: "India's highest bungee spot",
   },
   {
     id: 3,
@@ -56,14 +55,14 @@ const videos = [
 const cards = [
   {
     title: "Thrill Factory",
-    height: "53 meter’s",
+    height: "53 meter's",
     cost: "₹3000 /-",
     image:
       "https://res.klook.com/image/upload/u_activities:d9krsmqwa8sk4vxpsh2h,h_1.0,ar_16:9,c_scale,e_blur:10000/c_fill,w_1265,h_712/q_80/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/d9krsmqwa8sk4vxpsh2h.webp",
   },
   {
     title: "Splash Dice",
-    height: "53 meter’s",
+    height: "53 meter's",
     cost: "₹3000 /-",
     extra: "*DSLR Video Included",
     image:
@@ -71,7 +70,7 @@ const cards = [
   },
   {
     title: "Himalayan Bungee",
-    height: "117 meter’s",
+    height: "117 meter's",
     cost: "₹4,600 /-",
     image:
       "https://res.klook.com/image/upload/u_activities:d9krsmqwa8sk4vxpsh2h,h_1.0,ar_16:9,c_scale,e_blur:10000/c_fill,w_1265,h_712/q_80/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/d9krsmqwa8sk4vxpsh2h.webp",
@@ -207,6 +206,7 @@ function BungeeJumping() {
                 src={item.image}
                 alt={item.title}
                 className="w-full h-full object-cover"
+                loading="lazy"
               />
             </div>
 
@@ -219,9 +219,18 @@ function BungeeJumping() {
               <p className="text-sm text-gray-600">Height: {item.height}</p>
               <p className="text-sm text-gray-600">Cost: {item.cost}</p>
 
-              <button className="cursor-pointer mt-3 w-fit px-4 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600 transition-all duration-300 text-sm font-medium shadow-md">
-                Book Now
-              </button>
+<button
+  className="cursor-pointer mt-3 w-fit px-4 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600 transition-all duration-300 text-sm font-medium shadow-md"
+  onClick={() =>
+    window.open(
+      "https://wa.me/919876543210?text=Hi%20I%20am%20interested%20in%20booking%20a%20tour",
+      "_blank"
+    )
+  }
+>
+  Book Now
+</button>
+
             </div>
           </motion.div>
         ))}
@@ -254,7 +263,7 @@ function BungeeJumping() {
           viewport={{ once: true }}
           className="mt-6 text-base sm:text-lg md:text-xl leading-relaxed max-w-2xl mx-auto text-gray-700"
         >
-          Leap from India’s highest bungee point — 83 meters of pure thrill in the heart of Rishikesh.
+          Leap from India's highest bungee point — 83 meters of pure thrill in the heart of Rishikesh.
         </motion.p>
       </motion.div>
 
@@ -283,6 +292,8 @@ function BungeeJumping() {
               loop
               muted
               playsInline
+              preload="none"
+              loading="lazy"
               className="w-full h-[200px] sm:h-[240px] md:h-[260px] lg:h-[280px] xl:h-[300px] object-cover transition-all duration-500 group-hover:brightness-90"
             />
 
