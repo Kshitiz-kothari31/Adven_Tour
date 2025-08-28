@@ -11,7 +11,7 @@ const AdventureAltHero = () => {
     >
       {/* 🎥 Slow Zoom BG Image */}
       <motion.img
-        src={pic1}
+        src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_18.webp"
         alt="Rafting Adventure"
         initial={{ scale: 1.1 }}
         animate={{ scale: 1 }}

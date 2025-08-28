@@ -74,7 +74,7 @@ function Stays() {
         className="relative bg-amber-50 text-gray-800"
         style={{
           backgroundImage:
-            "url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR69RaqBw6mRzji2rph4_Bhqe3KZZgqGhnIQw&s')",
+            "url('https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Stays/stay_04.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
