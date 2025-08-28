@@ -1,5 +1,3 @@
-import video1 from "../../assets/videos/bungeejumping/IMG_7232.MOV";
-import video2 from "../../assets/videos/bungeejumping/IMG_7233.MOV";
 import { useRef } from "react";
 import { motion } from "framer-motion";
 import Form from "../../components/form/Form";
@@ -24,33 +22,36 @@ const marqueeItems = [
   'Defy gravity in style',
   'The edge is just the start',
 ];
+const customMessage = encodeURIComponent("Hi, I am Aman and I want to book a rafting trip!");
+
 
 const videos = [
   {
     id: 1,
-    src: video1,
+    src: "https://www.youtube.com/embed/sjmNmWuYXqQ?autoplay=1&mute=1&loop=1&playlist=sjmNmWuYXqQ&modestbranding=1&rel=0&showinfo=0&controls=0",
     title: "Jump into the Abyss",
     subtitle: "83 meters of pure adrenaline",
   },
   {
     id: 2,
-    src: video2,
+    src: "https://www.youtube.com/embed/sjmNmWuYXqQ?autoplay=1&mute=1&loop=1&playlist=sjmNmWuYXqQ&modestbranding=1&rel=0&showinfo=0&controls=0",
     title: "Scream Worthy Heights",
     subtitle: "India's highest bungee spot",
   },
   {
     id: 3,
-    src: video1,
+    src: "https://www.youtube.com/embed/xI-IQ7EpLgE?autoplay=1&mute=1&loop=1&playlist=xI-IQ7EpLgE&modestbranding=1&rel=0&showinfo=0&controls=0",
     title: "Fear Meets Freedom",
     subtitle: "Conquer your limits",
   },
   {
     id: 4,
-    src: video2,
+    src: "https://www.youtube.com/embed/sjmNmWuYXqQ?autoplay=1&mute=1&loop=1&playlist=sjmNmWuYXqQ&modestbranding=1&rel=0&showinfo=0&controls=0",
     title: "Adrenaline Overload",
     subtitle: "One leap, lifetime memory",
   },
 ];
+
 
 const cards = [
   {
@@ -58,7 +59,7 @@ const cards = [
     height: "53 meter's",
     cost: "₹3000 /-",
     image:
-      "https://res.klook.com/image/upload/u_activities:d9krsmqwa8sk4vxpsh2h,h_1.0,ar_16:9,c_scale,e_blur:10000/c_fill,w_1265,h_712/q_80/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/d9krsmqwa8sk4vxpsh2h.webp",
+      "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Bungee%20Jumping/splash%20bungee/splash_12.webp",
   },
   {
     title: "Splash Dice",
@@ -66,14 +67,14 @@ const cards = [
     cost: "₹3000 /-",
     extra: "*DSLR Video Included",
     image:
-      "https://res.klook.com/image/upload/u_activities:d9krsmqwa8sk4vxpsh2h,h_1.0,ar_16:9,c_scale,e_blur:10000/c_fill,w_1265,h_712/q_80/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/d9krsmqwa8sk4vxpsh2h.webp",
+      "https://github.com/Kshitiz-kothari31/Adven_Tour_img-videos/blob/main/Images/Bungee%20Jumping/heroImage_01.webp?raw=true",
   },
   {
     title: "Himalayan Bungee",
     height: "117 meter's",
     cost: "₹4,600 /-",
     image:
-      "https://res.klook.com/image/upload/u_activities:d9krsmqwa8sk4vxpsh2h,h_1.0,ar_16:9,c_scale,e_blur:10000/c_fill,w_1265,h_712/q_80/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/d9krsmqwa8sk4vxpsh2h.webp",
+      "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Bungee%20Jumping/splash%20bungee/splash_04.webp",
   },
 ];
 
@@ -219,17 +220,18 @@ function BungeeJumping() {
               <p className="text-sm text-gray-600">Height: {item.height}</p>
               <p className="text-sm text-gray-600">Cost: {item.cost}</p>
 
-<button
-  className="cursor-pointer mt-3 w-fit px-4 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600 transition-all duration-300 text-sm font-medium shadow-md"
-  onClick={() =>
-    window.open(
-      "https://wa.me/919876543210?text=Hi%20I%20am%20interested%20in%20booking%20a%20tour",
-      "_blank"
-    )
-  }
->
-  Book Now
-</button>
+            <button
+              className="cursor-pointer mt-3 w-fit px-5 py-2.5 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-lg hover:from-red-500 hover:to-orange-500 transition-all duration-300 text-sm font-semibold shadow-lg hover:scale-105"
+              onClick={() =>
+                window.open(
+                  "https://wa.me/7078287331?text=Hello%2C%20I%20would%20like%20to%20book%20a%20tour",
+                  "_blank"
+                )
+              }
+            >
+              📩 Book Now
+            </button>
+
 
             </div>
           </motion.div>
@@ -237,6 +239,7 @@ function BungeeJumping() {
       </motion.div>
     </section>
     <section className="py-20 px-4 md:mt-15 sm:px-6 md:px-10 xl:px-32 2xl:px-60 text-center text-black josefin-sans">
+
       {/* Section Animation */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -264,80 +267,49 @@ function BungeeJumping() {
           className="mt-6 text-base sm:text-lg md:text-xl leading-relaxed max-w-2xl mx-auto text-gray-700"
         >
           Leap from India's highest bungee point — 83 meters of pure thrill in the heart of Rishikesh.
-        </motion.p>
+      </motion.p>
       </motion.div>
 
       {/* Video Cards */}
       <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6 sm:gap-8">
-        {videos.map((video, index) => (
-          <motion.div
-            key={video.id}
-            initial={{ opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            whileHover={{ scale: 1.03 }}
-            transition={{
-              type: "spring",
-              stiffness: 180,
-              damping: 12,
-              delay: index * 0.1,
-            }}
-            className="relative group cursor-pointer overflow-hidden rounded-2xl bg-black shadow-2xl hover:shadow-yellow-500/30 border border-white/10 backdrop-blur-md"
-            onClick={() => togglePlayPause(index)}
-          >
-            {/* Video */}
+      {videos.map((video, index) => (
+        <motion.div
+          key={video.id}
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          whileHover={{ scale: 1.03 }}
+          transition={{
+            type: "spring",
+            stiffness: 180,
+            damping: 12,
+            delay: index * 0.1,
+          }}
+          className="relative group overflow-hidden rounded-2xl bg-black shadow-2xl hover:shadow-yellow-500/30 border border-white/10 backdrop-blur-md"
+        >
+          {video.src.includes("youtube") ? (
+            <div className="relative w-full h-[200px] sm:h-[240px] md:h-[260px] lg:h-[280px] xl:h-[300px]">
+              <iframe
+                src={`${video.src.replace("shorts/", "embed/")}?autoplay=1&mute=1&loop=1&playlist=${video.src.split("/").pop()}&modestbranding=1&rel=0&controls=0&iv_load_policy=3&fs=0`}
+                title={video.title}
+                frameBorder="0"
+                allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                className="w-full h-full object-cover pointer-events-none"
+              ></iframe>
+            </div>
+          ) : (
             <video
-              ref={(el) => (videoRefs.current[index] = el)}
               src={video.src}
               loop
               muted
               playsInline
               preload="none"
-              loading="lazy"
               className="w-full h-[200px] sm:h-[240px] md:h-[260px] lg:h-[280px] xl:h-[300px] object-cover transition-all duration-500 group-hover:brightness-90"
             />
+          )}
+        </motion.div>
+      ))}
 
-            {/* Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent opacity-80 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none"></div>
-
-            {/* Text Content */}
-            <div className="absolute bottom-0 left-0 right-0 p-4 text-white z-10">
-              <motion.h3
-                initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-                className="text-lg font-semibold drop-shadow"
-              >
-                {video.title}
-              </motion.h3>
-              <motion.p
-                initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
-                className="text-sm text-white/80"
-              >
-                {video.subtitle}
-              </motion.p>
-            </div>
-
-            {/* Glow Border */}
-            <div className="absolute inset-0 rounded-2xl ring-1 ring-white/10 group-hover:ring-4 group-hover:ring-yellow-400/40 transition duration-500 pointer-events-none"></div>
-
-            {/* Optional Play Icon */}
-            <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition duration-300">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-7 w-7 text-white/80"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </div>
-          </motion.div>
-        ))}
       </div>
     </section>
 

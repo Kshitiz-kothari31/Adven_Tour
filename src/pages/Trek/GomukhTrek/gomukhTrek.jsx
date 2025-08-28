@@ -1,13 +1,14 @@
 import { style } from "framer-motion/client";
 import { motion } from "framer-motion";
 import ScrollDownButton from "../button";
-import img from "../../../assets/images/TrekMain/DayaraBuyalTrek.jpg";
 import img2 from "../../../assets/images/TrekMain/img2.svg";
 import styles from "./gomukhTrek.module.css";
 import Form from "../../../components/form/Form";
 import SpecialSection from '../points';
 
 function GomukhTrek() {
+  const customMessage = encodeURIComponent("Hi, I am Aman and I want to book a rafting trip!");
+
     const handleScroll = () => {
     const target = document.getElementById("target-section"); // 👈 change this id to your section id
     if (target) {
@@ -25,7 +26,7 @@ function GomukhTrek() {
       >
         {/* 🌄 Background Image with Smooth Zoom (parallax feel) */}
         <motion.img
-          src="https://images6.alphacoders.com/676/thumb-1920-676755.jpg"
+          src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks/Gomukh%20Tapovan/landscape/gomukhTapovan_img01.webp"
           alt="Trek Adventure"
           className="absolute w-full h-full object-cover z-10"
           initial={{ scale: 1 }}
@@ -120,7 +121,7 @@ function GomukhTrek() {
           >
             <div className="absolute -inset-3 rounded-2xl bg-gradient-to-tr from-green-400 via-green-600 to-green-800 blur-2xl opacity-30 group-hover:opacity-50 transition"></div>
             <img
-              src={img}
+              src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks/Gomukh%20Tapovan/gomukhTapovan_img01.webp"
               loading='lazy'
               alt="Dayara Buyal Trek"
               className="relative rounded-2xl border-4 border-black shadow-2xl object-cover w-full aspect-square group-hover:scale-105 transition-transform duration-500"
@@ -157,21 +158,22 @@ function GomukhTrek() {
             </div>
 
             {/* Button */}
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                animate={{ scale: [1, 1.05, 1] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-                className="mt-10 px-10 py-4 bg-green-700 text-white rounded-full font-semibold shadow-lg hover:bg-green-800 transition duration-300 block mx-auto"
-                onClick={() =>
-                  window.open(
-                    "https://wa.me/919876543210?text=Hi%20I%20am%20interested%20in%20booking%20a%20tour",
-                    "_blank"
-                  )
-                }
-              >
-                🚀 Book Now
-              </motion.button>
+<motion.button
+  whileHover={{ scale: 1.08, boxShadow: "0 8px 24px rgba(34,197,94,0.45)" }}
+  whileTap={{ scale: 0.93 }}
+  animate={{ scale: [1, 1.07, 1] }}
+  transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+  className="mt-10 px-10 py-4 bg-gradient-to-r from-green-600 to-emerald-700 text-white rounded-full font-semibold shadow-xl hover:from-emerald-700 hover:to-green-600 transition-all duration-300 flex items-center gap-2 mx-auto"
+  onClick={() =>
+    window.open(
+      "https://wa.me/7078287331?text=Hello%2C%20I%20would%20like%20to%20book%20a%20tour.%20Please%20share%20the%20details.",
+      "_blank"
+    )
+  }
+>
+  💬 Book Now
+</motion.button>
+
 
           </motion.div>
         </div>

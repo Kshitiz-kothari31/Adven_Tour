@@ -2,8 +2,7 @@ import { motion } from "framer-motion";
 import  { useRef, useState } from 'react';
 import Form from '../.././components/form/Form'
 import './Zipline.css'
-import pic1 from '../../assets/images/Home/download.jpeg'
-import pic2 from '../../assets/images/Home/download (5).jpeg' 
+import ImageSlider from "./slider";
 import Feedback from "../../components/Feedback";
 
 const Zipline = () => {
@@ -14,18 +13,9 @@ const Zipline = () => {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(true);
 
-  const togglePlayback = () => {
-    const video = videoRef.current;
-    if (!video) return;
 
-    if (video.paused) {
-      video.play();
-      setIsPlaying(true);
-    } else {
-      video.pause();
-      setIsPlaying(false);
-    }
-  };
+  const customMessage = encodeURIComponent("Hi, I am Aman and I want to book a rafting trip!");
+
 
   return (
     <div className="w-full bg-gradient-to-r from-[#fafafa] to-[#FFF5E4] josefin-sans">
@@ -34,7 +24,7 @@ const Zipline = () => {
       <motion.section
         className="relative w-full h-[100vh] flex flex-col items-center justify-center text-center px-4 sm:px-8 pt-20 pb-32 overflow-hidden bg-cover bg-center"
         style={{
-          backgroundImage: `url(https://images.unsplash.com/photo-1664735094820-c6c40d862d5b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)`,
+          backgroundImage: `url(https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Zipline/zipline_img03.webp)`,
         }}
         initial={{ opacity: 0.3, scale: 0.98 }}
         whileInView={{ opacity: 1, scale: 1 }}
@@ -64,24 +54,29 @@ const Zipline = () => {
         </motion.p>
 
         {/* 🚀 Book Now Button */}
-            <motion.button
-              onClick={() => window.open("https://wa.me/919876543210", "_blank")} // Replace with your number
-              className="relative px-10 py-3 text-white font-bold rounded-full shadow-xl bg-gradient-to-r from-green-400 to-green-500 overflow-hidden transition-all duration-700 transform group hover:scale-110 hover:-rotate-1 z-10"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.6 }}
-            >
-              {/* Shine Effect */}
-              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-out blur-sm"></span>
+<motion.button
+  onClick={() =>
+    window.open(
+      "https://wa.me/7078287331?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20rafting%20packages",
+      "_blank"
+    )
+  }
+  className="relative px-10 py-3 text-white font-bold rounded-full shadow-xl bg-gradient-to-r from-green-500 to-emerald-600 overflow-hidden transition-all duration-700 transform group hover:scale-110 hover:-rotate-1 z-10"
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 1, delay: 0.6 }}
+>
+  {/* Shine Effect */}
+  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent translate-x-[-100%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-out blur-sm"></span>
 
-              {/* Glow on Hover */}
-              <span className="absolute inset-0 w-full h-full bg-green-400 rounded-full opacity-0 group-hover:opacity-30 group-hover:scale-125 group-hover:blur-2xl transition-all duration-700"></span>
+  {/* Glow on Hover */}
+  <span className="absolute inset-0 w-full h-full bg-emerald-500 rounded-full opacity-0 group-hover:opacity-30 group-hover:scale-125 group-hover:blur-2xl transition-all duration-700"></span>
 
-              {/* Button Text */}
-              <span className="relative z-10 tracking-wide group-hover:tracking-widest group-hover:animate-pulse">
-                💬 WhatsApp Us
-              </span>
-            </motion.button>
+  {/* Button Text */}
+  <span className="relative z-10 tracking-wide group-hover:tracking-widest group-hover:animate-pulse">
+    💬 WhatsApp Us
+  </span>
+</motion.button>
 
 
         {/* ↓ Scroll Button */}
@@ -195,38 +190,7 @@ const Zipline = () => {
       </div>
 
       {/* video section */}
-      <div className="relative w-full h-screen overflow-hidden flex items-center justify-center">
-
-        {/* 🔳 VIDEO CARD */}
-        <motion.div
-          className="relative z-10 w-[90%] h-[70vh] rounded-3xl overflow-hidden bg-white/10 border border-white/20 shadow-[0_0_60px_rgba(0,255,255,0.25)] backdrop-blur-xl"
-          initial={{ opacity: 0, scale: 1.1 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
-        >
-
-
-          {/* 🎥 Video */}
-          <video
-            ref={videoRef}
-            src="https://media.istockphoto.com/id/2151710894/video/exhilarating-mountain-zipline-adventure.mp4?s=mp4-640x640-is&k=20&c=0CGxR2rGeUoNS0EnqhQlman5iwQ412FojtCSsIdRcnE="
-            className="w-full h-full object-cover rounded-3xl"
-            poster="/images/video-poster.jpg"
-            autoPlay
-            muted
-            loop
-            playsInline
-          />
-
-          {/* 🎮 Play/Pause Button */}
-          <button
-            onClick={togglePlayback}
-            className="absolute bottom-4 right-4 bg-white/20 backdrop-blur-md hover:bg-white/30 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-xl border border-white/30 transition-all duration-200"
-          >
-            {isPlaying ? "Pause" : "Play"}
-          </button>
-        </motion.div>
-      </div>
+      <ImageSlider/>
 
       {/* 3rd Section */}
       <section className="w-full px-4 py-16 sm:py-24 md:py-32 lg:py-40">
@@ -251,7 +215,7 @@ const Zipline = () => {
                       Experience the thrill of gliding over canopies, cliffs, and sparkling rivers. Our Rishikesh zipline adventure offers unmatched aerial views and pure excitement.
                   </p>
                     <button
-                      onClick={() => window.open("https://wa.me/919876543210?text=Hi%2C%20I%20want%20to%20book%20a%20rafting%20tour!", "_blank")}
+                      onClick={() => window.open("https://wa.me/7078287331?text=Hi%2C%20I%20want%20to%20book%20a%20rafting%20tour!", "_blank")}
                       className="relative inline-block px-6 py-3 font-semibold text-black group overflow-hidden rounded-full transition-transform duration-500 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500"
                     >
                       <span className="absolute inset-0 bg-gradient-to-r from-orange-400 to-orange-500 transition-opacity duration-500 group-hover:opacity-80"></span>
@@ -281,7 +245,7 @@ const Zipline = () => {
               >
                 <div className="absolute inset-0 rounded-2xl bg-black scale-105 translate-x-2 translate-y-2 z-0" />
                 <img
-                  src={pic1}
+                  src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Zipline/zipline_img01.webp"
                   loading="lazy"
                   alt="Zipline"
                   className="relative w-full h-full object-cover rounded-2xl z-10 border-4 border-black"
@@ -296,7 +260,7 @@ const Zipline = () => {
               >
                 <div className="absolute inset-0 rounded-2xl bg-black scale-105 translate-x-2 translate-y-2 z-0" />
                 <img
-                  src={pic2}
+                  src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Zipline/zipline_img11.webp"
                   loading="lazy"
                   alt="Kayaking"
                   className="relative w-full h-full object-cover rounded-2xl z-10 border-4 border-black"
@@ -329,24 +293,26 @@ const Zipline = () => {
             
             {/* Book Now Button */}
             <a
-              href="https://wa.me/919876543210?text=Hi!%20I%20want%20to%20book%20the%20trip%20for%20%E2%82%B91,499."
+              href="https://wa.me/7078287331?text=Hi!%20I%20want%20to%20book%20the%20trip%20for%20%E2%82%B91,499.%20Please%20share%20the%20details."
               target="_blank"
               rel="noopener noreferrer"
             >
               <motion.button 
-                className="px-7 py-3 text-sm font-medium text-white bg-gradient-to-r from-amber-500 to-pink-500 rounded-full shadow-lg relative overflow-hidden group mx-auto"
+                className="px-7 py-3 text-sm font-semibold text-white bg-gradient-to-r from-amber-500 to-pink-500 rounded-full shadow-lg relative overflow-hidden group mx-auto"
                 whileHover={{ 
-                  scale: 1.05,
-                  boxShadow: "0 10px 25px -5px rgba(245, 158, 11, 0.4)"
+                  scale: 1.07,
+                  boxShadow: "0 12px 30px -6px rgba(236, 72, 153, 0.5)"
                 }}
-                whileTap={{ scale: 0.95 }}
+                whileTap={{ scale: 0.93 }}
               >
                 <span className="relative z-10 flex items-center justify-center gap-2">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  Book Now - ₹1,499 Only
+                  Book Now – ₹1,499 Only
                 </span>
+
+                {/* Hover Overlay */}
                 <span className="absolute inset-0 bg-gradient-to-r from-pink-600 to-amber-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></span>
               </motion.button>
             </a>
@@ -359,7 +325,7 @@ const Zipline = () => {
               {/* Main Image - Increased Size */}
               <div className="relative aspect-square w-full max-w-[180px] sm:max-w-[240px] md:max-w-[280px] lg:max-w-[320px] mx-auto overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all group">
                 <img
-                  src={pic1}
+                  src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Zipline/zipline_img05.webp"
                   loading="lazy"
                   alt="Zipline aerial view"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
@@ -373,7 +339,7 @@ const Zipline = () => {
               {/* Secondary Image - Increased Size */}
               <div className="relative aspect-square w-full max-w-[180px] sm:max-w-[240px] md:max-w-[280px] lg:max-w-[320px] mx-auto overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all group">
                 <img
-                  src={pic2}
+                  src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Zipline/zipline_img09.webp"
                   loading="lazy"
                   alt="Zipline platform"
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"

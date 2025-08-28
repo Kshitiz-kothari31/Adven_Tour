@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import Form from '../../../components/form/Form'
 import SpecialSection from '../points';
 import ScrollDownButton from '../button';
-import img from "../../../assets/images/TrekMain/DayaraBuyalTrek.jpg";
 import img2 from "../../../assets/images/TrekMain/img2.svg";
 import styles from "./dayarabugyal.module.css";
 
@@ -18,7 +17,7 @@ function DayaraBugyal() {
         >
           {/* 🌄 Background Image */}
           <motion.img
-            src={img}
+            src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks/kedarkatha%20trek/landscape/kedarkantha_img12.webp"
             initial={{ opacity: 0, scale: 1.1 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.6, ease: "easeInOut" }}
@@ -54,7 +53,7 @@ function DayaraBugyal() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 3, duration: 1 }}
             >
-              Dayara Buyal Trek
+              Dayara Bugyal Trek
             </motion.h1>
             <motion.button
               whileHover={{ scale: 1.05 }}
@@ -157,7 +156,7 @@ function DayaraBugyal() {
           >
             <div className="absolute -inset-3 rounded-2xl bg-gradient-to-tr from-green-400 via-green-600 to-green-800 blur-2xl opacity-30 group-hover:opacity-50 transition"></div>
             <img
-              src={img}
+              src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks/kedarkatha%20trek/landscape/kedarkantha_img11.webp"
               loading='lazy'
               alt="Dayara Buyal Trek"
               className="relative rounded-2xl border-4 border-black shadow-2xl object-cover w-full aspect-square group-hover:scale-105 transition-transform duration-500"
@@ -179,7 +178,7 @@ function DayaraBugyal() {
 
             {/* Title */}
             <h3 className="text-5xl font-bold mt-7 md:mt-10 mb-10 text-center">
-              Dayara Buyal Trek
+              Dayara Bugyal Trek
               <span className="block w-24 h-1 bg-green-500 mx-auto mt-3 rounded-full"></span>
             </h3>
 

@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import pic1 from "../../assets/images/Home/img2.png";
 
 const AdventureAltHero = () => {
   return (
@@ -10,14 +9,14 @@ const AdventureAltHero = () => {
       transition={{ duration: 1.5 }}
     >
       {/* 🎥 Slow Zoom BG Image */}
-      <motion.img
-        src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_18.webp"
-        alt="Rafting Adventure"
-        initial={{ scale: 1.1 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 10, ease: "easeOut" }}
-        className="absolute inset-0 w-full h-full object-cover z-10"
-      />
+        <motion.img
+          src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_3.webp"
+          alt="Rafting Adventure"
+          initial={{ scale: 1.1 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 10, ease: "easeOut" }}
+          className="absolute inset-0 w-full h-full object-cover z-10"
+        />
 
       {/* 🌌 Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent z-20" />
