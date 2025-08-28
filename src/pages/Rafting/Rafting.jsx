@@ -4,7 +4,6 @@ import Feedback from '../../components/Feedback';
 import Form from '../../components/form/Form'
 import Expe from './Expe'
 import AdventureAltHero from './hero'
-import pic1 from '../../assets/images/Home/img2.png'
 import { motion } from "framer-motion";
 import FAQSection from './faq'
 
@@ -25,7 +24,16 @@ const marqueeItems = [
   'Breathtaking river trails',
   'Experience. Explore. Enjoy.',
 ];
-
+const dummyImages = [
+  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_1.webp",
+  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_2.webp",
+  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_3.webp",
+  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_4.webp",
+  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_5.webp",
+  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_6.webp",
+  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_7.webp",
+  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_8.webp"
+];
 const RiverRaftingBackground = () => {
   const riverColors = {
     primary: "#1E88E5",
@@ -45,8 +53,8 @@ const RiverRaftingBackground = () => {
         className="absolute inset-0 bg-gradient-to-b from-blue-50 to-blue-100 opacity-20"
         style={{
           backgroundImage: `
-            radial-gradient(circle at 20% 30%, ${riverColors.secondary} 0%, transparent 15%),
-            radial-gradient(circle at 80% 70%, ${riverColors.primary} 0%, transparent 15%)
+                  radial-gradient(circle at 20% 30%, ${riverColors.secondary} 0%, transparent 15%),
+                  radial-gradient(circle at 80% 70%, ${riverColors.primary} 0%, transparent 15%)
           `,
         }}
       />
@@ -265,16 +273,11 @@ const RiverRaftingBackground = () => {
     </motion.div>
   );
 };
-
 const Rafting = () => {
   const scrollToSection = () => {
     const next = document.getElementById('next-section');
     next?.scrollIntoView({ behavior: 'smooth' });
   };
-
-  const imageCount = 8;
-  const dummyImages = Array(imageCount).fill(pic1);
-
   return (
     <section className="bg-gradient-to-r from-[#fafafa] to-[#B2EBF2] relative">
       <RiverRaftingBackground />
@@ -324,7 +327,7 @@ const Rafting = () => {
               className="absolute top-0 right-14 bg-white/20 backdrop-blur-lg rounded-3xl p-1 shadow-[0_10px_40px_rgba(0,0,0,0.3)] ring-2 ring-white ring-offset-4 ring-offset-blue-100"
             >
               <img
-                src={pic1}
+                src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_17.webp"
                 alt="Rafting 1"
                 loading="lazy"
                 className="w-80 h-52 md:w-96 md:h-60 xl:w-[420px] xl:h-[270px] object-cover rounded-2xl"
@@ -338,7 +341,7 @@ const Rafting = () => {
               className="absolute top-44 md:top-48 right-0 bg-white/20 backdrop-blur-lg rounded-3xl p-1 shadow-[0_10px_40px_rgba(0,0,0,0.3)] ring-2 ring-white ring-offset-4 ring-offset-rose-100"
             >
               <img
-                src={pic1}
+                src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_11.webp"              
                 alt="Rafting 2"
                 loading="lazy"
                 className="w-80 h-52 md:w-96 md:h-60 xl:w-[420px] xl:h-[270px] object-cover rounded-2xl"
@@ -394,7 +397,7 @@ const Rafting = () => {
           >
             <div className="relative h-[48%] overflow-hidden group">
               <img
-                src={pic1}
+                src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_1.webp"
                 alt="Marine drive to shivpuri"
                 className="w-full h-full object-cover transform transition-all duration-500 group-hover:scale-105 group-hover:brightness-90 will-change-transform"
                 style={{ transform: 'translateZ(0)' }}
@@ -429,7 +432,7 @@ const Rafting = () => {
           >
             <div className="relative h-[48%] overflow-hidden group">
               <img
-                src={pic1}
+                src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_21.webp"
                 alt="Shivpuri to Nim Beach"
                 className="w-full h-full object-cover transform transition-all duration-500 group-hover:scale-105 group-hover:brightness-90 will-change-transform"
                 style={{ transform: 'translateZ(0)' }}
@@ -464,7 +467,7 @@ const Rafting = () => {
           >
             <div className="relative h-[48%] overflow-hidden group">
               <img
-                src={pic1}
+                src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_19.webp"
                 alt="Marine Drive to Shivpuri"
                 className="w-full h-full object-cover transform transition-all duration-500 group-hover:scale-105 group-hover:brightness-90 will-change-transform"
                 style={{ transform: 'translateZ(0)' }}
@@ -499,7 +502,7 @@ const Rafting = () => {
           >
             <div className="relative h-[48%] overflow-hidden group">
               <img
-                src={pic1}
+                src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_5.webp"
                 alt="Kaudiala to Nim Beach"
                 className="w-full h-full object-cover transform transition-all duration-500 group-hover:scale-105 group-hover:brightness-90 will-change-transform"
                 style={{ transform: 'translateZ(0)' }}
@@ -532,69 +535,55 @@ const Rafting = () => {
         <h2 className="jolly-font text-3xl md:text-4xl font-bold text-center mb-12 josefin-sans">
           Rafting Memories to Inspire You
         </h2>
+    <motion.div
+      className="mx-auto w-fit grid grid-cols-2 sm:grid-cols-4 gap-[6px] sm:gap-[10px] md:gap-[12px]"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      viewport={{ once: true, amount: 0.2 }}
+    >
+      {dummyImages.map((src, i) => {
+        const shapeClass =
+          i % 4 === 0
+            ? "rounded-full"
+            : i % 4 === 1
+            ? "rounded-3xl"
+            : i % 4 === 2
+            ? "rounded-[40%_60%_50%_50%/60%_40%_60%_40%]"
+            : "rounded-full sm:rounded-[25%]";
 
-        <motion.div
-          className="mx-auto w-fit grid grid-cols-2 sm:grid-cols-4 gap-[6px] sm:gap-[10px] md:gap-[12px]"
-          variants={{
-            hidden: {},
-            show: {
-              transition: {
-                staggerChildren: 0.1,
-              },
-            },
-          }}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-        >
-          {dummyImages.map((src, i) => {
-            const shapeClass =
-              i % 4 === 0
-                ? 'rounded-full'
-                : i % 4 === 1
-                ? 'rounded-3xl'
-                : i % 4 === 2
-                ? 'rounded-[40%_60%_50%_50%/60%_40%_60%_40%]'
-                : 'rounded-full sm:rounded-[25%]';
-
-            return (
-              <motion.div
-                key={i}
-                variants={{
-                  hidden: { opacity: 0, scale: 0.85, y: 30 },
-                  show: {
-                    opacity: 1,
-                    scale: 1,
-                    y: 0,
-                    transition: { duration: 0.5, ease: 'easeOut' },
-                  },
-                }}
-                className={`p-[3px] bg-gradient-to-br from-[#cbd5e1] via-[#94a3b8] to-[#64748b]
-                  ${shapeClass}
-                  ${i > 3 ? 'hidden sm:block' : ''}
-                `}
-              >
-                <div
-                  className={`overflow-hidden bg-white ${shapeClass}
-                    w-[120px] h-[120px]
-                    sm:w-[160px] sm:h-[160px]
-                    lg:w-[200px] lg:h-[200px]
-                    xl:w-[240px] xl:h-[240px]
-                    transition-transform hover:scale-105 shadow-[0_4px_20px_rgba(0,0,0,0.12)] hover:shadow-[0_6px_28px_rgba(0,0,0,0.18)]
-                    duration-300 ease-out
-                  `}
-                >
-                  <img
-                    src={src}
-                    alt={`rafting-${i}`}
-                    loading="lazy"   // ✅ Lazy loading added
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              </motion.div>
-            );
-          })}
-        </motion.div>
+        return (
+          <div
+            key={i}
+            className={`p-[3px] bg-gradient-to-br from-[#cbd5e1] via-[#94a3b8] to-[#64748b]
+              ${shapeClass}
+              ${i > 3 ? "hidden sm:block" : ""}
+            `}
+          >
+            <div
+              className={`overflow-hidden bg-white ${shapeClass}
+                w-[120px] h-[120px]
+                sm:w-[160px] sm:h-[160px]
+                lg:w-[200px] lg:h-[200px]
+                xl:w-[240px] xl:h-[240px]
+                transition-transform hover:scale-105 shadow-[0_4px_20px_rgba(0,0,0,0.12)] hover:shadow-[0_6px_28px_rgba(0,0,0,0.18)]
+                duration-300 ease-out
+              `}
+            >
+              <img
+                src={src}
+                alt={`rafting-${i}`}
+                width="400"
+                height="400"
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-cover will-change-transform"
+              />
+            </div>
+          </div>
+        );
+      })}
+    </motion.div>
       </div>     
       <Feedback/>
       

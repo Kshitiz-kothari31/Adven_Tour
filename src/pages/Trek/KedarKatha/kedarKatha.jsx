@@ -2,12 +2,13 @@ import { motion } from "framer-motion";
 import Form from "../../../components/form/Form";
 import ScrollDownButton from '../button'
 import SpecialSection from '../points'
-const img =
-  "https://cdn.pixabay.com/photo/2017/08/05/18/53/mountain-2585069_1280.jpg";
+
 import img2 from "../../../assets/images/TrekMain/img2.svg";
 import styles from "./kedarKatha.module.css";
 
 function KedarKatha() {
+  const customMessage = encodeURIComponent("Hi, I am Aman and I want to book a rafting trip!");
+
   return (
     <main className='josefin-sans' >
       {/* hero */}
@@ -19,7 +20,7 @@ function KedarKatha() {
       >
         {/* 🎥 Background: slow zoom‑out */}
         <motion.img
-          src={img}                          // ← your mountain photo
+          src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks/kedarkatha%20trek/landscape/kedarkantha_img11.webp"                        // ← your mountain photo
           alt="Kedar Katha Trek"
           className="absolute inset-0 w-full h-full object-cover z-10 scale-110 animate-heroZoom"
           initial={{ scale: 1.2 }}
@@ -79,19 +80,20 @@ function KedarKatha() {
 <motion.button
   whileHover={{
     scale: 1.1,
-    boxShadow: "0 0 28px rgba(110,231,183,0.8)",
+    boxShadow: "0 0 32px rgba(34,197,94,0.75)",
   }}
-  whileTap={{ scale: 0.95 }}
-  className="mt-6 bg-green-400 hover:bg-green-500 text-black font-bold px-7 py-3 rounded-full shadow-md transition-all duration-300 text-sm md:text-base"
+  whileTap={{ scale: 0.93 }}
+  className="mt-6 bg-gradient-to-r from-green-400 to-emerald-500 hover:from-emerald-500 hover:to-green-400 text-white font-semibold px-8 py-3 rounded-full shadow-lg transition-all duration-300 text-sm md:text-base flex items-center gap-2"
   onClick={() =>
     window.open(
-      "https://wa.me/919876543210?text=Hi%20I%20am%20interested%20in%20booking%20a%20tour",
+      "https://wa.me/7078287331?text=Hello%2C%20I%20would%20like%20to%20book%20a%20tour.%20Can%20you%20please%20share%20the%20details%3F",
       "_blank"
     )
   }
 >
-  Book Now
+  💬 Book Now
 </motion.button>
+
 
           </div>
         </motion.div>
@@ -192,7 +194,7 @@ function KedarKatha() {
           >
             <div className="absolute -inset-3 rounded-2xl bg-gradient-to-tr from-green-400 via-green-600 to-green-800 blur-2xl opacity-30 group-hover:opacity-50 transition"></div>
             <img
-              src={img}
+              src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks/kedarkatha%20trek/kedarkantha_img12.webp"
               loading='lazy'
               alt="Dayara Buyal Trek"
               className="relative rounded-2xl border-4 border-black shadow-2xl object-cover w-full aspect-square group-hover:scale-105 transition-transform duration-500"
@@ -229,21 +231,22 @@ function KedarKatha() {
             </div>
 
             {/* Button */}
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                animate={{ scale: [1, 1.05, 1] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-                className="mt-10 px-10 py-4 bg-green-700 text-white rounded-full font-semibold shadow-lg hover:bg-green-800 transition duration-300 block mx-auto"
-                onClick={() =>
-                  window.open(
-                    "https://wa.me/919876543210?text=Hi%20I%20am%20interested%20in%20booking%20a%20tour",
-                    "_blank"
-                  )
-                }
-              >
-                🚀 Book Now
-              </motion.button>
+<motion.button
+  whileHover={{ scale: 1.08, boxShadow: "0 8px 24px rgba(34,197,94,0.45)" }}
+  whileTap={{ scale: 0.93 }}
+  animate={{ scale: [1, 1.07, 1] }}
+  transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+  className="mt-10 px-10 py-4 bg-gradient-to-r from-green-600 to-emerald-700 text-white rounded-full font-semibold shadow-xl hover:from-emerald-700 hover:to-green-600 transition-all duration-300 flex items-center gap-2 mx-auto"
+  onClick={() =>
+    window.open(
+      "https://wa.me/7078287331?text=Hello%2C%20I%20would%20like%20to%20book%20a%20tour.%20Please%20share%20the%20details.",
+      "_blank"
+    )
+  }
+>
+  💬 Book Now
+</motion.button>
+
 
           </motion.div>
         </div>

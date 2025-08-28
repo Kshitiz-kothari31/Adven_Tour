@@ -1,6 +1,5 @@
 import '../Rafting.css';
 import Form from '../../../components/form/Form';
-import pic1 from '../../../assets/images/Home/img2.png';
 import { ChevronDown } from "lucide-react";
 import { motion } from 'framer-motion';
 
@@ -9,23 +8,31 @@ const data = [
     reverse: false,
     title: "Roller Coaster",
     desc: "One of the most thrilling rapids on this route.",
+    img: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_4.webp",
   },
   {
     reverse: true,
     title: "Golf Course",
     desc: "A fun rapid with multiple waves and challenges.",
+    img: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_5.webp",
   },
   {
     reverse: false,
     title: "Club House",
     desc: "Mild rapid, great for beginners and warm-up.",
+    img: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_6.webp",
   },
   {
     reverse: true,
     title: "Initiation",
     desc: "Perfect start to your adrenaline journey.",
+    img: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_7.webp",
   },
 ];
+const FALLBACK_IMG =
+  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_4.webp";
+
+const customMessage = encodeURIComponent("Hi, I am Aman and I want to book a rafting trip!");
 
 const fadeUpRapids = {
   hidden: { opacity: 0, y: 40 },
@@ -80,7 +87,7 @@ const Kodilyla = () => {
       >
         {/* 🌄 Background Image with Smooth Zoom */}
         <motion.img
-          src={pic1}
+          src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_3.webp"
           alt="Kodiyala to Nim Beach"
           className="absolute top-0 left-0 w-full h-full object-cover z-10 animate-slowZoom"
           initial={{ scale: 1.25 }}
@@ -131,21 +138,21 @@ const Kodilyla = () => {
           </p>
 
           <a
-            href="https://wa.me/919876543210?text=Hi%20I%20am%20interested%20in%20booking%20a%20tour"
+            href="https://wa.me/7078287331?text=Hi%20I%20am%20interested%20in%20booking%20a%20tour"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <motion.button
-              whileHover={{
-                scale: 1.1,
-                rotate: [0, -2, 2, -2, 0],
-                boxShadow: "0 0 25px rgba(255, 0, 122, 0.8)",
-              }}
-              whileTap={{ scale: 0.95 }}
-              className="mt-8 bg-gradient-to-r from-pink-500 to-rose-500 hover:from-rose-600 hover:to-pink-600 text-white font-bold px-10 py-3 rounded-full transition-all duration-300 shadow-xl"
-            >
-              Book Now
-            </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.08 }}
+            whileTap={{ scale: 0.96 }}
+            className="mt-4 px-6 py-2.5 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-400 text-black font-bold rounded-full shadow-lg transition-all duration-300 relative overflow-hidden group"
+            onClick={() =>
+              window.open(`https://wa.me/7078287331?text=${customMessage}`, "_blank")
+            }
+          >
+            <span className="relative z-10">Book Now</span>
+            <span className="absolute inset-0 w-full h-full bg-white opacity-10 blur-lg group-hover:animate-pulse" />
+          </motion.button>
           </a>
 
         </motion.div>
@@ -242,7 +249,7 @@ const Kodilyla = () => {
             >
               <div className="bg-white rounded-[24px] overflow-hidden transition-transform duration-500 hover:scale-105">
                 <img
-                  src={pic1}
+                  src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_11.webp"
                   loading='lazy'
                   alt="Adventure"
                   className="w-full h-full object-cover rounded-[24px]"
@@ -283,10 +290,7 @@ const Kodilyla = () => {
               whileTap={{ scale: 0.96 }}
               className="mt-4 px-6 py-2.5 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-400 text-black font-bold rounded-full shadow-lg transition-all duration-300 relative overflow-hidden group"
               onClick={() =>
-                window.open(
-                  "https://wa.me/919876543210?text=Hi%20I%20am%20interested%20in%20booking%20a%20tour",
-                  "_blank"
-                )
+                window.open(`https://wa.me/7078287331?text=${customMessage}`, "_blank")
               }
             >
               <span className="relative z-10">Book Now</span>
@@ -298,7 +302,7 @@ const Kodilyla = () => {
           {/* 🖼️ Overlapping Image Section with hover & animation */}
           <div className="flex-1 relative h-[280px] md:h-[340px] flex justify-center items-center z-0">
             <motion.img
-              src={pic1}
+              src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_9.webp"
               loading='lazy'
               alt="Rafting 1"
               initial={{ opacity: 0, y: -20 }}
@@ -308,7 +312,7 @@ const Kodilyla = () => {
               className="w-[240px] md:w-[280px] rounded-xl shadow-2xl border-[5px] border-white absolute top-5 left-[60px] z-10 transition-all duration-300"
             />
             <motion.img
-              src={pic1}
+              src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_7.webp"
               loading='lazy'
               alt="Rafting 2"
               initial={{ opacity: 0, y: 20 }}
@@ -348,7 +352,7 @@ const Kodilyla = () => {
               {/* 📷 Image */}
               <motion.img
                 whileHover={{ scale: 1.05 }}
-                src={pic1}
+                src={item.img || FALLBACK_IMG}
                 alt={item.title}
                 loading='lazy'
                 className="w-[140px] h-[140px] sm:w-[160px] sm:h-[160px] md:w-[240px] md:h-[200px] object-cover rounded-[30%_0_30%_0] shadow-md transition duration-300"
@@ -392,7 +396,7 @@ const Kodilyla = () => {
             className="relative w-full h-[260px] md:h-[320px]"
           >
             <img
-              src={pic1}
+              src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_19.webp"
               loading='lazy'
               alt="Rafting"
               className="w-full h-full object-cover"

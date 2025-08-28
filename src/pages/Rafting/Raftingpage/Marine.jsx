@@ -1,7 +1,6 @@
 import  { useEffect } from 'react';
 import Form from '../../../components/form/Form';
 import '../Rafting.css';
-import pic1 from '../../../assets/images/Home/img2.png';
 import { motion } from 'framer-motion';
 import { ChevronDown } from "lucide-react";
 
@@ -10,23 +9,32 @@ const data = [
     reverse: false,
     title: "Roller Coaster",
     desc: "One of the most thrilling rapids on this route.",
+    img: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_4.webp",
   },
   {
     reverse: true,
     title: "Golf Course",
     desc: "A fun rapid with multiple waves and challenges.",
+    img: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_5.webp",
   },
   {
     reverse: false,
     title: "Club House",
     desc: "Mild rapid, great for beginners and warm-up.",
+    img: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_6.webp",
   },
   {
     reverse: true,
     title: "Initiation",
     desc: "Perfect start to your adrenaline journey.",
+    img: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_7.webp",
   },
 ];
+const FALLBACK_IMG =
+  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_4.webp";
+
+
+const customMessage = encodeURIComponent("Hi, I am Aman and I want to book a rafting trip!");
 
 const fadeUpRapids = {
   hidden: { opacity: 0, y: 40 },
@@ -87,7 +95,7 @@ useEffect(() => {
       >
         {/* 🌄 Background Image with Subtle Zoom */}
         <motion.img
-          src={pic1}
+          src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_23.webp"
           alt="Marine Drive to Shivpuri"
           className="absolute top-0 left-0 w-full h-full object-cover z-10 scale-125 animate-heroZoom"
           initial={{ scale: 1.25 }}
@@ -135,24 +143,17 @@ useEffect(() => {
           <p className="text-white/80 text-lg md:text-xl mt-4 font-medium max-w-xl">
             A scenic rafting route with balanced thrill & beauty.
           </p>
-
-<motion.button
-  whileHover={{
-    scale: 1.1,
-    rotate: [0, 2, -2, 2, 0],
-    boxShadow: "0 0 25px rgba(255, 255, 0, 0.8)",
-  }}
-  whileTap={{ scale: 0.95 }}
-  className="mt-8 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-black font-bold px-10 py-3 rounded-full shadow-xl transition-all duration-300"
-  onClick={() =>
-    window.open(
-      "https://wa.me/919876543210?text=Hi%20I%20am%20interested%20in%20booking%20a%20tour",
-      "_blank"
-    )
-  }
->
-  Book Now
-</motion.button>
+          <motion.button
+            whileHover={{ scale: 1.08 }}
+            whileTap={{ scale: 0.96 }}
+            className="mt-4 px-6 py-2.5 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-400 text-black font-bold rounded-full shadow-lg transition-all duration-300 relative overflow-hidden group"
+            onClick={() =>
+              window.open(`https://wa.me/7078287331?text=${customMessage}`, "_blank")
+            }
+          >
+            <span className="relative z-10">Book Now</span>
+            <span className="absolute inset-0 w-full h-full bg-white opacity-10 blur-lg group-hover:animate-pulse" />
+          </motion.button>
 
         </motion.div>
 
@@ -193,7 +194,7 @@ useEffect(() => {
       </motion.div>
 
       {/* ⬇️ Drop Button Between Sections */}
-      <div className="w-full    hidden md:flex justify-center md:mt-2 -mt-6 z-20 relative">
+      <div className="w-full hidden md:flex justify-center md:mt-2 -mt-6 z-20 relative">
         <motion.button
           whileHover={{
             scale: 1.2,
@@ -263,7 +264,7 @@ useEffect(() => {
             >
               <div className="bg-white rounded-[24px] overflow-hidden transition-transform duration-500 hover:scale-105">
                 <img
-                  src={pic1}
+                  src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_20.webp"
                   loading='lazy'
                   alt="Adventure"
                   className="w-full h-full object-cover rounded-[24px]"
@@ -304,10 +305,7 @@ useEffect(() => {
               whileTap={{ scale: 0.96 }}
               className="mt-4 px-6 py-2.5 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-400 text-black font-bold rounded-full shadow-lg transition-all duration-300 relative overflow-hidden group"
               onClick={() =>
-                window.open(
-                  "https://wa.me/919876543210?text=Hi%20I%20am%20interested%20in%20booking%20a%20tour",
-                  "_blank"
-                )
+                window.open(`https://wa.me/7078287331?text=${customMessage}`, "_blank")
               }
             >
               <span className="relative z-10">Book Now</span>
@@ -318,7 +316,7 @@ useEffect(() => {
           {/* 🖼️ Overlapping Image Section with hover & animation */}
           <div className="flex-1 relative h-[280px] md:h-[340px] flex justify-center items-center z-0">
             <motion.img
-              src={pic1}
+              src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_15.webp"
               loading='lazy'
               alt="Rafting 1"
               initial={{ opacity: 0, y: -20 }}
@@ -328,7 +326,7 @@ useEffect(() => {
               className="w-[240px] md:w-[280px] rounded-xl shadow-2xl border-[5px] border-white absolute top-5 left-[60px] z-10 transition-all duration-300"
             />
             <motion.img
-              src={pic1}
+              src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_20.webp"
               loading='lazy'
               alt="Rafting 2"
               initial={{ opacity: 0, y: 20 }}
@@ -369,7 +367,7 @@ useEffect(() => {
               {/* 📷 Image */}
               <motion.img
                 whileHover={{ scale: 1.05 }}
-                src={pic1}
+                src={item.img || FALLBACK_IMG} 
                 loading='lazy'
                 alt={item.title}
                 className="w-[140px] h-[140px] sm:w-[160px] sm:h-[160px] md:w-[240px] md:h-[200px] object-cover rounded-[30%_0_30%_0] shadow-md transition duration-300"
@@ -413,7 +411,7 @@ useEffect(() => {
             className="relative w-full h-[260px] md:h-[320px]"
           >
             <img
-              src={pic1}
+              src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_13.webp"
               loading='lazy'
               alt="Rafting"
               className="w-full h-full object-cover"

@@ -2,14 +2,15 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import Form from "../../components/form/Form";
 import { Link } from "react-router-dom";
-import Trek1 from "../../assets/images/TrekMain/DayaraBuyalTrek.jpg";
 import GuideScrolle from './guide';
 
-// Enhanced image gallery with high-quality trekking photos
 const images = [
-  "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2070&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?q=80&w=2070&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1506535995048-638aa1b62b77?q=80&w=2070&auto=format&fit=crop"
+  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks/Gomukh%20Tapovan/landscape/gomukhTapovan_img01.webp",
+  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks/Tungnath/landscape/tungnath_img15.webp",
+  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks/kedarkatha%20trek/landscape/kedarkantha_img11.webp",
+  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks/kedarkatha%20trek/landscape/kedarkantha_img12.webp",
+  "https://cdn.jsdelivr.net/gh/Kshitiz,-kothari31/Adven_Tour_img-videos@main/Images/Treks/kedarkatha%20trek/landscape/kedarkantha_img8.webp",
+  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks/kedarkatha%20trek/landscape/kedarkantha_img9.webp",
 ];
 
 const TrekkingPathBackground = () => {
@@ -506,54 +507,63 @@ const ImageSliderBox = () => {
 };
 
 function Trek() {
-  const treks = [
-    {
-      title: "Dayara Bugyal Trek",
-      cost: "₹7,999 /-",
-      desc: "A beautiful meadow trek offering panoramic views of the Himalayas, perfect for beginners.",
-      bg: "bg-green-100",
-      images: [Trek1, Trek1],
-      border: false,
-      link: "/trek/dayarabuyal",
-    },
-    {
-      title: "Kedar Katha Trek",
-      cost: "₹8,999 /-",
-      desc: "Spiritual journey combining trekking with visits to sacred Himalayan shrines.",
-      bg: "bg-white",
-      images: [Trek1, Trek1],
-      border: true,
-      link: "/trek/kedarKatha", 
-    },
-    {
-      title: "Gomukh Tapovan Trek",
-      cost: "₹14,999 /-",
-      desc: "Challenging trek to the source of the Ganges river with stunning glacier views.",
-      bg: "bg-green-100",
-      images: [Trek1, Trek1],
-      border: false,
-      link: "/trek/gaumukh", 
-    },
-    {
-      title: "Hidden Waterfall Trek",
-      cost: "₹2,500 /-",
-      desc: "Short day trek to discover hidden waterfalls in the lush Himalayan foothills.",
-      bg: "bg-white",
-      images: [Trek1, Trek1],
-      border: true,
-      link: "/trek/hiddenWaterFall", 
-    },
-    {
-      title: "Tungnath Chandrashila Trek",
-      cost: "₹5,999 /-",
-      desc: "Highest Shiva temple in the world with breathtaking 360° mountain views.",
-      bg: "bg-green-100",
-      images: [Trek1, Trek1],
-      border: false,
-      link: "/trek/tungnath", 
-    }
-  ];
-
+const treks = [
+  {
+    title: "Dayara Bugyal Trek",
+    desc: "A beautiful meadow trek offering panoramic views of the Himalayas, perfect for beginners.",
+    cost: "₹7,999 /-",
+    link: "/trek/dayarabuyal",   // ✅ matches <Route path="/trek/dayarabuyal" />
+    border: true,
+    images: [
+      "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks/Tungnath/tungnath_img04.webp",
+      "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks/Tungnath/tungnath_img05.webp",
+    ],
+  },
+  {
+    title: "Kedarkantha Trek",
+    desc: "Spiritual journey combining trekking with visits to sacred Himalayan shrines.",
+    cost: "₹8,999 /-",
+    link: "/trek/kedarKatha",   // ✅ matches <Route path="/trek/kedarKatha" />
+    border: false,
+    images: [
+      "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks/kedarkatha%20trek/kedarkanth_img1.webp",
+      "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks/Tungnath/tungnath_img17.webp",
+    ],
+  },
+  {
+    title: "Gomukh Tapovan Trek",
+    desc: "Challenging trek to the source of the Ganges river with stunning glacier views.",
+    cost: "₹14,999 /-",
+    link: "/trek/gaumukh",   // ✅ matches <Route path="/trek/gaumukh" />
+    border: true,
+    images: [
+      "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks/Tungnath/tungnath_img14.webp",
+      "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks/Tungnath/tungnath_img13.webp",
+    ],
+  },
+  {
+    title: "Hidden Waterfall Trek",
+    desc: "Short day trek to discover hidden waterfalls in the lush Himalayan foothills.",
+    cost: "₹2,500 /-",
+    link: "/trek/hiddenWaterFall",   // ✅ matches <Route path="/trek/hiddenWaterFall" />
+    border: false,
+    images: [
+      "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks/Tungnath/tungnath_img09.webp",
+      "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks/Tungnath/tungnath_img10.webp",
+    ],
+  },
+  {
+    title: "Tungnath Chandrashila Trek",
+    desc: "Highest Shiva temple in the world with breathtaking 360° mountain views.",
+    cost: "₹5,999 /-",
+    link: "/trek/tungnath",   // ✅ matches <Route path="/trek/tungnath" />
+    border: true,
+    images: [
+      "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks/Tungnath/tungnath_img05.webp",
+      "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks/Tungnath/tungnath_img11.webp",
+    ],
+  },
+];
   return (
     <div className="bg-gradient-to-r from-[#fafafa] to-[#DBFCE7] josefin-sans relative">
       <ImageSliderBox/>

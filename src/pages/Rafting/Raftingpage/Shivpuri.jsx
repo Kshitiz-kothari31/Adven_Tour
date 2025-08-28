@@ -1,32 +1,37 @@
 import  { useEffect } from 'react';
 import Form from '../../../components/form/Form';
 import '../Rafting.css';
-import pic1 from '../../../assets/images/Home/img2.png';
 import { motion } from 'framer-motion';
 import { ChevronDown } from "lucide-react";
 
+// ✅ Fix the data: give each rapid a real image URL
 const data = [
   {
     reverse: false,
     title: "Roller Coaster",
     desc: "One of the most thrilling rapids on this route.",
+    img: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_4.webp",
   },
   {
     reverse: true,
     title: "Golf Course",
     desc: "A fun rapid with multiple waves and challenges.",
+    img: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_5.webp",
   },
   {
     reverse: false,
     title: "Club House",
     desc: "Mild rapid, great for beginners and warm-up.",
+    img: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_6.webp",
   },
   {
     reverse: true,
     title: "Initiation",
     desc: "Perfect start to your adrenaline journey.",
+    img: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_7.webp",
   },
 ];
+
 
 const fadeUpRapids = {
   hidden: { opacity: 0, y: 40 },
@@ -49,6 +54,8 @@ const fadeUp = {
     transition: { delay: i * 0.2, type: "spring", stiffness: 80 }
   })
 };
+const customMessage = encodeURIComponent("Hi, I am Aman and I want to book a rafting trip!");
+
 
 const guidelines = [
   { title: "Age Limit", text: "15 to 50 years" },
@@ -60,6 +67,9 @@ const guidelines = [
   { title: "Avoid Wearing", text: "Sari, skirts, burka" },
   { title: "Weekend Tip", text: "Heavy traffic in Rishikesh – keep 2–3 extra hours if coming from Delhi, Haridwar, or Dehradun" },
 ];
+const FALLBACK_IMG =
+  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_4.webp";
+
 
 const Shivpuri = () => {
 useEffect(() => {
@@ -86,7 +96,7 @@ const scrollToSecondSection = () => {
           >
             {/* 🔁 Animated Background Image Zoom */}
             <motion.img
-              src={pic1}
+              src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_4.webp"
               alt="Marine Drive to Shivpuri"
               className="absolute top-0 left-0 w-full h-full object-cover z-10 animate-ripple"
               initial={{ scale: 1.2 }}
@@ -142,23 +152,23 @@ const scrollToSecondSection = () => {
                   Experience the thrill of rafting from the stunning Marine Drive to Shivpuri stretch. 
                 </motion.p>
               </div>
-<motion.button
-  whileHover={{
-    scale: 1.1,
-    rotate: [0, 3, -3, 3, 0],
-    boxShadow: "0px 0px 25px rgba(255, 255, 0, 0.8)",
-  }}
-  whileTap={{ scale: 0.95 }}
-  className="bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-black font-bold px-8 py-3 rounded-full transition-all duration-300 shadow-lg"
-  onClick={() =>
-    window.open(
-      "https://wa.me/919876543210?text=Hi%20I%20am%20interested%20in%20booking%20a%20tour",
-      "_blank"
-    )
-  }
->
-  Book Now
-</motion.button>
+              <motion.button
+                whileHover={{
+                  scale: 1.1,
+                  rotate: [0, 3, -3, 3, 0],
+                  boxShadow: "0px 0px 25px rgba(255, 255, 0, 0.8)",
+                }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-black font-bold px-8 py-3 rounded-full transition-all duration-300 shadow-lg"
+                onClick={() =>
+                  window.open(
+                    "https://wa.me/7078287331?text=Hi%20I%20am%20interested%20in%20booking%20a%20tour",
+                    "_blank"
+                  )
+                }
+              >
+                Book Now
+              </motion.button>
 
             </motion.div>
 
@@ -255,7 +265,7 @@ const scrollToSecondSection = () => {
             >
               <div className="bg-white rounded-[24px] overflow-hidden transition-transform duration-500 hover:scale-105">
                 <img
-                  src={pic1}
+                  src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_9.webp"
                   laoding="lazy"
                   alt="Adventure"
                   className="w-full h-full object-cover rounded-[24px]"
@@ -296,10 +306,7 @@ const scrollToSecondSection = () => {
               whileTap={{ scale: 0.96 }}
               className="mt-4 px-6 py-2.5 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-400 text-black font-bold rounded-full shadow-lg transition-all duration-300 relative overflow-hidden group"
               onClick={() =>
-                window.open(
-                  "https://wa.me/919876543210?text=Hi%20I%20am%20interested%20in%20booking%20a%20tour",
-                  "_blank"
-                )
+                window.open(`https://wa.me/7078287331?text=${customMessage}`, "_blank")
               }
             >
               <span className="relative z-10">Book Now</span>
@@ -310,7 +317,7 @@ const scrollToSecondSection = () => {
           {/* 🖼️ Overlapping Image Section with hover & animation */}
           <div className="flex-1 relative h-[280px] md:h-[340px] flex justify-center items-center z-0">
             <motion.img
-              src={pic1}
+              src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_15.webp"
               loading='lazy'
               alt="Rafting 1"
               initial={{ opacity: 0, y: -20 }}
@@ -320,7 +327,7 @@ const scrollToSecondSection = () => {
               className="w-[240px] md:w-[280px] rounded-xl shadow-2xl border-[5px] border-white absolute top-5 left-[60px] z-10 transition-all duration-300"
             />
             <motion.img
-              src={pic1}
+              src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_1.webp"
               loading='lazy'
               alt="Rafting 2"
               initial={{ opacity: 0, y: 20 }}
@@ -362,7 +369,7 @@ const scrollToSecondSection = () => {
               <motion.img
               loading='lazy'
                 whileHover={{ scale: 1.05 }}
-                src={pic1}
+                src={item.img || FALLBACK_IMG}
                 alt={item.title}
                 className="w-[140px] h-[140px] sm:w-[160px] sm:h-[160px] md:w-[240px] md:h-[200px] object-cover rounded-[30%_0_30%_0] shadow-md transition duration-300"
               />
@@ -405,7 +412,7 @@ const scrollToSecondSection = () => {
             className="relative w-full h-[260px] md:h-[320px]"
           >
             <img
-              src={pic1}
+              src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_20.webp"
               loading='lazy'
               alt="Rafting"
               className="w-full h-full object-cover"
