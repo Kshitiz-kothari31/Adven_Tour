@@ -99,19 +99,6 @@ const Gallery = () => {
             </motion.button>
           </a>
 
-<motion.button
-  onClick={() =>
-    window.open(
-      "https://wa.me/7078287331?text=Hello%2C%20I%20am%20interested%20in%20viewing%20the%20gallery%20packages",
-      "_blank"
-    )
-  }
-  className="relative cursor-pointer group overflow-hidden bg-gradient-to-r from-blue-700 to-purple-800 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-2xl transition-all duration-500 ease-in-out hover:scale-110"
-  whileHover={{ scale: 1.1, rotate: [0, 3, -3, 3, -3, 0] }}
->
-  <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-yellow-400 to-pink-500 opacity-0 group-hover:opacity-100 blur-md transition duration-700 scale-125"></span>
-  <span className="relative z-10">View Gallery 🖼️</span>
-</motion.button>
 
         {/* 🖼️ View Gallery Button */}
           <motion.button
