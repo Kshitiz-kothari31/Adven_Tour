@@ -6,15 +6,16 @@ import "./Zipline.css";
 // ✅ Lazy load big components
 const Feedback = lazy(() => import("../../components/Feedback"));
 const Form = lazy(() => import("../../components/form/Form"));
+const customMessage = encodeURIComponent("Hi, I am Aman and I want to book a rafting trip!");
 
 const Kayaking = () => {
   // ⚡ Optimized image sizes (Unsplash resizing with w param)
   const bgHero =
-    "https://res.cloudinary.com/gofjords-com/images/c_scale,w_1648,h_1099,dpr_1.25/f_auto,q_auto:eco/v1683890721/Experiences/XXLofoten/Kayaking/Evening%20kayaking%202020/Evening-kayaking-Svolvaer-Lofoten-XXlofoten-1/Evening-kayaking-Svolvaer-Lofoten-XXlofoten-1.jpg?_i=AA";
+    "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Kayking/kayking_02.webp";
   const img1 =
-    "https://res.cloudinary.com/gofjords-com/images/c_scale,w_1648,h_1099,dpr_1.25/f_auto,q_auto:eco/v1683890721/Experiences/XXLofoten/Kayaking/Evening%20kayaking%202020/Evening-kayaking-Svolvaer-Lofoten-XXlofoten-1/Evening-kayaking-Svolvaer-Lofoten-XXlofoten-1.jpg?_i=AA";
+    "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Kayking/kayking_08.webp";
   const img2 =
-    "https://res.cloudinary.com/gofjords-com/images/c_scale,w_1648,h_1099,dpr_1.25/f_auto,q_auto:eco/v1683890721/Experiences/XXLofoten/Kayaking/Evening%20kayaking%202020/Evening-kayaking-Svolvaer-Lofoten-XXlofoten-1/Evening-kayaking-Svolvaer-Lofoten-XXlofoten-1.jpg?_i=AA";
+    "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Kayking/kayking_07.webp";
 
   // ⚡ Video set to 720p instead of 1440p
   const videoSrc =
@@ -66,31 +67,32 @@ const Kayaking = () => {
             adventure begins where the river calls.
           </motion.p>
 
-          <motion.button
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{
-              delay: 1.1,
-              duration: 0.6,
-              type: "spring",
-              stiffness: 130,
-            }}
-            whileHover={{
-              scale: 1.12,
-              boxShadow: "0 0 24px rgba(14,165,233,0.55)",
-              transition: { type: "spring", stiffness: 260, damping: 18 },
-            }}
-            whileTap={{ scale: 0.94 }}
-            className="bg-sky-600 hover:bg-sky-700 text-white font-semibold px-8 py-3 rounded-full shadow-lg transition-colors duration-300"
-            onClick={() =>
-              window.open(
-                "https://wa.me/919876543210?text=Hi%20I%20am%20interested%20in%20booking%20a%20tour",
-                "_blank"
-              )
-            }
-          >
-            Book Now
-          </motion.button>
+<motion.button
+  initial={{ opacity: 0, y: 30 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{
+    delay: 1.1,
+    duration: 0.6,
+    type: "spring",
+    stiffness: 130,
+  }}
+  whileHover={{
+    scale: 1.12,
+    boxShadow: "0 0 28px rgba(234,88,12,0.6)", // orange glow
+    transition: { type: "spring", stiffness: 260, damping: 18 },
+  }}
+  whileTap={{ scale: 0.94 }}
+  className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-red-500 hover:to-orange-500 text-white font-semibold px-8 py-3 rounded-full shadow-xl transition-all duration-300 flex items-center gap-2"
+  onClick={() =>
+    window.open(
+      "https://wa.me/7078287331?text=Hello%2C%20I%20would%20like%20to%20book%20a%20tour",
+      "_blank"
+    )
+  }
+>
+  <span>📩 Book Now</span>
+</motion.button>
+
         </div>
       </motion.section>
 
@@ -173,16 +175,17 @@ const Kayaking = () => {
             Experience the pulse of the Ganges...
           </p>
           <button
-            className="bg-blue-400 hover:bg-blue-500 text-white font-semibold px-10 py-3 rounded-full shadow-lg transition hover:scale-105"
+            className="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-indigo-600 hover:to-blue-500 text-white font-semibold px-10 py-3 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 hover:shadow-2xl flex items-center gap-2"
             onClick={() =>
               window.open(
-                "https://wa.me/919876543210?text=Hi%20I%20am%20interested%20in%20booking%20a%20tour",
+                "https://wa.me/7078287331?text=Hello%2C%20I%20would%20like%20to%20book%20a%20tour",
                 "_blank"
               )
             }
           >
-            Book Now
+            📩 Book Now
           </button>
+
         </div>
       </section>
 

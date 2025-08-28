@@ -17,7 +17,7 @@ main {
   height: clamp(190px, 40vw, 790px);
   width: clamp(15rem, 90vw, 100rem);
   border-radius: clamp(10px, 10vw, 50px);
-  background-image: url("../../assets/images/bungeeJumping/DEVPRAYAGJAL-400.jpg");
+  background-image: url("https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Bungee%20Jumping/heroImage_02.webp");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

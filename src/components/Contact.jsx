@@ -13,7 +13,7 @@ const ContactSection = () => {
         className="relative h-[350px] bg-black text-white flex flex-col justify-center items-center text-center px-4"
       >
         <img
-          src="https://images3.alphacoders.com/134/thumb-1920-1345697.png"
+          src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_24.webp"
           alt="Hero"
           loading="lazy"   // ✅ lazy loading added
           className="absolute top-0 left-0 w-full h-full object-cover opacity-40"
@@ -65,12 +65,12 @@ const ContactSection = () => {
               title: "Call Us",
               desc: (
                 <>
-                  <a href="tel:+919898123198" className="hover:underline">
-                    +91 98981 23198
+                  <a href="tel:+917078287331" className="hover:underline">
+                    +91 7078287331
                   </a>
                   <br />
-                  <a href="tel:+9112312313123" className="hover:underline">
-                    +91 12312 313123
+                  <a href="tel:+918979917331" className="hover:underline">
+                    +91 8979917331
                   </a>
                 </>
               ),
@@ -127,7 +127,7 @@ const ContactSection = () => {
           </a>
 
           <a
-            href="https://wa.me/919876543210?text=Hi%20I%20am%20interested%20in%20rafting%20in%20Shivpuri!"
+            href="https://wa.me/7078287331?text=Hi%20I%20am%20interested%20in%20rafting%20in%20Shivpuri!"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-[#25D366] p-4 rounded-full shadow-lg hover:scale-110 transition-transform duration-300"
