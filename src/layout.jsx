@@ -42,7 +42,7 @@ function Layout() {
     // Stays pages
     const staysPages = ["/stays", "/Stays"];
     if (staysPages.some(path => location.pathname.startsWith(path))) {
-      return "bg-[#FFEDD3]";
+      return "bg-[#F3E9DC]";
     }
 
     // Bungee
@@ -76,7 +76,7 @@ function Layout() {
   return (
     <div className={getBgClass()}>
       <Navbar />
-      <main className="pt-[100px]"> {/* Adjust based on navbar height */}
+      <main> {/* Adjust based on navbar height */}
         <Outlet />
       </main>
       <Footer />

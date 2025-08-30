@@ -4,8 +4,8 @@ import { lazy, Suspense } from "react";
 import "./Zipline.css";
 
 // ✅ Lazy load big components
-const Feedback = lazy(() => import("../../components/Feedback"));
-const Form = lazy(() => import("../../components/form/Form"));
+import Feedback from "../../components/Feedback";
+import Form from "../../components/form/Form";
 const customMessage = encodeURIComponent("Hi, I am Aman and I want to book a rafting trip!");
 
 const Kayaking = () => {

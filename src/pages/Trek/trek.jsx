@@ -419,13 +419,6 @@ const ImageSliderBox = () => {
       />
 
       <motion.div
-        className="absolute inset-0 z-40 pointer-events-none bg-[url('/fog.png')] bg-cover bg-center opacity-20"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.2 }}
-        transition={{ delay: 2, duration: 2, ease: "easeInOut" }}
-      />
-
-      <motion.div
         className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/90 z-40"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -471,12 +464,6 @@ const ImageSliderBox = () => {
         </motion.button>
       </motion.div>
 
-      <motion.div
-        className="absolute bottom-0 left-0 w-full h-32 bg-[url('/mountains-silhouette.svg')] bg-bottom bg-repeat-x z-40 opacity-60"
-        initial={{ y: 50, opacity: 0 }}
-        animate={{ y: 0, opacity: 0.6 }}
-        transition={{ delay: 4, duration: 1.2, ease: "easeOut" }}
-      />
 
       <motion.div
         className="absolute -bottom-[1px] left-0 w-full overflow-hidden leading-[0] z-50"
@@ -520,7 +507,7 @@ const treks = [
     ],
   },
   {
-    title: "Kedarkantha Trek",
+    title: "Kedar katha Trek",
     desc: "Spiritual journey combining trekking with visits to sacred Himalayan shrines.",
     cost: "₹8,999 /-",
     link: "/trek/kedarKatha",   // ✅ matches <Route path="/trek/kedarKatha" />
@@ -531,7 +518,7 @@ const treks = [
     ],
   },
   {
-    title: "Gomukh Tapovan Trek",
+    title: "Gaumukh Tapovan Trek",
     desc: "Challenging trek to the source of the Ganges river with stunning glacier views.",
     cost: "₹14,999 /-",
     link: "/trek/gaumukh",   // ✅ matches <Route path="/trek/gaumukh" />

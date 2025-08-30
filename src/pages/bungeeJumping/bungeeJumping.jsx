@@ -80,40 +80,81 @@ const cards = [
 
 function BungeeJumping() {
   const videoRefs = useRef([]);
-
-  const togglePlayPause = (index) => {
-    const video = videoRefs.current[index];
-    if (video) {
-      if (video.paused) {
-        video.play();
-      } else {
-        video.pause();
-      }
-    }
+    const scrollToBottom = () => {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
   };
+
   return (
     <main className="bg-gradient-to-r from-white to-[#cceeff] josefin-sans ">
 
-    <section className={styles.firstSection} >
-      <motion.div
-        className={styles.bgImg}
-        initial={{ scale: 1.2, opacity: 0 }}
-        whileInView={{ scale: 1, opacity: 1 }}
-        transition={{ duration: 2, ease: "easeOut" }}
-        viewport={{ once: true }}
+    <motion.section
+      className="relative w-full h-[100vh] flex flex-col items-center justify-center text-center px-4 sm:px-8 pt-20 pb-32 overflow-hidden bg-cover bg-center"
+      style={{
+        backgroundImage: `url(https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Bungee%20Jumping/heroImage_02.webp)`,
+      }}
+      initial={{ opacity: 0.3, scale: 0.98 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 1, ease: "easeOut" }}
+    >
+      {/* 🧭 Title */}
+      <motion.h1
+        className="text-white text-4xl sm:text-6xl font-bold drop-shadow-lg leading-tight z-10"
+        initial={{ opacity: 0, y: -60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
       >
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6, duration: 1.2, ease: "easeOut" }}
-          viewport={{ once: true }}
+        Jump into the Thrill of Bungee Adventures
+      </motion.h1>
+
+      {/* 📜 Subtitle */}
+      <motion.p
+        className="max-w-2xl text-lg sm:text-2xl text-white font-medium mt-6 mb-8 z-10"
+        initial={{ opacity: 0, y: -30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.3 }}
+      >
+        Experience the adrenaline rush of freefalling from breathtaking heights in Rishikesh.
+      </motion.p>
+
+      {/* 🚀 WhatsApp Button */}
+      <motion.button
+        onClick={() =>
+          window.open(
+            "https://wa.me/7078287331?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20bungee%20packages",
+            "_blank"
+          )
+        }
+        className="relative px-10 py-3 text-white font-bold rounded-full shadow-xl bg-gradient-to-r from-green-500 to-emerald-600 overflow-hidden transition-all duration-700 transform group hover:scale-110 hover:-rotate-1 z-10"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.6 }}
+      >
+        {/* Shine Effect */}
+        <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent translate-x-[-100%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-out blur-sm"></span>
+
+        {/* Glow on Hover */}
+        <span className="absolute inset-0 w-full h-full bg-emerald-500 rounded-full opacity-0 group-hover:opacity-30 group-hover:scale-125 group-hover:blur-2xl transition-all duration-700"></span>
+
+        {/* Button Text */}
+        <span className="relative z-10 tracking-wide group-hover:tracking-widest group-hover:animate-pulse">
+          💬 WhatsApp Us
+        </span>
+      </motion.button>
+
+      {/* ↓ Scroll Button */}
+      <div className="mt-12 z-10">
+        <motion.button
+          onClick={scrollToBottom}
+          className="bg-orange-300 text-white p-4 rounded-full text-2xl shadow-lg transition-all duration-700 hover:bg-orange-500 hover:rotate-[360deg] hover:scale-150 hover:shadow-2xl hover:animate-bounce"
+          whileHover={{ scale: 1.2 }}
         >
-          Discover epic trails, expert tips, and inspiring stories to fuel your
-          next mountain adventure. Whether you're a beginner or a pro, we help
-          you reach new heights with confidence.
-        </motion.p>
-      </motion.div>
-    </section>
+          ↓
+        </motion.button>
+      </div>
+
+      {/* 🌄 Bottom Gradient */}
+      <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-b from-transparent to-[#FFF5E4] z-10" />
+    </motion.section>
    
     <motion.section
       className="py-20 px-4 md:mt-10 md:px-10 xl:px-40 text-black josefin-sans"
@@ -271,46 +312,48 @@ function BungeeJumping() {
       </motion.div>
 
       {/* Video Cards */}
-      <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6 sm:gap-8">
-      {videos.map((video, index) => (
-        <motion.div
-          key={video.id}
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          whileHover={{ scale: 1.03 }}
-          transition={{
-            type: "spring",
-            stiffness: 180,
-            damping: 12,
-            delay: index * 0.1,
-          }}
-          className="relative group overflow-hidden rounded-2xl bg-black shadow-2xl hover:shadow-yellow-500/30 border border-white/10 backdrop-blur-md"
-        >
-          {video.src.includes("youtube") ? (
-            <div className="relative w-full h-[200px] sm:h-[240px] md:h-[260px] lg:h-[280px] xl:h-[300px]">
-              <iframe
-                src={`${video.src.replace("shorts/", "embed/")}?autoplay=1&mute=1&loop=1&playlist=${video.src.split("/").pop()}&modestbranding=1&rel=0&controls=0&iv_load_policy=3&fs=0`}
-                title={video.title}
-                frameBorder="0"
-                allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                className="w-full h-full object-cover pointer-events-none"
-              ></iframe>
-            </div>
-          ) : (
-            <video
-              src={video.src}
-              loop
-              muted
-              playsInline
-              preload="none"
-              className="w-full h-[200px] sm:h-[240px] md:h-[260px] lg:h-[280px] xl:h-[300px] object-cover transition-all duration-500 group-hover:brightness-90"
-            />
-          )}
-        </motion.div>
-      ))}
-
+      <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 sm:gap-8">
+        {videos.map((video, index) => (
+          <motion.div
+            key={video.id}
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            whileHover={{ scale: 1.03 }}
+            transition={{
+              type: "spring",
+              stiffness: 180,
+              damping: 12,
+              delay: index * 0.1,
+            }}
+            className="relative group overflow-hidden rounded-2xl bg-black shadow-2xl hover:shadow-yellow-500/30 border border-white/10 backdrop-blur-md
+              w-full sm:auto sm:h-auto
+              "
+          >
+            {video.src.includes("youtube") ? (
+              <div className="relative w-full h-[80vh] sm:h-[240px] md:h-[260px] lg:h-[280px] xl:h-[300px]">
+                <iframe
+                  src={`${video.src.replace("shorts/", "embed/")}?autoplay=1&mute=1&loop=1&playlist=${video.src.split("/").pop()}&modestbranding=1&rel=0&controls=0&iv_load_policy=3&fs=0`}
+                  title={video.title}
+                  frameBorder="0"
+                  allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  className="w-full h-full object-cover pointer-events-none"
+                ></iframe>
+              </div>
+            ) : (
+              <video
+                src={video.src}
+                loop
+                muted
+                playsInline
+                preload="none"
+                className="w-full h-[80vh] sm:h-[240px] md:h-[260px] lg:h-[280px] xl:h-[300px] object-cover transition-all duration-500 group-hover:brightness-90"
+              />
+            )}
+          </motion.div>
+        ))}
       </div>
+
     </section>
 
     <Feedback/>

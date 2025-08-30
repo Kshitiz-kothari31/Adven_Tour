@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import Form from "../../../components/form/Form";
+import TrekPage from "../TrekPage";
 import SpecialSection from '../points';
 import ScrollDownButton from '../button'
-import img2 from "../../../assets/images/TrekMain/img2.svg";
 import styles from "./tungnathTrek.module.css";
 
 function TungnathTrek() {
@@ -27,13 +27,6 @@ function TungnathTrek() {
         transition={{ duration: 4, ease: 'easeOut' }}
       />
 
-      {/* 🌫 Fog overlay */}
-      <motion.div
-        className="absolute inset-0 z-20 bg-[url('/fog.png')] bg-cover bg-center opacity-25 pointer-events-none"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.25 }}
-        transition={{ delay: 1, duration: 2 }}
-      />
 
       {/* 🌨 Bottom fade overlay */}
       <div
@@ -41,19 +34,9 @@ function TungnathTrek() {
                   bg-gradient-to-b from-transparent via-[#fdfaf6]/80 to-[#fdfaf6]
                   z-20 pointer-events-none" />
 
-      {/* ✨ Particle overlay */}
-      <div className="absolute inset-0 z-20 bg-[url('/particles.gif')] bg-cover bg-center opacity-10 mix-blend-screen pointer-events-none" />
-
       {/* 🔷 Diagonal gradient mask */}
       <div className="absolute inset-0 z-30 bg-gradient-to-br from-black/80 via-black/35 to-transparent [clip-path:polygon(0_0,50%_0,35%_100%,0_100%)]" />
 
-      {/* 🚣 Boat silhouette */}
-      <motion.div
-        className="absolute bottom-10 left-10 w-[120px] h-[80px] bg-[url('/boat-silhouette.png')] bg-contain bg-no-repeat bg-bottom z-40 opacity-80"
-        initial={{ x: -80, opacity: 0 }}
-        animate={{ x: 0, opacity: 0.8 }}
-        transition={{ delay: 1.5, duration: 1.2, ease: 'easeOut' }}
-      />
 
       {/* 📝 Content */}
       <motion.div
@@ -275,100 +258,7 @@ function TungnathTrek() {
       </motion.section>
 
 
-      <section className={styles.storySection}>
-        <h2>
-          The Dayara Bugyal trek isn’t just a walk through meadows and
-          mountains; it’s a journey steeped in mythology, folklore, and quiet
-          reverence.
-        </h2>
-        <p>
-          <b>Sages and Seekers: </b> According to local lore, Dayara Bugyal was
-          once a sacred retreat for ancient sages. They meditated in these
-          serene meadows, believing the high-altitude silence brought them
-          closer to enlightenment.
-        </p>
-        <hr />
-        <p>
-          <b>Lord Shiva’s Blessing: </b> Some legends say that Lord Shiva
-          himself wandered through these lands. The peaceful energy and
-          spiritual aura are said to be remnants of his presence.
-        </p>
-        <hr />
-        <p>
-          <b>The Pandavas’ Path: </b> The Mahabharata weaves its way into the
-          story too. It’s believed that the Pandavas, during their exile, passed
-          through Dayara Bugyal and performed rituals here. That mystical
-          energy? Locals say it still lingers in the air.
-        </p>
-      </section>
-
-      <section className={styles.daysSection}>
-        <div className={styles.dayBox}>
-          <h2>Day x to y on the trek</h2>
-          <p>
-            According to local lore, Dayara Bugyal was once a sacred retreat for
-            ancient sages. They meditated in these serene meadows, believing the
-            high-altitude silence brought them closer to enlightenment.{" "}
-          </p>
-          <div className={styles.imgWithDetail}>
-            <div className={styles.imgBox}>
-              <div className={styles.firstimg}></div>
-              <div className={styles.secondimg}></div>
-            </div>
-            <p>
-              According to local lore, Dayara Bugyal was once a sacred retreat
-              for ancient sages.
-            </p>
-          </div>
-        </div>
-        <div className={styles.dayBox}>
-          <h2>Day a to b on the trek</h2>
-          <p>
-            According to local lore, Dayara Bugyal was once a sacred retreat for
-            ancient sages. They meditated in these serene meadows, believing the
-            high-altitude silence brought them closer to enlightenment.{" "}
-          </p>
-          <div className={styles.imgWithDetail}>
-            <div className={styles.imgBox}>
-              <img className={styles.firstimg} src={img2} />
-            </div>
-            <p>
-              According to local lore, Dayara Bugyal was once a sacred retreat
-              for ancient sages.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="md:mt-[120px] mt-18 flex justify-center items-center text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="h-[clamp(170px,25vw,270px)] w-[clamp(250px,50vw,1000px)] bg-[#E4EFE7] rounded-[40px] py-5 px-[clamp(20px,50vw,40px)] font-[400] text-[clamp(0.75rem,0.55rem+1.05vw,1.875rem)] flex flex-col justify-center items-center"
-        >
-          <p>
-            Here’s a checklist of essentials to make sure you’re safe, comfortable, 
-            and ready to soak in those Himalayan views:
-          </p>
-          <div className="flex justify-center items-center mt-4 gap-[15px]">
-            <p>Download</p>
-            <motion.button
-              whileHover={{
-                scale: 1.05,
-                backgroundColor: "#E4EFE7",
-                color: "#16423c",
-                border: "2px solid #16423c",
-              }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-[#16423c] rounded-[clamp(5px,1vw,15px)] text-white text-[clamp(0.625rem,0.5147rem+0.58vw,1.25rem)] h-[clamp(25px,3vw,44px)] w-[clamp(60px,8vw,120px)] flex items-center justify-center"
-            >
-              Checklist
-            </motion.button>
-          </div>
-        </motion.div>
-      </section>
+    <TrekPage/>
 
       <SpecialSection/>
 
