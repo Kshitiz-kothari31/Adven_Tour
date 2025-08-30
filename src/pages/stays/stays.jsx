@@ -117,34 +117,34 @@ function Stays() {
           </motion.div>
         </div>
 
-{/* Image Grid (below hero section) */}
-<motion.div
-  className="relative z-10 -mt-24 md:-mt-32 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 w-[80%] sm:w-[70%] md:w-[70%] mx-auto"
-  initial={{ opacity: 0, y: 40 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
->
-  {imageGrid.map((src, i) => (
-    <motion.div
-      key={i}
-      className={`overflow-hidden rounded-xl sm:rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300 
-                  ${i < 2 ? "hidden md:block" : "block"}`} 
-      whileHover={{ scale: 1.05 }}
-      transition={{ duration: 0.3 }}
-    >
-      <img
-        src={src}
-        alt={`Stay option ${i + 1}`}
-        className="w-full h-28 sm:h-36 md:h-44 object-cover"
-        loading="lazy"
-        decoding="async"
-      />
-    </motion.div>
-  ))}
-</motion.div>
+        {/* Image Grid (below hero section) */}
+        <motion.div
+          className="relative z-10 -mt-24 md:-mt-32 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 w-[80%] sm:w-[70%] md:w-[70%] mx-auto"
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
+        >
+          {imageGrid.map((src, i) => (
+            <motion.div
+              key={i}
+              className={`overflow-hidden rounded-xl sm:rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300 
+                          ${i < 2 ? "hidden md:block" : "block"}`} 
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            >
+              <img
+                src={src}
+                alt={`Stay option ${i + 1}`}
+                className="w-full h-28 sm:h-36 md:h-44 object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </motion.div>
+          ))}
+        </motion.div>
 
       </section>
-
+          
 
         {/* Marquee */}
         <div className="relative josefin-sans md:mt-42 overflow-hidden mt-20 py-6">
