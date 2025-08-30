@@ -103,27 +103,9 @@ useEffect(() => {
           transition={{ duration: 5, ease: 'easeOut' }}
         />
 
-        {/* 🌫 Fog Layer */}
-        <motion.div
-          className="absolute inset-0 z-20 bg-[url('/fog.png')] bg-cover bg-center opacity-20 pointer-events-none"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.2 }}
-          transition={{ delay: 1, duration: 2 }}
-        />
-
-        {/* ✨ Particle Layer */}
-        <div className="absolute inset-0 z-20 bg-[url('/particles.gif')] bg-cover bg-center opacity-10 mix-blend-screen pointer-events-none" />
 
         {/* 🌌 Gradient Overlay */}
         <div className="absolute inset-0 z-30 bg-gradient-to-br from-black/80 via-black/30 to-transparent pointer-events-none" />
-
-        {/* 🚣 Boat */}
-        <motion.div
-          className="absolute bottom-10 left-10 w-[140px] h-[90px] bg-[url('/boat-silhouette.png')] bg-contain bg-no-repeat z-40 opacity-70"
-          initial={{ x: -100, opacity: 0 }}
-          animate={{ x: 0, opacity: 0.7 }}
-          transition={{ delay: 1.5, duration: 1.2 }}
-        />
 
         {/* 📢 Text Content */}
         <motion.div

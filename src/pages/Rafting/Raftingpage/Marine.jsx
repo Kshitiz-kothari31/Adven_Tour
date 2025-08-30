@@ -103,27 +103,10 @@ useEffect(() => {
           transition={{ duration: 4, ease: "easeOut" }}
         />
 
-        {/* 🌫 Fog Layer */}
-        <motion.div
-          className="absolute inset-0 z-20 bg-[url('/fog.png')] bg-cover bg-center opacity-25 pointer-events-none"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.25 }}
-          transition={{ delay: 1, duration: 2 }}
-        />
-
-        {/* ✨ Particles Overlay */}
-        <div className="absolute inset-0 z-20 bg-[url('/particles.gif')] bg-cover bg-center opacity-10 mix-blend-screen pointer-events-none" />
 
         {/* 🔷 Diagonal Shadow Overlay */}
         <div className="absolute inset-0 z-30 bg-gradient-to-br from-black/80 via-black/30 to-transparent [clip-path:polygon(0_0,50%_0,35%_100%,0_100%)]" />
 
-        {/* 🚣 Boat Silhouette Floating Left */}
-        <motion.div
-          className="absolute bottom-10 left-10 w-[120px] h-[80px] bg-[url('/boat-silhouette.png')] bg-contain bg-no-repeat bg-bottom z-40 opacity-80"
-          initial={{ x: -80, opacity: 0 }}
-          animate={{ x: 0, opacity: 0.8 }}
-          transition={{ delay: 1.5, duration: 1.2, ease: 'easeOut' }}
-        />
 
         {/* 📍 Hero Content */}
         <motion.div

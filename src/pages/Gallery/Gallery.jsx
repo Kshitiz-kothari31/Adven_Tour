@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import Form from '../../components/form/Form';
 import './Gallery.css'
 import GallerySection from './image';
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 const Gallery = () => {
   const tutanRef = useRef(null);

@@ -21,13 +21,7 @@ const AdventureAltHero = () => {
       {/* 🌌 Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent z-20" />
 
-      {/* 🌫 Fog/Particle Layer */}
-      <motion.div
-        className="absolute inset-0 z-30 pointer-events-none bg-[url('/fog.png')] bg-cover bg-center opacity-20"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.25 }}
-        transition={{ delay: 1, duration: 1.5, ease: "easeOut" }}
-      />
+
 
       {/* 🐝 Firefly/Glow Particles */}
       <motion.div
@@ -36,7 +30,7 @@ const AdventureAltHero = () => {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 1.5 }}
       >
-        <div className="w-full h-full bg-[url('/particles.gif')] bg-cover bg-center opacity-10 mix-blend-screen" />
+
       </motion.div>
 
       {/* 💥 Cinematic Entry Text */}
@@ -65,7 +59,7 @@ const AdventureAltHero = () => {
         transition={{ delay: 2, duration: 1 }}
       >
         <div className="relative w-full h-full">
-          <div className="absolute w-full h-full bg-[url('/wave-lines.svg')] bg-repeat-x bg-bottom animate-wave" />
+
         </div>
       </motion.div>
 

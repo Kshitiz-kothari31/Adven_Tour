@@ -104,27 +104,10 @@ const scrollToSecondSection = () => {
               transition={{ duration: 3, ease: "easeOut" }}
             />
 
-            {/* 🌫 Fog Layer */}
-            <motion.div
-              className="absolute inset-0 z-20 bg-[url('/fog.png')] bg-cover bg-center opacity-20 pointer-events-none"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 0.25 }}
-              transition={{ delay: 1, duration: 2 }}
-            />
+
 
             {/* 🌌 Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/40 to-transparent z-30" />
-
-            {/* 🎆 Glow Particle Overlay */}
-            <div className="absolute inset-0 z-30 bg-[url('/particles.gif')] bg-cover bg-center opacity-10 mix-blend-screen pointer-events-none" />
-
-            {/* 🚣 Rafting Boat Silhouette Overlay */}
-            <motion.div
-              className="absolute bottom-10 right-10 w-[150px] h-[100px] bg-[url('/boat-silhouette.png')] bg-contain bg-no-repeat bg-bottom z-40 opacity-70"
-              initial={{ x: 100, opacity: 0 }}
-              animate={{ x: 0, opacity: 0.7 }}
-              transition={{ delay: 2, duration: 1.5, ease: "easeOut" }}
-            />
 
             {/* 🟡 Overlay Content */}
             <motion.div

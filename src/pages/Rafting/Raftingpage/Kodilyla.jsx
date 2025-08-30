@@ -95,27 +95,9 @@ const Kodilyla = () => {
           transition={{ duration: 4, ease: "easeOut" }}
         />
 
-        {/* 🌫 Fog Overlay */}
-        <motion.div
-          className="absolute inset-0 z-20 bg-[url('/fog.png')] bg-cover bg-center opacity-25 pointer-events-none"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.25 }}
-          transition={{ delay: 1, duration: 2 }}
-        />
-
-        {/* ✨ Soft Particles */}
-        <div className="absolute inset-0 z-20 bg-[url('/particles.gif')] bg-cover bg-center opacity-10 mix-blend-screen pointer-events-none" />
 
         {/* 🟠 Diagonal Gradient Overlay */}
         <div className="absolute inset-0 z-30 bg-gradient-to-tl from-black/80 via-black/30 to-transparent [clip-path:polygon(100%_0,100%_100%,60%_100%,30%_0)]" />
-
-        {/* 🚣 Floating Boat */}
-        <motion.div
-          className="absolute top-10 right-10 w-[150px] h-[100px] bg-[url('/boat-silhouette.png')] bg-contain bg-no-repeat bg-top z-40 opacity-70"
-          initial={{ y: -100, opacity: 0 }}
-          animate={{ y: 0, opacity: 0.7 }}
-          transition={{ delay: 1.5, duration: 1.2, ease: "easeOut" }}
-        />
 
         {/* 🧭 Content */}
         <motion.div

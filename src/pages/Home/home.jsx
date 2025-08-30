@@ -55,8 +55,6 @@ const ImageSliderBox = () => {
         className="absolute top-0 left-0 w-full h-full object-cover z-30"
       />
 
-      {/* 🌫️ Fog overlay */}
-      <motion.div className="absolute inset-0 z-40 pointer-events-none bg-[url('/fog.png')] bg-cover bg-center opacity-20" />
 
       {/* 🌓 Gradient overlay */}
       <motion.div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/90 z-40" />

@@ -21,7 +21,7 @@ const CampingSlider = () => {
   }, [current]);
 
   return (
-    <section className="text-gray-900 py-16 relative">
+    <section className="text-gray-900 py-16 mt-20 relative">
       {/* Heading */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
