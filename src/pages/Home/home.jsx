@@ -72,7 +72,7 @@ const ImageSliderBox = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 3, duration: 1 }}
         >
-          Adventure Pulse <br /> Beyond Limits. Into the Wild.
+          GoRafts... <br /> Beyond Limits, Into the Wild.
         </motion.h1>
 
         <motion.p
@@ -132,7 +132,7 @@ const home = () => {
       >
         <motion.div className="max-w-4xl mx-auto space-y-4 text-base md:text-lg leading-relaxed">
           {[
-            `Welcome to Adventure Pulse — your gateway to epic outdoor thrills in Shivpuri, Rishikesh.`,
+            `Welcome to GoRafts — your gateway to epic outdoor thrills in Shivpuri, Rishikesh.`,
             `Get ready for rafting on the Ganges, trekking through Himalayan trails, kayaking, bungee jumping, ziplining, and more — all backed by expert guides and pure adventure vibes.`,
             `Whether you're solo or with your tribe, we ensure every moment is safe, seamless, and unforgettable. Let’s make your next escape legendary.`,
           ].map((text, index) => (
