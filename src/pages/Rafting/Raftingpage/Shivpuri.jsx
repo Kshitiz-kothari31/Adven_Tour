@@ -10,25 +10,25 @@ const data = [
     reverse: false,
     title: "Roller Coaster",
     desc: "One of the most thrilling rapids on this route.",
-    img: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_4.webp",
+    img: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/Memo_img2.webp",
   },
   {
     reverse: true,
     title: "Golf Course",
     desc: "A fun rapid with multiple waves and challenges.",
-    img: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_5.webp",
+    img: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/Memo_img1.webp",
   },
   {
     reverse: false,
     title: "Club House",
     desc: "Mild rapid, great for beginners and warm-up.",
-    img: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_6.webp",
+    img: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/Memo_img3.webp",
   },
   {
     reverse: true,
     title: "Initiation",
     desc: "Perfect start to your adrenaline journey.",
-    img: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_7.webp",
+    img: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/Memo_img5.webp",
   },
 ];
 
@@ -96,7 +96,7 @@ const scrollToSecondSection = () => {
           >
             {/* 🔁 Animated Background Image Zoom */}
             <motion.img
-              src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_4.webp"
+              src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/MarineDrive%20to%20Shivpuri/HeorImg.webp"
               alt="Marine Drive to Shivpuri"
               className="absolute top-0 left-0 w-full h-full object-cover z-10 animate-ripple"
               initial={{ scale: 1.2 }}
@@ -248,7 +248,7 @@ const scrollToSecondSection = () => {
             >
               <div className="bg-white rounded-[24px] overflow-hidden transition-transform duration-500 hover:scale-105">
                 <img
-                  src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_9.webp"
+                  src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/MarineDrive%20to%20Shivpuri/overview.webp"
                   laoding="lazy"
                   alt="Adventure"
                   className="w-full h-full object-cover rounded-[24px]"
@@ -300,7 +300,7 @@ const scrollToSecondSection = () => {
           {/* 🖼️ Overlapping Image Section with hover & animation */}
           <div className="flex-1 relative h-[280px] md:h-[340px] flex justify-center items-center z-0">
             <motion.img
-              src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_15.webp"
+              src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/MarineDrive%20to%20Shivpuri/img1.webp"
               loading='lazy'
               alt="Rafting 1"
               initial={{ opacity: 0, y: -20 }}
@@ -310,7 +310,7 @@ const scrollToSecondSection = () => {
               className="w-[240px] md:w-[280px] rounded-xl shadow-2xl border-[5px] border-white absolute top-5 left-[60px] z-10 transition-all duration-300"
             />
             <motion.img
-              src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_1.webp"
+              src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/card1.webp"
               loading='lazy'
               alt="Rafting 2"
               initial={{ opacity: 0, y: 20 }}
@@ -395,7 +395,7 @@ const scrollToSecondSection = () => {
             className="relative w-full h-[260px] md:h-[320px]"
           >
             <img
-              src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_20.webp"
+              src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/MarineDrive%20to%20Shivpuri/lastImg.webp"
               loading='lazy'
               alt="Rafting"
               className="w-full h-full object-cover"

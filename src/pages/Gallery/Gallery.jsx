@@ -43,130 +43,106 @@ const Gallery = () => {
     { src: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Stays/stay_04.webp", category: "stays" },
     { src: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Stays/stay_01.webp", category: "stays" },
   ];
-  const customMessage = encodeURIComponent("Hi, I am Aman and I want to book a rafting trip!");
-
-
-
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState("all");
-  const [visibleCount, setVisibleCount] = useState(12);
-  const [selectedImage, setSelectedImage] = useState(null);
-
-  const filteredImages =
-    selectedCategory === "all"
-      ? images
-      : images.filter((img) => img.category === selectedCategory);
 
   return (
     <section className=' bg-gradient-to-r from-[#ffffff] to-[#f1daff] pt-20 josefin-sans'>
         {/* 1st section */}        
         <div className="w-full max-w-7xl mx-auto px-4 py-10 flex flex-col md:flex-row items-center md:items-start justify-between gap-10 -mt-15">
 
-        {/* 🔵 Left Text */}
-        <div className="flex-1 space-y-6 text-center md:text-left">
-          <motion.h1
-            className="text-4xl md:text-6xl font-bold leading-tight inline-block whitespace-nowrap border-r-4 border-blue-900 pr-2 overflow-hidden animate-typing"
-            initial={{ width: 0 }}
-            animate={{ width: '100%' }}
-            transition={{ duration: 3, ease: 'easeInOut' }}
-          >
-            Dive into the <br /> Thrill of Adventure <br /> in Rishikesh
-          </motion.h1>
-
-          <motion.p
-            className="text-gray-700 text-base md:text-lg max-w-lg mx-auto md:mx-0"
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-          >
-            Experience the ultimate adrenaline rush with white-water rafting, bungee jumping, kayaking, and trekking in the heart of Rishikesh. Whether you're chasing rapids or scaling trails, every moment here is packed with energy, nature, and unforgettable memories.
-          </motion.p>
-
-          <div className="flex flex-row flex-wrap items-center justify-center md:justify-start gap-4">
-            {/* 🚀 Book Now Button */}
-          <a
-            href="https://wa.me/7078287331?text=Hi%20I%20am%20interested%20in%20booking%20a%20tour"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <motion.button
-              className="relative group cursor-pointer overflow-hidden bg-gradient-to-r from-blue-700 to-purple-800 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-2xl transition-all duration-500 ease-in-out hover:scale-110"
-              whileHover={{ scale: 1.1, rotate: [0, 3, -3, 3, -3, 0] }}
+          {/* Left Text */}
+          <div className="flex-1 space-y-6 text-center md:text-left">
+            {/* Hero Heading Typing */}
+            <motion.h1
+              className="text-4xl md:text-6xl font-bold leading-tight inline-block whitespace-nowrap border-r-4 border-blue-900 pr-2 overflow-hidden animate-typing"
+              initial={{ width: 0 }}
+              animate={{ width: '100%' }}
+              transition={{ duration: 3, ease: 'easeInOut' }}
             >
-              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-yellow-400 to-pink-500 opacity-0 group-hover:opacity-100 blur-md transition duration-700 scale-125"></span>
-              <span className="relative z-10">Book Now 🚀</span>
-            </motion.button>
-          </a>
+              Dive into the <br /> Thrill of Adventure <br /> in Rishikesh
+            </motion.h1>
 
+            {/* Description (no animation for perf) */}
+            <p className="text-gray-700 text-base md:text-lg max-w-lg mx-auto md:mx-0">
+              Experience the ultimate adrenaline rush with white-water rafting, bungee jumping, kayaking, and trekking in the heart of Rishikesh. Whether you're chasing rapids or scaling trails, every moment here is packed with energy, nature, and unforgettable memories.
+            </p>
 
-        {/* 🖼️ View Gallery Button */}
-          <motion.button
-            onClick={() => {
-              tutanRef.current?.scrollIntoView({ behavior: "smooth" });
-            }}
-            className="relative cursor-pointer group overflow-hidden bg-gradient-to-r from-blue-700 to-purple-800 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-2xl transition-all duration-500 ease-in-out hover:scale-110"
-            whileHover={{ scale: 1.1, rotate: [0, 3, -3, 3, -3, 0] }}
-          >
-            <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-yellow-400 to-pink-500 opacity-0 group-hover:opacity-100 blur-md transition duration-700 scale-125"></span>
-            <span className="relative z-10">View Gallery 🖼️</span>
-          </motion.button>
+            {/* Buttons */}
+            <div className="flex flex-row flex-wrap items-center justify-center md:justify-start gap-4">
+              {/* Book Now */}
+              <a
+                href="https://wa.me/7078287331?text=Hi%20I%20am%20interested%20in%20booking%20a%20tour"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <button
+                  className="relative group cursor-pointer overflow-hidden bg-gradient-to-r from-blue-700 to-purple-800 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-2xl transition-transform duration-300 hover:scale-105"
+                >
+                  <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-yellow-400 to-pink-500 opacity-0 group-hover:opacity-100 blur-md transition duration-700"></span>
+                  <span className="relative z-10">Book Now 🚀</span>
+                </button>
+              </a>
+
+              {/* View Gallery */}
+              <button
+                onClick={() => tutanRef.current?.scrollIntoView({ behavior: "smooth" })}
+                className="relative group cursor-pointer overflow-hidden bg-gradient-to-r from-blue-700 to-purple-800 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-2xl transition-transform duration-300 hover:scale-105"
+              >
+                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-yellow-400 to-pink-500 opacity-0 group-hover:opacity-100 blur-md transition duration-700"></span>
+                <span className="relative z-10">View Gallery 🖼️</span>
+              </button>
+            </div>
           </div>
-        </div>
 
-        {/* 🟣 Right Image Grid */}
-        <motion.div
-          className="flex-1 relative grid grid-cols-2 gap-[2px] w-full max-w-md bg-white rounded-3xl p-[2px]"
-          initial={{ y: -60, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1 }}
-        >
-          <motion.div whileHover={{ scale: 1.05 }} className="overflow-hidden shadow-lg h-48 md:h-64 rounded-br-3xl">
-            <img 
-              src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_19.webp"
-              alt="img1" 
-              className="w-full h-full object-cover" 
-              loading="lazy"
-            />
-          </motion.div>
-          <motion.div whileHover={{ scale: 1.05 }} className="overflow-hidden shadow-lg h-48 md:h-64 rounded-bl-3xl">
-            <img 
-              src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Bungee%20Jumping/splash%20bungee/splash_04.webp"
-              alt="img2" 
-              className="w-full h-full object-cover" 
-              loading="lazy"
-            />
-          </motion.div>
-          <motion.div whileHover={{ scale: 1.05 }} className="overflow-hidden shadow-lg h-48 md:h-64 rounded-tr-3xl">
-            <img 
-              src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks/kedarkatha%20trek/kedarkantha_img14.webp" 
-              alt="img3" 
-              className="w-full h-full object-cover" 
-              loading="lazy"
-            />
-          </motion.div>
-          <motion.div whileHover={{ scale: 1.05 }} className="overflow-hidden shadow-lg h-48 md:h-64 rounded-tl-3xl">
-            <img 
-              src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Zipline/zipline_img12.webp"
-              alt="img4" 
-              className="w-full h-full object-cover" 
-              loading="lazy"
-            />
-          </motion.div>
+          {/* Right Image Grid */}
           <motion.div
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-36 h-36 rounded-full overflow-hidden border-[2px] border-white shadow-xl z-10 bg-white"
-            initial={{ scale: 0 }}
-            whileInView={{ scale: 1 }}
-            whileHover={{ scale: 1.2 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex-1 relative grid grid-cols-2 gap-[2px] w-full max-w-md bg-white rounded-3xl p-[2px]"
+            initial={{ y: -40, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8 }}
           >
-            <img 
-              src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Stays/stay_06.webp"
-              alt="center" 
-              className="w-full h-full object-cover" 
-              loading="lazy"
-            />
+            {[
+              "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_19.webp",
+              "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Bungee%20Jumping/splash%20bungee/splash_04.webp",
+              "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks/kedarkatha%20trek/kedarkantha_img14.webp",
+              "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Zipline/zipline_img12.webp"
+            ].map((src, i) => (
+              <div
+                key={i}
+                className={`overflow-hidden shadow-lg h-48 md:h-64 ${
+                  i === 0
+                    ? "rounded-br-3xl"
+                    : i === 1
+                    ? "rounded-bl-3xl"
+                    : i === 2
+                    ? "rounded-tr-3xl"
+                    : "rounded-tl-3xl"
+                }`}
+              >
+                <img
+                  src={src}
+                  alt={`img${i}`}
+                  className="w-full h-full object-cover"
+                  loading="lazy"   // <-- changed here
+                />
+              </div>
+            ))}
+
+            {/* Center Circle */}
+            <motion.div
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-36 h-36 rounded-full overflow-hidden border-[2px] border-white shadow-xl z-10 bg-white"
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.6 }}
+            >
+              <img
+                src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Stays/stay_06.webp"
+                alt="center"
+                loading="eager"
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
           </motion.div>
-        </motion.div>
+
         </div>
 
         {/* 🔽 Scroll Button Centered */}
@@ -198,15 +174,10 @@ const Gallery = () => {
         </motion.div>
 
         {/* VIDEO GALLERY SECTION */}
-        <motion.section
+        <section
           className="relative josefin-sans md:mt-25 py-12 px-4 sm:px-6 md:px-10 lg:px-20"
           id="bottomRef"
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
         >
-          {/* Content Wrapper */}
           <div className="relative z-10 max-w-6xl mx-auto text-center space-y-10">
             {/* Heading */}
             <motion.h2
@@ -214,17 +185,13 @@ const Gallery = () => {
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
             >
               Experience the Adventure
             </motion.h2>
 
-            {/* Video Grid (4 YouTube Shorts, Clean UI) */}
-            <motion.div
-              className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-            >
+            {/* Video Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
                 "https://www.youtube.com/embed/aHrIyirdeDU?autoplay=0&mute=1&modestbranding=1&rel=0&controls=0&showinfo=0",
                 "https://www.youtube.com/embed/sjmNmWuYXqQ?autoplay=0&mute=1&modestbranding=1&rel=0&controls=0&showinfo=0",
@@ -248,7 +215,7 @@ const Gallery = () => {
                   </div>
                 </motion.div>
               ))}
-            </motion.div>
+            </div>
 
             {/* Paragraph */}
             <motion.p
@@ -256,54 +223,34 @@ const Gallery = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.5 }}
+              viewport={{ once: true }}
             >
               These real clips showcase our adventure experiences – live from Rishikesh’s whitewater. 
               Play, pause, and feel the adrenaline.
             </motion.p>
           </div>
-        </motion.section>
+        </section>
 
-        {/* 4TH section */}
+        {/* WHY ADVENTURERS CHOOSE US */}
         <div className="w-full px-4 mt-15 py-10 md:py-20 overflow-hidden josefin-sans">
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-10 items-center">
 
-            {/* ✅ Mobile Heading */}
-            <motion.h2
-              className="text-3xl md:text-5xl font-extrabold text-center text-black md:hidden mb-4"
-              initial={{ scale: 0.8, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.3, duration: 0.7, ease: 'easeOut' }}
-            >
+            {/* Mobile Heading */}
+            <h2 className="text-3xl md:text-5xl font-extrabold text-center text-black md:hidden mb-4 transition-transform duration-700 transform hover:scale-105">
               WHY ADVENTURERS <br /> <span className="text-green-600">CHOOSE US</span>
-            </motion.h2>
+            </h2>
 
-            {/* 🔥 Image Grid - LEFT */}
-            <motion.div
-              className="flex-1 relative grid grid-cols-2 gap-[2px] w-full max-w-md mx-auto md:ml-20 bg-white rounded-3xl p-[2px]"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={{
-                hidden: {},
-                visible: {
-                  transition: {
-                    staggerChildren: 0.2,
-                  },
-                },
-              }}
-            >
+            {/* Image Grid */}
+            <div className="flex-1 relative  grid grid-cols-2 gap-[2px] w-full max-w-md mx-auto md:ml-20 bg-white rounded-3xl p-[2px]">
               {[
                 { src: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks/kedarkatha%20trek/kedarkantha_img10.webp", className: "rounded-br-3xl" },
                 { src: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_1.webp", className: "rounded-bl-3xl" },
                 { src: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Zipline/zipline_img05.webp", className: "rounded-tr-3xl" },
                 { src: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Bungee%20Jumping/heroImage_01.webp", className: "rounded-tl-3xl" }
               ].map((img, i) => (
-                <motion.div
+                <div
                   key={i}
-                  className={`overflow-hidden shadow-lg h-44 md:h-56 ${img.className}`}
-                  variants={{ hidden: { opacity: 0, y: 40 }, visible: { opacity: 1, y: 0 } }}
-                  transition={{ duration: 0.6, ease: 'easeOut' }}
-                  whileHover={{ scale: 1.05 }}
+                  className={`overflow-hidden shadow-lg h-44 md:h-56 ${img.className} transition-transform duration-500 hover:scale-105`}
                 >
                   <img 
                     src={img.src} 
@@ -311,45 +258,27 @@ const Gallery = () => {
                     className="w-full h-full object-cover" 
                     loading="lazy"
                   />
-                </motion.div>
+                </div>
               ))}
 
               {/* Center Circle */}
-              <motion.div
-                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-28 h-28 md:w-36 md:h-36 rounded-full overflow-hidden border-4 border-white shadow-xl z-10 bg-white"
-                initial={{ scale: 0, rotate: -90 }}
-                whileInView={{ scale: 1, rotate: 0 }}
-                whileHover={{ scale: 1.2, rotate: 6 }}
-                transition={{ type: "spring", stiffness: 200, damping: 12, delay: 0.6 }}
-              >
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-28 h-28 md:w-36 md:h-36 rounded-full overflow-hidden border-4 border-white shadow-xl z-10 bg-white transition-transform duration-500 hover:scale-110">
                 <img 
                   src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Bungee%20Jumping/splash%20bungee/splash_01.webp" 
                   alt="center" 
                   className="w-full h-full object-cover" 
                   loading="lazy"
                 />
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
 
-            {/* ⚡️ Text Column - RIGHT */}
-            <motion.div
-              className="flex-1 flex items-center justify-center"
-              initial={{ opacity: 0, x: 100 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 1, ease: 'easeOut' }}
-              viewport={{ once: true }}
-            >
+            {/* Text Column */}
+            <div className="flex-1 flex items-center justify-center">
               <div className="space-y-6 text-center md:text-left">
-
                 {/* Desktop Heading */}
-                <motion.h2
-                  className="text-3xl md:text-5xl font-extrabold hidden md:block text-black leading-tight"
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  whileInView={{ scale: 1, opacity: 1 }}
-                  transition={{ delay: 0.3, duration: 0.7, ease: 'easeOut' }}
-                >
+                <h2 className="text-3xl md:text-5xl font-extrabold hidden md:block text-black leading-tight transition-transform duration-700 transform hover:scale-105">
                   WHY ADVENTURERS <br /> <span className="text-green-600">CHOOSE US</span>
-                </motion.h2>
+                </h2>
 
                 {/* Description */}
                 <p className="text-base md:text-lg text-black leading-relaxed max-w-xl font-medium">
@@ -358,33 +287,24 @@ const Gallery = () => {
 
                 {/* Feature List */}
                 <div className="space-y-6">
-                  {/* Expert Guides */}
                   <div className="flex flex-col sm:flex-row sm:items-start sm:gap-4 items-center text-center sm:text-left gap-2">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-400 to-yellow-400 flex items-center justify-center text-white text-xl">
-                      👥
-                    </div>
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-400 to-yellow-400 flex items-center justify-center text-white text-xl">👥</div>
                     <div>
                       <h4 className="font-bold text-black text-lg">Expert Guides</h4>
                       <p className="text-sm text-gray-700">Certified professionals with decades of experience</p>
                     </div>
                   </div>
 
-                  {/* Premium Locations */}
                   <div className="flex flex-col sm:flex-row sm:items-start sm:gap-4 items-center text-center sm:text-left gap-2">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-400 to-green-400 flex items-center justify-center text-white text-xl">
-                      📍
-                    </div>
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-teal-400 to-green-400 flex items-center justify-center text-white text-xl">📍</div>
                     <div>
                       <h4 className="font-bold text-black text-lg">Premium Locations</h4>
                       <p className="text-sm text-gray-700">Access to exclusive wilderness destinations</p>
                     </div>
                   </div>
 
-                  {/* Safety First */}
                   <div className="flex flex-col sm:flex-row sm:items-start sm:gap-4 items-center text-center sm:text-left gap-2">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-green-400 to-yellow-300 flex items-center justify-center text-white text-xl">
-                      ⭐
-                    </div>
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-green-400 to-yellow-300 flex items-center justify-center text-white text-xl">⭐</div>
                     <div>
                       <h4 className="font-bold text-black text-lg">Safety First</h4>
                       <p className="text-sm text-gray-700">Industry-leading safety protocols and equipment</p>
@@ -392,7 +312,8 @@ const Gallery = () => {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
+
           </div>
         </div>
 

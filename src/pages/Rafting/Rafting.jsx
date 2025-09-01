@@ -25,14 +25,14 @@ const marqueeItems = [
   'Experience. Explore. Enjoy.',
 ];
 const dummyImages = [
-  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_1.webp",
-  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_2.webp",
-  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_3.webp",
-  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_4.webp",
-  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_5.webp",
-  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_6.webp",
-  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_7.webp",
-  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_8.webp"
+  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/Memo_img1.webp",
+  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/About_img2.webp",
+  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/Memo_img2.webp",
+  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/Memo_img3.webp",
+  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/Memo_img4.webp",
+  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/About_img1.webp",
+  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/card3.webp",
+  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/card4.webp"
 ];
 const RiverRaftingBackground = () => {
   const riverColors = {
@@ -327,7 +327,7 @@ const Rafting = () => {
               className="absolute top-0 right-14 bg-white/20 backdrop-blur-lg rounded-3xl p-1 shadow-[0_10px_40px_rgba(0,0,0,0.3)] ring-2 ring-white ring-offset-4 ring-offset-blue-100"
             >
               <img
-                src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_17.webp"
+                src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/About_img1.webp"
                 alt="Rafting 1"
                 loading="lazy"
                 className="w-80 h-52 md:w-96 md:h-60 xl:w-[420px] xl:h-[270px] object-cover rounded-2xl"
@@ -341,7 +341,7 @@ const Rafting = () => {
               className="absolute top-44 md:top-48 right-0 bg-white/20 backdrop-blur-lg rounded-3xl p-1 shadow-[0_10px_40px_rgba(0,0,0,0.3)] ring-2 ring-white ring-offset-4 ring-offset-rose-100"
             >
               <img
-                src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_11.webp"              
+                src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/About_img2.webp"              
                 alt="Rafting 2"
                 loading="lazy"
                 className="w-80 h-52 md:w-96 md:h-60 xl:w-[420px] xl:h-[270px] object-cover rounded-2xl"
@@ -353,7 +353,6 @@ const Rafting = () => {
         <div id="next-section" className="mt-20" />
       </div>
 
-      
       <Expe/>
 
       <div className=" josefin-sans md:mt-12 overflow-hidden mt-9 py-3">
@@ -397,7 +396,7 @@ const Rafting = () => {
           >
             <div className="relative h-[48%] overflow-hidden group">
               <img
-                src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_1.webp"
+                src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/card1.webp"
                 alt="Marine drive to shivpuri"
                 className="w-full h-full object-cover transform transition-all duration-500 group-hover:scale-105 group-hover:brightness-90 will-change-transform"
                 style={{ transform: 'translateZ(0)' }}
@@ -432,7 +431,7 @@ const Rafting = () => {
           >
             <div className="relative h-[48%] overflow-hidden group">
               <img
-                src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_21.webp"
+                src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/card2.webp"
                 alt="Shivpuri to Nim Beach"
                 className="w-full h-full object-cover transform transition-all duration-500 group-hover:scale-105 group-hover:brightness-90 will-change-transform"
                 style={{ transform: 'translateZ(0)' }}
@@ -467,7 +466,7 @@ const Rafting = () => {
           >
             <div className="relative h-[48%] overflow-hidden group">
               <img
-                src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_19.webp"
+                src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/card3.webp"
                 alt="Marine Drive to Shivpuri"
                 className="w-full h-full object-cover transform transition-all duration-500 group-hover:scale-105 group-hover:brightness-90 will-change-transform"
                 style={{ transform: 'translateZ(0)' }}
@@ -502,7 +501,7 @@ const Rafting = () => {
           >
             <div className="relative h-[48%] overflow-hidden group">
               <img
-                src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_5.webp"
+                src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/card4.webp"
                 alt="Kaudiala to Nim Beach"
                 className="w-full h-full object-cover transform transition-all duration-500 group-hover:scale-105 group-hover:brightness-90 will-change-transform"
                 style={{ transform: 'translateZ(0)' }}

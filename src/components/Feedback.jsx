@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-
 const feedbackData = [
   {
     name: "Aman Sharma",
@@ -26,7 +25,7 @@ export default function Feedback() {
       
       {/* 🚀 Heading */}
       <div className="mb-16 text-center px-4 md:px-10 xl:px-24">
-        <motion.h2
+        <h2
           className="text-4xl md:text-5xl font-extrabold text-gray-900 relative inline-block"
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -35,7 +34,7 @@ export default function Feedback() {
         >
           What Our <span className="text-orange-500">Adventurers</span> Say
           <span className="absolute left-0 -bottom-2 w-full h-1 bg-orange-500 rounded-full scale-x-0 origin-left animate-grow" />
-        </motion.h2>
+        </h2>
         <p className="mt-4 text-gray-600 text-lg josefin-sans md:text-xl max-w-2xl mx-auto">
           Real words from the wild — every splash, scream, and smile captured in their stories.
         </p>

@@ -3,7 +3,6 @@ import Form from "../../../components/form/Form";
 import ScrollDownButton from '../button'
 import SpecialSection from '../points'
 import TrekPage from "../TrekPage";
-import styles from "./kedarKatha.module.css";
 
 function KedarKatha() {
   const customMessage = encodeURIComponent("Hi, I am Aman and I want to book a rafting trip!");
@@ -243,7 +242,7 @@ function KedarKatha() {
 
       <SpecialSection/>
 
-      <section className="flex justify-center items-center mt-5 md:mt-[120px]">
+      <section className="flex justify-center items-center mt-5 md:mt-[40px]">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}

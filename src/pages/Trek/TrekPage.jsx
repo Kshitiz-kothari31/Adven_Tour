@@ -926,7 +926,7 @@ const TrekPage = () => {
   }
 
   return (
-    <div className="relative">
+    <div className="relative ">
       <TrekSelector currentTrek={currentTrek} onTrekChange={setCurrentTrek} />
       <TrekBlog trekData={trekInfo} />
     </div>
