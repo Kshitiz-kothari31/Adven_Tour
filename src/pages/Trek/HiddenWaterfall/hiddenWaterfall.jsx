@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import Form from "../../../components/form/Form";
 import SpecialSection from '../points'
 import ScrollDownButton from '../button'
-import styles from "./hiddenWaterfall.module.css";
 import TrekPage from "../TrekPage";
 
 function HiddenWaterfall() {
@@ -239,7 +238,7 @@ function HiddenWaterfall() {
 
       <SpecialSection/>
 
-      <section className="flex justify-center items-center mt-5 md:mt-[120px]">
+      <section className="flex justify-center items-center mt-5 md:mt-[40px]">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}

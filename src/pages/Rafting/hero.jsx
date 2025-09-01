@@ -10,7 +10,7 @@ const AdventureAltHero = () => {
     >
       {/* 🎥 Slow Zoom BG Image */}
         <motion.img
-          src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_3.webp"
+          src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/Hero_img.webp"
           alt="Rafting Adventure"
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
@@ -21,17 +21,6 @@ const AdventureAltHero = () => {
       {/* 🌌 Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent z-20" />
 
-
-
-      {/* 🐝 Firefly/Glow Particles */}
-      <motion.div
-        className="absolute inset-0 z-40 pointer-events-none"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 1.5 }}
-      >
-
-      </motion.div>
 
       {/* 💥 Cinematic Entry Text */}
       <motion.div

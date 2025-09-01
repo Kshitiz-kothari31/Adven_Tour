@@ -1,7 +1,6 @@
 import { useRef } from "react";
 import { motion } from "framer-motion";
 import Form from "../../components/form/Form";
-import styles from "./bungeeJumping.module.css";
 import Feedback from "../../components/Feedback";
 
 const marqueeItems = [
@@ -23,7 +22,6 @@ const marqueeItems = [
   'The edge is just the start',
 ];
 const customMessage = encodeURIComponent("Hi, I am Aman and I want to book a rafting trip!");
-
 
 const videos = [
   {
@@ -87,18 +85,24 @@ function BungeeJumping() {
   return (
     <main className="bg-gradient-to-r from-white to-[#cceeff] josefin-sans ">
 
-    <motion.section
-      className="relative w-full h-[100vh] flex flex-col items-center justify-center text-center px-4 sm:px-8 pt-20 pb-32 overflow-hidden bg-cover bg-center"
-      style={{
-        backgroundImage: `url(https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Bungee%20Jumping/heroImage_02.webp)`,
-      }}
-      initial={{ opacity: 0.3, scale: 0.98 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 1, ease: "easeOut" }}
-    >
+      <img
+      src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Bungee%20Jumping/heroImage_02.webp"
+      style={{ display: "none" }}
+      alt="Bungee Background"
+      />
+      <motion.section
+          className="relative w-full h-[100vh] flex flex-col items-center justify-center text-center px-4 sm:px-8 pt-20 pb-32 overflow-hidden bg-cover bg-center"
+          style={{
+            backgroundImage: `url(https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Bungee%20Jumping/heroImage_02.webp)`,
+          }}
+          initial={{ opacity: 0.3, scale: 0.98 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+        >
+
       {/* 🧭 Title */}
       <motion.h1
-        className="text-white text-4xl sm:text-6xl font-bold drop-shadow-lg leading-tight z-10"
+        className="text-white text-3xl sm:text-6xl font-semibold drop-shadow-lg font-kalnia leading-tight z-10"
         initial={{ opacity: 0, y: -60 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -124,8 +128,8 @@ function BungeeJumping() {
             "_blank"
           )
         }
-        className="relative px-10 py-3 text-white font-bold rounded-full shadow-xl bg-gradient-to-r from-green-500 to-emerald-600 overflow-hidden transition-all duration-700 transform group hover:scale-110 hover:-rotate-1 z-10"
-        initial={{ opacity: 0, y: 30 }}
+        className="relative px-10 py-3 text-white font-bold rounded-full shadow-xl bg-gradient-to-r from-green-500 to-emerald-600 overflow-hidden transition-all duration-700 transform group hover:scale-90 hover:-rotate-1 z-10"
+        initial={{ opacity: 0, y: 15 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.6 }}
       >
@@ -142,19 +146,47 @@ function BungeeJumping() {
       </motion.button>
 
       {/* ↓ Scroll Button */}
-      <div className="mt-12 z-10">
-        <motion.button
-          onClick={scrollToBottom}
-          className="bg-orange-300 text-white p-4 rounded-full text-2xl shadow-lg transition-all duration-700 hover:bg-orange-500 hover:rotate-[360deg] hover:scale-150 hover:shadow-2xl hover:animate-bounce"
-          whileHover={{ scale: 1.2 }}
+        <div className="mt-12 z-10">
+          <motion.button
+            onClick={() =>
+              document.getElementById("rishikesh")?.scrollIntoView({
+                behavior: "smooth",
+              })
+            }
+            className="bg-orange-300 text-white p-4 rounded-full text-2xl shadow-lg transition-all duration-700 hover:bg-orange-500 hover:rotate-[360deg] hover:scale-150 hover:shadow-2xl hover:animate-bounce"
+            whileHover={{ scale: 1.2 }}
+          >
+            ↓
+          </motion.button>
+        </div>
+
+
+      {/* 🌊 Wave Shape at Bottom */}
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-0">
+        <svg
+          className="relative block w-full h-24"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 320"
+          preserveAspectRatio="none"
         >
-          ↓
-        </motion.button>
+          <defs>
+            {/* define the same gradient as your page */}
+            <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="white" />
+              <stop offset="100%" stopColor="#cceeff" />
+            </linearGradient>
+          </defs>
+
+          <path
+            fill="url(#waveGradient)"   // use the gradient here
+            fillOpacity="1"
+            d="M0,192L48,165.3C96,139,192,85,288,80C384,75,480,117,576,133.3C672,149,768,139,864,122.7C960,107,1056,85,1152,80C1248,75,1344,85,1392,90.7L1440,96V320H0Z"
+          ></path>
+        </svg>
       </div>
 
-      {/* 🌄 Bottom Gradient */}
-      <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-b from-transparent to-[#FFF5E4] z-10" />
-    </motion.section>
+
+      </motion.section>
    
     <motion.section
       className="py-20 px-4 md:mt-10 md:px-10 xl:px-40 text-black josefin-sans"
@@ -208,7 +240,7 @@ function BungeeJumping() {
     </div>
 
     {/* plans section  */}
-    <section className="py-16  md:mt-15  px-4 sm:px-6 md:px-10 xl:px-32 2xl:px-60 text-black josefin-sans">
+    <section  id="rishikesh" className="py-16  md:mt-15  px-4 sm:px-6 md:px-10 xl:px-32 2xl:px-60 text-black josefin-sans">
       <motion.h2
         className="text-3xl sm:text-4xl md:text-5xl font-semibold text-center text-black underline underline-offset-8 mb-6"
         initial={{ opacity: 0, y: -20 }}

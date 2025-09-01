@@ -3,7 +3,6 @@ import Form from '../../../components/form/Form'
 import SpecialSection from '../points';
 import ScrollDownButton from '../button';
 import TrekPage from "../TrekPage";
-import styles from "./dayarabugyal.module.css";
 
 function DayaraBugyal() {
   return (
@@ -208,7 +207,7 @@ function DayaraBugyal() {
         <SpecialSection/>
 
       {/* 6th section */}
-        <section className="flex justify-center items-center mt-5 md:mt-[120px]">
+        <section className="flex justify-center items-center mt-5 md:mt-[40px]">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}

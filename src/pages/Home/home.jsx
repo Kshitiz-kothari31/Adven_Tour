@@ -1,23 +1,47 @@
-import { motion} from 'framer-motion';
+"use client";
+import { motion } from 'framer-motion';
 import { Link } from "react-router-dom";
 import HighlightsStats from './sample';
-import { useEffect , useState } from 'react';
+import { useEffect, useState, useCallback, useMemo } from 'react';
 import Feedback from '../../components/Feedback';
 import ImageSlider from './imageslider'
 import './home.css'
 
-const images = [
-  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_24.webp",
-  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_18.webp",
-  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Zipline/zipline_img12.webp",
-  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Bungee%20Jumping/heroImage_01.webp",
-  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Kayking/kayking_01.webp"
-];
-const pics = [
-  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_17.webp",
-  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_12.webp"
+// Move arrays outside component to prevent recreation on each render
+const IMAGES = [
+  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/home_page_rafting_1.webp",
+  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/home_page_zipline.webp",
+  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/home_page_kayking.webp",
+  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/home_page_bungee.webp",
+  "https://github.com/Kshitiz-kothari31/Adven_Tour_img-videos/blob/main/Images/Home%20Page/home_page_rafting_2.webp"
 ];
 
+const PICS = [
+  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/home_page_rohit.webp",
+  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/home_page_rohit2.webp"
+];
+
+const CARDS = [
+  { src: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/home_page_raftingCard.webp", label: "Rafting", link: "/rafting" },
+  { src: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/home_page_trekCard.webp", label: "Trekking", link: "/trek" },
+  { src: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/home_page_bungee.webp", label: "Bungee", link: "/bungee" },
+  { src: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/home_page_ziplineCard.webp", label: "Zipline", link: "/zipline" },
+];
+
+const YOUTUBE_VIDEOS = [
+  "https://www.youtube.com/embed/aHrIyirdeDU?autoplay=0&mute=1&modestbranding=1&rel=0&controls=0&showinfo=0",
+  "https://www.youtube.com/embed/sjmNmWuYXqQ?autoplay=0&mute=1&modestbranding=1&rel=0&controls=0&showinfo=0",
+  "https://www.youtube.com/embed/xI-IQ7EpLgE?autoplay=0&mute=1&modestbranding=1&rel=0&controls=0&showinfo=0",
+  "https://www.youtube.com/embed/9IkaMZjyt-8?autoplay=0&mute=1&modestbranding=1&rel=0&controls=0&showinfo=0",
+];
+
+const PARAGRAPH_TEXTS = [
+  `Welcome to Adventure Pulse — your gateway to epic outdoor thrills in Shivpuri, Rishikesh.`,
+  `Get ready for rafting on the Ganges, trekking through Himalayan trails, kayaking, bungee jumping, ziplining, and more — all backed by expert guides and pure adventure vibes.`,
+  `Whether you're solo or with your tribe, we ensure every moment is safe, seamless, and unforgettable. Let’s make your next escape legendary.`,
+];
+
+// Extract ImageSliderBox to its own component to prevent re-renders of the entire page
 const ImageSliderBox = () => {
   const [current, setCurrent] = useState(0);
   const [prev, setPrev] = useState(null);
@@ -25,11 +49,16 @@ const ImageSliderBox = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setPrev(current);
-      setCurrent((prevIndex) => (prevIndex + 1) % images.length);
+      setCurrent(prevIndex => (prevIndex + 1) % IMAGES.length);
     }, 5000);
 
     return () => clearInterval(interval);
   }, [current]);
+
+  const handleScrollClick = useCallback(() => {
+    const target = document.getElementById("second-section");
+    if (target) target.scrollIntoView({ behavior: "smooth" });
+  }, []);
 
   return (
     <motion.div className="relative w-full h-[93vh] overflow-hidden bg-black">
@@ -37,29 +66,30 @@ const ImageSliderBox = () => {
       {prev !== null && (
         <motion.img
           key={`prev-${prev}`}
-          src={images[prev]}
+          src={IMAGES[prev]}
           initial={{ opacity: 1, scale: 1 }}
           animate={{ opacity: 0, scale: 1.05 }}
           transition={{ duration: 1.6, ease: "easeInOut" }}
           className="absolute top-0 left-0 w-full h-full object-cover z-20"
+          alt="Previous slide"
         />
       )}
 
       {/* 🖼️ Current image */}
       <motion.img
         key={`current-${current}`}
-        src={images[current]}
+        src={IMAGES[current]}
         initial={{ opacity: 0, scale: 1.1 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.6, ease: "easeInOut" }}
         className="absolute top-0 left-0 w-full h-full object-cover z-30"
+        alt="Current slide"
       />
-
 
       {/* 🌓 Gradient overlay */}
       <motion.div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/90 z-40" />
 
-      {/* ✨ HERO TEXT CONTENT (kept as you had it) */}
+      {/* ✨ HERO TEXT CONTENT */}
       <motion.div
         className="absolute inset-0 flex flex-col items-center justify-center z-50 text-white text-center px-4"
         initial={{ opacity: 0, y: 50 }}
@@ -89,10 +119,7 @@ const ImageSliderBox = () => {
           whileTap={{ scale: 0.95 }}
           transition={{ type: "spring", stiffness: 300, damping: 15 }}
           className="mt-8 px-8 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold text-lg rounded-xl shadow-lg shadow-orange-300/30"
-          onClick={() => {
-            const target = document.getElementById("second-section");
-            if (target) target.scrollIntoView({ behavior: "smooth" });
-          }}
+          onClick={handleScrollClick}
         >
           Start the Journey
         </motion.button>
@@ -101,18 +128,12 @@ const ImageSliderBox = () => {
   );
 };
 
-const home = () => {
-  const cardVariants = {
+const Home = () => {
+  const cardVariants = useMemo(() => ({
     initial: { opacity: 0, y: 50 },
     animate: { opacity: 1, y: 0 },
-  };
+  }), []);
 
-  const cards = [
-    { src: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_7.webp", label: "Rafting", link: "/rafting" },
-    { src: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks/kedarkatha%20trek/kedarkantha_img7.webp", label: "Trekking", link: "/trek" },
-    { src: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Bungee%20Jumping/heroImage_01.webp", label: "Bungee", link: "/bungee" },
-    { src: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Zipline/zipline_img01.webp", label: "Zipline", link: "/zipline" },
-  ];
   return (
     <section className='home josein-sans bg-gradient-to-r from-[#ffffff] via-[#f6fbf9] to-[#e9f5f1]'> 
       {/* image section at top */}
@@ -131,11 +152,7 @@ const home = () => {
         }}
       >
         <motion.div className="max-w-4xl mx-auto space-y-4 text-base md:text-lg leading-relaxed">
-          {[
-            `Welcome to GoRafts — your gateway to epic outdoor thrills in Shivpuri, Rishikesh.`,
-            `Get ready for rafting on the Ganges, trekking through Himalayan trails, kayaking, bungee jumping, ziplining, and more — all backed by expert guides and pure adventure vibes.`,
-            `Whether you're solo or with your tribe, we ensure every moment is safe, seamless, and unforgettable. Let’s make your next escape legendary.`,
-          ].map((text, index) => (
+          {PARAGRAPH_TEXTS.map((text, index) => (
             <motion.p
               key={index}
               variants={{
@@ -173,7 +190,7 @@ const home = () => {
             Adventure Pulse
           </h2>
           <p className="text-center md:text-left text-sm josefin-sans text-gray-600 mb-4">
-            Based in Shivpuri, Rishikesh — India’s Adventure Capital
+            Based in Shivpuri, Rishikesh — India's Adventure Capital
           </p>
           <p className="text-gray-700 leading-relaxed josefin-sans text-[1rem] block md:hidden">
             <span className="font-semibold">Adventure Pulse</span> brings adrenaline to life with rafting, hiking, kayaking, and more — right from the scenic banks of the Ganga.
@@ -196,12 +213,12 @@ const home = () => {
           transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
           viewport={{ once: true }}
         >
-          {pics.map((src, i) => (
+          {PICS.map((src, i) => (
             <motion.img
               key={i}
               src={src}
               loading="lazy"
-              alt={`Image ${i}`}
+              alt={`Adventure activity ${i + 1}`}
               className="w-[160px] lg:w-[220px] xl:w-[260px] h-auto object-cover rounded-[50%_30%_50%_30%/30%_50%_30%_50%] shadow-lg"
               animate={{
                 rotate: i % 2 === 0 ? [0, 1, -1, 0] : [0, -1, 1, 0],
@@ -248,12 +265,7 @@ const home = () => {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            {[
-              "https://www.youtube.com/embed/aHrIyirdeDU?autoplay=0&mute=1&modestbranding=1&rel=0&controls=0&showinfo=0",
-              "https://www.youtube.com/embed/sjmNmWuYXqQ?autoplay=0&mute=1&modestbranding=1&rel=0&controls=0&showinfo=0",
-              "https://www.youtube.com/embed/xI-IQ7EpLgE?autoplay=0&mute=1&modestbranding=1&rel=0&controls=0&showinfo=0",
-              "https://www.youtube.com/embed/9IkaMZjyt-8?autoplay=0&mute=1&modestbranding=1&rel=0&controls=0&showinfo=0",
-            ].map((yt, index) => (
+            {YOUTUBE_VIDEOS.map((yt, index) => (
               <motion.div
                 key={index}
                 className="relative overflow-hidden rounded-2xl shadow-lg bg-black hover:shadow-yellow-400/30 transition-all duration-300"
@@ -267,6 +279,8 @@ const home = () => {
                     frameBorder="0"
                     allow="autoplay; encrypted-media; picture-in-picture"
                     allowFullScreen
+                    title={`Adventure video ${index + 1}`}
+                    loading="lazy"
                   ></iframe>
                 </div>
               </motion.div>
@@ -280,13 +294,12 @@ const home = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
-            These real clips showcase our adventure experiences – live from Rishikesh’s whitewater. 
+            These real clips showcase our adventure experiences – live from Rishikesh's whitewater. 
             Play, pause, and feel the adrenaline.
           </motion.p>
         </div>
       </motion.section>
 
- 
       {/* Cards Section */}
       <div className="py-16 px-4 md:px-10 xl:px-24 josefin-sans space-y-20">
         {/* ───────────────── Packages ───────────────── */}
@@ -295,7 +308,7 @@ const home = () => {
             Packages
           </h2>
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10 justify-center">
-            {cards.map((item, index) => (
+            {CARDS.map((item, index) => (
               <motion.div
                 key={item.label}
                 variants={cardVariants}
@@ -315,6 +328,7 @@ const home = () => {
                       className="w-full h-full object-cover"
                       whileHover={{ scale: 1.08 }}
                       whileTap={{ scale: 0.96 }}
+                      loading="lazy"
                     />
                     <Link to={item.link}>
                       <motion.button
@@ -334,46 +348,47 @@ const home = () => {
         </div>
 
         {/* ───────────────── Stays ───────────────── */}
-      <div>
-        <h2 className="text-3xl font-semibold josefin-sans mb-6 md:-mt-15 text-center md:text-left">
-          Stays
-        </h2>
+        <div>
+          <h2 className="text-3xl font-semibold josefin-sans mb-6 md:-mt-15 text-center md:text-left">
+            Stays
+          </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10 justify-center">
-          <motion.div
-            variants={cardVariants}
-            initial="initial"
-            whileInView="animate"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.96 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="group w-full"
-          >
-            <div className="flex flex-col items-center">
-              <div className="relative rounded-xl overflow-hidden shadow-md w-full aspect-[5/4] bg-gray-100 transition-all duration-500 group-hover:shadow-xl">
-                <motion.img
-                  src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Stays/stay_01.webp"
-                  alt="Luxury Stay"
-                  className="w-full h-full object-cover"
-                  whileHover={{ scale: 1.08 }}
-                  whileTap={{ scale: 0.96 }}
-                />
-                <Link to="/stays">
-                  <motion.button
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
-                    className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-orange-300 text-black px-4 py-1 text-sm rounded-md shadow group-hover:bg-orange-400 transition duration-300"
-                  >
-                    More
-                  </motion.button>
-                </Link>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10 justify-center">
+            <motion.div
+              variants={cardVariants}
+              initial="initial"
+              whileInView="animate"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.96 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="group w-full"
+            >
+              <div className="flex flex-col items-center">
+                <div className="relative rounded-xl overflow-hidden shadow-md w-full aspect-[5/4] bg-gray-100 transition-all duration-500 group-hover:shadow-xl">
+                  <motion.img
+                    src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/home_page_stayCard.webp"
+                    alt="Luxury Stay"
+                    className="w-full h-full object-cover"
+                    whileHover={{ scale: 1.08 }}
+                    whileTap={{ scale: 0.96 }}
+                    loading="lazy"
+                  />
+                  <Link to="/stays">
+                    <motion.button
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                      className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-orange-300 text-black px-4 py-1 text-sm rounded-md shadow group-hover:bg-orange-400 transition duration-300"
+                    >
+                      More
+                    </motion.button>
+                  </Link>
+                </div>
+                <p className="mt-2 text-base opacity-80">Luxury Stay</p>
               </div>
-              <p className="mt-2 text-base opacity-80">Luxury Stay</p>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
         </div>
-      </div>
       </div>
 
       {/* image slider */}
@@ -382,7 +397,7 @@ const home = () => {
       {/* detail */}
       <Feedback />
     </section>
-  )
-}
+  );
+};
 
-export default home
+export default Home;

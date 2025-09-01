@@ -13,10 +13,6 @@ const Zipline = () => {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(true);
 
-
-  const customMessage = encodeURIComponent("Hi, I am Aman and I want to book a rafting trip!");
-
-
   return (
     <div className="w-full bg-gradient-to-r from-[#fafafa] to-[#FFF5E4] josefin-sans">
 
@@ -27,6 +23,7 @@ const Zipline = () => {
           backgroundImage: `url(https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Zipline/zipline_img03.webp)`,
         }}
         initial={{ opacity: 0.3, scale: 0.98 }}
+        loading="eager"
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1, ease: "easeOut" }}
       >
@@ -35,7 +32,7 @@ const Zipline = () => {
 
         {/* 🧭 Title */}
         <motion.h1
-          className="text-white text-4xl sm:text-6xl font-bold drop-shadow-lg leading-tight z-10"
+          className="text-white text-4xl sm:text-6xl font-semibold font-kalnia drop-shadow-lg leading-tight z-10"
           initial={{ opacity: 0, y: -60 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -54,43 +51,45 @@ const Zipline = () => {
         </motion.p>
 
         {/* 🚀 Book Now Button */}
-<motion.button
-  onClick={() =>
-    window.open(
-      "https://wa.me/7078287331?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20rafting%20packages",
-      "_blank"
-    )
-  }
-  className="relative px-10 py-3 text-white font-bold rounded-full shadow-xl bg-gradient-to-r from-green-500 to-emerald-600 overflow-hidden transition-all duration-700 transform group hover:scale-110 hover:-rotate-1 z-10"
-  initial={{ opacity: 0, y: 30 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 1, delay: 0.6 }}
->
-  {/* Shine Effect */}
-  <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent translate-x-[-100%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-out blur-sm"></span>
+        <motion.button
+          onClick={() =>
+            window.open(
+              "https://wa.me/7078287331?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20rafting%20packages",
+              "_blank"
+            )
+          }
+          className="relative px-10 py-3 text-white font-bold rounded-full shadow-xl bg-gradient-to-r from-green-500 to-emerald-600 overflow-hidden transition-all duration-700 transform group hover:scale-110 hover:-rotate-1 z-10"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.6 }}
+        >
+          {/* Shine Effect */}
+          <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent translate-x-[-100%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-out blur-sm"></span>
 
-  {/* Glow on Hover */}
-  <span className="absolute inset-0 w-full h-full bg-emerald-500 rounded-full opacity-0 group-hover:opacity-30 group-hover:scale-125 group-hover:blur-2xl transition-all duration-700"></span>
+          {/* Glow on Hover */}
+          <span className="absolute inset-0 w-full h-full bg-emerald-500 rounded-full opacity-0 group-hover:opacity-30 group-hover:scale-125 group-hover:blur-2xl transition-all duration-700"></span>
 
-  {/* Button Text */}
-  <span className="relative z-10 tracking-wide group-hover:tracking-widest group-hover:animate-pulse">
-    💬 WhatsApp Us
-  </span>
-</motion.button>
+          {/* Button Text */}
+          <span className="relative z-10 tracking-wide group-hover:tracking-widest group-hover:animate-pulse">
+            💬 WhatsApp Us
+          </span>
+        </motion.button>
 
 
         {/* ↓ Scroll Button */}
-      <div className="mt-12 z-10">
-        <motion.button
-          onClick={scrollToBottom}
-          className="bg-orange-300 text-white p-4 rounded-full text-2xl shadow-lg transition-all duration-700 hover:bg-orange-500 hover:rotate-[360deg] hover:scale-150 hover:shadow-2xl hover:animate-bounce"
-          whileHover={{ scale: 1.2 }}
-        >
-          ↓
-        </motion.button>
-      </div>
+        <div className="mt-12 z-10">
+          <motion.button
+            onClick={scrollToBottom}
+            className="bg-orange-300 text-white p-4 rounded-full text-2xl shadow-lg transition-all duration-700 hover:bg-orange-500 hover:rotate-[360deg] hover:scale-150 hover:shadow-2xl hover:animate-bounce"
+            whileHover={{ scale: 1.2 }}
+          >
+            ↓
+          </motion.button>
+        </div>
         {/* 🌄 Bottom Gradient */}
-        <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-b from-transparent to-[#FFF5E4] z-10" />
+<div className="absolute bottom-0 left-0 w-full h-48 
+  bg-gradient-to-b from-transparent to-[#FDF7EC] z-10" />
+
       </motion.section>
 
       {/* Mid Section */}
