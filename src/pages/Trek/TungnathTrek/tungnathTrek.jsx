@@ -3,7 +3,7 @@ import Form from "../../../components/form/Form";
 import TrekPage from "../TrekPage";
 import SpecialSection from '../points';
 import ScrollDownButton from '../button'
-import styles from "./tungnathTrek.module.css";
+
 
 function TungnathTrek() {
   const customMessage = encodeURIComponent("Hi, I am Aman and I want to book a rafting trip!");
@@ -262,7 +262,7 @@ function TungnathTrek() {
 
       <SpecialSection/>
 
-      <section className="flex justify-center items-center mt-5 md:mt-[120px]">
+      <section className="flex justify-center items-center mt-5 md:mt-[40px]">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           whileInView={{ opacity: 1, scale: 1 }}

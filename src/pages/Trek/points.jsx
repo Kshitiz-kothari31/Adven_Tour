@@ -31,7 +31,7 @@ const specialPoints = [
 /* ─── Component ─────────────────────────────────────────────────────── */
 export default function SpecialSection() {
   return (
-    <section className="josefin-sans py-16 px-6 md:mt-25 mt-10 md:px-20 max-w-5xl mx-auto">
+    <section className="josefin-sans py-16 px-6 md:mt-5 mt-10 md:px-20 max-w-5xl mx-auto">
       {/* Heading */}
       <motion.h2
         initial={{ opacity: 0, y: -30 }}
