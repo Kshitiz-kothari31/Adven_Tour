@@ -204,14 +204,14 @@ const scrollToSecondSection = () => {
       {/* 🟫 2nd Section: Overview */}
       <div
         id="second-section"
-        className="w-full  py-16 px-4 md:px-20 "
+        className="w-full py-16 px-4 md:px-20"
       >
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-start justify-between gap-10">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-start justify-between gap-10">
           {/* 📝 Text Section */}
           <motion.div
             initial={{ opacity: 0, x: -80 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, type: 'spring' }}
+            transition={{ duration: 1, type: "spring" }}
             viewport={{ once: true }}
             className="flex-1 text-black space-y-4"
           >
@@ -219,14 +219,16 @@ const scrollToSecondSection = () => {
               OVERVIEW
             </h2>
             <p className="text-sm josefin-sans leading-relaxed">
-              Get ready to scream, paddle, and maybe question your life choices – in the best way possible!
-              This 11-12 km rafting stretch from Marine Drive to Shivpuri packs in seven rapids, including
-              the thrill-packed Roller Coaster and Golf Course (no, not the kind with golf carts).
+              Get ready to scream, paddle, and maybe question your life choices – in
+              the best way possible! This 11-12 km rafting stretch from Marine Drive
+              to Shivpuri packs in seven rapids, including the thrill-packed Roller
+              Coaster and Golf Course (no, not the kind with golf carts).
               <br />
               <br />
-              Lasting 1 to 1.5 hours, this adventure is perfect for first-timers, adrenaline junkies, or
-              anyone who thinks sitting on a sofa is too mainstream. All this excitement for just ₹599 –
-              cheaper than a pizza party and way more unforgettable!
+              Lasting 1 to 1.5 hours, this adventure is perfect for first-timers,
+              adrenaline junkies, or anyone who thinks sitting on a sofa is too
+              mainstream. All this excitement for just ₹599 – cheaper than a pizza
+              party and way more unforgettable!
             </p>
           </motion.div>
 
@@ -234,9 +236,9 @@ const scrollToSecondSection = () => {
           <motion.div
             initial={{ opacity: 0, scale: 0.9, rotate: -5 }}
             whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ duration: 1, ease: 'easeOut' }}
+            transition={{ duration: 1, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="flex-1 max-w-md relative"
+            className="flex-1 w-full md:max-w-md relative flex justify-center"
           >
             <motion.div
               whileHover={{
@@ -244,19 +246,18 @@ const scrollToSecondSection = () => {
                 rotate: [0, 2, -2, 0],
                 transition: { duration: 0.5 },
               }}
-              className="bg-gradient-to-br from-[#1e3a8a] via-[#0891b2] to-[#06b6d4] p-1 rounded-[28px] shadow-2xl"
+              className="bg-gradient-to-br from-[#1e3a8a] via-[#0891b2] to-[#06b6d4] p-1 rounded-[28px] shadow-2xl w-full"
             >
-              <div className="bg-white rounded-[24px] overflow-hidden transition-transform duration-500 hover:scale-105">
+              <div className="bg-white rounded-[24px] overflow-hidden transition-transform duration-500 hover:scale-105 w-full">
                 <img
                   src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/MarineDrive%20to%20Shivpuri/overview.webp"
-                  laoding="lazy"
+                  loading="lazy"
                   alt="Adventure"
-                  className="w-full h-full object-cover rounded-[24px]"
+                  className="w-full h-auto object-cover rounded-[24px]"
                 />
               </div>
             </motion.div>
           </motion.div>
-
         </div>
       </div>
 
@@ -271,7 +272,7 @@ const scrollToSecondSection = () => {
         >
           
           {/* 📝 Text Section */}
-          <div className="flex-1 text-black space-y-2 font-josefin z-10">
+          <div className="flex-1 text-black text-center space-y-2 font-josefin z-10">
             <h2 className="text-2xl md:text-3xl font-bold mb-3">
               Marine Drive to Shivpuri
             </h2>

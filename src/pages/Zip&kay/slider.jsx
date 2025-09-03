@@ -1,63 +1,56 @@
 "use client";
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 
 const sliderImages = [
-  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Zipline/zipline_img01.webp",
-  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Zipline/zipline_img02.webp",
-  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Zipline/zipline_img03.webp",
-  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Zipline/zipline_img04.webp",
-  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Zipline/zipline_img05.webp",
-  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Zipline/zipline_img06.webp",
-  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Zipline/zipline_img07.webp",
-  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Zipline/zipline_img08.webp",
-  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Zipline/zipline_img09.webp",
-  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Zipline/zipline_img10.webp",
-  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Zipline/zipline_img11.webp",
-  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Zipline/zipline_img12.webp",
-  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Zipline/zipline_img13.webp",
-  // Add more images here
+  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Zipline%20Page/zipline_img01.webp",
+  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Zipline%20Page/zipline_img02.webp",
+  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Zipline%20Page/zipline_img03.webp",
+  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Zipline%20Page/zipline_img04.webp",
+  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Zipline%20Page/zipline_img05.webp",
+  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Zipline%20Page/zipline_img06.webp",
 ];
 
 const ImageSlider = () => {
   const [current, setCurrent] = useState(0);
+  const [fade, setFade] = useState(true);
 
   // Auto slide every 5s
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % sliderImages.length);
+      nextSlide();
     }, 5000);
     return () => clearInterval(interval);
   }, []);
 
   const prevSlide = () => {
-    setCurrent((prev) => (prev - 1 + sliderImages.length) % sliderImages.length);
+    setFade(false);
+    setTimeout(() => {
+      setCurrent((prev) => (prev - 1 + sliderImages.length) % sliderImages.length);
+      setFade(true);
+    }, 200); // matches transition duration
   };
 
   const nextSlide = () => {
-    setCurrent((prev) => (prev + 1) % sliderImages.length);
+    setFade(false);
+    setTimeout(() => {
+      setCurrent((prev) => (prev + 1) % sliderImages.length);
+      setFade(true);
+    }, 200);
   };
 
   return (
     <div className="relative w-full h-screen flex items-center justify-center overflow-hidden">
-      <motion.div
+      <div
         className="relative z-10 w-[90%] h-[70vh] rounded-3xl overflow-hidden bg-white/10 border border-white/20 shadow-[0_0_60px_rgba(0,255,255,0.25)] backdrop-blur-xl"
-        initial={{ opacity: 0, scale: 1.05 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1 }}
       >
-        <AnimatePresence initial={false}>
-          <motion.img
-            key={current}
-            src={sliderImages[current]}
-            alt={`Slide ${current + 1}`}
-            className="w-full h-full object-cover rounded-3xl"
-            initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -100 }}
-            transition={{ duration: 0.8, ease: "easeInOut" }}
-          />
-        </AnimatePresence>
+        <img
+          key={current}
+          src={sliderImages[current]}
+          alt={`Slide ${current + 1}`}
+          className={`w-full h-full object-cover rounded-3xl transition-all duration-700 ease-in-out ${
+            fade ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
+          }`}
+        />
 
         {/* Navigation Buttons */}
         <button
@@ -72,7 +65,7 @@ const ImageSlider = () => {
         >
           ▶
         </button>
-      </motion.div>
+      </div>
     </div>
   );
 };

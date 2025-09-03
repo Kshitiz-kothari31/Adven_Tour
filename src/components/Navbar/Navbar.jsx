@@ -9,19 +9,6 @@ const LazyImage = ({ src, alt, className }) => (
   <img src={src} alt={alt} loading="lazy" className={className} />
 );
 
-
-const LazyVideo = ({ src, type = "video/mp4", poster, className, controls = true }) => (
-  <video
-    controls={controls}
-    preload="none"   // 👈 prevent auto-download
-    poster={poster} // 👈 optional preview image
-    className={className}
-  >
-    <source src={src} type={type} />
-    Your browser does not support the video tag.
-  </video>
-);
-
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);

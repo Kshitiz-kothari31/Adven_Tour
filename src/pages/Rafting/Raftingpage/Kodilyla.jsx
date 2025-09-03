@@ -3,32 +3,34 @@ import Form from '../../../components/form/Form';
 import { ChevronDown } from "lucide-react";
 import { motion } from 'framer-motion';
 
+// ✅ Fix the data: give each rapid a real image URL
 const data = [
   {
     reverse: false,
     title: "Roller Coaster",
     desc: "One of the most thrilling rapids on this route.",
-    img: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_4.webp",
+    img: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/Memo_img2.webp",
   },
   {
     reverse: true,
     title: "Golf Course",
     desc: "A fun rapid with multiple waves and challenges.",
-    img: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_5.webp",
+    img: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/Memo_img1.webp",
   },
   {
     reverse: false,
     title: "Club House",
     desc: "Mild rapid, great for beginners and warm-up.",
-    img: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_6.webp",
+    img: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/Memo_img3.webp",
   },
   {
     reverse: true,
     title: "Initiation",
     desc: "Perfect start to your adrenaline journey.",
-    img: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_7.webp",
+    img: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/Memo_img5.webp",
   },
 ];
+
 const FALLBACK_IMG =
   "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_4.webp";
 
@@ -76,7 +78,6 @@ const Kodilyla = () => {
   };
 
   return (
-    
     <section className='josefin-sans bg-gradient-to-b from-[#dff6ff] via-[#b7e4f4] to-[#dff6ff]' >
       {/* 1 section */}
       <motion.div
@@ -187,14 +188,14 @@ const Kodilyla = () => {
       {/* 🟫 2nd Section: Overview */}
       <div
         id="second-section"
-        className="w-full py-16 px-4 md:px-20 "
+        className="w-full py-16 px-4 md:px-20"
       >
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-start justify-between gap-10">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-start justify-between gap-10">
           {/* 📝 Text Section */}
           <motion.div
             initial={{ opacity: 0, x: -80 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, type: 'spring' }}
+            transition={{ duration: 1, type: "spring" }}
             viewport={{ once: true }}
             className="flex-1 text-black space-y-4"
           >
@@ -202,14 +203,16 @@ const Kodilyla = () => {
               OVERVIEW
             </h2>
             <p className="text-sm josefin-sans leading-relaxed">
-              Get ready to scream, paddle, and maybe question your life choices – in the best way possible!
-              This 11-12 km rafting stretch from Marine Drive to Shivpuri packs in seven rapids, including
-              the thrill-packed Roller Coaster and Golf Course (no, not the kind with golf carts).
+              Get ready to scream, paddle, and maybe question your life choices – in
+              the best way possible! This 11-12 km rafting stretch from Marine Drive
+              to Shivpuri packs in seven rapids, including the thrill-packed Roller
+              Coaster and Golf Course (no, not the kind with golf carts).
               <br />
               <br />
-              Lasting 1 to 1.5 hours, this adventure is perfect for first-timers, adrenaline junkies, or
-              anyone who thinks sitting on a sofa is too mainstream. All this excitement for just ₹599 –
-              cheaper than a pizza party and way more unforgettable!
+              Lasting 1 to 1.5 hours, this adventure is perfect for first-timers,
+              adrenaline junkies, or anyone who thinks sitting on a sofa is too
+              mainstream. All this excitement for just ₹599 – cheaper than a pizza
+              party and way more unforgettable!
             </p>
           </motion.div>
 
@@ -217,9 +220,9 @@ const Kodilyla = () => {
           <motion.div
             initial={{ opacity: 0, scale: 0.9, rotate: -5 }}
             whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ duration: 1, ease: 'easeOut' }}
+            transition={{ duration: 1, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="flex-1 max-w-md relative"
+            className="flex-1 w-full md:max-w-md relative flex justify-center"
           >
             <motion.div
               whileHover={{
@@ -227,19 +230,18 @@ const Kodilyla = () => {
                 rotate: [0, 2, -2, 0],
                 transition: { duration: 0.5 },
               }}
-              className="bg-gradient-to-br from-[#1e3a8a] via-[#0891b2] to-[#06b6d4] p-1 rounded-[28px] shadow-2xl"
+              className="bg-gradient-to-br from-[#1e3a8a] via-[#0891b2] to-[#06b6d4] p-1 rounded-[28px] shadow-2xl w-full"
             >
-              <div className="bg-white rounded-[24px] overflow-hidden transition-transform duration-500 hover:scale-105">
+              <div className="bg-white rounded-[24px] overflow-hidden transition-transform duration-500 hover:scale-105 w-full">
                 <img
                   src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_11.webp"
-                  loading='lazy'
+                  loading="lazy"
                   alt="Adventure"
-                  className="w-full h-full object-cover rounded-[24px]"
+                  className="w-full h-auto object-cover rounded-[24px]"
                 />
               </div>
             </motion.div>
           </motion.div>
-
         </div>
       </div>
 
@@ -254,7 +256,7 @@ const Kodilyla = () => {
         >
           
           {/* 📝 Text Section */}
-          <div className="flex-1 text-black space-y-2 font-josefin z-10">
+          <div className="flex-1 text-black text-center space-y-2 font-josefin z-10">
             <h2 className="text-2xl md:text-3xl font-bold mb-3">
               Marine Drive to Shivpuri
             </h2>
@@ -284,7 +286,7 @@ const Kodilyla = () => {
           {/* 🖼️ Overlapping Image Section with hover & animation */}
           <div className="flex-1 relative h-[280px] md:h-[340px] flex justify-center items-center z-0">
             <motion.img
-              src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_9.webp"
+              src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/MarineDrive%20to%20Shivpuri/img1.webp"
               loading='lazy'
               alt="Rafting 1"
               initial={{ opacity: 0, y: -20 }}
@@ -294,7 +296,7 @@ const Kodilyla = () => {
               className="w-[240px] md:w-[280px] rounded-xl shadow-2xl border-[5px] border-white absolute top-5 left-[60px] z-10 transition-all duration-300"
             />
             <motion.img
-              src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_7.webp"
+              src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/card1.webp"
               loading='lazy'
               alt="Rafting 2"
               initial={{ opacity: 0, y: 20 }}

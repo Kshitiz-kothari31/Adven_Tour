@@ -19,7 +19,7 @@ function TungnathTrek() {
     >
       {/* 🌄 Background with zoom + radial fade */}
       <motion.img
-        src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks/Tungnath/landscape/tungnath_img15.webp"
+        src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks%20Page/Tungnath/hero_image.webp"
         alt="Tungnath Chandra Shila Trek"
         className="absolute top-0 left-0 w-full h-full object-cover z-10 scale-125 animate-heroZoom mask-fade"
         initial={{ scale: 1.25 }}
@@ -197,7 +197,7 @@ function TungnathTrek() {
           >
             <div className="absolute -inset-3 rounded-2xl bg-gradient-to-tr from-green-400 via-green-600 to-green-800 blur-2xl opacity-30 group-hover:opacity-50 transition"></div>
             <img
-              src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks/Tungnath/tungnath_img05.webp"
+              src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks%20Page/Tungnath/price_image.webp"
               loading='lazy'
               alt="Dayara Buyal Trek"
               className="relative rounded-2xl border-4 border-black shadow-2xl object-cover w-full aspect-square group-hover:scale-105 transition-transform duration-500"

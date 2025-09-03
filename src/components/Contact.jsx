@@ -5,7 +5,7 @@ const ContactSection = () => {
   return (
     <div className="w-full josefin-sans">
       {/* 🔹 Hero Section */}
-      <motion.section
+      <section
         initial={{ opacity: 0, y: -50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
@@ -13,7 +13,7 @@ const ContactSection = () => {
         className="relative h-[350px] bg-black text-white flex flex-col justify-center items-center text-center px-4"
       >
         <img
-          src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_24.webp"
+          src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/Hero_img.webp"
           alt="Hero"
           loading="lazy"   // ✅ lazy loading added
           className="absolute top-0 left-0 w-full h-full object-cover opacity-40"
@@ -26,11 +26,11 @@ const ContactSection = () => {
             you plan an unforgettable river experience.
           </p>
         </div>
-      </motion.section>
+      </section>
 
       {/* 🔹 Reach Us Section */}
       <section className="bg-[#f4ede4] py-16 px-6 text-center">
-        <motion.h2
+        <h2
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6 }}
@@ -38,8 +38,8 @@ const ContactSection = () => {
           className="text-3xl font-bold mb-2"
         >
           Reach Us
-        </motion.h2>
-        <motion.p
+        </h2>
+        <p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.6 }}
@@ -49,7 +49,7 @@ const ContactSection = () => {
           For rafting inquiries, tour availability, or custom adventure
           bookings, feel free to reach out to our team. We're here to help you
           plan an unforgettable river experience.
-        </motion.p>
+        </p>
 
         {/* Contact Info Cards */}
         <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-8">
@@ -91,7 +91,7 @@ const ContactSection = () => {
               ),
             },
           ].map((item, i) => (
-            <motion.a
+            <a
               key={i}
               href={item.link || undefined}
               target={item.link ? "_blank" : undefined}
@@ -105,12 +105,12 @@ const ContactSection = () => {
               {item.icon}
               <h3 className="text-xl font-semibold mb-1">{item.title}</h3>
               <p className="text-gray-600 text-sm">{item.desc}</p>
-            </motion.a>
+            </a>
           ))}
         </div>
 
         {/* Contact Buttons with Icons */}
-        <motion.div
+        <div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.6 }}
@@ -150,11 +150,11 @@ const ContactSection = () => {
           >
             <MapPin className="w-6 h-6 text-white" />
           </a>
-        </motion.div>
+        </div>
       </section>
 
       {/* 🔹 Google Map Section */}
-      <motion.section
+      <section
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         transition={{ duration: 1 }}
@@ -169,7 +169,7 @@ const ContactSection = () => {
           referrerPolicy="no-referrer-when-downgrade"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3492.687932174049!2d78.41623807451863!3d30.08713857489601!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390915f3f09b36d1%3A0x1f05f04c54a82dd2!2sShivpuri%2C%20Uttarakhand%20249413!5e0!3m2!1sen!2sin!4v1720880116997!5m2!1sen!2sin"
         />
-      </motion.section>
+      </section>
     </div>
   );
 };

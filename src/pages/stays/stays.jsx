@@ -58,10 +58,10 @@ function Stays() {
     const whatsappNumber = "7078287331"; // Replace with your number
     const whatsappMessage = "Hello! I’m interested in booking a stay at your campsite in Rishikesh.";
     const imageGrid = [
-    "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Stays/stay_08.webp",
-    "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Stays/stay_05.webp",
-    "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Stays/stay_04.webp",
-    "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Stays/stay_10.webp",
+    "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Stay%20Page/mini_hero_img_1.webp",
+    "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Stay%20Page/mini_hero_img_2.webp",
+    "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Stay%20Page/mini_hero_img_3.webp",
+    "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Stay%20Page/mini_hero_img_4.webp",
     ];
   return (
     <main className={styles.main}>
@@ -74,7 +74,7 @@ function Stays() {
             className="absolute inset-0 bg-cover bg-center rounded-b-3xl"
             style={{
               backgroundImage:
-                "url('https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Stays/landscape/stay_08.webp')",
+                "url('https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Stay%20Page/hero_img_2.webp')",
             }}
           ></motion.div>
 

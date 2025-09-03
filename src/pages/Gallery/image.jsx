@@ -2,20 +2,19 @@
 import { useState, useMemo, memo } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
-import images  from "../../const"; 
+import images from "../../const";
 
-
-// Memoized Image component to prevent re-renders
+// ✅ Image component (natural aspect ratio, no gaps)
 const GalleryImage = memo(({ src, onClick }) => (
   <div
-    className="relative w-full h-36 overflow-hidden rounded-2xl cursor-pointer shadow-md"
+    className="break-inside-avoid mb-4 cursor-pointer rounded-2xl overflow-hidden shadow-md"
     onClick={onClick}
   >
     <LazyLoadImage
-      src={`${src}?w=500&q=60`}
+      src={`${src}?w=600&q=70`}
       alt="Gallery"
       effect="blur"
-      className="w-full h-full object-cover transition-transform duration-200 hover:scale-105"
+      className="w-full h-auto object-cover transition-transform duration-200 hover:scale-105"
     />
   </div>
 ));
@@ -23,8 +22,9 @@ const GalleryImage = memo(({ src, onClick }) => (
 const GallerySection = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState("all");
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
+  // ✅ Filter images by category
   const filteredImages = useMemo(() => {
     if (selectedCategory === "all") return images;
     return images.filter((img) => img.category === selectedCategory);
@@ -38,22 +38,37 @@ const GallerySection = () => {
           📸 Image Gallery
         </h2>
 
-        <div
-          className="relative inline-block text-left"
-          onMouseEnter={() => setDropdownOpen(true)}
-          onMouseLeave={() => setDropdownOpen(false)}
-        >
-          <button className="group inline-flex items-center px-6 py-2 bg-gradient-to-r from-purple-700 to-blue-700 text-white rounded-full text-sm md:text-base font-semibold shadow-xl transition-all duration-300 cursor-pointer">
-            🚀 Select Category
-            <span className="ml-2 group-hover:translate-y-1 transition-transform duration-300">👇</span>
+        {/* Dropdown */}
+        <div className="relative inline-block text-left">
+          <button
+            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            className="inline-flex items-center px-6 py-2 bg-gradient-to-r from-purple-700 to-blue-700 text-white rounded-full text-sm md:text-base font-semibold shadow-xl transition-all duration-300 cursor-pointer"
+          >
+            {/* Show current category */}
+            {selectedCategory === "all" && "🌟 All"}
+            {selectedCategory === "rafting" && "🚣‍♂️ Rafting"}
+            {selectedCategory === "stays" && "🏕️ Stays"}
+            {selectedCategory === "trekking" && "🥾 Trekking"}
+            {selectedCategory === "bungee" && "🪂 Bungee"}
+
+            <span
+              className={`ml-2 transition-transform duration-300 ${
+                isDropdownOpen ? "rotate-180" : "rotate-0"
+              }`}
+            >
+              👇
+            </span>
           </button>
 
-          {dropdownOpen && (
-            <div className="absolute top-full left-0 mt-3 w-56 bg-white border border-gray-200 rounded-xl shadow-xl z-50 overflow-hidden">
+          {isDropdownOpen && (
+            <div className="absolute top-full left-0 mt-3 w-56 bg-white border border-gray-200 rounded-xl shadow-xl z-50">
               {["all", "rafting", "stays", "trekking", "bungee"].map((cat) => (
-                <a
+                <div
                   key={cat}
-                  onClick={() => setSelectedCategory(cat)}
+                  onClick={() => {
+                    setSelectedCategory(cat);
+                    setIsDropdownOpen(false);
+                  }}
                   className="block px-5 py-3 text-sm hover:bg-gray-100 font-medium transition cursor-pointer"
                 >
                   {cat === "all" && "🌟 All"}
@@ -61,15 +76,15 @@ const GallerySection = () => {
                   {cat === "stays" && "🏕️ Stays"}
                   {cat === "trekking" && "🥾 Trekking"}
                   {cat === "bungee" && "🪂 Bungee"}
-                </a>
+                </div>
               ))}
             </div>
           )}
         </div>
       </div>
 
-      {/* Image Grid */}
-      <div className="max-w-7xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+      {/* ✅ Masonry Grid */}
+      <div className="max-w-7xl mx-auto columns-2 sm:columns-3 md:columns-4 lg:columns-5 gap-4">
         {filteredImages.map((img, index) => (
           <GalleryImage
             key={index}

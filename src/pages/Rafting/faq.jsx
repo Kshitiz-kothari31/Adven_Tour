@@ -1,5 +1,4 @@
-import { motion } from 'framer-motion';
-
+import { useEffect } from "react";
 const faqData = [
   {
     question: "a. What should I bring for rafting?",
@@ -48,32 +47,52 @@ const faqData = [
 ];
 
 export default function FAQSection() {
+    useEffect(() => {
+    const items = document.querySelectorAll(".fade-in-up");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    items.forEach((item) => observer.observe(item));
+
+    return () => {
+      items.forEach((item) => observer.unobserve(item));
+    };
+  }, []);
   return (
-    <section className="josefin-sans  py-16 px-6 md:px-20 max-w-5xl mx-auto josefin-sans">
-      <motion.h2
-        initial={{ opacity: 0, y: -30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-3xl md:text-4xl font-bold text-center mb-10"
-      >
+    <section className="josefin-sans py-16 px-6 md:px-20 max-w-5xl mx-auto">
+      <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 fade-in-up">
         Frequently Asked Questions
-        <div className="text-lg font-medium text-gray-600">Everything you need to know before booking</div>
-      </motion.h2>
+        <div className="text-lg font-medium text-gray-600">
+          Everything you need to know before booking
+        </div>
+      </h2>
 
       <div className="space-y-8">
         {faqData.map((faq, index) => (
-          <motion.div
+          <div
             key={index}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-all duration-300"
+            className={`bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-all duration-300 fade-in-up`}
+            style={{ animationDelay: `${index * 0.1}s` }} // ⏳ stagger effect
           >
-            <h3 className="text-lg md:text-xl font-semibold text-black">{faq.question}</h3>
-            <div className="mt-2 text-gray-700 text-sm md:text-base">{faq.answer}</div>
-          </motion.div>
+            <h3 className="text-lg md:text-xl font-semibold text-black">
+              {faq.question}
+            </h3>
+            <div className="mt-2 text-gray-700 text-sm md:text-base">
+              {faq.answer}
+            </div>
+          </div>
         ))}
       </div>
     </section>
+
   );
 }

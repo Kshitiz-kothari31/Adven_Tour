@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+
 const feedbackData = [
   {
     name: "Aman Sharma",
@@ -40,41 +40,35 @@ export default function Feedback() {
         </p>
       </div>
 
-      {/* ♾️ Infinite Scrolling Feedback */}
-      <div className="relative w-full overflow-hidden">
-        <motion.div
-          className="flex gap-10 font-josefin w-max text-gray-900 px-4 md:px-10 xl:px-24"
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{
-            repeat: Infinity,
-            repeatType: "loop",
-            duration: 40,
-            ease: "linear"
-          }}
-        >
-          {duplicatedFeedback.map((item, i) => (
-            <div
-              key={i}
-              className="min-w-[280px] max-w-sm bg-white p-6 rounded-2xl shadow-lg hover:scale-105 hover:shadow-2xl transition-all duration-300 border border-gray-200"
-            >
-              <div className="relative w-16 h-16 mx-auto mb-4">
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  loading="lazy"   // ✅ lazy loading added
-                  className="w-16 h-16 rounded-full object-cover border-2 border-gray-300 shadow-sm"
-                />
-              </div>
-              <h3 className="text-lg font-bold text-center underline underline-offset-4 mb-2">
-                {item.name}
-              </h3>
-              <p className="text-sm md:text-base italic text-center text-gray-600 leading-relaxed">
-                “{item.feedback}”
-              </p>
-            </div>
-          ))}
-        </motion.div>
+{/* ♾️ Infinite Scrolling Feedback */}
+<div className="relative w-full overflow-hidden">
+  <div
+    className="flex gap-10 font-josefin w-max text-gray-900 px-4 md:px-10 xl:px-24 animate-scroll"
+  >
+    {duplicatedFeedback.map((item, i) => (
+      <div
+        key={i}
+        className="min-w-[280px] max-w-sm bg-white p-6 rounded-2xl shadow-lg hover:scale-105 hover:shadow-2xl transition-all duration-300 border border-gray-200"
+      >
+        <div className="relative w-16 h-16 mx-auto mb-4">
+          <img
+            src={item.image}
+            alt={item.name}
+            loading="lazy"   // ✅ lazy loading
+            className="w-16 h-16 rounded-full object-cover border-2 border-gray-300 shadow-sm"
+          />
+        </div>
+        <h3 className="text-lg font-bold text-center underline underline-offset-4 mb-2">
+          {item.name}
+        </h3>
+        <p className="text-sm md:text-base italic text-center text-gray-600 leading-relaxed">
+          “{item.feedback}”
+        </p>
       </div>
+    ))}
+  </div>
+</div>
+
     </div>
   );
 }
