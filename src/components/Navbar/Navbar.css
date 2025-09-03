@@ -4,6 +4,10 @@ html, body {
   height: 100%;
 }
 
+header {
+  margin: 0 !important;
+  padding: 0 !important;
+}
 
 .nav-link {
   position: relative;

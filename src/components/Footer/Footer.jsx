@@ -1,22 +1,8 @@
 import { Facebook, Instagram, PhoneCall, Mail, MapPin, Twitter } from "lucide-react";
-import { motion } from "framer-motion";
-
-const footerVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 1, ease: "easeOut" },
-  },
-};
 
 const Footer = ({ bgClass = "bg-transparent" }) => {
   return (
-    <motion.footer
-      variants={footerVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
+    <footer
       className={`${bgClass} text-gray-800 px-4 sm:px-6 md:px-10 lg:px-12 py-5 md:py-8 josefin-sans border-white`}
     >
       {/* Footer Content */}
@@ -31,16 +17,15 @@ const Footer = ({ bgClass = "bg-transparent" }) => {
               { icon: Facebook, color: "bg-blue-600", link: "https://www.facebook.com/Cristiano/" },
               { icon: Instagram, color: "bg-gradient-to-tr from-yellow-400 via-pink-500 to-purple-600", link: "https://instagram.com/yourprofile" }
             ].map((social, idx) => (
-              <motion.a
+              <a
                 key={idx}
-                whileHover={{ scale: 1.1 }}
-                className={`${social.color} text-white p-2 rounded-full`}
+                className={`${social.color} text-white p-2 rounded-full transform transition-transform hover:scale-110`}
                 href={social.link}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <social.icon className="w-4 h-4" />
-              </motion.a>
+              </a>
             ))}
           </div>
         </div>
@@ -55,17 +40,14 @@ const Footer = ({ bgClass = "bg-transparent" }) => {
               { name: "Adventures", link: "#Rafting" },
               { name: "Contact", link: "#contact" }
             ].map((item, i) => (
-              <motion.li
-                key={i}
-                whileHover={{ scale: 1.05, x: 4 }}
-              >
+              <li key={i} className="transform transition-transform hover:translate-x-1 hover:scale-105">
                 <a
                   href={item.link}
                   className="inline-block text-gray-700 hover:text-blue-600 transition"
                 >
                   {item.name}
                 </a>
-              </motion.li>
+              </li>
             ))}
           </ul>
         </div>
@@ -74,27 +56,21 @@ const Footer = ({ bgClass = "bg-transparent" }) => {
         <div>
           <h3 className="text-lg sm:text-xl font-bold mb-2 font-playfair">Connect Us</h3>
           <ul className="text-xs sm:text-sm space-y-1.5 opacity-90">
-            <motion.li className="flex justify-center items-center gap-2">
+            <li className="flex justify-center items-center gap-2">
               <MapPin className="w-4 h-4" /> Rishikesh, Tapovan
-            </motion.li>
-            <motion.li className="flex justify-center items-center gap-2">
+            </li>
+            <li className="flex justify-center items-center gap-2">
               <PhoneCall className="w-4 h-4" /> (+91) 7078287331
-            </motion.li>
-            <motion.li className="flex justify-center items-center gap-2 break-all">
+            </li>
+            <li className="flex justify-center items-center gap-2 break-all">
               <Mail className="w-4 h-4" /> kshi....i69@gmail.com
-            </motion.li>
+            </li>
           </ul>
         </div>
       </div>
 
       {/* Divider + Credits */}
-      <motion.div
-        variants={footerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        className="border-t border-gray-400/50 mt-4 pt-2 flex flex-col items-center text-center text-xs sm:text-sm text-gray-600"
-      >
+      <div className="border-t border-gray-400/50 mt-4 pt-2 flex flex-col items-center text-center text-xs sm:text-sm text-gray-600">
         <p>© 2025 <strong>GoRafts</strong>. All rights reserved.</p>
         <p className="text-[11px] sm:text-xs opacity-80 mt-1">
           Designed & Developed by{" "}
@@ -116,8 +92,8 @@ const Footer = ({ bgClass = "bg-transparent" }) => {
             Kshitiz Kothari
           </a>
         </p>
-      </motion.div>
-    </motion.footer>
+      </div>
+    </footer>
   );
 };
 

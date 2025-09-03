@@ -11,11 +11,11 @@ const customMessage = encodeURIComponent("Hi, I am Aman and I want to book a raf
 const Kayaking = () => {
   // ⚡ Optimized image sizes (Unsplash resizing with w param)
   const bgHero =
-    "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Kayking/kayking_02.webp";
+    "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/kayking%20page/hero_img1.webp";
   const img1 =
-    "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Kayking/kayking_08.webp";
+    "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/kayking%20page/kayking_1.webp";
   const img2 =
-    "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Kayking/kayking_07.webp";
+    "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/kayking%20page/kayking_2.webp";
 
   // ⚡ Video set to 720p instead of 1440p
   const videoSrc =
@@ -29,72 +29,40 @@ const Kayaking = () => {
   return (
     <section className="josefin-sans bg-gradient-to-r from-blue-100 via-cyan-50 to-teal-100">
       {/* ---------------- HERO SECTION ---------------- */}
-      <motion.section
-        className="relative w-full h-[90vh] overflow-hidden text-white"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.2 }}
-      >
+      <section className="relative w-full h-[90vh] overflow-hidden text-white animate-fade-in">
         {/* Background */}
-        <motion.img
+        <img
           src={bgHero}
           alt="Kayaking hero"
-          className="absolute inset-0 w-full h-full object-cover z-0"
+          className="absolute inset-0 w-full h-full object-cover z-0 animate-zoom-out"
           loading="lazy"
-          initial={{ scale: 1.1 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 3 }}
         />
 
         {/* Hero Text */}
         <div className="relative z-20 flex flex-col items-center justify-center h-full text-center px-4">
-          <motion.h1
-            className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 font-kalnia"
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 1 }}
-          >
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 font-kalnia opacity-0 animate-slide-up [animation-delay:0.5s]">
             Discover the Thrill of Kayaking in <br /> Shivpuri, Rishikesh
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            className="text-white/90 text-sm md:text-lg max-w-2xl mb-6 josefin-sans"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 1 }}
+          <p className="text-white/90 text-sm md:text-lg max-w-2xl mb-6 josefin-sans opacity-0 animate-slide-up [animation-delay:0.8s]">
+            Glide through the Ganges with breathtaking Himalayan views. Your adventure
+            begins where the river calls.
+          </p>
+
+          <button
+            className="opacity-0 animate-slide-up [animation-delay:1.1s] bg-gradient-to-r from-orange-500 to-red-500 hover:from-red-500 hover:to-orange-500 text-white font-semibold px-8 py-3 rounded-full shadow-xl transition-all duration-300 flex items-center gap-2 hover:scale-110 hover:shadow-[0_0_28px_rgba(234,88,12,0.6)] active:scale-95"
+            onClick={() =>
+              window.open(
+                'https://wa.me/7078287331?text=Hello%2C%20I%20would%20like%20to%20book%20a%20tour',
+                '_blank'
+              )
+            }
           >
-            Glide through the Ganges with breathtaking Himalayan views. Your
-            adventure begins where the river calls.
-          </motion.p>
-
-<motion.button
-  initial={{ opacity: 0, y: 30 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{
-    delay: 1.1,
-    duration: 0.6,
-    type: "spring",
-    stiffness: 130,
-  }}
-  whileHover={{
-    scale: 1.12,
-    boxShadow: "0 0 28px rgba(234,88,12,0.6)", // orange glow
-    transition: { type: "spring", stiffness: 260, damping: 18 },
-  }}
-  whileTap={{ scale: 0.94 }}
-  className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-red-500 hover:to-orange-500 text-white font-semibold px-8 py-3 rounded-full shadow-xl transition-all duration-300 flex items-center gap-2"
-  onClick={() =>
-    window.open(
-      "https://wa.me/7078287331?text=Hello%2C%20I%20would%20like%20to%20book%20a%20tour",
-      "_blank"
-    )
-  }
->
-  <span>📩 Book Now</span>
-</motion.button>
-
+            📩 Book Now
+          </button>
         </div>
-      </motion.section>
+      </section>
+
 
       {/* ---------------- Scroll Button ---------------- */}
       <motion.button

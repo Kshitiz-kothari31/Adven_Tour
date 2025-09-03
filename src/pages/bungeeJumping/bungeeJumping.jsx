@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef , useState , useEffect } from "react";
 import { motion } from "framer-motion";
 import Form from "../../components/form/Form";
 import Feedback from "../../components/Feedback";
@@ -49,15 +49,13 @@ const videos = [
     subtitle: "One leap, lifetime memory",
   },
 ];
-
-
 const cards = [
   {
     title: "Thrill Factory",
     height: "53 meter's",
     cost: "₹3000 /-",
     image:
-      "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Bungee%20Jumping/splash%20bungee/splash_12.webp",
+      "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Bungee%20Jumping%20Page/Splash_Dice.webp",
   },
   {
     title: "Splash Dice",
@@ -65,159 +63,186 @@ const cards = [
     cost: "₹3000 /-",
     extra: "*DSLR Video Included",
     image:
-      "https://github.com/Kshitiz-kothari31/Adven_Tour_img-videos/blob/main/Images/Bungee%20Jumping/heroImage_01.webp?raw=true",
+      "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Bungee%20Jumping%20Page/Splash_Dice.webp",
   },
   {
     title: "Himalayan Bungee",
     height: "117 meter's",
     cost: "₹4,600 /-",
     image:
-      "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Bungee%20Jumping/splash%20bungee/splash_04.webp",
+      "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Bungee%20Jumping%20Page/Himalayan_Bungee.webp",
   },
 ];
 
 function BungeeJumping() {
-  const videoRefs = useRef([]);
-    const scrollToBottom = () => {
-    window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-  };
+  const [visible, setVisible] = useState(false);
+  const ref = useRef(null);
+  const sectionRef = useRef(null);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-fade-up");
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    const children = sectionRef.current?.querySelectorAll(".animate-on-scroll");
+    children?.forEach((child) => observer.observe(child));
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisible(true);
+            observer.unobserve(entry.target); // run once
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
   return (
     <main className="bg-gradient-to-r from-white to-[#cceeff] josefin-sans ">
 
-      <img
-      src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Bungee%20Jumping/heroImage_02.webp"
-      style={{ display: "none" }}
-      alt="Bungee Background"
-      />
-      <motion.section
-          className="relative w-full h-[100vh] flex flex-col items-center justify-center text-center px-4 sm:px-8 pt-20 pb-32 overflow-hidden bg-cover bg-center"
-          style={{
-            backgroundImage: `url(https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Bungee%20Jumping/heroImage_02.webp)`,
-          }}
-          initial={{ opacity: 0.3, scale: 0.98 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-        >
+  <motion.section
+  className="relative w-full h-[100vh] flex flex-col items-center justify-center text-center px-4 sm:px-8 pt-20 pb-32 overflow-hidden bg-cover bg-center"
+  style={{
+    backgroundImage: `url(https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Bungee%20Jumping%20Page/Hero_image.webp)`,
+  }}
+  initial={{ opacity: 0.3, scale: 0.98 }}
+  whileInView={{ opacity: 1, scale: 1 }}
+  transition={{ duration: 1, ease: "easeOut" }}
+  viewport={{ once: true }}
+  >
+  {/* 🧭 Title */}
+  <motion.h1
+    className="text-white text-3xl sm:text-6xl font-semibold drop-shadow-lg font-kalnia leading-tight z-10"
+    initial={{ opacity: 0, y: -60 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8 }}
+    viewport={{ once: true }}
+  >
+    Jump into the Thrill of Bungee Adventures
+  </motion.h1>
 
-      {/* 🧭 Title */}
-      <motion.h1
-        className="text-white text-3xl sm:text-6xl font-semibold drop-shadow-lg font-kalnia leading-tight z-10"
-        initial={{ opacity: 0, y: -60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        Jump into the Thrill of Bungee Adventures
-      </motion.h1>
+  {/* 📜 Subtitle */}
+  <motion.p
+    className="max-w-2xl text-lg sm:text-2xl text-white font-medium mt-6 mb-8 z-10"
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1, delay: 0.3 }}
+    viewport={{ once: true }}
+  >
+    Experience the adrenaline rush of freefalling from breathtaking heights
+    in Rishikesh.
+  </motion.p>
 
-      {/* 📜 Subtitle */}
-      <motion.p
-        className="max-w-2xl text-lg sm:text-2xl text-white font-medium mt-6 mb-8 z-10"
-        initial={{ opacity: 0, y: -30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.3 }}
-      >
-        Experience the adrenaline rush of freefalling from breathtaking heights in Rishikesh.
-      </motion.p>
+  {/* 🚀 WhatsApp Button */}
+  <motion.button
+    onClick={() =>
+      window.open(
+        "https://wa.me/7078287331?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20bungee%20packages",
+        "_blank"
+      )
+    }
+    className="relative px-10 py-3 text-white font-bold rounded-full shadow-xl bg-gradient-to-r from-green-500 to-emerald-600 overflow-hidden transition-all duration-700 transform group hover:scale-90 hover:-rotate-1 z-10"
+    initial={{ opacity: 0, y: 15 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1, delay: 0.6 }}
+    viewport={{ once: true }}
+  >
+    {/* Shine Effect */}
+    <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent translate-x-[-100%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-out blur-sm"></span>
 
-      {/* 🚀 WhatsApp Button */}
-      <motion.button
-        onClick={() =>
-          window.open(
-            "https://wa.me/7078287331?text=Hi%2C%20I%20would%20like%20to%20know%20more%20about%20bungee%20packages",
-            "_blank"
-          )
-        }
-        className="relative px-10 py-3 text-white font-bold rounded-full shadow-xl bg-gradient-to-r from-green-500 to-emerald-600 overflow-hidden transition-all duration-700 transform group hover:scale-90 hover:-rotate-1 z-10"
-        initial={{ opacity: 0, y: 15 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.6 }}
-      >
-        {/* Shine Effect */}
-        <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent translate-x-[-100%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-out blur-sm"></span>
+    {/* Glow on Hover */}
+    <span className="absolute inset-0 w-full h-full bg-emerald-500 rounded-full opacity-0 group-hover:opacity-30 group-hover:scale-125 group-hover:blur-2xl transition-all duration-700"></span>
 
-        {/* Glow on Hover */}
-        <span className="absolute inset-0 w-full h-full bg-emerald-500 rounded-full opacity-0 group-hover:opacity-30 group-hover:scale-125 group-hover:blur-2xl transition-all duration-700"></span>
+    {/* Button Text */}
+    <span className="relative z-10 tracking-wide group-hover:tracking-widest group-hover:animate-pulse">
+      💬 WhatsApp Us
+    </span>
+  </motion.button>
 
-        {/* Button Text */}
-        <span className="relative z-10 tracking-wide group-hover:tracking-widest group-hover:animate-pulse">
-          💬 WhatsApp Us
-        </span>
-      </motion.button>
-
-      {/* ↓ Scroll Button */}
-        <div className="mt-12 z-10">
-          <motion.button
-            onClick={() =>
-              document.getElementById("rishikesh")?.scrollIntoView({
-                behavior: "smooth",
-              })
-            }
-            className="bg-orange-300 text-white p-4 rounded-full text-2xl shadow-lg transition-all duration-700 hover:bg-orange-500 hover:rotate-[360deg] hover:scale-150 hover:shadow-2xl hover:animate-bounce"
-            whileHover={{ scale: 1.2 }}
-          >
-            ↓
-          </motion.button>
-        </div>
-
-
-      {/* 🌊 Wave Shape at Bottom */}
-      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-0">
-        <svg
-          className="relative block w-full h-24"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1440 320"
-          preserveAspectRatio="none"
-        >
-          <defs>
-            {/* define the same gradient as your page */}
-            <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="white" />
-              <stop offset="100%" stopColor="#cceeff" />
-            </linearGradient>
-          </defs>
-
-          <path
-            fill="url(#waveGradient)"   // use the gradient here
-            fillOpacity="1"
-            d="M0,192L48,165.3C96,139,192,85,288,80C384,75,480,117,576,133.3C672,149,768,139,864,122.7C960,107,1056,85,1152,80C1248,75,1344,85,1392,90.7L1440,96V320H0Z"
-          ></path>
-        </svg>
-      </div>
-
-
-      </motion.section>
-   
-    <motion.section
-      className="py-20 px-4 md:mt-10 md:px-10 xl:px-40 text-black josefin-sans"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1.2, ease: "easeOut" }}
-      viewport={{ once: true, amount: 0.3 }}
+  {/* ↓ Scroll Button */}
+  <div className="mt-12 z-10">
+    <motion.button
+      onClick={() =>
+        document.getElementById("rishikesh")?.scrollIntoView({
+          behavior: "smooth",
+        })
+      }
+      className="bg-orange-300 text-white p-4 rounded-full text-2xl shadow-lg transition-all duration-700 hover:bg-orange-500"
+      whileHover={{ scale: 1.2, rotate: 360 }}
+      transition={{ duration: 0.6 }}
     >
-      {/* Fancy Motion Title */}
-      <motion.h2
-        initial={{ y: -100, opacity: 0, rotate: -5, skewY: 5 }}
-        whileInView={{ y: 0, opacity: 1, rotate: 0, skewY: 0 }}
-        transition={{ type: "spring", stiffness: 220, damping: 14, delay: 0.2 }}
-        viewport={{ once: true }}
-        className="text-3xl sm:text-4xl md:text-5xl font-light underline underline-offset-8 decoration-black drop-shadow-sm text-center leading-snug"
+      ↓
+    </motion.button>
+  </div>
+
+  {/* 🌊 Wave Shape at Bottom */}
+  <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-0">
+    <svg
+      className="relative block w-full h-24"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1440 320"
+      preserveAspectRatio="none"
+    >
+      <defs>
+        <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="white" />
+          <stop offset="100%" stopColor="#cceeff" />
+        </linearGradient>
+      </defs>
+      <path
+        fill="url(#waveGradient)"
+        fillOpacity="1"
+        d="M0,192L48,165.3C96,139,192,85,288,80C384,75,480,117,576,133.3C672,149,768,139,864,122.7C960,107,1056,85,1152,80C1248,75,1344,85,1392,90.7L1440,96V320H0Z"
+      ></path>
+    </svg>
+  </div>
+  </motion.section>
+  
+    <section
+      ref={ref}
+      className={`py-20 px-4 md:mt-10 md:px-10 xl:px-40 text-black josefin-sans transition-all duration-1000 ${
+        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+      }`}
+    >
+      {/* Title */}
+      <h2
+        className={`text-3xl sm:text-4xl md:text-5xl font-light underline underline-offset-8 decoration-black drop-shadow-sm text-center leading-snug transition-all duration-1000 ease-out ${
+          visible
+            ? "opacity-100 translate-y-0 rotate-0 skew-y-0"
+            : "opacity-0 -translate-y-20 -rotate-3 skew-y-3"
+        }`}
       >
         Come Join Us for Experience the Falling Adventure
-      </motion.h2>
+      </h2>
 
-      {/* Description Paragraph */}
-      <motion.p
-        initial={{ scale: 0.85, opacity: 0, y: 30 }}
-        whileInView={{ scale: 1, opacity: 1, y: 0 }}
-        whileHover={{ scale: 1.04 }}
-        transition={{ delay: 0.4, duration: 0.9, ease: "easeOut" }}
-        viewport={{ once: true }}
-        className="mt-6 text-base sm:text-lg md:text-xl font-light leading-relaxed max-w-2xl mx-auto text-gray-800 text-center px-2"
+      {/* Paragraph */}
+      <p
+        className={`mt-6 text-base sm:text-lg md:text-xl font-light leading-relaxed max-w-2xl mx-auto text-gray-800 text-center px-2 transform transition-all duration-1000 ease-out delay-300 ${
+          visible
+            ? "opacity-100 scale-100 translate-y-0"
+            : "opacity-0 scale-95 translate-y-8"
+        } hover:scale-105`}
       >
-        Discover epic trails, expert tips, and inspiring stories to fuel your next mountain adventure. Whether you're a beginner or a pro, we help you reach new heights with confidence.
-      </motion.p>
-    </motion.section>
+        Discover epic trails, expert tips, and inspiring stories to fuel your
+        next mountain adventure. Whether you're a beginner or a pro, we help
+        you reach new heights with confidence.
+      </p>
+    </section>
 
     <div className="josefin-sans  md:mt-15 overflow-hidden mt-4">
       <div className="relative w-full bg-gradient-to-r from-white to-[#89dcfa]  h-[60px] flex items-center">

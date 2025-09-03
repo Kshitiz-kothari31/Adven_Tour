@@ -17,7 +17,7 @@ function HiddenWaterfall() {
       >
         {/* 🌄 Background image – smooth zoom‑out */}
         <motion.img
-          src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks/kedarkatha%20trek/landscape/kedarkantha_img8.webp"                // ← your mountain photo
+          src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks%20Page/hidden%20Waterfall/hero_img.webp"                // ← your mountain photo
           alt="Kedar Katha Trek"
           className="absolute inset-0 w-full h-full object-cover z-10 animate-slowZoom"
           initial={{ scale: 1.25 }}
@@ -174,7 +174,7 @@ function HiddenWaterfall() {
           >
             <div className="absolute -inset-3 rounded-2xl bg-gradient-to-tr from-green-400 via-green-600 to-green-800 blur-2xl opacity-30 group-hover:opacity-50 transition"></div>
             <img
-              src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks/Tungnath/tungnath_img14.webp"
+              src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks%20Page/hidden%20Waterfall/waterFall_1.webp"
               loading='lazy'
               alt="Dayara Buyal Trek"
               className="relative rounded-2xl border-4 border-black shadow-2xl object-cover w-full aspect-square group-hover:scale-105 transition-transform duration-500"

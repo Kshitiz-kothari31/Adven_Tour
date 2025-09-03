@@ -367,7 +367,7 @@ export const trekData = {
       description:
         'Tung Nath is part of the Panch Kedar pilgrimage sites, where the arms of Lord Shiva are believed to have appeared.',
       image:
-        'https://images.pexels.com/photos/1402787/pexels-photo-1402787.jpeg?auto=format&fit=crop&w=800&q=80',
+        'https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks%20Page/Tungnath/Divine_connection.jpg',
       alt: 'Tung Nath temple with mountains',
       legends: [
         {
@@ -391,7 +391,7 @@ export const trekData = {
         description:
           'Journey through rhododendron forests and meadows to reach the base camp at Chopta.',
         image:
-          'https://images.pexels.com/photos/1230302/pexels-photo-1230302.jpeg?auto=format&fit=crop&w=600&q=80',
+          'https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks%20Page/Tungnath/chopta_base.webp',
         alt: 'Chopta base camp in Himalayan meadows',
         stats: { altitude: '2,680m', distance: '10km', duration: '5-6 hours' },
       },
@@ -401,7 +401,7 @@ export const trekData = {
         description:
           'Ascend to the ancient Tung Nath temple, offering prayers and panoramic Himalayan views.',
         image:
-          'https://images.pexels.com/photos/1054218/pexels-photo-1054218.jpeg?auto=format&fit=crop&w=600&q=80',
+          'https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks%20Page/Tungnath/temple_ascent.webp',
         alt: 'Ascent to Tung Nath temple with mountain view',
         stats: { altitude: '3,680m', distance: '4km', duration: '3-4 hours' },
       },

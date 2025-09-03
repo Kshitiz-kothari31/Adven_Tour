@@ -1,132 +1,94 @@
 "use client";
 import { motion } from 'framer-motion';
 import { Link } from "react-router-dom";
+import { IMAGES, PICS, CARDS, YOUTUBE_VIDEOS, PARAGRAPH_TEXTS,} from "../../const";
 import HighlightsStats from './sample';
 import { useEffect, useState, useCallback, useMemo } from 'react';
 import Feedback from '../../components/Feedback';
 import ImageSlider from './imageslider'
 import './home.css'
 
-// Move arrays outside component to prevent recreation on each render
-const IMAGES = [
-  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/home_page_rafting_1.webp",
-  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/home_page_zipline.webp",
-  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/home_page_kayking.webp",
-  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/home_page_bungee.webp",
-  "https://github.com/Kshitiz-kothari31/Adven_Tour_img-videos/blob/main/Images/Home%20Page/home_page_rafting_2.webp"
-];
-
-const PICS = [
-  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/home_page_rohit.webp",
-  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/home_page_rohit2.webp"
-];
-
-const CARDS = [
-  { src: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/home_page_raftingCard.webp", label: "Rafting", link: "/rafting" },
-  { src: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/home_page_trekCard.webp", label: "Trekking", link: "/trek" },
-  { src: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/home_page_bungee.webp", label: "Bungee", link: "/bungee" },
-  { src: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/home_page_ziplineCard.webp", label: "Zipline", link: "/zipline" },
-];
-
-const YOUTUBE_VIDEOS = [
-  "https://www.youtube.com/embed/aHrIyirdeDU?autoplay=0&mute=1&modestbranding=1&rel=0&controls=0&showinfo=0",
-  "https://www.youtube.com/embed/sjmNmWuYXqQ?autoplay=0&mute=1&modestbranding=1&rel=0&controls=0&showinfo=0",
-  "https://www.youtube.com/embed/xI-IQ7EpLgE?autoplay=0&mute=1&modestbranding=1&rel=0&controls=0&showinfo=0",
-  "https://www.youtube.com/embed/9IkaMZjyt-8?autoplay=0&mute=1&modestbranding=1&rel=0&controls=0&showinfo=0",
-];
-
-const PARAGRAPH_TEXTS = [
-  `Welcome to Adventure Pulse — your gateway to epic outdoor thrills in Shivpuri, Rishikesh.`,
-  `Get ready for rafting on the Ganges, trekking through Himalayan trails, kayaking, bungee jumping, ziplining, and more — all backed by expert guides and pure adventure vibes.`,
-  `Whether you're solo or with your tribe, we ensure every moment is safe, seamless, and unforgettable. Let’s make your next escape legendary.`,
-];
-
 // Extract ImageSliderBox to its own component to prevent re-renders of the entire page
-const ImageSliderBox = () => {
+function ImageSliderBox() {
   const [current, setCurrent] = useState(0);
-  const [prev, setPrev] = useState(null);
 
+  // Auto-slide every 5s
   useEffect(() => {
     const interval = setInterval(() => {
-      setPrev(current);
-      setCurrent(prevIndex => (prevIndex + 1) % IMAGES.length);
+      setCurrent((prevIndex) => (prevIndex + 1) % IMAGES.length);
     }, 5000);
-
     return () => clearInterval(interval);
-  }, [current]);
+  }, []);
 
+  // Smooth scroll button
   const handleScrollClick = useCallback(() => {
     const target = document.getElementById("second-section");
     if (target) target.scrollIntoView({ behavior: "smooth" });
   }, []);
 
-  return (
-    <motion.div className="relative w-full h-[93vh] overflow-hidden bg-black">
-      {/* 🔁 Previous image */}
-      {prev !== null && (
-        <motion.img
-          key={`prev-${prev}`}
-          src={IMAGES[prev]}
-          initial={{ opacity: 1, scale: 1 }}
-          animate={{ opacity: 0, scale: 1.05 }}
-          transition={{ duration: 1.6, ease: "easeInOut" }}
-          className="absolute top-0 left-0 w-full h-full object-cover z-20"
-          alt="Previous slide"
-        />
-      )}
+  // Animate text when visible
+  useEffect(() => {
+    const elements = document.querySelectorAll(".reveal-text");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-fade-up");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+    elements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
 
-      {/* 🖼️ Current image */}
-      <motion.img
-        key={`current-${current}`}
-        src={IMAGES[current]}
-        initial={{ opacity: 0, scale: 1.1 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.6, ease: "easeInOut" }}
-        className="absolute top-0 left-0 w-full h-full object-cover z-30"
-        alt="Current slide"
-      />
+  return (
+    <div className="relative w-full h-[93vh] overflow-hidden bg-black">
+      {/* 🖼 All Images stacked */}
+      {IMAGES.map((img, index) => (
+        <img
+          key={index}
+          src={img}
+          alt={`Slide ${index}`}
+          className={`
+            absolute top-0 left-0 w-full h-full object-cover transition-all duration-[1600ms] ease-in-out
+            ${index === current ? "opacity-100 scale-100 z-30" : "opacity-0 scale-105 z-20"}
+          `}
+        />
+      ))}
 
       {/* 🌓 Gradient overlay */}
-      <motion.div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/90 z-40" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/90 z-40" />
 
       {/* ✨ HERO TEXT CONTENT */}
-      <motion.div
-        className="absolute inset-0 flex flex-col items-center justify-center z-50 text-white text-center px-4"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 2.5, duration: 1.2, ease: "easeOut" }}
+      <div
+        className="
+          absolute inset-0 z-50 text-white text-center px-4
+          flex flex-col items-center
+          justify-start pt-16      /* top on mobile */
+          md:justify-center md:pt-0  /* center on desktop */
+        "
       >
-        <motion.h1
-          className="text-4xl md:text-6xl xl:text-6xl font-medium font-kalnia drop-shadow-xl leading-tight"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 3, duration: 1 }}
-        >
-          Adventure Pulse <br /> Beyond Limits. Into the Wild.
-        </motion.h1>
+        <h1 className="reveal-text text-3xl md:text-6xl font-medium font-kalnia drop-shadow-xl leading-tight opacity-0 translate-y-[30px]">
+          GoRafts.. <br /> Beyond Limits. Into the Wild.
+        </h1>
 
-        <motion.p
-          className="text-lg md:text-xl mt-4 max-w-2xl text-white/80"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 3.6, duration: 1 }}
-        >
+        <p className="reveal-text text-base md:text-xl mt-3 md:mt-4 max-w-2xl text-white/80 opacity-0 translate-y-[20px]">
           Trek. Raft. Jump. Explore. The adventure of a lifetime starts here.
-        </motion.p>
+        </p>
 
-        <motion.button
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-          transition={{ type: "spring", stiffness: 300, damping: 15 }}
-          className="mt-8 px-8 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold text-lg rounded-xl shadow-lg shadow-orange-300/30"
+        <button
           onClick={handleScrollClick}
+          className="reveal-text mt-6 md:mt-8 px-6 md:px-8 py-2 md:py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold text-base md:text-lg rounded-xl shadow-lg shadow-orange-300/30 opacity-0 translate-y-[15px] transition-transform duration-500 hover:scale-105"
         >
           Start the Journey
-        </motion.button>
-      </motion.div>
-    </motion.div>
+        </button>
+      </div>
+    </div>
   );
-};
+}
 
 const Home = () => {
   const cardVariants = useMemo(() => ({
