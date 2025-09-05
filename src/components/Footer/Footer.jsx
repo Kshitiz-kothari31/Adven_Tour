@@ -63,7 +63,7 @@ const Footer = ({ bgClass = "bg-transparent" }) => {
               <PhoneCall className="w-4 h-4" /> (+91) 7078287331
             </li>
             <li className="flex justify-center items-center gap-2 break-all">
-              <Mail className="w-4 h-4" /> kshi....i69@gmail.com
+              <Mail className="w-4 h-4" /> gorafts001@gmail.com
             </li>
           </ul>
         </div>

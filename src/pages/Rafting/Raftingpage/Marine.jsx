@@ -1,7 +1,6 @@
 import  { useEffect } from 'react';
 import Form from '../../../components/form/Form';
 import '../Rafting.css';
-import { motion } from 'framer-motion';
 import { ChevronDown } from "lucide-react";
 
 // ✅ Fix the data: give each rapid a real image URL
@@ -50,16 +49,6 @@ const fadeUpRapids = {
     },
   }),
 };
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 50 },
-  visible: (i) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.2, type: "spring", stiffness: 80 }
-  })
-};
-
 const guidelines = [
   { title: "Age Limit", text: "15 to 50 years" },
   { title: "Weight Limit", text: "40–100 kg (proportional to height)" },
@@ -89,66 +78,39 @@ useEffect(() => {
   return (
     <section className='josefin-sans bg-gradient-to-b from-[#dff6ff] via-[#b7e4f4] to-[#dff6ff]' >
       {/* 1 section */}
-      <motion.div
-        className="relative w-full h-[90vh] overflow-hidden font-josefin"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.5 }}
-      >
+      <div className="relative w-full h-[90vh] overflow-hidden font-josefin">
+
         {/* 🌄 Background Image with Subtle Zoom */}
-        <motion.img
+        <img
           src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/MarineDrive%20to%20Shivpuri/HeorImg.webp"
           alt="Marine Drive to Shivpuri"
           className="absolute top-0 left-0 w-full h-full object-cover z-10 scale-125 animate-heroZoom"
-          initial={{ scale: 1.25 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 4, ease: "easeOut" }}
         />
-
 
         {/* 🔷 Diagonal Shadow Overlay */}
         <div className="absolute inset-0 z-30 bg-gradient-to-br from-black/80 via-black/30 to-transparent [clip-path:polygon(0_0,50%_0,35%_100%,0_100%)]" />
 
-
         {/* 📍 Hero Content */}
-        <motion.div
-          className="absolute top-[25%] left-10 md:left-20 z-40"
-          initial={{ opacity: 0, x: -60 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.8, duration: 1.2, type: "spring" }}
-        >
-          <motion.h1
-            className="text-white font-kalnia text-4xl md:text-5xl lg:text-[2.8rem] xl:text-7xl font-extrabold leading-tight drop-shadow-[0_3px_15px_rgba(0,0,0,0.7)]"
-            initial={{ y: -40, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 1.2, duration: 0.8 }}
-          >
+        <div className="absolute top-[25%] left-10 md:left-20 z-40 opacity-0 animate-fadeInLeft">
+          <h1 className="text-white font-kalnia text-4xl md:text-5xl lg:text-[2.8rem] xl:text-7xl font-extrabold leading-tight drop-shadow-[0_3px_15px_rgba(0,0,0,0.7)] animate-slideDown">
             Marine Drive to Shivpuri
-          </motion.h1>
+          </h1>
           <p className="text-white/80 text-lg md:text-xl mt-4 font-medium max-w-xl">
             A scenic rafting route with balanced thrill & beauty.
           </p>
-          <motion.button
-            whileHover={{ scale: 1.08 }}
-            whileTap={{ scale: 0.96 }}
-            className="mt-4 px-6 py-2.5 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-400 text-black font-bold rounded-full shadow-lg transition-all duration-300 relative overflow-hidden group"
+          <button
+            className="mt-4 px-6 py-2.5 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-400 text-black font-bold rounded-full shadow-lg transition-transform duration-300 transform hover:scale-105 active:scale-95 relative overflow-hidden group"
             onClick={() =>
               window.open(`https://wa.me/7078287331?text=${customMessage}`, "_blank")
             }
           >
             <span className="relative z-10">Book Now</span>
             <span className="absolute inset-0 w-full h-full bg-white opacity-10 blur-lg group-hover:animate-pulse" />
-          </motion.button>
-
-        </motion.div>
+          </button>
+        </div>
 
         {/* 🔄 Top Wave (Flipped) */}
-        <motion.div
-          className="absolute top-[-1px] left-0 w-full overflow-hidden leading-[0] rotate-180 z-40"
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.5, duration: 1 }}
-        >
+        <div className="absolute top-[-1px] left-0 w-full overflow-hidden leading-[0] rotate-180 z-40 opacity-0 animate-fadeInUp">
           <svg
             className="block w-full h-[100px] pointer-events-none"
             xmlns="http://www.w3.org/2000/svg"
@@ -161,9 +123,9 @@ useEffect(() => {
               d="M0,224 C360,100 1080,340 1440,160 L1440,320 L0,320 Z"
             />
           </svg>
-        </motion.div>
+        </div>
 
-        {/* 🔁 Animation Keyframes */}
+        {/* 🔁 Animations */}
         <style>
           {`
             @keyframes heroZoom {
@@ -171,51 +133,84 @@ useEffect(() => {
               100% { transform: scale(1); }
             }
 
+            @keyframes fadeInLeft {
+              0% { opacity: 0; transform: translateX(-60px); }
+              100% { opacity: 1; transform: translateX(0); }
+            }
+
+            @keyframes slideDown {
+              0% { opacity: 0; transform: translateY(-40px); }
+              100% { opacity: 1; transform: translateY(0); }
+            }
+
+            @keyframes fadeInUp {
+              0% { opacity: 0; transform: translateY(-50px); }
+              100% { opacity: 1; transform: translateY(0); }
+            }
+
             .animate-heroZoom {
               animation: heroZoom 10s ease-in-out forwards;
             }
+
+            .animate-fadeInLeft {
+              animation: fadeInLeft 1.2s ease-out forwards;
+              animation-delay: 0.8s;
+            }
+
+            .animate-slideDown {
+              animation: slideDown 0.8s ease-out forwards;
+              animation-delay: 1.2s;
+            }
+
+            .animate-fadeInUp {
+              animation: fadeInUp 1s ease-out forwards;
+              animation-delay: 1.5s;
+            }
           `}
         </style>
-      </motion.div>
+      </div>
+
 
       {/* ⬇️ Drop Button Between Sections */}
       <div className="w-full hidden md:flex justify-center md:mt-2 -mt-6 z-20 relative">
-        <motion.button
-          whileHover={{
-            scale: 1.2,
-            rotate: [0, 10, -10, 10, 0],
-            transition: { duration: 0.6 },
-          }}
+        <button
           onClick={scrollToSecondSection}
-          className="border-2 text-black p-3 px-5 rounded-full shadow-xl hover:bg-yellow-300 hover:text-black transition-all duration-300 animate-bounce"
+          className="border-2 text-black p-3 px-5 rounded-full shadow-xl hover:bg-yellow-300 hover:text-black transition-all duration-300 animate-bounce transform"
           style={{
             clipPath: 'polygon(25% 5%, 75% 5%, 95% 50%, 75% 95%, 25% 95%, 5% 50%)',
           }}
         >
-          <motion.div
-            initial={{ scale: 0.8 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 1, ease: 'easeOut' }}
-          >
+          <div className="inline-block animate-scaleRotate">
             <ChevronDown className="text-xl" />
-          </motion.div>
-        </motion.button>
+          </div>
+        </button>
+
+        {/* 🔁 CSS Animations */}
+        <style>
+          {`
+            @keyframes scaleRotate {
+              0% { transform: scale(0.8) rotate(0deg); }
+              20% { transform: scale(1.05) rotate(10deg); }
+              40% { transform: scale(1.05) rotate(-10deg); }
+              60% { transform: scale(1.05) rotate(10deg); }
+              80% { transform: scale(1.05) rotate(-10deg); }
+              100% { transform: scale(1) rotate(0deg); }
+            }
+
+            .animate-scaleRotate {
+              animation: scaleRotate 0.6s ease-out forwards;
+            }
+          `}
+        </style>
       </div>
+
       
       {/* 🟫 2nd Section: Overview */}
-      <div
-        id="second-section"
-        className="w-full py-16 px-4 md:px-20"
-      >
+      <div id="second-section" className="w-full py-16 px-4 md:px-20">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-start justify-between gap-10">
+
           {/* 📝 Text Section */}
-          <motion.div
-            initial={{ opacity: 0, x: -80 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, type: "spring" }}
-            viewport={{ once: true }}
-            className="flex-1 text-black space-y-4"
-          >
+          <div className="flex-1 text-black space-y-4 opacity-0 translate-y-10 animate-fadeIn transition-all duration-700 ease-out">
             <h2 className="text-3xl sm:text-left text-center josefin-sans md:text-5xl font-medium">
               OVERVIEW
             </h2>
@@ -224,32 +219,18 @@ useEffect(() => {
               the best way possible! This 11-12 km rafting stretch from Marine Drive
               to Shivpuri packs in seven rapids, including the thrill-packed Roller
               Coaster and Golf Course (no, not the kind with golf carts).
-              <br />
-              <br />
+              <br /><br />
               Lasting 1 to 1.5 hours, this adventure is perfect for first-timers,
               adrenaline junkies, or anyone who thinks sitting on a sofa is too
               mainstream. All this excitement for just ₹599 – cheaper than a pizza
               party and way more unforgettable!
             </p>
-          </motion.div>
+          </div>
 
           {/* 🖼️ Image Section */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, rotate: -5 }}
-            whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-            viewport={{ once: true }}
-            className="flex-1 w-full md:max-w-md relative flex justify-center"
-          >
-            <motion.div
-              whileHover={{
-                scale: 1.05,
-                rotate: [0, 2, -2, 0],
-                transition: { duration: 0.5 },
-              }}
-              className="bg-gradient-to-br from-[#1e3a8a] via-[#0891b2] to-[#06b6d4] p-1 rounded-[28px] shadow-2xl w-full"
-            >
-              <div className="bg-white rounded-[24px] overflow-hidden transition-transform duration-500 hover:scale-105 w-full">
+          <div className="flex-1 w-full md:max-w-md relative flex justify-center opacity-0 translate-y-10 animate-fadeIn transition-all duration-700 ease-out">
+            <div className="bg-gradient-to-br from-[#1e3a8a] via-[#0891b2] to-[#06b6d4] p-1 rounded-[28px] shadow-2xl w-full transition-transform duration-500 hover:scale-105">
+              <div className="bg-white rounded-[24px] overflow-hidden w-full">
                 <img
                   src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/MarineDrive%20to%20Shivpuri/img1.webp"
                   loading="lazy"
@@ -257,21 +238,15 @@ useEffect(() => {
                   className="w-full h-auto object-cover rounded-[24px]"
                 />
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
+
         </div>
       </div>
-
       {/* 3rd section */}
-      <div className="w-full flex  md:mt-15 justify-center items-center py-10 px-4 ">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true }}
-          className="bg-[#a7e1f9] p-6 md:p-10 rounded-3xl shadow-2xl max-w-6xl w-full flex flex-col md:flex-row justify-between items-start gap-10 relative overflow-hidden"
-        >
-          
+      <div className="w-full flex md:mt-15 justify-center items-center py-10 px-4">
+        <div className="bg-[#a7e1f9] p-6 md:p-10 rounded-3xl shadow-2xl max-w-6xl w-full flex flex-col md:flex-row justify-between items-start gap-10 relative overflow-hidden">
+
           {/* 📝 Text Section */}
           <div className="flex-1 text-black text-center space-y-2 font-josefin z-10">
             <h2 className="text-2xl md:text-3xl font-bold mb-3">
@@ -285,48 +260,39 @@ useEffect(() => {
             <p><strong>🌊 Number of Rapids:</strong> Around 7 (mix of major & minor)</p>
             <p><strong>💸 Price:</strong> ₹599 per person</p>
 
-            {/* 🔘 Book Now Button with killer hover */}
-            <motion.button
-              whileHover={{ scale: 1.08 }}
-              whileTap={{ scale: 0.96 }}
-              className="mt-4 px-6 py-2.5 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-400 text-black font-bold rounded-full shadow-lg transition-all duration-300 relative overflow-hidden group"
+            {/* 🔘 Book Now Button */}
+            <button
+              className="mt-4 px-6 py-2.5 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-400 text-black font-bold rounded-full shadow-lg transition-transform duration-300 hover:scale-105 relative overflow-hidden group"
               onClick={() =>
                 window.open(`https://wa.me/7078287331?text=${customMessage}`, "_blank")
               }
             >
               <span className="relative z-10">Book Now</span>
               <span className="absolute inset-0 w-full h-full bg-white opacity-10 blur-lg group-hover:animate-pulse" />
-            </motion.button>
+            </button>
           </div>
 
-          {/* 🖼️ Overlapping Image Section with hover & animation */}
+          {/* 🖼️ Overlapping Image Section */}
           <div className="flex-1 relative h-[280px] md:h-[340px] flex justify-center items-center z-0">
-            <motion.img
+            <img
               src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/card1.webp"
-              loading='lazy'
+              loading="lazy"
               alt="Rafting 1"
-              initial={{ opacity: 0, y: -20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              whileHover={{ scale: 1.07, filter: "brightness(1.1)" }}
-              className="w-[240px] md:w-[280px] rounded-xl shadow-2xl border-[5px] border-white absolute top-5 left-[60px] z-10 transition-all duration-300"
+              className="w-[240px] md:w-[280px] rounded-xl shadow-2xl border-[5px] border-white absolute top-5 left-[60px] z-10 transition-transform duration-300 hover:scale-105 hover:brightness-110"
             />
-            <motion.img
+            <img
               src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/MarineDrive%20to%20Shivpuri/img1.webp"
-              loading='lazy'
+              loading="lazy"
               alt="Rafting 2"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              whileHover={{ scale: 1.07, filter: "brightness(1.1)" }}
-              className="w-[240px] md:w-[280px] rounded-xl shadow-xl border-[5px] border-white absolute bottom-5 left-[140px] z-0 transition-all duration-300"
+              className="w-[240px] md:w-[280px] rounded-xl shadow-xl border-[5px] border-white absolute bottom-5 left-[140px] z-0 transition-transform duration-300 hover:scale-105 hover:brightness-110"
             />
           </div>
-        </motion.div>
+
+        </div>
       </div>
 
       {/* 4th section  major rapids */}
-      <div className=" md:mt-15 py-14 px-4 md:px-20">
+      <div className="md:mt-15 py-14 px-4 md:px-20">
         {/* 🎯 Section Title */}
         <div className="max-w-4xl mx-auto text-center mb-12">
           <div className="w-20 h-1 mx-auto mb-3 bg-gradient-to-r from-sky-400 via-sky-600 to-sky-400 rounded-full" />
@@ -338,182 +304,113 @@ useEffect(() => {
         {/* 🚀 Rapid List */}
         <div className="space-y-10">
           {data.map((item, index) => (
-            <motion.div
+            <div
               key={index}
-              custom={index}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeUpRapids}
-              className={`flex flex-row ${
-                item.reverse ? 'md:flex-row-reverse' : ''
-              } items-center justify-center gap-4 md:gap-6 max-w-5xl mx-auto px-2 sm:px-6`}
+              className={`flex flex-row ${item.reverse ? 'md:flex-row-reverse' : ''} 
+                items-center justify-center gap-4 md:gap-6 max-w-5xl mx-auto px-2 sm:px-6 
+                opacity-0 translate-y-6 animate-fadeUp`}
+              style={{ animationDelay: `${index * 150}ms` }}
             >
               {/* 📷 Image */}
-              <motion.img
-                whileHover={{ scale: 1.05 }}
-                src={item.img || FALLBACK_IMG} 
-                loading='lazy'
+              <img
+                src={item.img || FALLBACK_IMG}
+                loading="lazy"
                 alt={item.title}
-                className="w-[140px] h-[140px] sm:w-[160px] sm:h-[160px] md:w-[240px] md:h-[200px] object-cover rounded-[30%_0_30%_0] shadow-md transition duration-300"
+                className="w-[140px] h-[140px] sm:w-[160px] sm:h-[160px] md:w-[240px] md:h-[200px] object-cover rounded-[30%_0_30%_0] shadow-md transition-transform duration-300 hover:scale-105"
               />
 
               {/* 🧾 Text Box */}
-              <motion.div
-                whileHover={{
-                  scale: 1.03,
-                  boxShadow: '0 8px 18px rgba(0,0,0,0.15)',
-                }}
-                className="w-[90%] sm:w-[70%] md:w-[55%] h-[140px] sm:h-[160px] md:h-[200px] bg-sky-300 rounded-xl shadow px-4 py-4 text-black flex flex-col justify-center transition-all duration-300"
-              >
+              <div className="w-[90%] sm:w-[70%] md:w-[55%] h-[140px] sm:h-[160px] md:h-[200px] bg-sky-300 rounded-xl shadow px-4 py-4 text-black flex flex-col justify-center transition-all duration-300 hover:scale-103 hover:shadow-lg">
                 <h3 className="text-base sm:text-lg md:text-xl font-bold mb-1">
                   {item.title}
                 </h3>
                 <p className="text-sm sm:text-base md:text-lg leading-relaxed">
                   {item.desc}
                 </p>
-              </motion.div>
-            </motion.div>
+              </div>
+            </div>
           ))}
         </div>
       </div>
 
       {/* 5th section include */}
-      <div className="md:mt-15 py-20 px-4 flex justify-center items-center">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="relative max-w-6xl w-full rounded-xl overflow-hidden border border-gray-300 shadow-xl bg-white"
-        >
+      <div className="py-20 px-4 flex md:mt-15 justify-center items-center">
+        <div className="relative max-w-6xl w-full rounded-xl overflow-hidden border border-gray-300 shadow-xl bg-white opacity-0 translate-y-10 animate-fadeInUp">
+
           {/* 🖼️ Image Section */}
-          <motion.div
-            initial={{ scale: 0.95, opacity: 0 }}
-            whileInView={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 1, ease: "easeInOut" }}
-            viewport={{ once: true }}
-            className="relative w-full h-[260px] md:h-[320px]"
-          >
+          <div className="relative w-full h-[260px] md:h-[320px] overflow-hidden rounded-t-xl opacity-0 scale-95 animate-fadeInScale">
             <img
               src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/MarineDrive%20to%20Shivpuri/lastImg.webp"
-              loading='lazy'
+              loading="lazy"
               alt="Rafting"
               className="w-full h-full object-cover"
             />
 
             {/* Floating Title */}
-            <motion.div
-              initial={{ y: -50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.2, type: "spring", stiffness: 100 }}
-              viewport={{ once: true }}
-              className="absolute top-4 left-1/2 transform -translate-x-1/2 z-20"
-            >
+            <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-20 opacity-0 translate-y-[-20px] animate-fadeDown">
               <div className="bg-white josefin-sans px-6 py-2 rounded-xl shadow font-bold text-lg md:text-xl border border-gray-300">
                 Inclusions/Exclusions:
               </div>
-            </motion.div>
+            </div>
 
             {/* Sky Blue Fade Bottom */}
             <div className="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-t from-sky-300 to-transparent z-10" />
-          </motion.div>
+          </div>
 
           {/* 📄 Content Section */}
-          <div className="grid grid-cols-1 md:grid-cols-2 bg-sky-200 text-black px-6 md:px-12 py-10 gap-10 text-base sm:text-lg lg:text-xl leading-relaxed josefin-font">
-
+          <div className="grid grid-cols-1 md:grid-cols-2 bg-sky-200 text-black px-6 md:px-12 py-10 gap-10 text-base sm:text-lg lg:text-xl leading-relaxed josefin-font rounded-b-xl">
+            
             {/* Included */}
-            <motion.div
-              initial={{ x: -50, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.2, duration: 0.7, ease: "easeOut" }}
-              viewport={{ once: true }}
-              className="text-left space-y-4"
-            >
-              <h3 className="text-xl md:text-2xl font-semibold">
-                ✅ What is included in the tour
-              </h3>
+            <div className="text-left space-y-4 opacity-0 -translate-x-10 animate-fadeLeft" style={{ animationDelay: '200ms' }}>
+              <h3 className="text-xl md:text-2xl font-semibold">✅ What is included in the tour</h3>
               <ul className="list-disc list-inside space-y-3">
                 <li>
-                  Transportation from Office to Office / to the starting point and from
-                  finishing point back to office.
+                  Transportation from Office to Office / to the starting point and from finishing point back to office.
                 </li>
                 <li>
-                  All rafting gear including imported life jackets, helmets, paddles, and
-                  wetsuits (during winter: Dec–March).
+                  All rafting gear including imported life jackets, helmets, paddles, and wetsuits (during winter: Dec–March).
                 </li>
               </ul>
-            </motion.div>
+            </div>
 
             {/* Not Included */}
-            <motion.div
-              initial={{ x: 50, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.3, duration: 0.7, ease: "easeOut" }}
-              viewport={{ once: true }}
-              className="text-left space-y-4"
-            >
-              <h3 className="text-xl md:text-2xl font-semibold">
-                ❌ What is NOT included in the tour
-              </h3>
+            <div className="text-left space-y-4 opacity-0 translate-x-10 animate-fadeRight" style={{ animationDelay: '300ms' }}>
+              <h3 className="text-xl md:text-2xl font-semibold">❌ What is NOT included in the tour</h3>
               <ul className="list-disc list-inside space-y-3">
-                <li>
-                  Rafting video (₹2000 per raft, shared among 8 people per raft).
-                </li>
-                <li>
-                  Personal expenses such as snacks, drinks, or souvenirs.
-                </li>
+                <li>Rafting video (₹2000 per raft, shared among 8 people per raft).</li>
+                <li>Personal expenses such as snacks, drinks, or souvenirs.</li>
               </ul>
-            </motion.div>
-          </div>
-        </motion.div>
-      </div>
+            </div>
 
+          </div>
+        </div>
+      </div>
       {/* 6th section  */}
       <div className="relative md:mt-15 min-h-screen flex items-center justify-center px-4 sm:px-8 md:px-16 lg:px-28 overflow-hidden text-black text-center">
-          {/* 🔁 Background Animation */}
-          <motion.div
-            initial={{ x: "-100%" }}
-            animate={{ x: "100%" }}
-            transition={{
-              repeat: Infinity,
-              duration: 10,
-              ease: "linear",
-            }}
-            className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-blue-100 to-transparent opacity-30 blur-xl"
-          />
+        {/* 🔁 Background Animation */}
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-blue-100 to-transparent opacity-30 blur-xl animate-slideBg"></div>
 
-          {/* 📌 Content */}
-          <div className="relative z-10 max-w-3xl w-full">
-            <motion.h2
-              initial={{ opacity: 0, scale: 0.5 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ type: "spring", stiffness: 100, damping: 10 }}
-              viewport={{ once: true }}
-              className="text-3xl md:text-4xl font-bold mb-10 tracking-tight"
-            >
-              Rafting Guidelines <br />
-              <span className="text-lg font-semibold">& Safety Notes</span>
-            </motion.h2>
+        {/* 📌 Content */}
+        <div className="relative z-10 max-w-3xl w-full">
+          <h2 className="text-3xl md:text-4xl font-bold mb-10 tracking-tight transform scale-50 opacity-0 animate-fadeIn scale-100">
+            Rafting Guidelines <br />
+            <span className="text-lg font-semibold">& Safety Notes</span>
+          </h2>
 
-            <div className="flex flex-col items-center gap-5">
-              {guidelines.map((item, index) => (
-                <motion.div
-                  key={index}
-                  custom={index}
-                  initial="hidden"
-                  whileInView="visible"
-                  variants={fadeUp}
-                  viewport={{ once: true }}
-                  className="bg-white/80 backdrop-blur-md px-6 py-3 rounded-xl shadow-md w-full max-w-xl"
-                >
-                  <p className="text-base sm:text-lg">
-                    <span className="font-semibold">{item.title}:</span> {item.text}
-                  </p>
-                </motion.div>
-              ))}
-            </div>
+          <div className="flex flex-col items-center gap-5">
+            {guidelines.map((item, index) => (
+              <div
+                key={index}
+                className="bg-white/80 backdrop-blur-md px-6 py-3 rounded-xl shadow-md w-full max-w-xl opacity-0 translate-y-5 animate-fadeUp"
+                style={{ animationDelay: `${index * 150}ms` }}
+              >
+                <p className="text-base sm:text-lg">
+                  <span className="font-semibold">{item.title}:</span> {item.text}
+                </p>
+              </div>
+            ))}
           </div>
+        </div>
       </div>
         
       <Form
