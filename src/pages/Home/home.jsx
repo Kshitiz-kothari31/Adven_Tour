@@ -154,7 +154,7 @@ const Home = () => {
                 key={item.label}
                 className="group w-full flex flex-col items-center transition-transform duration-500 hover:scale-105"
               >
-                <div className="relative rounded-xl overflow-hidden shadow-md w-full aspect-[5/4] bg-gray-100 transition-all duration-500 group-hover:shadow-xl">
+                <div className="relative rounded-xl overflow-hidden shadow-md w-full aspect-[4/3] bg-gray-100 transition-all duration-500 group-hover:shadow-xl">
                   <img
                     src={item.src}
                     alt={item.label}
@@ -162,14 +162,12 @@ const Home = () => {
                     loading="lazy"
                   />
                   <Link to={item.link}>
-                    <button
-                      className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-orange-300 text-black px-4 py-1 text-sm rounded-md shadow transition-transform duration-300 group-hover:scale-105 group-hover:bg-orange-400"
-                    >
+                    <button className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-orange-300 text-black px-5 py-2 text-sm rounded-md shadow transition-transform duration-300 group-hover:scale-105 group-hover:bg-orange-400">
                       More
                     </button>
                   </Link>
                 </div>
-                <p className="mt-2 text-base font-medium opacity-80">{item.label}</p>
+                <p className="mt-2 text-lg font-medium opacity-80">{item.label}</p>
               </div>
             ))}
           </div>
@@ -181,10 +179,11 @@ const Home = () => {
             Stays
           </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10 justify-center">
+          {/* ⬇ Made it like Packages (2 cols on mobile), increased card size */}
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10 justify-center">
             {/* Stay 1 */}
             <div className="group w-full flex flex-col items-center transition-transform duration-500 hover:scale-105">
-              <div className="relative rounded-xl overflow-hidden shadow-md w-full aspect-[5/4] bg-gray-100 transition-all duration-500 group-hover:shadow-xl">
+              <div className="relative rounded-xl overflow-hidden shadow-md w-full aspect-[4/3] bg-gray-100 transition-all duration-500 group-hover:shadow-xl">
                 <img
                   src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/home_page_stayCard.webp"
                   alt="Luxury Stay"
@@ -192,17 +191,17 @@ const Home = () => {
                   loading="lazy"
                 />
                 <Link to="/stays">
-                  <button className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-orange-300 text-black px-4 py-1 text-sm rounded-md shadow transition-transform duration-300 group-hover:scale-105 group-hover:bg-orange-400">
+                  <button className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-orange-300 text-black px-5 py-2 text-sm rounded-md shadow transition-transform duration-300 group-hover:scale-105 group-hover:bg-orange-400">
                     More
                   </button>
                 </Link>
               </div>
-              <p className="mt-2 text-base opacity-80">Luxury Stay</p>
+              <p className="mt-2 text-lg opacity-80">Luxury Stay</p>
             </div>
 
             {/* Stay 2 */}
             <div className="group w-full flex flex-col items-center transition-transform duration-500 hover:scale-105">
-              <div className="relative rounded-xl overflow-hidden shadow-md w-full aspect-[5/4] bg-gray-100 transition-all duration-500 group-hover:shadow-xl">
+              <div className="relative rounded-xl overflow-hidden shadow-md w-full aspect-[4/3] bg-gray-100 transition-all duration-500 group-hover:shadow-xl">
                 <img
                   src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/home_page_stayCard.webp"
                   alt="Riverside Cottage"
@@ -210,17 +209,17 @@ const Home = () => {
                   loading="lazy"
                 />
                 <Link to="/stays">
-                  <button className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-orange-300 text-black px-4 py-1 text-sm rounded-md shadow transition-transform duration-300 group-hover:scale-105 group-hover:bg-orange-400">
+                  <button className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-orange-300 text-black px-5 py-2 text-sm rounded-md shadow transition-transform duration-300 group-hover:scale-105 group-hover:bg-orange-400">
                     More
                   </button>
                 </Link>
               </div>
-              <p className="mt-2 text-base opacity-80">Riverside Cottage</p>
+              <p className="mt-2 text-lg opacity-80">Riverside Cottage</p>
             </div>
 
             {/* Stay 3 */}
             <div className="group w-full flex flex-col items-center transition-transform duration-500 hover:scale-105">
-              <div className="relative rounded-xl overflow-hidden shadow-md w-full aspect-[5/4] bg-gray-100 transition-all duration-500 group-hover:shadow-xl">
+              <div className="relative rounded-xl overflow-hidden shadow-md w-full aspect-[4/3] bg-gray-100 transition-all duration-500 group-hover:shadow-xl">
                 <img
                   src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/home_page_stayCard.webp"
                   alt="Adventure Camp"
@@ -228,16 +227,17 @@ const Home = () => {
                   loading="lazy"
                 />
                 <Link to="/stays">
-                  <button className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-orange-300 text-black px-4 py-1 text-sm rounded-md shadow transition-transform duration-300 group-hover:scale-105 group-hover:bg-orange-400">
+                  <button className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-orange-300 text-black px-5 py-2 text-sm rounded-md shadow transition-transform duration-300 group-hover:scale-105 group-hover:bg-orange-400">
                     More
                   </button>
                 </Link>
               </div>
-              <p className="mt-2 text-base opacity-80">Adventure Camp</p>
+              <p className="mt-2 text-lg opacity-80">Adventure Camp</p>
             </div>
           </div>
         </div>
       </div>
+
 
       {/* image slider */}
       <ImageSlider />
