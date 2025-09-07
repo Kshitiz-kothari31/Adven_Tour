@@ -143,20 +143,20 @@ const Gallery = () => {
         </div>
 
         {/* 🔽 Scroll Button Centered */}
-<div className="flex justify-center sm:mt-1 mt-12 relative z-50">
-  <button
-    onClick={(e) => {
-      e.preventDefault();
-      scrollToBottom?.(); // safe call
-    }}
-    className="relative z-50 bg-orange-300 text-white p-4 rounded-full text-2xl shadow-lg
-      transition-all duration-700
-      hover:bg-orange-500 hover:rotate-[360deg] hover:scale-150
-      hover:shadow-2xl"
-  >
-    ↓
-  </button>
-</div>
+        <div className="flex justify-center sm:mt-1 mt-12 relative z-50">
+        <button
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToBottom?.(); // safe call
+          }}
+          className="relative z-50 bg-orange-300 text-white p-4 rounded-full text-2xl shadow-lg
+            transition-all duration-700
+            hover:bg-orange-500 hover:rotate-[360deg] hover:scale-150
+            hover:shadow-2xl"
+        >
+          ↓
+        </button>
+        </div>
 
 
         {/* 📍 Scroll Target (bottom) */}

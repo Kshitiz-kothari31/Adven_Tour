@@ -4,7 +4,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import images from "../../const";
 
-// ✅ Image component (natural aspect ratio, no gaps)
+// ✅ Image component (fills container, no gaps)
 const GalleryImage = memo(({ src, onClick }) => (
   <div
     className="break-inside-avoid mb-4 cursor-pointer rounded-2xl overflow-hidden shadow-md"
@@ -14,7 +14,7 @@ const GalleryImage = memo(({ src, onClick }) => (
       src={`${src}?w=600&q=70`}
       alt="Gallery"
       effect="blur"
-      className="w-full h-auto object-cover transition-transform duration-200 hover:scale-105"
+      className="w-full h-full object-cover transition-transform duration-200   scale-110 hover:scale-130"
     />
   </div>
 ));
@@ -44,7 +44,6 @@ const GallerySection = () => {
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
             className="inline-flex items-center px-6 py-2 bg-gradient-to-r from-purple-700 to-blue-700 text-white rounded-full text-sm md:text-base font-semibold shadow-xl transition-all duration-300 cursor-pointer"
           >
-            {/* Show current category */}
             {selectedCategory === "all" && "🌟 All"}
             {selectedCategory === "rafting" && "🚣‍♂️ Rafting"}
             {selectedCategory === "stays" && "🏕️ Stays"}
@@ -94,31 +93,35 @@ const GallerySection = () => {
         ))}
       </div>
 
-      {/* Fullscreen Modal */}
-      {selectedImage && (
-        <div
-          className="fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm z-50 flex items-center justify-center"
-          onClick={() => setSelectedImage(null)}
-        >
-          <div
-            className="relative max-w-4xl w-full mx-4"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              className="absolute top-3 right-3 text-white text-2xl font-bold bg-black bg-opacity-40 rounded-full px-3 py-1 hover:bg-opacity-60 transition"
-              onClick={() => setSelectedImage(null)}
-            >
-              ×
-            </button>
-            <img
-              src={`${selectedImage}?w=1200&q=80`}
-              alt="Full View"
-              className="w-full max-h-[80vh] object-contain rounded-xl shadow-lg"
-              loading="lazy"
-            />
-          </div>
-        </div>
-      )}
+{/* Fullscreen Modal */}
+{selectedImage && (
+  <div
+    className="fixed inset-0 bg-black bg-opacity-70 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+    onClick={() => setSelectedImage(null)}
+  >
+    <div
+      className="relative w-full max-w-4xl flex items-center justify-center"
+      onClick={(e) => e.stopPropagation()}
+    >
+      {/* Cross button slightly down from top */}
+      <button
+        className="absolute top-10 right-6 text-white text-2xl font-bold bg-black bg-opacity-40 rounded-full px-3 py-1 hover:bg-opacity-60 transition z-50"
+        onClick={() => setSelectedImage(null)}
+      >
+        ×
+      </button>
+      <img
+        src={`${selectedImage}?w=1200&q=80`}
+        alt="Full View"
+        className="max-h-[90vh] max-w-full object-contain rounded-xl shadow-lg"
+        loading="lazy"
+      />
+    </div>
+  </div>
+)}
+
+
+
     </section>
   );
 };

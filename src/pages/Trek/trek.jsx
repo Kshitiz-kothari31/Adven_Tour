@@ -330,13 +330,13 @@ const treks = [
                 <p className="opacity-0 translate-y-5 font-bold text-gray-900 text-sm sm:text-base animate-fade-up-delay3">
                   Cost : {trek.cost}
                 </p>
-                <div className="w-fit">
-                  <Link
-                    to={trek.link}
-                    className="mt-2 inline-block px-5 py-2 text-sm sm:text-base bg-teal-800 text-white rounded-full hover:bg-teal-700 transition-all duration-300 shadow-md hover:scale-105 active:scale-95"
-                  >
-                    More Details
-                  </Link>
+                <div className="w-fit mt-2">
+                <Link
+                  to={trek.link}
+                  className="mt-2 inline-block px-2 py-1 text-xs sm:text-sm bg-teal-800 text-white rounded-full hover:bg-teal-700 transition-all duration-300 shadow-md hover:scale-105 active:scale-95"
+                >
+                  More Details
+                </Link>
                 </div>
               </div>
             </div>

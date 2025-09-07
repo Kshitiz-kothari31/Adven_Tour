@@ -24,25 +24,25 @@ const marqueeItems = [
 const videos = [
   {
     id: 1,
-    src: "https://www.youtube.com/embed/sjmNmWuYXqQ?autoplay=1&mute=1&loop=1&playlist=sjmNmWuYXqQ&modestbranding=1&rel=0&showinfo=0&controls=0",
+    src: "https://www.youtube.com/embed/sjmNmWuYXqQ?controls=1&autoplay=0&modestbranding=1&rel=0",
     title: "Jump into the Abyss",
     subtitle: "83 meters of pure adrenaline",
   },
   {
     id: 2,
-    src: "https://www.youtube.com/embed/sjmNmWuYXqQ?autoplay=1&mute=1&loop=1&playlist=sjmNmWuYXqQ&modestbranding=1&rel=0&showinfo=0&controls=0",
+    src: "https://www.youtube.com/embed/sjmNmWuYXqQ?controls=1&autoplay=0&modestbranding=1&rel=0",
     title: "Scream Worthy Heights",
     subtitle: "India's highest bungee spot",
   },
   {
     id: 3,
-    src: "https://www.youtube.com/embed/xI-IQ7EpLgE?autoplay=1&mute=1&loop=1&playlist=xI-IQ7EpLgE&modestbranding=1&rel=0&showinfo=0&controls=0",
+    src: "https://www.youtube.com/embed/xI-IQ7EpLgE?controls=1&autoplay=0&modestbranding=1&rel=0",
     title: "Fear Meets Freedom",
     subtitle: "Conquer your limits",
   },
   {
     id: 4,
-    src: "https://www.youtube.com/embed/sjmNmWuYXqQ?autoplay=1&mute=1&loop=1&playlist=sjmNmWuYXqQ&modestbranding=1&rel=0&showinfo=0&controls=0",
+    src: "https://www.youtube.com/embed/sjmNmWuYXqQ?controls=1&autoplay=0&modestbranding=1&rel=0",
     title: "Adrenaline Overload",
     subtitle: "One leap, lifetime memory",
   },
@@ -232,53 +232,43 @@ function BungeeJumping() {
       </section>
 
       {/* Videos Section */}
-<section className="relative josefin-sans md:mt-10 py-12 px-4 sm:px-6 md:px-10 lg:px-20 animate-fadeInUp">
-  <div className="relative z-10 max-w-6xl mx-auto text-center space-y-10">
-    {/* Heading */}
-    <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-black animate-fadeIn">
-      🪂 Rishikesh <span className="text-orange-500">Bungee Jumping</span>
-    </h2>
+      <section className="relative josefin-sans md:mt-10 py-12 px-4 sm:px-6 md:px-10 lg:px-20 animate-fadeInUp">
+        <div className="relative z-10 max-w-6xl mx-auto text-center space-y-10">
+          {/* Heading */}
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-black animate-fadeIn">
+            🪂 Rishikesh <span className="text-orange-500">Bungee Jumping</span>
+          </h2>
 
-    {/* Shorts Grid */}
-    <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 animate-fadeIn delay-200">
-      {videos.map((video) => (
-        <div
-          key={video.id}
-          className="relative overflow-hidden rounded-2xl shadow-lg bg-black hover:shadow-orange-400/40 transition-all duration-300 hover:scale-[1.03]"
-        >
-          {/* Video */}
-          <div className="aspect-[9/16] w-full">
-            <iframe
-              src={video.src}
-              title={video.title}
-              frameBorder="0"
-              allow="autoplay; encrypted-media; picture-in-picture"
-              allowFullScreen
-              className="w-full h-full rounded-2xl"
-              loading="lazy"
-            ></iframe>
+          {/* Video Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 animate-fadeIn delay-200">
+            {videos.map((video) => (
+              <div
+                key={video.id}
+                className="relative overflow-hidden rounded-2xl shadow-lg bg-black hover:shadow-orange-400/40 transition-all duration-300 hover:scale-[1.03]"
+              >
+                {/* Video */}
+                <div className="aspect-[9/16] w-full">
+                  <iframe
+                    src={video.src}
+                    title={video.title}
+                    frameBorder="0"
+                    allow="encrypted-media; picture-in-picture"
+                    allowFullScreen
+                    className="w-full h-full rounded-2xl"
+                    loading="lazy"
+                  ></iframe>
+                </div>
+              </div>
+            ))}
           </div>
 
-          {/* Hover Overlay */}
-          <div className="absolute inset-0 bg-black/40 opacity-0 hover:opacity-100 transition duration-500 flex flex-col justify-end p-4">
-            <h3 className="text-lg font-semibold text-white drop-shadow-md">
-              {video.title}
-            </h3>
-            <p className="text-sm text-gray-300">{video.subtitle}</p>
-          </div>
+          {/* Footer Text */}
+          <p className="text-sm sm:text-base max-w-2xl mx-auto text-gray-700 font-josefin leading-relaxed px-2 animate-fadeIn delay-500">
+            These real clips showcase our adventure experiences – live from Rishikesh's whitewater.
+          </p>
         </div>
-      ))}
-    </div>
-
-    {/* Footer Text */}
-    <p className="text-sm sm:text-base max-w-2xl mx-auto text-gray-700 leading-relaxed px-2 animate-fadeIn delay-500">
-      These real clips showcase our adventure experiences – live from Rishikesh's whitewater.
-    </p>
-  </div>
-</section>
-
-
-
+      </section>
+      
       <Feedback />
 
       <Form

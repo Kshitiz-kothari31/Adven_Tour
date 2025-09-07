@@ -71,7 +71,7 @@ export default function GuidesSection() {
 
       {/* Text with light overlay for readability */}
       <p className="relative max-w-3xl mx-auto text-black leading-relaxed mb-6 px-4">
-        <span className="absolute inset-0 bg-white/70 rounded-lg -z-10"></span>
+        <span className="absolute inset-0 bg-transparent rounded-lg -z-10"></span>
         Our expert guides are the heart of every journey we offer—passionate
         storytellers, seasoned explorers, and friendly companions rolled into one.
         With deep local knowledge and a genuine love for discovery, they turn every
