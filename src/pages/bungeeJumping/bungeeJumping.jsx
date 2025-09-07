@@ -24,25 +24,25 @@ const marqueeItems = [
 const videos = [
   {
     id: 1,
-    src: "https://www.youtube.com/embed/sjmNmWuYXqQ?controls=1&autoplay=0&modestbranding=1&rel=0",
+    src: "https://www.youtube.com/embed/2BY0nQNL9-Y?autoplay=0&mute=1&modestbranding=1&rel=0&controls=0",
     title: "Jump into the Abyss",
     subtitle: "83 meters of pure adrenaline",
   },
   {
     id: 2,
-    src: "https://www.youtube.com/embed/sjmNmWuYXqQ?controls=1&autoplay=0&modestbranding=1&rel=0",
+    src: "https://www.youtube.com/embed/L3yRmPJ9YGw?autoplay=0&mute=1&modestbranding=1&rel=0&controls=0",
     title: "Scream Worthy Heights",
     subtitle: "India's highest bungee spot",
   },
   {
     id: 3,
-    src: "https://www.youtube.com/embed/xI-IQ7EpLgE?controls=1&autoplay=0&modestbranding=1&rel=0",
+    src: "https://www.youtube.com/embed/OsEk0y4a2XU?autoplay=0&mute=1&modestbranding=1&rel=0&controls=0",
     title: "Fear Meets Freedom",
     subtitle: "Conquer your limits",
   },
   {
     id: 4,
-    src: "https://www.youtube.com/embed/sjmNmWuYXqQ?controls=1&autoplay=0&modestbranding=1&rel=0",
+    src: "https://www.youtube.com/embed/6uQJcoRGa48?autoplay=0&mute=1&modestbranding=1&rel=0&controls=0",
     title: "Adrenaline Overload",
     subtitle: "One leap, lifetime memory",
   },
