@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import './trek.css'
 import { useEffect, useState  , useRef} from "react";
 import Form from "../../components/form/Form";
@@ -27,19 +26,6 @@ const TrekkingPathBackground = () => {
     <div 
       className="fixed inset-0 z-0 pointer-events-none overflow-hidden animate-[fade-in_2s_forwards]"
     >
-      {/* Vintage background grid */}
-      <div 
-        className="absolute inset-0 opacity-15"
-        style={{
-          backgroundImage: `
-            linear-gradient(#e0d8c0 0.5px, transparent 0.5px),
-            linear-gradient(90deg, #e0d8c0 0.5px, transparent 0.5px),
-            radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.03) 100%)
-          `,
-          backgroundSize: "25px 25px, 25px 25px, 100% 100%"
-        }}
-      />
-
       {/* Map SVG */}
       <svg
         width="100%"
@@ -265,38 +251,50 @@ const treks = [
       <div className="relative z-10">
         <TrekkingPathBackground />
         
-        <section id="trek-section" className="relative text-center pt-24 pb-16 px-4 sm:px-8 md:px-16 lg:px-24 josefin-sans bg-transparent overflow-hidden">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 0.25 }}
-            transition={{ duration: 1.5, ease: "easeOut" }}
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-teal-200/30 rounded-full blur-[140px] z-0"
-          />
+        <section
+          id="trek-section"
+          className="relative text-center pt-24 pb-16 px-4 sm:px-8 md:px-16 lg:px-24 josefin-sans bg-transparent overflow-hidden"
+        >
+          {/* 🔵 Background Blur Circle */}
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-teal-200/30 rounded-full blur-[140px] z-0 opacity-0 animate-fadeInSlow" />
 
-          <motion.h2
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.1 }}
-            viewport={{ once: true }}
-            className="relative z-10 text-3xl sm:text-4xl md:text-5xl josefin-sans font-bold text-teal-800 mb-6"
-          >
+          {/* 🏔️ Heading */}
+          <h2 className="relative z-10 text-3xl sm:text-4xl md:text-5xl josefin-sans font-bold text-teal-800 mb-6 opacity-0 animate-slideUp">
             Choose Your Adventure
-          </motion.h2>
+          </h2>
 
-          <motion.p
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="relative z-10 text-gray-700 max-w-3xl mx-auto text-base sm:text-lg leading-relaxed"
-          >
+          {/* 📝 Paragraph */}
+          <p className="relative z-10 text-gray-700 max-w-3xl mx-auto text-base sm:text-lg leading-relaxed opacity-0 animate-slideUp delay-200">
             We offer treks for all experience levels, from gentle valley walks to challenging
             high-altitude expeditions. Each journey is carefully crafted to provide an
             unforgettable Himalayan experience.
-          </motion.p>
+          </p>
+
+          {/* 🔁 Tailwind Keyframes */}
+          <style>
+            {`
+              @keyframes fadeInSlow {
+                0% { opacity: 0; }
+                100% { opacity: 0.25; }
+              }
+              @keyframes slideUp {
+                0% { opacity: 0; transform: translateY(40px); }
+                100% { opacity: 1; transform: translateY(0); }
+              }
+              .animate-fadeInSlow {
+                animation: fadeInSlow 1.5s ease-out forwards;
+              }
+              .animate-slideUp {
+                animation: slideUp 1s ease-out forwards;
+              }
+              .delay-200 {
+                animation-delay: 0.2s;
+              }
+            `}
+          </style>
         </section>
 
-        <section className="space-y-16 px-4 sm:px-10 md:px-16 lg:px-20 xl:px-28 py-20 bg-transparent">
+        <section className="space-y-16 px-4 sm:px-10 md:px-16 lg:px-20 xl:px-28 py-20 -mt-15 bg-transparent">
           {treks.map((trek, i) => (
             <div
               key={i}

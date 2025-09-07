@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
 import { useRef, useState , useEffect } from "react";
 import './Rafting.css'
-import Feedback from '../../components/Feedback';
+import GuidesSection from "../Trek/guide";
 import Form from '../../components/form/Form'
 import Expe from './Expe'
 import AdventureAltHero from './hero'
-import { motion } from "framer-motion";
 import FAQSection from './faq'
 
 const marqueeItems = [
@@ -47,7 +46,7 @@ const RiverRaftingBackground = () => {
     <div className="river-bg">
       {/* Gradient Water Background */}
       <div
-        className="river-gradient"
+        className="river-gradient opacity-25"
         style={{
           backgroundImage: `
             radial-gradient(circle at 20% 30%, ${riverColors.secondary} 0%, transparent 15%),
@@ -215,7 +214,7 @@ const RiverRaftingBackground = () => {
   );
 };
 const Rafting = () => {
-    const sectionRef = useRef(null);
+  const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -315,184 +314,289 @@ const Rafting = () => {
 
         <div id="next-section" className="mt-20" />
       </div>
-
-
+      
       <Expe/>
 
-      <div className=" josefin-sans md:mt-12 overflow-hidden mt-9 py-3">
-        <motion.div
-          className="flex whitespace-nowrap text-black font-medium text-3xl gap-12 px-6"
-          animate={{ x: ['100%', '-100%'] }}
-          transition={{ repeat: Infinity, ease: 'linear', duration: 25 }}
-        >
+      <div className="josefin-sans md:mt-12 overflow-hidden mt-9 py-3">
+        {/* Marquee */}
+        <div className="flex whitespace-nowrap text-black font-medium text-3xl gap-12 px-6 animate-marquee">
           {Array(3)
             .fill(marqueeItems)
             .flat()
             .map((text, i) => (
-              <span key={i}>
-                ✦ {text}
-              </span>
+              <span key={i}>✦ {text}</span>
             ))}
-        </motion.div>
+        </div>
       </div>
-      <div className="mt-15 px-4 py-16 md:px-20">
-        <motion.h2
-          className="text-3xl md:text-7xl jolly-font font-bold text-center mb-12 josefin-sans"
-          initial={{ opacity: 0, y: -30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          Rafting Plans
-        </motion.h2>
 
-        <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
-          initial="hidden"
-          whileInView="show"
-          transition={{ staggerChildren: 0.2 }}
-          viewport={{ once: true }}
-        >
-          <motion.div
-            className="bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col snap-start h-[400px] sm:h-[440px] md:h-[480px] group transition-transform hover:scale-[1.03] hover:-translate-y-1"
-            initial={{ opacity: 0, y: 100 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, type: "spring" }}
-          >
-            <div className="relative h-[48%] overflow-hidden group">
+      <div className="mt-15 px-4 py-10 md:px-20">
+        {/* Heading */}
+        <h2 className="text-5xl md:text-7xl  font-bold text- mb-1 josefin-sans opacity-0 translate-y-[-30px] animate-fadeInUp ">
+          Rafting Plans
+        </h2>
+
+        {/* Cards Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 -mt-15">
+
+          {/* Card 1 */}
+          <div className="bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col snap-start h-[300px] sm:h-[400px] md:h-[450px] group 
+                          transition-transform duration-500 hover:scale-105 
+                          opacity-0 translate-y-[80px] animate-fadeInCard delay-[200ms]">
+            <div className="relative h-[48%] overflow-hidden">
               <img
                 src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/card1.webp"
                 alt="Marine drive to shivpuri"
-                className="w-full h-full object-cover transform transition-all duration-500 group-hover:scale-105 group-hover:brightness-90 will-change-transform"
-                style={{ transform: 'translateZ(0)' }}
+                className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110 group-hover:brightness-95"
               />
               <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white/95 via-white/60 to-transparent pointer-events-none" />
             </div>
             <div className="p-4 flex flex-col flex-1 justify-between">
               <div>
                 <h3 className="text-lg font-semibold mb-1">Marine drive to shivpuri</h3>
-                <p className="text-sm text-gray-600 mb-3">Text ever since the 1500s, when an unknown printer took a galley of type and scrambled</p>
+                <p className="text-sm text-gray-600 mb-3">Scenic rafting route perfect for adventure seekers.</p>
                 <div className="mb-2">
                   <span className="inline-block bg-black text-white text-xs px-3 py-1 rounded-full">Dist 16 km</span>
                 </div>
               </div>
               <div className="mt-2 flex items-center justify-between">
                 <p className="text-sm font-bold">Cost : ₹599</p>
-                <Link
-                  to="/rafting/shivpuri"
-                  className="text-sm px-3 py-1 rounded-full bg-blue-500 text-white hover:bg-blue-600 hover:scale-110 transition-transform duration-300"
-                >
-                  more
-                </Link>
+                  <Link
+                    to="/rafting/shivpuri"
+                    className="flex items-center justify-center text-sm px-3 py-1 rounded-full bg-blue-500 text-white hover:bg-blue-600 hover:scale-105 transition-transform duration-300"
+                  >
+                    more
+                  </Link>
+
               </div>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            className="bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col snap-start h-[400px] sm:h-[440px] md:h-[480px] group transition-transform hover:scale-[1.03] hover:-translate-y-1"
-            initial={{ opacity: 0, y: 100 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.0, type: "spring" }}
-          >
-            <div className="relative h-[48%] overflow-hidden group">
+          {/* Card 2 */}
+          <div className="bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col snap-start h-[300px] sm:h-[400px] md:h-[450px] group 
+                          transition-transform duration-500 hover:scale-105 
+                          opacity-0 translate-y-[80px] animate-fadeInCard delay-[400ms]">
+            <div className="relative h-[48%] overflow-hidden">
               <img
                 src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/card2.webp"
                 alt="Shivpuri to Nim Beach"
-                className="w-full h-full object-cover transform transition-all duration-500 group-hover:scale-105 group-hover:brightness-90 will-change-transform"
-                style={{ transform: 'translateZ(0)' }}
+                className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110 group-hover:brightness-95"
               />
               <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white/95 via-white/60 to-transparent pointer-events-none" />
             </div>
             <div className="p-4 flex flex-col flex-1 justify-between">
               <div>
                 <h3 className="text-lg font-semibold mb-1">Shivpuri To Nim Beach</h3>
-                <p className="text-sm text-gray-600 mb-3">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                <p className="text-sm text-gray-600 mb-3">One of the most popular rafting stretches in Rishikesh.</p>
                 <div className="mb-2">
                   <span className="inline-block bg-black text-white text-xs px-3 py-1 rounded-full">Dist 16 km</span>
                 </div>
               </div>
               <div className="mt-2 flex items-center justify-between">
                 <p className="text-sm font-bold">Cost : ₹700</p>
-                <Link
-                  to="/rafting/nim"
-                  className="text-sm px-3 py-1 rounded-full bg-blue-500 text-white hover:bg-blue-600 hover:scale-110 transition-transform duration-300"
-                >
-                  more
-                </Link>
+                <Link to="/rafting/nim" className="text-sm px-3 py-1 rounded-full bg-blue-500 text-white hover:bg-blue-600 hover:scale-105 transition-transform duration-300">more</Link>
               </div>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            className="bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col snap-start h-[400px] sm:h-[440px] md:h-[480px] group transition-transform hover:scale-[1.03] hover:-translate-y-1"
-            initial={{ opacity: 0, y: 100 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, type: "spring" }}
-          >
-            <div className="relative h-[48%] overflow-hidden group">
+          {/* Card 3 */}
+          <div className="bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col snap-start h-[300px] sm:h-[400px] md:h-[450px] group 
+                          transition-transform duration-500 hover:scale-105 
+                          opacity-0 translate-y-[80px] animate-fadeInCard delay-[600ms]">
+            <div className="relative h-[48%] overflow-hidden">
               <img
                 src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/card3.webp"
                 alt="Marine Drive to Shivpuri"
-                className="w-full h-full object-cover transform transition-all duration-500 group-hover:scale-105 group-hover:brightness-90 will-change-transform"
-                style={{ transform: 'translateZ(0)' }}
+                className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110 group-hover:brightness-95"
               />
               <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white/95 via-white/60 to-transparent pointer-events-none" />
             </div>
             <div className="p-4 flex flex-col flex-1 justify-between">
               <div>
                 <h3 className="text-lg font-semibold mb-1">Marine Drive to Shivpuri</h3>
-                <p className="text-sm text-gray-600 mb-3">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                <p className="text-sm text-gray-600 mb-3">Longer stretch with thrilling rapids and scenic views.</p>
                 <div className="mb-2">
                   <span className="inline-block bg-black text-white text-xs px-3 py-1 rounded-full">Dist 24 km</span>
                 </div>
               </div>
               <div className="mt-2 flex items-center justify-between">
                 <p className="text-sm font-bold">Cost : ₹1200</p>
-                <Link
-                  to="/Rafting/marine"
-                  className="text-sm px-3 py-1 rounded-full bg-blue-500 text-white hover:bg-blue-600 hover:scale-110 transition-transform duration-300"
-                >
-                  more
-                </Link>
+                <Link to="/rafting/marine" className="text-sm px-3 py-1 rounded-full bg-blue-500 text-white hover:bg-blue-600 hover:scale-105 transition-transform duration-300">more</Link>
               </div>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            className="bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col snap-start h-[400px] sm:h-[440px] md:h-[480px] group transition-transform hover:scale-[1.03] hover:-translate-y-1"
-            initial={{ opacity: 0, y: 100 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.4, type: "spring" }}
-          >
-            <div className="relative h-[48%] overflow-hidden group">
+          {/* Card 4 */}
+          <div className="bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col snap-start h-[300px] sm:h-[400px] md:h-[450px] group 
+                          transition-transform duration-500 hover:scale-105 
+                          opacity-0 translate-y-[80px] animate-fadeInCard delay-[800ms]">
+            <div className="relative h-[48%] overflow-hidden">
               <img
                 src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/card4.webp"
                 alt="Kaudiala to Nim Beach"
-                className="w-full h-full object-cover transform transition-all duration-500 group-hover:scale-105 group-hover:brightness-90 will-change-transform"
-                style={{ transform: 'translateZ(0)' }}
+                className="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110 group-hover:brightness-95"
               />
               <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white/95 via-white/60 to-transparent pointer-events-none" />
             </div>
             <div className="p-4 flex flex-col flex-1 justify-between">
               <div>
                 <h3 className="text-lg font-semibold mb-1">Kaudiala To Nim Beach</h3>
-                <p className="text-sm text-gray-600 mb-3">Text ever since the 1500s, when an unknown printer took a galley of type and scrambled</p>
+                <p className="text-sm text-gray-600 mb-3">The longest rafting stretch with extreme adventure thrills.</p>
                 <div className="mb-2">
                   <span className="inline-block bg-black text-white text-xs px-3 py-1 rounded-full">Dist 36 km</span>
                 </div>
               </div>
               <div className="mt-2 flex items-center justify-between">
                 <p className="text-sm font-bold">Cost : ₹2400</p>
-                <Link
-                  to="/Rafting/kodilyla"
-                  className="text-sm px-3 py-1 rounded-full bg-blue-500 text-white hover:bg-blue-600 hover:scale-110 transition-transform duration-300"
-                >
-                  more
-                </Link>
+                <Link to="/rafting/kodilyla" className="text-sm px-3 py-1 rounded-full bg-blue-500 text-white hover:bg-blue-600 hover:scale-105 transition-transform duration-300">more</Link>
               </div>
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+
+        </div>
       </div>
+
+        {/* Tailwind + Custom CSS Animations */}
+        <style>
+        {`
+          @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+          }
+          .animate-marquee {
+            animation: marquee 25s linear infinite;
+          }
+
+          @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+          .animate-fadeInUp {
+            animation: fadeInUp 0.6s ease-out forwards;
+          }
+
+          @keyframes fadeInCard {
+            from { opacity: 0; transform: translateY(80px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+          .animate-fadeInCard {
+            animation: fadeInCard 0.8s ease-out forwards;
+          }
+        `}
+        </style>
+
+        <div className="relative josefin-sans mt-12 px-4 md:px-20 py-12 bg-[url('https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/bg.webp')] bg-cover bg-center bg-fixed">
+          {/* Heading */}
+          <h2 className="relative z-10 text-3xl md:text-6xl josefin-sans font-bold text-left mb-12 text-black drop-shadow-lg">
+            Rafting Expenditure
+          </h2>
+
+          {/* 3 Cards */}
+          <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            {/* Card 1 */}
+            <div className="bg-white rounded-3xl shadow-2xl flex flex-col h-[400px] group hover:scale-[1.01] transition-transform duration-300">
+              <div className="relative h-[45%] overflow-hidden rounded-t-3xl">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/card1.webp"
+                  alt="Marine drive to Shivpuri"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
+                />
+                <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white/95 to-transparent" />
+              </div>
+              <div className="p-6 flex flex-col flex-1 justify-between">
+                <div>
+                  <h3 className="text-lg font-semibold mb-1">Marine Drive to Shivpuri</h3>
+                  <p className="text-sm text-gray-600 mb-3">
+                    Scenic rafting route perfect for adventure seekers.
+                  </p>
+                  <span className="inline-block bg-black text-white text-xs px-3 py-1 rounded-full">
+                    Dist 16 km
+                  </span>
+                </div>
+                <div className="mt-3 flex items-center justify-between">
+                  <p className="text-sm font-bold">Cost : ₹599</p>
+                  <a
+                    href="https://wa.me/917078287331?text=Hello, I want to book Marine Drive to Shivpuri rafting trip."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm px-4 py-2 rounded-full bg-green-500 text-white hover:bg-green-600 transition"
+                  >
+                    Book Now
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 2 */}
+            <div className="bg-white rounded-3xl shadow-2xl flex flex-col h-[400px] group hover:scale-[1.01] transition-transform duration-300">
+              <div className="relative h-[45%] overflow-hidden rounded-t-3xl">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/card2.webp"
+                  alt="Shivpuri to Nim Beach"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
+                />
+                <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white/95 to-transparent" />
+              </div>
+              <div className="p-6 flex flex-col flex-1 justify-between">
+                <div>
+                  <h3 className="text-lg font-semibold mb-1">Shivpuri To Nim Beach</h3>
+                  <p className="text-sm text-gray-600 mb-3">
+                    One of the most popular rafting stretches in Rishikesh.
+                  </p>
+                  <span className="inline-block bg-black text-white text-xs px-3 py-1 rounded-full">
+                    Dist 16 km
+                  </span>
+                </div>
+                <div className="mt-3 flex items-center justify-between">
+                  <p className="text-sm font-bold">Cost : ₹700</p>
+                  <a
+                    href="https://wa.me/917078287331?text=Hello, I want to book Shivpuri to Nim Beach rafting trip."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm px-4 py-2 rounded-full bg-green-500 text-white hover:bg-green-600 transition"
+                  >
+                    Book Now
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 3 */}
+            <div className="bg-white rounded-3xl shadow-2xl flex flex-col h-[400px] group hover:scale-[1.01] transition-transform duration-300">
+              <div className="relative h-[45%] overflow-hidden rounded-t-3xl">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/card3.webp"
+                  alt="Marine Drive to Shivpuri"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
+                />
+                <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white/95 to-transparent" />
+              </div>
+              <div className="p-6 flex flex-col flex-1 justify-between">
+                <div>
+                  <h3 className="text-lg font-semibold mb-1">Marine Drive to Shivpuri</h3>
+                  <p className="text-sm text-gray-600 mb-3">
+                    Longer stretch with thrilling rapids and scenic views.
+                  </p>
+                  <span className="inline-block bg-black text-white text-xs px-3 py-1 rounded-full">
+                    Dist 24 km
+                  </span>
+                </div>
+                <div className="mt-3 flex items-center justify-between">
+                  <p className="text-sm font-bold">Cost : ₹1200</p>
+                  <a
+                    href="https://wa.me/917078287331?text=Hello, I want to book Marine Drive to Shivpuri (24 km) rafting trip."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm px-4 py-2 rounded-full bg-green-500 text-white hover:bg-green-600 transition"
+                  >
+                    Book Now
+                  </a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
 
       <div className="py-16 sm:mt-20 px-4 md:px-2 mt-4">
       <h2 className="jolly-font text-3xl md:text-4xl font-bold text-center mb-12 josefin-sans">
@@ -546,7 +650,7 @@ const Rafting = () => {
         })}
       </div>
       </div>    
-      <Feedback/>
+      <GuidesSection/>
       
       <FAQSection />
 

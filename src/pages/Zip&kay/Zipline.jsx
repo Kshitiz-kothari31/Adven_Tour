@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import  { useRef, useEffect} from 'react';
 import Form from '../.././components/form/Form'
 import './Zipline.css'

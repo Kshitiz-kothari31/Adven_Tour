@@ -1,13 +1,7 @@
-import React, { useState ,useEffect , } from "react";
-import { motion } from "framer-motion";
-import { MapPin } from "lucide-react";
-import { Calendar } from "lucide-react";
-import { Clock } from "lucide-react";
-import { Users } from "lucide-react";
-import { Camera } from "lucide-react";
-import { useParams } from "react-router-dom";
-import { useNavigate , useLocation } from "react-router-dom";
-import { ChevronDown, Mountain } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { MapPin, Calendar, Clock, Users, Camera, ChevronDown, Mountain } from "lucide-react";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
+import './trek.css'
 
 // --- Data (trek details) ---
 export const trekData = {
@@ -432,7 +426,6 @@ export const trekData = {
   },
 };
 
-
 // --- Trek Selector (dropdown) ---
 const TrekSelector = ({ currentTrek, onTrekChange }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -446,9 +439,10 @@ const TrekSelector = ({ currentTrek, onTrekChange }) => {
     { id: "kedarKatha", name: "Kedar Katha Trek", category: "Winter Wonderland", path: "/trek/kedarKatha" },
     { id: "tungNathTrek", name: "Tung Nath Trek", category: "Highest Shiva Temple", path: "/trek/tungnath" },
   ];
+  
   useEffect(() => {
     // whenever URL changes, update currentTrek in parent
-    const pageTrekId = location.pathname.split("/").pop(); // get last part of URL
+    const pageTrekId = location.pathname.split("/").pop();
     const match = trekOptions.find(trek => trek.path.includes(pageTrekId));
     if (match && match.id !== currentTrek) {
       onTrekChange(match.id);
@@ -460,16 +454,15 @@ const TrekSelector = ({ currentTrek, onTrekChange }) => {
     navigate(trek.path);
     setIsOpen(false);
   };
-const currentTrekInfo = trekOptions.find(trek => trek.id === currentTrek);
+  
+  const currentTrekInfo = trekOptions.find(trek => trek.id === currentTrek);
 
   return (
-    <div className="fixed top-20  left-6 z-50">
+    <div className="fixed top-20 left-6 z-50">
       <div className="relative">
-        <motion.button
+        <button
           onClick={() => setIsOpen(!isOpen)}
-          className="flex items-center cursor-pointer gap-3 bg-white/90 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg border border-white/20 hover:bg-white transition-all duration-300"
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
+          className="flex items-center cursor-pointer gap-3 bg-white/90 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg border border-white/20 hover:bg-white transition-all duration-300 hover:scale-102 active:scale-98"
         >
           <Mountain className="h-5 w-5 text-green-600" />
           <div className="text-left">
@@ -477,34 +470,23 @@ const currentTrekInfo = trekOptions.find(trek => trek.id === currentTrek);
             <div className="text-xs text-gray-500">{currentTrekInfo?.category}</div>
           </div>
           <ChevronDown className={`h-4 w-4 text-gray-600 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
-        </motion.button>
+        </button>
 
         {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -10, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -10, scale: 0.95 }}
-            className="absolute top-full mt-2 left-0 bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden min-w-80"
-          >
-          {trekOptions.map((trek) => (
-            <motion.button
-              key={trek.id}
-              onClick={() => {
-                onTrekChange(trek.id);
-                navigate(trek.path);   // 👈 this line ensures full page redirect
-                setIsOpen(false);
-              }}
-              className={`w-full text-left px-6 py-4 hover:bg-gray-50 transition-colors duration-200 border-b border-gray-100 last:border-b-0 ${
-                trek.id === currentTrek ? 'bg-green-50 border-green-100' : ''
-              }`}
-              whileHover={{ x: 4 }}
-            >
-              <div className="font-semibold text-gray-900">{trek.name}</div>
-              <div className="text-sm text-gray-500">{trek.category}</div>
-            </motion.button>
-          ))}
-
-          </motion.div>
+          <div className="absolute top-full mt-2 left-0 bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden min-w-80 animate-fade-in">
+            {trekOptions.map((trek) => (
+              <button
+                key={trek.id}
+                onClick={() => handleSelect(trek)}
+                className={`w-full text-left px-6 py-4 hover:bg-gray-50 transition-all duration-200 border-b border-gray-100 last:border-b-0 hover:translate-x-1 ${
+                  trek.id === currentTrek ? 'bg-green-50 border-green-100' : ''
+                }`}
+              >
+                <div className="font-semibold text-gray-900">{trek.name}</div>
+                <div className="text-sm text-gray-500">{trek.category}</div>
+              </button>
+            ))}
+          </div>
         )}
       </div>
 
@@ -521,41 +503,7 @@ const currentTrekInfo = trekOptions.find(trek => trek.id === currentTrek);
 
 // --- Trek Blog (renders trek details) ---
 const TrekBlog = ({ trekData }) => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.1
-      }
-    }
-  };
-   const navigate = useNavigate();
-
-  const itemVariants = {
-    hidden: { y: 30, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-        ease: [0.22, 1, 0.36, 1]
-      }
-    }
-  };
-
-  const imageVariants = {
-    hidden: { scale: 0.9, opacity: 0 },
-    visible: {
-      scale: 1,
-      opacity: 1,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut"
-      }
-    }
-  };
+  const navigate = useNavigate();
 
   const getColorClasses = (color) => {
     const colorMap = {
@@ -575,13 +523,10 @@ const TrekBlog = ({ trekData }) => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-green-50 to-blue-50">
+    <div className="min-h-screen bg-transparent">
       {/* Hero Section */}
-      <motion.section
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1.2 }}
-        className="relative bg-gradient-to-r from-green-900 via-emerald-800 to-teal-800 text-white py-20 px-6 overflow-hidden"
+      <section
+        className="relative bg-gradient-to-r from-green-900 via-emerald-800 to-teal-800 text-white py-20 px-6 overflow-hidden animate-fade-in"
         style={{
           backgroundImage: `url(${trekData.hero.backgroundImage})`,
           backgroundSize: 'cover',
@@ -592,40 +537,20 @@ const TrekBlog = ({ trekData }) => {
         <div className="absolute inset-0 bg-gradient-to-r from-green-900/80 via-emerald-800/70 to-teal-800/80"></div>
         
         <div className="relative max-w-6xl mx-auto">
-          <motion.div 
-            className="flex items-center gap-3 mb-8"
-            initial={{ x: -50, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-          >
+          <div className="flex items-center gap-3 mb-8 animate-slide-in-left">
             <Mountain className="h-8 w-8 text-green-300" />
             <span className="text-green-200 font-semibold text-lg tracking-wide">{trekData.hero.category}</span>
-          </motion.div>
+          </div>
           
-          <motion.h1 
-            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight"
-            initial={{ y: 50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.5, duration: 1 }}
-          >
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight animate-slide-in-up">
             {trekData.hero.title}
-          </motion.h1>
+          </h1>
           
-          <motion.p 
-            className="text-xl md:text-2xl text-green-100 max-w-4xl leading-relaxed mb-8"
-            initial={{ y: 30, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.7, duration: 0.8 }}
-          >
+          <p className="text-xl md:text-2xl text-green-100 max-w-4xl leading-relaxed mb-8 animate-slide-in-up delay-100">
             {trekData.hero.description}
-          </motion.p>
+          </p>
 
-          <motion.div
-            className="flex flex-wrap gap-6 text-sm"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.9, duration: 0.6 }}
-          >
+          <div className="flex flex-wrap gap-6 text-sm animate-slide-in-up delay-200">
             <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2">
               <MapPin className="h-4 w-4" />
               <span>{trekData.hero.location}</span>
@@ -638,51 +563,18 @@ const TrekBlog = ({ trekData }) => {
               <Clock className="h-4 w-4" />
               <span>{trekData.hero.duration}</span>
             </div>
-          </motion.div>
+          </div>
         </div>
-      </motion.section>
+      </section>
 
       {/* Main Content */}
-      <motion.div 
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-50px" }}
-        className="max-w-6xl mx-auto px-6 py-20"
-      >
+      <div className="max-w-6xl mx-auto px-6 py-20">
         {/* Folklore Section */}
-        <motion.section variants={itemVariants} className="mb-24">
+        <section className="mb-24 animate-fade-in">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8">
-              <div className="flex items-center gap-3 text-green-700 mb-6">
-                <Users className="w-6 h-6" />
-                <span className="text-sm font-bold uppercase tracking-wider">{trekData.folklore.subtitle}</span>
-              </div>
-              
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
-                {trekData.folklore.title}
-              </h2>
-              
-              <p className="text-gray-600 text-lg leading-relaxed">
-                {trekData.folklore.description}
-              </p>
-              
-              <div className="space-y-6">
-                {trekData.folklore.legends.map((legend, index) => (
-                  <div key={index} className={`border-l-4 ${getColorClasses(legend.color)} pl-6`}>
-                    <h3 className="text-xl font-bold text-gray-800 mb-3">{legend.title}</h3>
-                    <p className="text-gray-600 leading-relaxed">
-                      {legend.description}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
             
-            <motion.div
-              variants={imageVariants}
-              className="relative group"
-            >
+            {/* Image on Left */}
+            <div className="relative group">
               <div className="relative overflow-hidden rounded-3xl shadow-2xl">
                 <img
                   src={trekData.folklore.image}
@@ -697,17 +589,45 @@ const TrekBlog = ({ trekData }) => {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
+
+            {/* Text on Right */}
+            <div className="space-y-8">
+              <div className="flex items-center gap-3 text-green-700 mb-6">
+                <Users className="w-6 h-6" />
+                <span className="text-sm font-bold uppercase tracking-wider">
+                  {trekData.folklore.subtitle}
+                </span>
+              </div>
+              
+              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+                {trekData.folklore.title}
+              </h2>
+              
+              <p className="text-gray-600 text-lg leading-relaxed">
+                {trekData.folklore.description}
+              </p>
+              
+              <div className="space-y-6">
+                {trekData.folklore.legends.map((legend, index) => (
+                  <div key={index} className={`border-l-4 ${getColorClasses(legend.color)} pl-6 animate-fade-in delay-${index * 100}`}>
+                    <h3 className="text-xl font-bold text-gray-800 mb-3">{legend.title}</h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      {legend.description}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-        </motion.section>
+        </section>
 
         {/* Day-by-Day Trek Sections */}
-        <motion.section variants={containerVariants} className="space-y-20">
+        <section className="space-y-20">
           {trekData.days.map((day, index) => (
-            <motion.div
+            <div
               key={index}
-              variants={itemVariants}
-              className={`grid lg:grid-cols-2 gap-12 items-center ${
+              className={`grid lg:grid-cols-2 gap-12 items-center animate-fade-in delay-${index * 100} ${
                 index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''
               }`}
             >
@@ -742,10 +662,7 @@ const TrekBlog = ({ trekData }) => {
                 </div>
               </div>
               
-              <motion.div
-                variants={imageVariants}
-                className={`relative group ${index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}`}
-              >
+              <div className={`relative group ${index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}`}>
                 <div className="relative overflow-hidden rounded-3xl shadow-2xl">
                   <img
                     src={day.image}
@@ -755,12 +672,7 @@ const TrekBlog = ({ trekData }) => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500"></div>
                   
                   {/* Image Overlay Info */}
-                  <motion.div 
-                    className="absolute bottom-6 left-6 right-6"
-                    initial={{ y: 20, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    transition={{ delay: 0.5, duration: 0.6 }}
-                  >
+                  <div className="absolute bottom-6 left-6 right-6 animate-slide-in-up delay-500">
                     <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20">
                       <div className="flex items-center justify-between text-white">
                         <div className="flex items-center gap-2">
@@ -773,16 +685,11 @@ const TrekBlog = ({ trekData }) => {
                         </div>
                       </div>
                     </div>
-                  </motion.div>
+                  </div>
                 </div>
 
                 {/* Floating Card */}
-                <motion.div
-                  className="absolute -top-6 -right-6 bg-white rounded-2xl p-6 shadow-xl border border-gray-100 hidden md:block"
-                  initial={{ scale: 0, rotate: -10 }}
-                  whileInView={{ scale: 1, rotate: 0 }}
-                  transition={{ delay: 0.8, duration: 0.6, type: "spring" }}
-                >
+                <div className="absolute -top-6 -right-6 bg-white rounded-2xl p-6 shadow-xl border border-gray-100 hidden md:block animate-pop-in">
                   <div className="flex items-center gap-3">
                     <div className="bg-gradient-to-r from-green-500 to-emerald-500 rounded-full p-3">
                       <Camera className="h-6 w-6 text-white" />
@@ -792,35 +699,29 @@ const TrekBlog = ({ trekData }) => {
                       <div className="text-gray-500 text-sm">360° Panorama</div>
                     </div>
                   </div>
-                </motion.div>
-              </motion.div>
-            </motion.div>
+                </div>
+              </div>
+            </div>
           ))}
-        </motion.section>
+        </section>
 
         {/* Trek Highlights Grid */}
-        <motion.section
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="mt-24"
-        >
-          <motion.div variants={itemVariants} className="text-center mb-16">
+        <section className="mt-24">
+          <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
               Trek Highlights
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Experience the magic of {trekData.hero.title} through these unforgettable moments
             </p>
-          </motion.div>
+          </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {trekData.highlights.map((highlight, index) => (
-              <motion.div
+              <div
                 key={index}
-                variants={itemVariants}
-                className="group cursor-pointer"
+                className="group cursor-pointer animate-fade-in"
+                style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="relative overflow-hidden rounded-2xl shadow-lg transition-all duration-500 group-hover:shadow-2xl group-hover:-translate-y-2">
                   <img
@@ -838,71 +739,45 @@ const TrekBlog = ({ trekData }) => {
                   {/* Hover overlay */}
                   <div className="absolute inset-0 bg-green-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.section>
+        </section>
 
         {/* Call to Action */}
-        <motion.section
-          variants={itemVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="mt-24 text-center"
-        >
+        <section className="mt-24 text-center animate-fade-in">
           <div className="bg-gradient-to-r from-green-600 to-emerald-700 rounded-3xl p-12 md:p-16 text-white relative overflow-hidden">
             <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/1366919/pexels-photo-1366919.jpeg?auto=compress&cs=tinysrgb&w=1200')] bg-cover bg-center opacity-10"></div>
             
             <div className="relative z-10">
-              <motion.h2 
-                className="text-3xl md:text-4xl font-bold mb-6"
-                initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.2, duration: 0.6 }}
-              >
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">
                 Ready for Your Mountain Adventure?
-              </motion.h2>
+              </h2>
               
-              <motion.p 
-                className="text-xl text-green-100 mb-8 max-w-2xl mx-auto"
-                initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.4, duration: 0.6 }}
-              >
+              <p className="text-xl text-green-100 mb-8 max-w-2xl mx-auto">
                 Join thousands of trekkers who have discovered the magic of {trekData.hero.title}
-              </motion.p>
+              </p>
               
-              <motion.div
-                className="flex flex-col sm:flex-row gap-4 justify-center"
-                initial={{ y: 20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.6, duration: 0.6 }}
-              >
-                <motion.a
-                  href="https://wa.me/7078287331
-                " // replace with your WhatsApp number including country code
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                  href="https://wa.me/7078287331"
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="bg-white cursor-pointer text-green-700 font-bold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 inline-block text-center"
+                  className="bg-white cursor-pointer text-green-700 font-bold px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 inline-block text-center hover:scale-105 hover:-translate-y-1 active:scale-98"
                 >
                   Plan Your Trek
-                </motion.a>              
-                  <motion.button
-                    onClick={() => navigate("/gallery")} // navigate to gallery page
-                    whileHover={{ scale: 1.05, y: -2 }}
-                    whileTap={{ scale: 0.98 }}
-                    className="border-2 border-white text-white font-bold px-8 py-4 rounded-full hover:bg-white hover:text-green-700 transition-all duration-300"
-                  >
-                    View Gallery
-                  </motion.button>
-              </motion.div>
+                </a>              
+                <button
+                  onClick={() => navigate("/gallery")}
+                  className="border-2 border-white text-white font-bold px-8 py-4 rounded-full hover:bg-white hover:text-green-700 transition-all duration-300 hover:scale-105 hover:-translate-y-1 active:scale-98"
+                >
+                  View Gallery
+                </button>
+              </div>
             </div>
           </div>
-        </motion.section>
-      </motion.div>
+        </section>
+      </div>
     </div>
   );
 };
@@ -926,7 +801,7 @@ const TrekPage = () => {
   }
 
   return (
-    <div className="relative ">
+    <div className="relative">
       <TrekSelector currentTrek={currentTrek} onTrekChange={setCurrentTrek} />
       <TrekBlog trekData={trekInfo} />
     </div>
