@@ -82,18 +82,22 @@ const Gallery = () => {
               </a>
 
               {/* View Gallery */}
-              <button
-                onClick={() => {
-                  tutanRef.current?.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start",
-                  });
-                }}
-                className="relative group cursor-pointer overflow-hidden bg-gradient-to-r from-blue-700 to-purple-800 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-2xl transition-transform duration-300 hover:scale-105"
-              >
-                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-yellow-400 to-pink-500 opacity-0 group-hover:opacity-100 blur-md transition duration-700"></span>
-                <span className="relative z-10">View Gallery 🖼️</span>
-              </button>
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault(); // prevent accidental parent blocking
+                      if (tutanRef.current) {
+                        tutanRef.current.scrollIntoView({
+                          behavior: "smooth",
+                          block: "start",
+                        });
+                      }
+                    }}
+                    className="relative z-50 group cursor-pointer overflow-hidden bg-gradient-to-r from-blue-700 to-purple-800 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-2xl transition-transform duration-300 hover:scale-105 pointer-events-auto"
+                  >
+                    <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-yellow-400 to-pink-500 opacity-0 group-hover:opacity-100 blur-md transition duration-700"></span>
+                    <span className="relative z-10">View Gallery 🖼️</span>
+                  </button>
+
             </div>
           </div>
 
@@ -139,17 +143,21 @@ const Gallery = () => {
         </div>
 
         {/* 🔽 Scroll Button Centered */}
-        <div className="flex justify-center  sm:mt-1   mt-12 z-10">
-        <button
-          onClick={scrollToBottom}
-          className="bg-orange-300 text-white p-4 rounded-full text-2xl shadow-lg
-          transition-all duration-700
-          hover:bg-orange-500 hover:rotate-[360deg] hover:scale-150
-          hover:shadow-2xl hover:animate-bounce"
-        >
-          ↓
-        </button>
-        </div>
+<div className="flex justify-center sm:mt-1 mt-12 relative z-50">
+  <button
+    onClick={(e) => {
+      e.preventDefault();
+      scrollToBottom?.(); // safe call
+    }}
+    className="relative z-50 bg-orange-300 text-white p-4 rounded-full text-2xl shadow-lg
+      transition-all duration-700
+      hover:bg-orange-500 hover:rotate-[360deg] hover:scale-150
+      hover:shadow-2xl"
+  >
+    ↓
+  </button>
+</div>
+
 
         {/* 📍 Scroll Target (bottom) */}
         <div ref={bottomRef} className="h-[300px] w-full bg-transparent" />
@@ -317,7 +325,7 @@ const Gallery = () => {
         </div>
 
         {/* 5th image gallery */}
-        <section id="bottomRef"  ref={tutanRef}>
+        <section id="bottomRef"   className="scroll-mt-20" ref={tutanRef}>
               <GallerySection />
         </section>
         

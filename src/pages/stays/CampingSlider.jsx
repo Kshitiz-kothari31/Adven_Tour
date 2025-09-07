@@ -86,7 +86,7 @@ const CampingSlider = () => {
       </div>
 
       {/* Image Slider */}
-      <div className="mt-12 w-full max-w-full mx-auto px-2 relative">
+      <div className="mt-19 w-full max-w-full mx-auto px-2 relative">
         <div className="relative overflow-hidden rounded-3xl shadow-2xl border-4 border-white h-[65vh]">
           {/* Previous fading out */}
           {prev !== null && (

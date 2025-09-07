@@ -146,7 +146,7 @@ function BungeeJumping() {
                 behavior: "smooth",
               })
             }
-            className="bg-orange-300 text-white p-4 rounded-full text-2xl shadow-lg transition-all duration-700 hover:bg-orange-500 hover:animate-spin-once"
+            className="bg-blue-300 cursor-pointer text-white p-4 rounded-full text-2xl shadow-lg transition-all duration-700 hover:bg-blue-500 hover:animate-spin-once"
           >
             ↓
           </button>
@@ -232,36 +232,52 @@ function BungeeJumping() {
       </section>
 
       {/* Videos Section */}
-      <section className="py-20 px-4 md:mt-15 sm:px-6 md:px-10 xl:px-32 2xl:px-60 text-center text-black">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-black mb-12">
-          🪂 Rishikesh <span className="text-orange-500">Bungee Jumping</span>
-        </h2>
+<section className="relative josefin-sans md:mt-10 py-12 px-4 sm:px-6 md:px-10 lg:px-20 animate-fadeInUp">
+  <div className="relative z-10 max-w-6xl mx-auto text-center space-y-10">
+    {/* Heading */}
+    <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-black animate-fadeIn">
+      🪂 Rishikesh <span className="text-orange-500">Bungee Jumping</span>
+    </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {videos.map((video) => (
-            <div
-              key={video.id}
-              className="relative group rounded-2xl overflow-hidden shadow-xl hover:shadow-orange-400/40 bg-gradient-to-br from-gray-900 to-black border border-white/10"
-            >
-              <div className="aspect-[9/16] w-full">
-                <iframe
-                  src={video.src}
-                  title={video.title}
-                  frameBorder="0"
-                  allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="w-full h-full object-cover rounded-2xl"
-                ></iframe>
-              </div>
+    {/* Shorts Grid */}
+    <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 animate-fadeIn delay-200">
+      {videos.map((video) => (
+        <div
+          key={video.id}
+          className="relative overflow-hidden rounded-2xl shadow-lg bg-black hover:shadow-orange-400/40 transition-all duration-300 hover:scale-[1.03]"
+        >
+          {/* Video */}
+          <div className="aspect-[9/16] w-full">
+            <iframe
+              src={video.src}
+              title={video.title}
+              frameBorder="0"
+              allow="autoplay; encrypted-media; picture-in-picture"
+              allowFullScreen
+              className="w-full h-full rounded-2xl"
+              loading="lazy"
+            ></iframe>
+          </div>
 
-              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-end p-4">
-                <h3 className="text-lg font-semibold text-white drop-shadow-md">{video.title}</h3>
-                <p className="text-sm text-gray-300">{video.subtitle}</p>
-              </div>
-            </div>
-          ))}
+          {/* Hover Overlay */}
+          <div className="absolute inset-0 bg-black/40 opacity-0 hover:opacity-100 transition duration-500 flex flex-col justify-end p-4">
+            <h3 className="text-lg font-semibold text-white drop-shadow-md">
+              {video.title}
+            </h3>
+            <p className="text-sm text-gray-300">{video.subtitle}</p>
+          </div>
         </div>
-      </section>
+      ))}
+    </div>
+
+    {/* Footer Text */}
+    <p className="text-sm sm:text-base max-w-2xl mx-auto text-gray-700 leading-relaxed px-2 animate-fadeIn delay-500">
+      These real clips showcase our adventure experiences – live from Rishikesh's whitewater.
+    </p>
+  </div>
+</section>
+
+
 
       <Feedback />
 

@@ -523,7 +523,7 @@ const TrekBlog = ({ trekData }) => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-green-50 to-blue-50">
+    <div className="min-h-screen bg-transparent">
       {/* Hero Section */}
       <section
         className="relative bg-gradient-to-r from-green-900 via-emerald-800 to-teal-800 text-white py-20 px-6 overflow-hidden animate-fade-in"

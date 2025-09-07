@@ -22,38 +22,38 @@ export default function GuidesSection() {
 
   const [current, setCurrent] = useState(0);
 
-  // Auto-slide every 3s
+  // Auto-slide for mobile
   useEffect(() => {
     const interval = setInterval(() => {
       if (window.innerWidth < 768) {
         setCurrent((prev) => (prev + 1) % guides.length);
       }
     }, 3000);
-
     return () => clearInterval(interval);
   }, [guides.length]);
 
   return (
     <section className="relative w-full py-16 flex flex-col justify-center items-center text-center">
       {/* Title */}
-      <h2 className="text-2xl md:text-3xl font-bold mb-8 text-gray-900">
+      <h2 className="text-2xl md:text-3xl font-bold mb-8 text-black drop-shadow-md">
         Your Guides Your Travel Partners
       </h2>
 
-      {/* Desktop: 4 Images */}
-      <div className="hidden md:flex justify-center gap-6 mb-8">
+      {/* Desktop: Tilted Images */}
+      <div className="hidden md:flex justify-center gap-4 mb-8">
         {guides.map((guide, index) => (
           <img
             key={index}
             src={guide.img}
             alt={guide.name}
-            className="w-48 h-60 object-cover rounded-2xl shadow-lg transform hover:scale-105 transition duration-500"
+            className={`w-44 h-50 object-cover rounded-2xl shadow-xl transition duration-500 hover:scale-105 
+              ${index % 2 === 0 ? "rotate-[-5deg]" : "rotate-[5deg]"}`}
           />
         ))}
       </div>
 
       {/* Mobile: Auto sliding carousel */}
-      <div className="md:hidden relative w-64 h-72 overflow-hidden mb-8 rounded-2xl shadow-lg">
+      <div className="md:hidden relative w-64 h-67 overflow-hidden mb-8 rounded-2xl shadow-lg">
         <div
           className="flex transition-transform duration-700 ease-in-out"
           style={{ transform: `translateX(-${current * 100}%)` }}
@@ -69,8 +69,9 @@ export default function GuidesSection() {
         </div>
       </div>
 
-      {/* Text */}
-      <p className="max-w-3xl mx-auto text-gray-800 mb-6 px-4 z-4 leading-relaxed">
+      {/* Text with light overlay for readability */}
+      <p className="relative max-w-3xl mx-auto text-black leading-relaxed mb-6 px-4">
+        <span className="absolute inset-0 bg-white/70 rounded-lg -z-10"></span>
         Our expert guides are the heart of every journey we offer—passionate
         storytellers, seasoned explorers, and friendly companions rolled into one.
         With deep local knowledge and a genuine love for discovery, they turn every

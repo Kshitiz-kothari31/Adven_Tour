@@ -294,7 +294,7 @@ const treks = [
           </style>
         </section>
 
-        <section className="space-y-16 px-4 sm:px-10 md:px-16 lg:px-20 xl:px-28 py-20 -mt-1 bg-transparent">
+        <section className="space-y-16 px-4 sm:px-10 md:px-16 lg:px-20 xl:px-28 py-20 -mt-15 bg-transparent">
           {treks.map((trek, i) => (
             <div
               key={i}

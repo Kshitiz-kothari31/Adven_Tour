@@ -1,47 +1,60 @@
 import { useEffect, useState, useRef } from "react";
+import { Link } from "react-router-dom"; // ✅ import Link from react-router
 
 const items = [
   {
     id: 1,
     name: "Rafting",
     description: "Ride roaring rapids and conquer wild Himalayan rivers.",
-    image: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/sliding_Img1.webp",
+    image:
+      "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/sliding_Img1.webp",
     tag: "🌊 River Thrill",
+    path: "/rafting", // ✅ route path
   },
   {
     id: 2,
     name: "Trekking",
     description: "Ascend rugged trails and witness majestic summit views.",
-    image: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/sliding_img3.webp",
+    image:
+      "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/sliding_img3.webp",
     tag: "🥾 Summit Quest",
+    path: "/trek",
   },
   {
     id: 3,
     name: "Bungee Jumping",
     description: "Freefall from dizzying heights in adrenaline-pumping leaps.",
-    image: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/sliding_Img4.webp",
+    image:
+      "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/sliding_Img4.webp",
     tag: "🪂 Gravity Drop",
+    path: "/bungee",
   },
   {
     id: 4,
     name: "Kayaking",
     description: "Navigate twisting river bends and paddle through serenity.",
-    image: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/sliding_Img5.webp",
+    image:
+      "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/sliding_Img5.webp",
     tag: "🚣 River Drift",
+    path: "/kayaking",
   },
   {
     id: 5,
     name: "Zipline",
     description: "Soar over forests and valleys with breathtaking speed.",
-    image: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/sliding_Img6.webp",
+    image:
+      "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/sliding_Img6.webp",
     tag: "⚡ Sky Glide",
+    path: "/zipline",
   },
   {
     id: 6,
     name: "Stays",
     description: "Unwind in cozy cabins nestled in nature’s lap.",
-    image: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/sliding_img2.webp",
+    image:
+      "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/sliding_img2.webp",
     tag: "🏕️ Nature Retreat",
+    path: "/stays",
   },
 ];
 
@@ -79,7 +92,9 @@ const ImageSlider = () => {
           <div
             key={item.id}
             className={`absolute inset-0 w-full h-full transition-all duration-700 ease-in-out ${
-              i === index ? "opacity-100 translate-x-0 z-20" : "opacity-0 translate-x-full z-10"
+              i === index
+                ? "opacity-100 translate-x-0 z-20"
+                : "opacity-0 translate-x-full z-10"
             }`}
           >
             <img
@@ -93,31 +108,42 @@ const ImageSlider = () => {
             <div className="absolute top-1/2 left-8 md:left-20 transform -translate-y-1/2 text-white z-10 transition-all duration-700 ease-out">
               <h2
                 className={`text-xl md:text-4xl font-bold uppercase transition-all duration-700 ${
-                  i === index ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
+                  i === index
+                    ? "opacity-100 translate-x-0"
+                    : "opacity-0 -translate-x-10"
                 }`}
               >
                 {item.name}
               </h2>
               <p
                 className={`text-sm md:text-base mt-2 mb-4 max-w-md transition-all duration-700 delay-150 ${
-                  i === index ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
+                  i === index
+                    ? "opacity-100 translate-x-0"
+                    : "opacity-0 -translate-x-10"
                 }`}
               >
                 {item.description}
               </p>
-              <button
-                className={`px-4 py-2 bg-white text-black hover:bg-orange-600 hover:text-white rounded transition-all duration-700 delay-300 ${
-                  i === index ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
+
+              {/* 🔗 See More Button with React Router */}
+              <Link
+                to={item.path}
+                className={`inline-block px-4 py-2 bg-white text-black hover:bg-orange-600 hover:text-white rounded transition-all duration-700 delay-300 cursor-pointer ${
+                  i === index
+                    ? "opacity-100 translate-x-0"
+                    : "opacity-0 -translate-x-10"
                 }`}
               >
                 See More
-              </button>
+              </Link>
             </div>
 
             {/* Tag */}
             <div
               className={`absolute top-6 left-6 bg-white/20 backdrop-blur-md text-white text-sm px-4 py-1.5 rounded-full shadow-lg border border-white/30 z-10 transition-all duration-700 delay-500 ${
-                i === index ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
+                i === index
+                  ? "opacity-100 translate-x-0"
+                  : "opacity-0 -translate-x-10"
               }`}
             >
               {item.tag}

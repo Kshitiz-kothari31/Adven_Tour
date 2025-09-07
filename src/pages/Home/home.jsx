@@ -44,7 +44,9 @@ function ImageSliderBox() {
       <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/90 z-40" />
 
       {/* Text */}
-      <div className="absolute inset-0 z-50 text-white text-center px-4 flex flex-col items-center justify-start pt-16 md:justify-center md:pt-0">
+      <div className="absolute inset-0 z-50 text-white text-center px-4 flex flex-col 
+                      items-center justify-start sm:justify-center md:justify-center 
+                      pt-43 md:pt-0">
         <h1 className="reveal-text text-3xl md:text-6xl font-medium font-kalnia drop-shadow-xl leading-tight opacity-0 translate-y-[30px] animate-fade-up">
           GoRafts.. <br /> Beyond Limits. Into the Wild.
         </h1>
@@ -80,27 +82,36 @@ const Home = () => {
       </div>
 
       {/* Adventure Pulse Section */}
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 md:gap-16 xl:gap-32 items-center md:mt-32 mt-10 px-3 md:px-10 xl:px-24">
-        {/* Text */}
-        <div className="px-2 md:px-6 xl:px-10">
-          <h2 className="text-center md:text-left text-2xl md:text-4xl font-medium text-gray-800 mb-2">Adventure Pulse</h2>
-          <p className="text-center md:text-left text-xs md:text-sm text-gray-600 mb-3">Based in Shivpuri, Rishikesh — India's Adventure Capital</p>
-          <p className="text-gray-700 leading-relaxed text-[0.9rem] block md:hidden">
+      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 md:gap-12 xl:gap-20 items-center md:mt-32 mt-10 px-3 md:px-10 xl:px-24">
+        {/* Text (left side) */}
+        <div className="px-2 md:px-6 xl:px-10 text-center md:text-left">
+          <h2 className="text-2xl md:text-4xl font-medium text-gray-800 mb-2">
+            Adventure Pulse
+          </h2>
+          <p className="text-xs md:text-sm text-gray-600 mb-3">
+            Based in Shivpuri, Rishikesh — India's Adventure Capital
+          </p>
+
+          {/* Mobile text */}
+          <p className="text-gray-700 leading-relaxed text-[1rem] block md:hidden">
             <span className="font-semibold">Adventure Pulse</span> brings adrenaline to life with rafting, hiking, kayaking, and more.
           </p>
+
+          {/* Desktop text */}
           <p className="text-gray-700 leading-relaxed text-[1rem] hidden md:block">
             <span className="font-semibold">Adventure Pulse</span> is your adventure base in Shivpuri, Rishikesh — a hotspot for thrill-seekers across India...
           </p>
         </div>
-        {/* Images */}
-        <div className="flex flex-row justify-center items-center gap-3 md:gap-4">
+
+        {/* Images (right side) */}
+        <div className="flex justify-center md:justify-end items-center gap-4 flex-row flex-nowrap">
           {PICS.map((src, i) => (
             <img
               key={i}
               src={src}
               loading="lazy"
               alt={`Adventure activity ${i + 1}`}
-              className={`w-[110px] sm:w-[140px] md:w-[180px] lg:w-[220px] xl:w-[260px] h-auto object-cover rounded-[50%_30%_50%_30%/30%_50%_30%_50%] shadow-lg ${
+              className={`w-[140px] sm:w-[170px] md:w-[180px] lg:w-[200px] xl:w-[220px] h-auto object-cover rounded-[50%_30%_50%_30%/30%_50%_30%_50%] shadow-lg ${
                 i % 2 === 0 ? "animate-float-slow" : "animate-float-fast"
               }`}
             />
@@ -108,11 +119,12 @@ const Home = () => {
         </div>
       </div>
 
+
       {/* Stats */}
       <HighlightsStats />
 
       {/* Video Section */}
-      <section id="bottomRef" className="relative josefin-sans md:mt-10 py-12 px-4 sm:px-6 md:px-10 lg:px-20 animate-fadeInUp">
+      <section id="bottomRef" className="relative josefin-sans -mt-10 md:mt-10 py-12 px-4 sm:px-6 md:px-10 lg:px-20 animate-fadeInUp">
         <div className="relative z-10 max-w-6xl mx-auto text-center space-y-10">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold font-josefin text-black animate-fadeIn">Experience the Adventure</h2>
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 animate-fadeIn delay-200">
@@ -140,7 +152,9 @@ const Home = () => {
           </p>
         </div>
       </section>
+
       <CertificateMarquee />
+
       {/* Cards Section */}
       <div className="py-16 px-4 md:px-10 xl:px-24 josefin-sans space-y-20">
         {/* ───────────────── Packages ───────────────── */}
@@ -152,7 +166,8 @@ const Home = () => {
             {CARDS.map((item, index) => (
               <div
                 key={item.label}
-                className="group w-full flex flex-col items-center transition-transform duration-500 hover:scale-105"
+                className="group w-full flex flex-col items-center transition-transform duration-500 hover:scale-105 animate-fadeInUp"
+                style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="relative rounded-xl overflow-hidden shadow-md w-full aspect-[4/3] bg-gray-100 transition-all duration-500 group-hover:shadow-xl">
                   <img
@@ -179,10 +194,9 @@ const Home = () => {
             Stays
           </h2>
 
-          {/* ⬇ Made it like Packages (2 cols on mobile), increased card size */}
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10 justify-center">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-10 justify-center">
             {/* Stay 1 */}
-            <div className="group w-full flex flex-col items-center transition-transform duration-500 hover:scale-105">
+            <div className="group w-full flex flex-col items-center transition-transform duration-500 hover:scale-105 animate-fadeInUp" style={{ animationDelay: '100ms' }}>
               <div className="relative rounded-xl overflow-hidden shadow-md w-full aspect-[4/3] bg-gray-100 transition-all duration-500 group-hover:shadow-xl">
                 <img
                   src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/home_page_stayCard.webp"
@@ -200,7 +214,7 @@ const Home = () => {
             </div>
 
             {/* Stay 2 */}
-            <div className="group w-full flex flex-col items-center transition-transform duration-500 hover:scale-105">
+            <div className="group w-full flex flex-col items-center transition-transform duration-500 hover:scale-105 animate-fadeInUp" style={{ animationDelay: '200ms' }}>
               <div className="relative rounded-xl overflow-hidden shadow-md w-full aspect-[4/3] bg-gray-100 transition-all duration-500 group-hover:shadow-xl">
                 <img
                   src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/home_page_stayCard.webp"
@@ -218,7 +232,7 @@ const Home = () => {
             </div>
 
             {/* Stay 3 */}
-            <div className="group w-full flex flex-col items-center transition-transform duration-500 hover:scale-105">
+            <div className="group w-full flex flex-col items-center transition-transform duration-500 hover:scale-105 animate-fadeInUp" style={{ animationDelay: '300ms' }}>
               <div className="relative rounded-xl overflow-hidden shadow-md w-full aspect-[4/3] bg-gray-100 transition-all duration-500 group-hover:shadow-xl">
                 <img
                   src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/home_page_stayCard.webp"
