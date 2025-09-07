@@ -68,4 +68,52 @@ body {
 .animate-fade-up {
   animation: fadeUp 1s ease-out forwards;
 }
+/* home.css */
+
+/* Fade Up Animation */
+@keyframes fade-up {
+  0% { opacity: 0; transform: translateY(24px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up {
+  animation: fade-up 0.8s ease-out forwards;
+}
+
+/* Float Animations */
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+  25% { transform: translateY(-3px) rotate(1deg) scale(1.01); }
+  50% { transform: translateY(2px) rotate(-1deg) scale(0.99); }
+  75% { transform: translateY(-2px) rotate(0.5deg) scale(1); }
+}
+@keyframes float-fast {
+  0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+  25% { transform: translateY(-2px) rotate(-1deg) scale(1.01); }
+  50% { transform: translateY(3px) rotate(1deg) scale(0.99); }
+  75% { transform: translateY(-1px) rotate(0deg) scale(1); }
+}
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+.animate-float-fast {
+  animation: float-fast 5s ease-in-out infinite;
+}
+
+/* Fade In + Slide */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeInUp {
+  animation: fadeInUp 1s ease-out forwards;
+}
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+.delay-200 { animation-delay: 0.2s; }
+.delay-500 { animation-delay: 0.5s; }
 

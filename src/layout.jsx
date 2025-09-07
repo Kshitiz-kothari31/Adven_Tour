@@ -1,4 +1,4 @@
-import Navbar from './components/Navbar/navbar';
+import Navbar from './components/Navbar/Navbar';
 import { Outlet, useLocation } from 'react-router-dom';
 import Footer from './components/Footer/Footer';
 import { WindowProvider } from './components/WindowContext';

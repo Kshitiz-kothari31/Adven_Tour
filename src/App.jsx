@@ -25,9 +25,6 @@ const Marine = lazy(() => import("./pages/Rafting/Raftingpage/Marine"));
 const Kodilyla = lazy(() => import("./pages/Rafting/Raftingpage/Kodilyla"));
 const ContactSection = lazy(() => import("./components/Contact"));
 
-// Dynamic import framer-motion only when needed
-export const loadMotion = async () => await import('framer-motion');
-
 function App() {
   const [loading, setLoading] = useState(true);
 

@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
 
 export default function CottageCards() {
@@ -11,7 +11,7 @@ export default function CottageCards() {
       title: "Coller Cottage",
       desc: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration...",
       shortDesc: "There are many variations of passages of Lorem Ipsum available.",
-       price: 2499, 
+      price: 2499,
       bigImg:
         "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Stays/stay_01.webp",
       smallImg:
@@ -22,7 +22,7 @@ export default function CottageCards() {
       title: "Mountain Stay",
       desc: "Escape into the mountains with cozy cottages surrounded by nature’s beauty...",
       shortDesc: "Escape into the mountains with cozy cottages.",
-       price: 2499, 
+      price: 2499,
       bigImg:
         "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Stays/stay_06.webp",
       smallImg:
@@ -33,7 +33,7 @@ export default function CottageCards() {
       title: "River View Cottage",
       desc: "Stay by the riverside and enjoy the calm sound of flowing water all day long...",
       shortDesc: "Stay by the riverside and enjoy the calm.",
-       price: 2499, 
+      price: 2499,
       bigImg:
         "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Stays/stay_10.webp",
       smallImg:
@@ -42,18 +42,13 @@ export default function CottageCards() {
   ];
 
   return (
-      <section className="px-4 sm:px-10 py-16 bg-gradient-to-r from-white via-amber-50 to-orange-100">
-        <div className="max-w-7xl mx-auto flex flex-col gap-24">
-          {cards.map((card, idx) => {
-            const isReversed = idx % 2 === 1;
-
-            return (
-              <motion.div
-                key={card.id}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                viewport={{ once: true }}
+    <section className="px-4 sm:px-10 py-16 bg-gradient-to-r from-white via-amber-50 to-orange-100">
+      <div className="max-w-7xl mx-auto flex flex-col gap-24">
+        {cards.map((card, idx) => {
+          const isReversed = idx % 2 === 1;
+          return (
+            <FadeIn key={card.id}>
+              <div
                 className={`flex flex-col ${
                   isReversed ? "lg:flex-row-reverse" : "lg:flex-row"
                 } items-center gap-10`}
@@ -128,10 +123,44 @@ export default function CottageCards() {
                     Book Now
                   </a>
                 </div>
-              </motion.div>
-            );
-          })}
-        </div>
-      </section>
+              </div>
+            </FadeIn>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
+// Fade-in Wrapper (replaces Framer Motion)
+function FadeIn({ children }) {
+  const ref = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    if (ref.current) observer.observe(ref.current);
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      className={`transition-all duration-1000 ease-out transform ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
+      }`}
+    >
+      {children}
+    </div>
   );
 }

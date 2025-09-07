@@ -1,13 +1,10 @@
 import { ChevronDown } from "lucide-react";
-import { motion } from "framer-motion";
 import { lazy, Suspense } from "react";
 import "./Zipline.css";
 
 // ✅ Lazy load big components
 import Feedback from "../../components/Feedback";
 import Form from "../../components/form/Form";
-const customMessage = encodeURIComponent("Hi, I am Aman and I want to book a rafting trip!");
-
 const Kayaking = () => {
   // ⚡ Optimized image sizes (Unsplash resizing with w param)
   const bgHero =
@@ -65,14 +62,13 @@ const Kayaking = () => {
 
 
       {/* ---------------- Scroll Button ---------------- */}
-      <motion.button
-        onClick={handleScroll}
-        className="mx-auto mt-6 flex items-center justify-center w-12 h-12 rounded-full bg-[#E0F7FA] hover:bg-[#C5EEF4] text-black shadow-lg"
-        animate={{ y: [0, -8, 0] }}
-        transition={{ repeat: Infinity, duration: 1.4, ease: "easeInOut" }}
-      >
-        <ChevronDown className="w-6 h-6" />
-      </motion.button>
+    <button
+      onClick={handleScroll}
+      className="mx-auto mt-6 flex items-center justify-center w-12 h-12 rounded-full bg-[#E0F7FA] hover:bg-[#C5EEF4] text-black shadow-lg animate-bounce-slow"
+    >
+      <ChevronDown className="w-6 h-6" />
+    </button>
+
 
       {/* ---------------- 3rd Section ---------------- */}
       <section
@@ -98,30 +94,19 @@ const Kayaking = () => {
 
           {/* Text */}
           <div className="w-full md:w-1/2 space-y-6">
-            <motion.h2
-              className="text-2xl sm:text-3xl mt-6 md:text-4xl font-bold font-josefin"
-              initial={{ y: 40, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.7, ease: "easeOut" }}
-              viewport={{ once: true }}
-            >
+            <h2 className="text-2xl sm:text-3xl mt-6 md:text-4xl font-bold font-josefin opacity-0 animate-slide-up [animation-delay:0.2s]">
               The Adventure Capital of India
-            </motion.h2>
+            </h2>
 
-            <motion.p
-              className="text-gray-700 text-base sm:text-lg leading-relaxed"
-              initial={{ y: 40, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
-              viewport={{ once: true }}
-            >
+            <p className="text-gray-700 text-base sm:text-lg leading-relaxed opacity-0 animate-slide-up [animation-delay:0.5s]">
               Shivpuri, just a few kilometers upstream from Rishikesh, is known
               for its pristine natural beauty, powerful river currents, and
               serene Himalayan backdrop...
-            </motion.p>
+            </p>
           </div>
         </div>
       </section>
+
 
       {/* ---------------- Video Section ---------------- */}
       <section className="relative sm:mt-50 w-full h-[70vh] overflow-hidden flex items-center justify-center px-4 text-black josefin-sans">

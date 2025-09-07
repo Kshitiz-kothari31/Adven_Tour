@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Mail, PhoneCall } from "lucide-react";
 import emailjs from "@emailjs/browser";
 
@@ -16,10 +16,10 @@ export default function Form({
 
     emailjs
       .sendForm(
-        "your_service_id",   // ← replace with your EmailJS service ID
-        "your_template_id",  // ← replace with your EmailJS template ID
+        "service_mzjxqed",   // ← replace with your EmailJS service ID
+        "template_tuxc84b",  // ← replace with your EmailJS template ID
         formRef.current,
-        "your_public_key"    // ← replace with your EmailJS public key
+        "AQ1kCexllWvK5aKK_"    // ← replace with your EmailJS public key
       )
       .then(() => {
         setIsSubmitted(true);

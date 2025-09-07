@@ -1,18 +1,18 @@
 "use client";
-import { motion } from 'framer-motion';
 import { Link } from "react-router-dom";
-import { IMAGES, PICS, CARDS, YOUTUBE_VIDEOS, PARAGRAPH_TEXTS,} from "../../const";
-import HighlightsStats from './sample';
-import { useEffect, useState, useCallback, useMemo } from 'react';
-import Feedback from '../../components/Feedback';
-import ImageSlider from './imageslider'
-import './home.css'
+import { IMAGES, PICS, CARDS, YOUTUBE_VIDEOS, PARAGRAPH_TEXTS } from "../../const";
+import HighlightsStats from "./sample";
+import { useEffect, useState, useCallback } from "react";
+import Feedback from "../../components/Feedback";
+import ImageSlider from "./imageslider";
+import CertificateMarquee from "../../components/certificate";
+import "./home.css";
 
-// Extract ImageSliderBox to its own component to prevent re-renders of the entire page
+// Hero Image Slider
 function ImageSliderBox() {
   const [current, setCurrent] = useState(0);
 
-  // Auto-slide every 5s
+  // Auto-slide
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prevIndex) => (prevIndex + 1) % IMAGES.length);
@@ -20,68 +20,42 @@ function ImageSliderBox() {
     return () => clearInterval(interval);
   }, []);
 
-  // Smooth scroll button
+  // Scroll button
   const handleScrollClick = useCallback(() => {
     const target = document.getElementById("second-section");
     if (target) target.scrollIntoView({ behavior: "smooth" });
   }, []);
 
-  // Animate text when visible
-  useEffect(() => {
-    const elements = document.querySelectorAll(".reveal-text");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-fade-up");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.3 }
-    );
-    elements.forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <div className="relative w-full h-[93vh] overflow-hidden bg-black">
-      {/* 🖼 All Images stacked */}
+      {/* Images */}
       {IMAGES.map((img, index) => (
         <img
           key={index}
           src={img}
           alt={`Slide ${index}`}
-          className={`
-            absolute top-0 left-0 w-full h-full object-cover transition-all duration-[1600ms] ease-in-out
-            ${index === current ? "opacity-100 scale-100 z-30" : "opacity-0 scale-105 z-20"}
-          `}
+          className={`absolute top-0 left-0 w-full h-full object-cover transition-all duration-[1600ms] ease-in-out ${
+            index === current ? "opacity-100 scale-100 z-30" : "opacity-0 scale-105 z-20"
+          }`}
         />
       ))}
 
-      {/* 🌓 Gradient overlay */}
+      {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/90 z-40" />
 
-      {/* ✨ HERO TEXT CONTENT */}
-      <div
-        className="
-          absolute inset-0 z-50 text-white text-center px-4
-          flex flex-col items-center
-          justify-start pt-16      /* top on mobile */
-          md:justify-center md:pt-0  /* center on desktop */
-        "
-      >
-        <h1 className="reveal-text text-3xl md:text-6xl font-medium font-kalnia drop-shadow-xl leading-tight opacity-0 translate-y-[30px]">
+      {/* Text */}
+      <div className="absolute inset-0 z-50 text-white text-center px-4 flex flex-col 
+                      items-center justify-start sm:justify-center md:justify-center 
+                      pt-43 md:pt-0">
+        <h1 className="reveal-text text-3xl md:text-6xl font-medium font-kalnia drop-shadow-xl leading-tight opacity-0 translate-y-[30px] animate-fade-up">
           GoRafts.. <br /> Beyond Limits. Into the Wild.
         </h1>
-
-        <p className="reveal-text text-base md:text-xl mt-3 md:mt-4 max-w-2xl text-white/80 opacity-0 translate-y-[20px]">
+        <p className="reveal-text text-base md:text-xl mt-3 md:mt-4 max-w-2xl text-white/80 opacity-0 translate-y-[20px] animate-fade-up delay-200">
           Trek. Raft. Jump. Explore. The adventure of a lifetime starts here.
         </p>
-
         <button
           onClick={handleScrollClick}
-          className="reveal-text mt-6 md:mt-8 px-6 md:px-8 py-2 md:py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold text-base md:text-lg rounded-xl shadow-lg shadow-orange-300/30 opacity-0 translate-y-[15px] transition-transform duration-500 hover:scale-105"
+          className="mt-6 md:mt-8 px-6 md:px-8 py-2 md:py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold text-base md:text-lg rounded-xl shadow-lg shadow-orange-300/30 transition-transform duration-500 hover:scale-105 animate-fade-up delay-500"
         >
           Start the Journey
         </button>
@@ -91,148 +65,73 @@ function ImageSliderBox() {
 }
 
 const Home = () => {
-  const cardVariants = useMemo(() => ({
-    initial: { opacity: 0, y: 50 },
-    animate: { opacity: 1, y: 0 },
-  }), []);
-
   return (
-    <section className='home josein-sans bg-gradient-to-r from-[#ffffff] via-[#f6fbf9] to-[#e9f5f1]'> 
-      {/* image section at top */}
+    <section className="home josein-sans bg-gradient-to-r from-[#ffffff] via-[#f6fbf9] to-[#e9f5f1]">
+      {/* Hero Slider */}
       <ImageSliderBox />
 
       {/* Paragraph Section */}
-      <motion.div
-        id="second-section"
-        className="md:mt-24 py-10 px-4 mt-10 text-center josefin-sans text-gray-800"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.4 }}
-        variants={{
-          visible: { transition: { staggerChildren: 0.2 } },
-          hidden: {},
-        }}
-      >
-        <motion.div className="max-w-4xl mx-auto space-y-4 text-base md:text-lg leading-relaxed">
+      <div id="second-section" className="md:mt-24 py-10 px-4 mt-10 text-center josefin-sans text-gray-800">
+        <div className="max-w-4xl mx-auto space-y-4 text-base md:text-lg leading-relaxed">
           {PARAGRAPH_TEXTS.map((text, index) => (
-            <motion.p
-              key={index}
-              variants={{
-                hidden: { opacity: 0, y: 30 },
-                visible: {
-                  opacity: 1,
-                  y: 0,
-                  transition: { duration: 0.6, ease: "easeOut" },
-                },
-              }}
-            >
+            <p key={index} className="opacity-0 translate-y-6 animate-fade-up" style={{ animationDelay: `${index * 0.25}s` }}>
               {text}
-            </motion.p>
+            </p>
           ))}
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
 
-      {/* Image and Text Section */}
-      <motion.div
-        className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 xl:gap-32 items-center md:mt-32 mt-10 px-4 md:px-10 xl:px-24"
-        initial={{ opacity: 0, y: 80 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease: "easeOut" }}
-        viewport={{ once: true }}
-      >
-        {/* Text */}
-        <motion.div
-          className="px-2 md:px-6 xl:px-10"
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-center md:text-left text-3xl md:text-4xl font-medium josefin-sans text-gray-800 mb-2">
-            GoRafts
+      {/* Adventure Pulse Section */}
+      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 md:gap-12 xl:gap-20 items-center md:mt-32 mt-10 px-3 md:px-10 xl:px-24">
+        {/* Text (left side) */}
+        <div className="px-2 md:px-6 xl:px-10 text-center md:text-left">
+          <h2 className="text-2xl md:text-4xl font-medium text-gray-800 mb-2">
+            Adventure Pulse
           </h2>
-          <p className="text-center md:text-left text-sm josefin-sans text-gray-600 mb-4">
+          <p className="text-xs md:text-sm text-gray-600 mb-3">
             Based in Shivpuri, Rishikesh — India's Adventure Capital
           </p>
-          <p className="text-gray-700 leading-relaxed josefin-sans text-[1rem] block md:hidden">
-            <span className="font-semibold">GoRafts</span> brings adrenaline to life with rafting, hiking, kayaking, and more — right from the scenic banks of the Ganga.
-          </p>
-          <p className="text-gray-700 leading-relaxed josefin-sans text-[1rem] hidden md:block">
-            <span className="font-semibold">GoRafts</span> is your adventure base in Shivpuri, Rishikesh — a hotspot for thrill-seekers across India.
-            From the roar of the Ganga beneath your raft to the chill of Himalayan trails beneath your boots, every moment is an experience.
-            Whether it's soaring from a bungee platform or zipping across lush valleys, our certified guides ensure it's all safe, wild, and unforgettable.
-            <br /><br />
-            Disconnect from the ordinary. Reconnect with the wild. Let's go.{" "}
-            <span className="inline-block text-blue-600">↗</span>
-          </p>
-        </motion.div>
 
-        {/* Images */}
-        <motion.div
-          className="flex flex-row justify-center items-center gap-4"
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, ease: "easeOut", delay: 0.5 }}
-          viewport={{ once: true }}
-        >
+          {/* Mobile text */}
+          <p className="text-gray-700 leading-relaxed text-[1rem] block md:hidden">
+            <span className="font-semibold">Adventure Pulse</span> brings adrenaline to life with rafting, hiking, kayaking, and more.
+          </p>
+
+          {/* Desktop text */}
+          <p className="text-gray-700 leading-relaxed text-[1rem] hidden md:block">
+            <span className="font-semibold">Adventure Pulse</span> is your adventure base in Shivpuri, Rishikesh — a hotspot for thrill-seekers across India...
+          </p>
+        </div>
+
+        {/* Images (right side) */}
+        <div className="flex justify-center md:justify-end items-center gap-4 flex-row flex-nowrap">
           {PICS.map((src, i) => (
-            <motion.img
+            <img
               key={i}
               src={src}
               loading="lazy"
               alt={`Adventure activity ${i + 1}`}
-              className="w-[160px] lg:w-[220px] xl:w-[260px] h-auto object-cover rounded-[50%_30%_50%_30%/30%_50%_30%_50%] shadow-lg"
-              animate={{
-                rotate: i % 2 === 0 ? [0, 1, -1, 0] : [0, -1, 1, 0],
-                scale: [1, 1.02, 0.98, 1],
-              }}
-              transition={{
-                repeat: Infinity,
-                duration: 4,
-                ease: "easeInOut",
-                delay: i * 0.2,
-              }}
+              className={`w-[140px] sm:w-[170px] md:w-[180px] lg:w-[200px] xl:w-[220px] h-auto object-cover rounded-[50%_30%_50%_30%/30%_50%_30%_50%] shadow-lg ${
+                i % 2 === 0 ? "animate-float-slow" : "animate-float-fast"
+              }`}
             />
           ))}
-        </motion.div>
-      </motion.div>
-   
+        </div>
+      </div>
+
+
+      {/* Stats */}
       <HighlightsStats />
 
-      {/* video section */}
-      <motion.section
-        className="relative josefin-sans md:mt-25 py-12 px-4 sm:px-6 md:px-10 lg:px-20"
-        id="bottomRef"
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        {/* Content Wrapper */}
+      {/* Video Section */}
+      <section id="bottomRef" className="relative josefin-sans -mt-10 md:mt-10 py-12 px-4 sm:px-6 md:px-10 lg:px-20 animate-fadeInUp">
         <div className="relative z-10 max-w-6xl mx-auto text-center space-y-10">
-          {/* Heading */}
-          <motion.h2
-            className="text-2xl sm:text-3xl md:text-4xl font-semibold font-josefin text-black"
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            Experience the Adventure
-          </motion.h2>
-
-          {/* Video Grid (4 YouTube Shorts, Clean UI) */}
-          <motion.div
-            className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-          >
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold font-josefin text-black animate-fadeIn">Experience the Adventure</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 animate-fadeIn delay-200">
             {YOUTUBE_VIDEOS.map((yt, index) => (
-              <motion.div
+              <div
                 key={index}
-                className="relative overflow-hidden rounded-2xl shadow-lg bg-black hover:shadow-yellow-400/30 transition-all duration-300"
-                whileHover={{ scale: 1.03 }}
-                transition={{ type: "spring", stiffness: 140 }}
+                className="relative overflow-hidden rounded-2xl shadow-lg bg-black hover:shadow-yellow-400/30 transition-all duration-300 hover:scale-[1.03]"
               >
                 <div className="aspect-[9/16] w-full">
                   <iframe
@@ -245,22 +144,16 @@ const Home = () => {
                     loading="lazy"
                   ></iframe>
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
-
-          {/* Paragraph */}
-          <motion.p
-            className="text-sm sm:text-base max-w-2xl mx-auto text-gray-700 font-josefin leading-relaxed px-2"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-          >
-            These real clips showcase our adventure experiences – live from Rishikesh's whitewater. 
-            Play, pause, and feel the adrenaline.
-          </motion.p>
+          </div>
+          <p className="text-sm sm:text-base max-w-2xl mx-auto text-gray-700 font-josefin leading-relaxed px-2 animate-fadeIn delay-500">
+            These real clips showcase our adventure experiences – live from Rishikesh's whitewater.
+          </p>
         </div>
-      </motion.section>
+      </section>
+
+      <CertificateMarquee />
 
       {/* Cards Section */}
       <div className="py-16 px-4 md:px-10 xl:px-24 josefin-sans space-y-20">
@@ -271,40 +164,26 @@ const Home = () => {
           </h2>
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10 justify-center">
             {CARDS.map((item, index) => (
-              <motion.div
+              <div
                 key={item.label}
-                variants={cardVariants}
-                initial="initial"
-                whileInView="animate"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.96 }}
-                transition={{ duration: 0.5, delay: index * 0.15 }}
-                viewport={{ once: true }}
-                className="group w-full"
+                className="group w-full flex flex-col items-center transition-transform duration-500 hover:scale-105 animate-fadeInUp"
+                style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="flex flex-col items-center">
-                  <div className="relative rounded-xl overflow-hidden shadow-md w-full aspect-[5/4] bg-gray-100 transition-all duration-500 group-hover:shadow-xl">
-                    <motion.img
-                      src={item.src}
-                      alt={item.label}
-                      className="w-full h-full object-cover"
-                      whileHover={{ scale: 1.08 }}
-                      whileTap={{ scale: 0.96 }}
-                      loading="lazy"
-                    />
-                    <Link to={item.link}>
-                      <motion.button
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                        className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-orange-300 text-black px-4 py-1 text-sm rounded-md shadow group-hover:bg-orange-400 transition duration-300"
-                      >
-                        More
-                      </motion.button>
-                    </Link>
-                  </div>
-                  <p className="mt-2 text-base font-medium opacity-80">{item.label}</p>
+                <div className="relative rounded-xl overflow-hidden shadow-md w-full aspect-[4/3] bg-gray-100 transition-all duration-500 group-hover:shadow-xl">
+                  <img
+                    src={item.src}
+                    alt={item.label}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    loading="lazy"
+                  />
+                  <Link to={item.link}>
+                    <button className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-orange-300 text-black px-5 py-2 text-sm rounded-md shadow transition-transform duration-300 group-hover:scale-105 group-hover:bg-orange-400">
+                      More
+                    </button>
+                  </Link>
                 </div>
-              </motion.div>
+                <p className="mt-2 text-lg font-medium opacity-80">{item.label}</p>
+              </div>
             ))}
           </div>
         </div>
@@ -315,43 +194,64 @@ const Home = () => {
             Stays
           </h2>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10 justify-center">
-            <motion.div
-              variants={cardVariants}
-              initial="initial"
-              whileInView="animate"
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.96 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              className="group w-full"
-            >
-              <div className="flex flex-col items-center">
-                <div className="relative rounded-xl overflow-hidden shadow-md w-full aspect-[5/4] bg-gray-100 transition-all duration-500 group-hover:shadow-xl">
-                  <motion.img
-                    src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/home_page_stayCard.webp"
-                    alt="Luxury Stay"
-                    className="w-full h-full object-cover"
-                    whileHover={{ scale: 1.08 }}
-                    whileTap={{ scale: 0.96 }}
-                    loading="lazy"
-                  />
-                  <Link to="/stays">
-                    <motion.button
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                      className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-orange-300 text-black px-4 py-1 text-sm rounded-md shadow group-hover:bg-orange-400 transition duration-300"
-                    >
-                      More
-                    </motion.button>
-                  </Link>
-                </div>
-                <p className="mt-2 text-base opacity-80">Luxury Stay</p>
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-10 justify-center">
+            {/* Stay 1 */}
+            <div className="group w-full flex flex-col items-center transition-transform duration-500 hover:scale-105 animate-fadeInUp" style={{ animationDelay: '100ms' }}>
+              <div className="relative rounded-xl overflow-hidden shadow-md w-full aspect-[4/3] bg-gray-100 transition-all duration-500 group-hover:shadow-xl">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/home_page_stayCard.webp"
+                  alt="Luxury Stay"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
+                />
+                <Link to="/stays">
+                  <button className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-orange-300 text-black px-5 py-2 text-sm rounded-md shadow transition-transform duration-300 group-hover:scale-105 group-hover:bg-orange-400">
+                    More
+                  </button>
+                </Link>
               </div>
-            </motion.div>
+              <p className="mt-2 text-lg opacity-80">Luxury Stay</p>
+            </div>
+
+            {/* Stay 2 */}
+            <div className="group w-full flex flex-col items-center transition-transform duration-500 hover:scale-105 animate-fadeInUp" style={{ animationDelay: '200ms' }}>
+              <div className="relative rounded-xl overflow-hidden shadow-md w-full aspect-[4/3] bg-gray-100 transition-all duration-500 group-hover:shadow-xl">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/home_page_stayCard.webp"
+                  alt="Riverside Cottage"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
+                />
+                <Link to="/stays">
+                  <button className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-orange-300 text-black px-5 py-2 text-sm rounded-md shadow transition-transform duration-300 group-hover:scale-105 group-hover:bg-orange-400">
+                    More
+                  </button>
+                </Link>
+              </div>
+              <p className="mt-2 text-lg opacity-80">Riverside Cottage</p>
+            </div>
+
+            {/* Stay 3 */}
+            <div className="group w-full flex flex-col items-center transition-transform duration-500 hover:scale-105 animate-fadeInUp" style={{ animationDelay: '300ms' }}>
+              <div className="relative rounded-xl overflow-hidden shadow-md w-full aspect-[4/3] bg-gray-100 transition-all duration-500 group-hover:shadow-xl">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/home_page_stayCard.webp"
+                  alt="Adventure Camp"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
+                />
+                <Link to="/stays">
+                  <button className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-orange-300 text-black px-5 py-2 text-sm rounded-md shadow transition-transform duration-300 group-hover:scale-105 group-hover:bg-orange-400">
+                    More
+                  </button>
+                </Link>
+              </div>
+              <p className="mt-2 text-lg opacity-80">Adventure Camp</p>
+            </div>
           </div>
         </div>
       </div>
+
 
       {/* image slider */}
       <ImageSlider />

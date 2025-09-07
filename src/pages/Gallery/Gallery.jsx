@@ -3,6 +3,7 @@ import Form from '../../components/form/Form';
 import './Gallery.css'
 import GallerySection from './image';
 import "react-lazy-load-image-component/src/effects/blur.css";
+
 const Gallery = () => {
   const ref = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -51,20 +52,19 @@ const Gallery = () => {
     <section className=' bg-gradient-to-r from-[#ffffff] to-[#f1daff] pt-20 josefin-sans'>
         {/* 1st section */}        
         <div className="w-full max-w-7xl mx-auto px-4 py-10 flex flex-col md:flex-row items-center md:items-start justify-between gap-10 -mt-15">
-
           {/* Left Text */}
           <div className="flex-1 space-y-6 text-center md:text-left">
-            {/* Hero Heading Typing */}
-          <h1
-            className="text-4xl md:text-6xl font-bold leading-tight inline-block border-r-4 border-blue-900 pr-2 animate-typing-smooth"
-          >
-            Dive into the <br /> Thrill of Adventure <br /> in Rishikesh
-          </h1>
-
+            {/* Hero Heading */}
+              <h1 className="text-4xl md:text-6xl font-bold leading-tight heading-animated">
+                Dive into the <br /> Thrill of Adventure <br /> in Rishikesh
+              </h1>
 
             {/* Description */}
             <p className="text-gray-700 text-base md:text-lg max-w-lg mx-auto md:mx-0">
-              Experience the ultimate adrenaline rush with white-water rafting, bungee jumping, kayaking, and trekking in the heart of Rishikesh. Whether you're chasing rapids or scaling trails, every moment here is packed with energy, nature, and unforgettable memories.
+              Experience the ultimate adrenaline rush with white-water rafting,
+              bungee jumping, kayaking, and trekking in the heart of Rishikesh.
+              Whether you're chasing rapids or scaling trails, every moment here
+              is packed with energy, nature, and unforgettable memories.
             </p>
 
             {/* Buttons */}
@@ -75,34 +75,39 @@ const Gallery = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <button
-                  className="relative group cursor-pointer overflow-hidden bg-gradient-to-r from-blue-700 to-purple-800 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-2xl transition-transform duration-300 hover:scale-105"
-                >
+                <button className="relative group cursor-pointer overflow-hidden bg-gradient-to-r from-blue-700 to-purple-800 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-2xl transition-transform duration-300 hover:scale-105">
                   <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-yellow-400 to-pink-500 opacity-0 group-hover:opacity-100 blur-md transition duration-700"></span>
                   <span className="relative z-10">Book Now 🚀</span>
                 </button>
               </a>
 
               {/* View Gallery */}
-              <button
-                onClick={() => tutanRef.current?.scrollIntoView({ behavior: "smooth" })}
-                className="relative group cursor-pointer overflow-hidden bg-gradient-to-r from-blue-700 to-purple-800 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-2xl transition-transform duration-300 hover:scale-105"
-              >
-                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-yellow-400 to-pink-500 opacity-0 group-hover:opacity-100 blur-md transition duration-700"></span>
-                <span className="relative z-10">View Gallery 🖼️</span>
-              </button>
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault(); // prevent accidental parent blocking
+                      if (tutanRef.current) {
+                        tutanRef.current.scrollIntoView({
+                          behavior: "smooth",
+                          block: "start",
+                        });
+                      }
+                    }}
+                    className="relative z-50 group cursor-pointer overflow-hidden bg-gradient-to-r from-blue-700 to-purple-800 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-2xl transition-transform duration-300 hover:scale-105 pointer-events-auto"
+                  >
+                    <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-yellow-400 to-pink-500 opacity-0 group-hover:opacity-100 blur-md transition duration-700"></span>
+                    <span className="relative z-10">View Gallery 🖼️</span>
+                  </button>
+
             </div>
           </div>
 
           {/* Right Image Grid */}
-          <div
-            className="flex-1 relative grid grid-cols-2 gap-[2px] w-full max-w-md bg-white rounded-3xl p-[2px] animate-fade-up"
-          >
+          <div className="flex-1 relative grid grid-cols-2 gap-[2px] w-full max-w-md bg-white rounded-3xl p-[2px] animate-fade-in">
             {[
               "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Gallery/rafting/gallery_1.webp",
               "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Gallery/rafting/gallery_2.webp",
               "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Gallery/rafting/gallery_3.webp",
-              "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Gallery/rafting/gallery_4.webp"
+              "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Gallery/rafting/gallery_4.webp",
             ].map((src, i) => (
               <div
                 key={i}
@@ -126,9 +131,7 @@ const Gallery = () => {
             ))}
 
             {/* Center Circle */}
-            <div
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-36 h-36 rounded-full overflow-hidden border-[2px] border-white shadow-xl z-10 bg-white animate-zoom-in"
-            >
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-36 h-36 rounded-full overflow-hidden border-[2px] border-white shadow-xl z-10 bg-white animate-fade-in">
               <img
                 src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Gallery/rafting/gallery_5.webp"
                 alt="center"
@@ -140,17 +143,21 @@ const Gallery = () => {
         </div>
 
         {/* 🔽 Scroll Button Centered */}
-        <div className="flex justify-center  sm:mt-1   mt-12 z-10">
-        <button
-          onClick={scrollToBottom}
-          className="bg-orange-300 text-white p-4 rounded-full text-2xl shadow-lg
-          transition-all duration-700
-          hover:bg-orange-500 hover:rotate-[360deg] hover:scale-150
-          hover:shadow-2xl hover:animate-bounce"
-        >
-          ↓
-        </button>
-        </div>
+<div className="flex justify-center sm:mt-1 mt-12 relative z-50">
+  <button
+    onClick={(e) => {
+      e.preventDefault();
+      scrollToBottom?.(); // safe call
+    }}
+    className="relative z-50 bg-orange-300 text-white p-4 rounded-full text-2xl shadow-lg
+      transition-all duration-700
+      hover:bg-orange-500 hover:rotate-[360deg] hover:scale-150
+      hover:shadow-2xl"
+  >
+    ↓
+  </button>
+</div>
+
 
         {/* 📍 Scroll Target (bottom) */}
         <div ref={bottomRef} className="h-[300px] w-full bg-transparent" />
@@ -318,7 +325,7 @@ const Gallery = () => {
         </div>
 
         {/* 5th image gallery */}
-        <section ref={tutanRef}>
+        <section id="bottomRef"   className="scroll-mt-20" ref={tutanRef}>
               <GallerySection />
         </section>
         
