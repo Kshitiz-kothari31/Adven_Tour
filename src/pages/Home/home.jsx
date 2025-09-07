@@ -119,7 +119,6 @@ const Home = () => {
         </div>
       </div>
 
-
       {/* Stats */}
       <HighlightsStats />
 
@@ -156,8 +155,20 @@ const Home = () => {
       <CertificateMarquee />
 
       {/* Cards Section */}
-      <div className="py-16 px-4 md:px-10 xl:px-24 josefin-sans space-y-20">
-        {/* ───────────────── Packages ───────────────── */}
+      <section className="py-16 px-4 md:px-10 xl:px-24 josefin-sans space-y-20">
+        <style>
+          {`
+            @keyframes fadeInUp {
+              0% { opacity: 0; transform: translateY(20px); }
+              100% { opacity: 1; transform: translateY(0); }
+            }
+            .animate-fadeInUp {
+              animation: fadeInUp 0.5s forwards;
+            }
+          `}
+        </style>
+
+        {/* ──────────────── Packages ──────────────── */}
         <div>
           <h2 className="text-3xl font-semibold josefin-sans mb-6 text-center md:text-left">
             Packages
@@ -166,7 +177,7 @@ const Home = () => {
             {CARDS.map((item, index) => (
               <div
                 key={item.label}
-                className="group w-full flex flex-col items-center animate-openCard"
+                className="group w-full flex flex-col items-center opacity-0 translate-y-10 animate-fadeInUp"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="relative rounded-xl overflow-hidden shadow-md w-full aspect-[4/3] bg-gray-100 transition-all duration-500 group-hover:shadow-xl">
@@ -188,18 +199,17 @@ const Home = () => {
           </div>
         </div>
 
-        {/* ───────────────── Stays ───────────────── */}
+        {/* ──────────────── Stays ──────────────── */}
         <div>
-          <h2 className="text-3xl font-semibold josefin-sans mb-6 md:-mt-15 text-center md:text-left">
+          <h2 className="text-3xl font-semibold josefin-sans mb-6 text-center md:text-left">
             Stays
           </h2>
-
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-10 justify-center">
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10 justify-center">
             {["Luxury Stay", "Riverside Cottage", "Adventure Camp"].map((stay, i) => (
               <div
                 key={stay}
-                className="group w-full flex flex-col items-center animate-openCard"
-                style={{ animationDelay: `${(i + 1) * 100}ms` }}
+                className="group w-full flex flex-col items-center opacity-0 translate-y-10 animate-fadeInUp"
+                style={{ animationDelay: `${i * 150}ms` }}
               >
                 <div className="relative rounded-xl overflow-hidden shadow-md w-full aspect-[4/3] bg-gray-100 transition-all duration-500 group-hover:shadow-xl">
                   <img
@@ -219,11 +229,13 @@ const Home = () => {
             ))}
           </div>
         </div>
-      </div>
-
+      </section>
 
       {/* image slider */}
-      <ImageSlider />
+      <section className="mt-10">
+        <ImageSlider />
+      </section>
+      
 
       {/* detail */}
       <Feedback />
