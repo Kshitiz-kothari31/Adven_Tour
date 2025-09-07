@@ -149,16 +149,16 @@ const Home = () => {
           viewport={{ once: true }}
         >
           <h2 className="text-center md:text-left text-3xl md:text-4xl font-medium josefin-sans text-gray-800 mb-2">
-            Adventure Pulse
+            GoRafts
           </h2>
           <p className="text-center md:text-left text-sm josefin-sans text-gray-600 mb-4">
             Based in Shivpuri, Rishikesh — India's Adventure Capital
           </p>
           <p className="text-gray-700 leading-relaxed josefin-sans text-[1rem] block md:hidden">
-            <span className="font-semibold">Adventure Pulse</span> brings adrenaline to life with rafting, hiking, kayaking, and more — right from the scenic banks of the Ganga.
+            <span className="font-semibold">GoRafts</span> brings adrenaline to life with rafting, hiking, kayaking, and more — right from the scenic banks of the Ganga.
           </p>
           <p className="text-gray-700 leading-relaxed josefin-sans text-[1rem] hidden md:block">
-            <span className="font-semibold">Adventure Pulse</span> is your adventure base in Shivpuri, Rishikesh — a hotspot for thrill-seekers across India.
+            <span className="font-semibold">GoRafts</span> is your adventure base in Shivpuri, Rishikesh — a hotspot for thrill-seekers across India.
             From the roar of the Ganga beneath your raft to the chill of Himalayan trails beneath your boots, every moment is an experience.
             Whether it's soaring from a bungee platform or zipping across lush valleys, our certified guides ensure it's all safe, wild, and unforgettable.
             <br /><br />

@@ -133,7 +133,7 @@ function BungeeJumping() {
     transition={{ duration: 0.8 }}
     viewport={{ once: true }}
   >
-    Jump into the Thrill of Bungee Adventures
+    Jump into the Thrill <br /> of Bungee Adventures
   </motion.h1>
 
   {/* 📜 Subtitle */}

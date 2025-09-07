@@ -370,7 +370,7 @@ const Rafting = () => {
             <div className="p-4 flex flex-col flex-1 justify-between">
               <div>
                 <h3 className="text-lg font-semibold mb-1">Marine drive to shivpuri</h3>
-                <p className="text-sm text-gray-600 mb-3">Text ever since the 1500s, when an unknown printer took a galley of type and scrambled</p>
+                <p className="text-sm text-gray-600 mb-3">Experience the thrill of a lifetime with our professional river rafting tour in Rishikesh. Navigate the Ganges' exhilarating rapids and witness the stunning Himalayan scenery, all while creating unforgettable memories.</p>
                 <div className="mb-2">
                   <span className="inline-block bg-black text-white text-xs px-3 py-1 rounded-full">Dist 16 km</span>
                 </div>
@@ -405,7 +405,7 @@ const Rafting = () => {
             <div className="p-4 flex flex-col flex-1 justify-between">
               <div>
                 <h3 className="text-lg font-semibold mb-1">Shivpuri To Nim Beach</h3>
-                <p className="text-sm text-gray-600 mb-3">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                <p className="text-sm text-gray-600 mb-3">Embark on an exhilarating white-water journey from Shivpuri to Nim Beach. This professionally guided rafting trip offers an adrenaline-pumping experience on the Ganges' renowned rapids, set against the stunning backdrop of Rishikesh's natural beauty.</p>
                 <div className="mb-2">
                   <span className="inline-block bg-black text-white text-xs px-3 py-1 rounded-full">Dist 16 km</span>
                 </div>
@@ -439,8 +439,8 @@ const Rafting = () => {
             </div>
             <div className="p-4 flex flex-col flex-1 justify-between">
               <div>
-                <h3 className="text-lg font-semibold mb-1">Marine Drive to Shivpuri</h3>
-                <p className="text-sm text-gray-600 mb-3">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                <h3 className="text-lg font-semibold mb-1">Marine Drive to Nim Beach</h3>
+                <p className="text-sm text-gray-600 mb-3">Ready for a longer thrill? Our Marine Drive to Nim Beach rafting trip is your ticket to an unforgettable adventure on the Ganges. Paddle through exciting rapids, soak in the stunning scenery, and create lasting memories. It’s the perfect challenge for those looking to push their limits.</p>
                 <div className="mb-2">
                   <span className="inline-block bg-black text-white text-xs px-3 py-1 rounded-full">Dist 24 km</span>
                 </div>
@@ -475,7 +475,7 @@ const Rafting = () => {
             <div className="p-4 flex flex-col flex-1 justify-between">
               <div>
                 <h3 className="text-lg font-semibold mb-1">Kaudiala To Nim Beach</h3>
-                <p className="text-sm text-gray-600 mb-3">Text ever since the 1500s, when an unknown printer took a galley of type and scrambled</p>
+                <p className="text-sm text-gray-600 mb-3">For the ultimate white-water experience, join our epic Kaudiala to Nim Beach rafting tour. This full-day journey offers adrenaline-pumping action, navigating a variety of rapids with our expert team. It’s a life-changing adventure for true thrill-seekers.</p>
                 <div className="mb-2">
                   <span className="inline-block bg-black text-white text-xs px-3 py-1 rounded-full">Dist 36 km</span>
                 </div>
