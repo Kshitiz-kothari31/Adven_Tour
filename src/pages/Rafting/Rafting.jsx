@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useRef, useState , useEffect } from "react";
 import './Rafting.css'
 import Feedback from '../../components/Feedback';
+import GuidesSection from "../Trek/guide";
 import Form from '../../components/form/Form'
 import Expe from './Expe'
 import AdventureAltHero from './hero'
@@ -214,7 +215,7 @@ const RiverRaftingBackground = () => {
   );
 };
 const Rafting = () => {
-    const sectionRef = useRef(null);
+  const sectionRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -484,119 +485,120 @@ const Rafting = () => {
         </style>
 
 
-      <div className="josefin-sans mt-12 px-4 md:px-20 py-12">
-        {/* Heading */}
-        <h2 className="text-3xl md:text-6xl josefin-sans font-bold text-center mb-12">
-          Rafting Expenditure
-        </h2>
+        <div className="relative josefin-sans mt-12 px-4 md:px-20 py-12 bg-[url('https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/bg.webp')] bg-cover bg-center bg-fixed">
+          {/* Heading */}
+          <h2 className="relative z-10 text-3xl md:text-6xl josefin-sans font-bold text-center mb-12 text-black drop-shadow-lg">
+            Rafting Expenditure
+          </h2>
 
-        {/* 3 Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* 3 Cards */}
+          <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-          {/* Card 1 */}
-          <div className="bg-white rounded-3xl shadow-lg flex flex-col h-[480px] group hover:scale-[1.02] transition-transform duration-300">
-            <div className="relative h-[45%] overflow-hidden rounded-t-3xl">
-              <img
-                src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/card1.webp"
-                alt="Marine drive to Shivpuri"
-                className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
-              />
-              <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white/95 to-transparent" />
-            </div>
-            <div className="p-6 flex flex-col flex-1 justify-between">
-              <div>
-                <h3 className="text-lg font-semibold mb-1">Marine Drive to Shivpuri</h3>
-                <p className="text-sm text-gray-600 mb-3">
-                  Scenic rafting route perfect for adventure seekers.
-                </p>
-                <span className="inline-block bg-black text-white text-xs px-3 py-1 rounded-full">
-                  Dist 16 km
-                </span>
+            {/* Card 1 */}
+            <div className="bg-white rounded-3xl shadow-2xl flex flex-col h-[480px] group hover:scale-[1.03] transition-transform duration-300">
+              <div className="relative h-[45%] overflow-hidden rounded-t-3xl">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/card1.webp"
+                  alt="Marine drive to Shivpuri"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
+                />
+                <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white/95 to-transparent" />
               </div>
-              <div className="mt-3 flex items-center justify-between">
-                <p className="text-sm font-bold">Cost : ₹599</p>
-                <a
-                  href="https://wa.me/917078287331?text=Hello, I want to book Marine Drive to Shivpuri rafting trip."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm px-4 py-2 rounded-full bg-green-500 text-white hover:bg-green-600 transition"
-                >
-                  Book Now
-                </a>
+              <div className="p-6 flex flex-col flex-1 justify-between">
+                <div>
+                  <h3 className="text-lg font-semibold mb-1">Marine Drive to Shivpuri</h3>
+                  <p className="text-sm text-gray-600 mb-3">
+                    Scenic rafting route perfect for adventure seekers.
+                  </p>
+                  <span className="inline-block bg-black text-white text-xs px-3 py-1 rounded-full">
+                    Dist 16 km
+                  </span>
+                </div>
+                <div className="mt-3 flex items-center justify-between">
+                  <p className="text-sm font-bold">Cost : ₹599</p>
+                  <a
+                    href="https://wa.me/917078287331?text=Hello, I want to book Marine Drive to Shivpuri rafting trip."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm px-4 py-2 rounded-full bg-green-500 text-white hover:bg-green-600 transition"
+                  >
+                    Book Now
+                  </a>
+                </div>
               </div>
             </div>
+
+            {/* Card 2 */}
+            <div className="bg-white rounded-3xl shadow-2xl flex flex-col h-[480px] group hover:scale-[1.03] transition-transform duration-300">
+              <div className="relative h-[45%] overflow-hidden rounded-t-3xl">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/card2.webp"
+                  alt="Shivpuri to Nim Beach"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
+                />
+                <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white/95 to-transparent" />
+              </div>
+              <div className="p-6 flex flex-col flex-1 justify-between">
+                <div>
+                  <h3 className="text-lg font-semibold mb-1">Shivpuri To Nim Beach</h3>
+                  <p className="text-sm text-gray-600 mb-3">
+                    One of the most popular rafting stretches in Rishikesh.
+                  </p>
+                  <span className="inline-block bg-black text-white text-xs px-3 py-1 rounded-full">
+                    Dist 16 km
+                  </span>
+                </div>
+                <div className="mt-3 flex items-center justify-between">
+                  <p className="text-sm font-bold">Cost : ₹700</p>
+                  <a
+                    href="https://wa.me/917078287331?text=Hello, I want to book Shivpuri to Nim Beach rafting trip."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm px-4 py-2 rounded-full bg-green-500 text-white hover:bg-green-600 transition"
+                  >
+                    Book Now
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 3 */}
+            <div className="bg-white rounded-3xl shadow-2xl flex flex-col h-[480px] group hover:scale-[1.03] transition-transform duration-300">
+              <div className="relative h-[45%] overflow-hidden rounded-t-3xl">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/card3.webp"
+                  alt="Marine Drive to Shivpuri"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
+                />
+                <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white/95 to-transparent" />
+              </div>
+              <div className="p-6 flex flex-col flex-1 justify-between">
+                <div>
+                  <h3 className="text-lg font-semibold mb-1">Marine Drive to Shivpuri</h3>
+                  <p className="text-sm text-gray-600 mb-3">
+                    Longer stretch with thrilling rapids and scenic views.
+                  </p>
+                  <span className="inline-block bg-black text-white text-xs px-3 py-1 rounded-full">
+                    Dist 24 km
+                  </span>
+                </div>
+                <div className="mt-3 flex items-center justify-between">
+                  <p className="text-sm font-bold">Cost : ₹1200</p>
+                  <a
+                    href="https://wa.me/917078287331?text=Hello, I want to book Marine Drive to Shivpuri (24 km) rafting trip."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm px-4 py-2 rounded-full bg-green-500 text-white hover:bg-green-600 transition"
+                  >
+                    Book Now
+                  </a>
+                </div>
+              </div>
+            </div>
+
           </div>
-
-          {/* Card 2 */}
-          <div className="bg-white rounded-3xl shadow-lg flex flex-col h-[480px] group hover:scale-[1.02] transition-transform duration-300">
-            <div className="relative h-[45%] overflow-hidden rounded-t-3xl">
-              <img
-                src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/card2.webp"
-                alt="Shivpuri to Nim Beach"
-                className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
-              />
-              <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white/95 to-transparent" />
-            </div>
-            <div className="p-6 flex flex-col flex-1 justify-between">
-              <div>
-                <h3 className="text-lg font-semibold mb-1">Shivpuri To Nim Beach</h3>
-                <p className="text-sm text-gray-600 mb-3">
-                  One of the most popular rafting stretches in Rishikesh.
-                </p>
-                <span className="inline-block bg-black text-white text-xs px-3 py-1 rounded-full">
-                  Dist 16 km
-                </span>
-              </div>
-              <div className="mt-3 flex items-center justify-between">
-                <p className="text-sm font-bold">Cost : ₹700</p>
-                <a
-                  href="https://wa.me/917078287331?text=Hello, I want to book Shivpuri to Nim Beach rafting trip."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm px-4 py-2 rounded-full bg-green-500 text-white hover:bg-green-600 transition"
-                >
-                  Book Now
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Card 3 */}
-          <div className="bg-white rounded-3xl shadow-lg flex flex-col h-[480px] group hover:scale-[1.02] transition-transform duration-300">
-            <div className="relative h-[45%] overflow-hidden rounded-t-3xl">
-              <img
-                src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/card3.webp"
-                alt="Marine Drive to Shivpuri"
-                className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
-              />
-              <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-white/95 to-transparent" />
-            </div>
-            <div className="p-6 flex flex-col flex-1 justify-between">
-              <div>
-                <h3 className="text-lg font-semibold mb-1">Marine Drive to Shivpuri</h3>
-                <p className="text-sm text-gray-600 mb-3">
-                  Longer stretch with thrilling rapids and scenic views.
-                </p>
-                <span className="inline-block bg-black text-white text-xs px-3 py-1 rounded-full">
-                  Dist 24 km
-                </span>
-              </div>
-              <div className="mt-3 flex items-center justify-between">
-                <p className="text-sm font-bold">Cost : ₹1200</p>
-                <a
-                  href="https://wa.me/917078287331?text=Hello, I want to book Marine Drive to Shivpuri (24 km) rafting trip."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm px-4 py-2 rounded-full bg-green-500 text-white hover:bg-green-600 transition"
-                >
-                  Book Now
-                </a>
-              </div>
-            </div>
-          </div>
-
         </div>
-      </div>
+
 
       <div className="py-16 sm:mt-20 px-4 md:px-2 mt-4">
       <h2 className="jolly-font text-3xl md:text-4xl font-bold text-center mb-12 josefin-sans">
@@ -650,7 +652,7 @@ const Rafting = () => {
         })}
       </div>
       </div>    
-      <Feedback/>
+      <GuidesSection/>
       
       <FAQSection />
 

@@ -335,10 +335,10 @@ useEffect(() => {
 
       {/* 5th section include */}
       <div className="py-20 px-4 flex md:mt-15 justify-center items-center">
-        <div className="relative max-w-6xl w-full rounded-xl overflow-hidden border border-gray-300 shadow-xl bg-white opacity-0 translate-y-10 animate-fadeInUp">
+        <div className="relative max-w-6xl w-full rounded-xl overflow-hidden border border-gray-300 shadow-xl bg-white">
 
           {/* 🖼️ Image Section */}
-          <div className="relative w-full h-[260px] md:h-[320px] overflow-hidden rounded-t-xl opacity-0 scale-95 animate-fadeInScale">
+          <div className="relative w-full h-[260px] md:h-[320px] overflow-hidden rounded-t-xl">
             <img
               src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/MarineDrive%20to%20Shivpuri/lastImg.webp"
               loading="lazy"
@@ -347,7 +347,7 @@ useEffect(() => {
             />
 
             {/* Floating Title */}
-            <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-20 opacity-0 translate-y-[-20px] animate-fadeDown">
+            <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-20">
               <div className="bg-white josefin-sans px-6 py-2 rounded-xl shadow font-bold text-lg md:text-xl border border-gray-300">
                 Inclusions/Exclusions:
               </div>
@@ -361,7 +361,7 @@ useEffect(() => {
           <div className="grid grid-cols-1 md:grid-cols-2 bg-sky-200 text-black px-6 md:px-12 py-10 gap-10 text-base sm:text-lg lg:text-xl leading-relaxed josefin-font rounded-b-xl">
             
             {/* Included */}
-            <div className="text-left space-y-4 opacity-0 -translate-x-10 animate-fadeLeft" style={{ animationDelay: '200ms' }}>
+            <div className="text-left space-y-4">
               <h3 className="text-xl md:text-2xl font-semibold">✅ What is included in the tour</h3>
               <ul className="list-disc list-inside space-y-3">
                 <li>
@@ -374,7 +374,7 @@ useEffect(() => {
             </div>
 
             {/* Not Included */}
-            <div className="text-left space-y-4 opacity-0 translate-x-10 animate-fadeRight" style={{ animationDelay: '300ms' }}>
+            <div className="text-left space-y-4">
               <h3 className="text-xl md:text-2xl font-semibold">❌ What is NOT included in the tour</h3>
               <ul className="list-disc list-inside space-y-3">
                 <li>Rafting video (₹2000 per raft, shared among 8 people per raft).</li>
@@ -385,6 +385,7 @@ useEffect(() => {
           </div>
         </div>
       </div>
+
       {/* 6th section  */}
       <div className="relative md:mt-15 min-h-screen flex items-center justify-center px-4 sm:px-8 md:px-16 lg:px-28 overflow-hidden text-black text-center">
         {/* 🔁 Background Animation */}
