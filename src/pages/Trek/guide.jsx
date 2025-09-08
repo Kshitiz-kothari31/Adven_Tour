@@ -49,7 +49,7 @@ export default function GuidesSection() {
       className="relative w-full py-16 flex flex-col justify-center items-center text-center"
     >
       {/* Title */}
-      <h2 className="text-2xl md:text-3xl font-bold mb-8 text-black drop-shadow-md">
+      <h2 className="text-2xl md:text-3xl font-bold mb-12 text-black drop-shadow-md">
         Your Guides, Your Travel Partners
       </h2>
 
@@ -93,7 +93,7 @@ export default function GuidesSection() {
 
       {/* CTA Button */}
       <button className="px-6 py-2 bg-orange-500 text-white rounded-full shadow-md hover:bg-orange-600 transition-transform duration-300 hover:scale-105 active:scale-95">
-        About Guides
+        Book Now
       </button>
     </section>
   );

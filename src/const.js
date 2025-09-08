@@ -30,7 +30,7 @@ export const YOUTUBE_VIDEOS = [
 
 // Hero texts
 export const PARAGRAPH_TEXTS = [
-  `Welcome to Adventure Pulse — your gateway to epic outdoor thrills in Shivpuri, Rishikesh.`,
+  `Welcome to GoRafts — your gateway to epic outdoor thrills in Shivpuri, Rishikesh.`,
   `Get ready for rafting on the Ganges, trekking through Himalayan trails, kayaking, bungee jumping, ziplining, and more — all backed by expert guides and pure adventure vibes.`,
   `Whether you're solo or with your tribe, we ensure every moment is safe, seamless, and unforgettable. Let’s make your next escape legendary.`,
 ];

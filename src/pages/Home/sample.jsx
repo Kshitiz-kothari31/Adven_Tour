@@ -10,7 +10,7 @@ import {
 const stats = [
   {
     icon: MountainSnow,
-    end: 150,
+    end: 100,
     suffix: "+",
     label: "Treks Completed",
     color: "text-blue-500",
@@ -18,7 +18,7 @@ const stats = [
   },
   {
     icon: Waves,
-    end: 200,
+    end: 4000,
     suffix: "+",
     label: "Rafting Trips",
     color: "text-cyan-500",
@@ -70,7 +70,7 @@ export default function HighlightsStats() {
       className="relative w-full md:mt-15 mt-10 py-12 px-4 sm:px-6 md:px-10 lg:px-20 josefin-sans bg-transparent"
     >
       <h2 className="fade-title opacity-0 text-2xl sm:text-3xl md:text-4xl font-semibold text-center mb-10 text-black">
-        ✨ Adventure Highlights
+        ✨ Adventure <u>Highlights</u>
       </h2>
 
       <div className="grid grid-cols-2 gap-4 sm:gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-w-5xl mx-auto">

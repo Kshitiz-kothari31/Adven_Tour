@@ -206,7 +206,7 @@ const Gallery = () => {
         {/* Left Text */}
         <div className="flex-1 space-y-6 text-center md:text-left">
           <h1 className="text-4xl md:text-6xl font-bold leading-tight heading-animated">
-            Dive into the <br /> Thrill of Adventure <br /> in Rishikesh
+            Find Your Adventure.<br /> Find Yourself. <br /> In Rishikesh.
           </h1>
           <p className="text-gray-700 text-base md:text-lg max-w-lg mx-auto md:mx-0">
             Experience the ultimate adrenaline rush with white-water rafting,

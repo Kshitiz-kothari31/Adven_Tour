@@ -37,10 +37,17 @@ function DayaraBugyal() {
         
         {/* Text Content */}
         <div className="absolute inset-0 flex flex-col items-center justify-center z-40 text-white text-center px-4 animate-fadeInUp">
-          <h1 className="text-4xl md:text-6xl font-bold font-kalnia drop-shadow-xl leading-tight mb-6 animate-fadeInUp">
+          <h1 className="text-4xl md:text-6xl font-bold font-kalnia drop-shadow-xl leading-tight animate-fadeInUp">
             Dayara Bugyal Trek
           </h1>
           
+          <p className="text-base md:text-lg mt-6 max-w-2xl text-white/90 animate-fadeInUp">
+            Discover epic trails, expert tips, and inspiring stories to fuel your next mountain adventure. Whether you're a beginner or a pro, we help you reach new heights with confidence.
+          </p>
+          {/* <p className="text-base md:text-lg mt-2 max-w-2xl text-white/90 animate-fadeInUp delay-200">
+            Whether you're a beginner or a pro, we help you reach new heights with confidence.
+          </p> */}
+
           <button
             className="mt-6 px-6 py-3 bg-green-700 hover:bg-green-800 text-white rounded-lg backdrop-blur-md border border-white/20 shadow-md transition-transform duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
             onClick={handleBookNow}
@@ -48,13 +55,6 @@ function DayaraBugyal() {
           >
             Book Now
           </button>
-          
-          <p className="text-base md:text-lg mt-6 max-w-2xl text-white/90 animate-fadeInUp">
-            Discover epic trails, expert tips, and inspiring stories to fuel your next mountain adventure.
-          </p>
-          <p className="text-base md:text-lg mt-2 max-w-2xl text-white/90 animate-fadeInUp delay-200">
-            Whether you're a beginner or a pro, we help you reach new heights with confidence.
-          </p>
         </div>
         
         {/* Bottom Wave SVG */}

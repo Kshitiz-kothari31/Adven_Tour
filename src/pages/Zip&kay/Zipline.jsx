@@ -36,12 +36,12 @@ const Zipline = () => {
       >
         {/* 🧭 Title */}
         <h1 className="text-white text-4xl sm:text-6xl font-semibold font-kalnia drop-shadow-lg leading-tight z-10 opacity-0 animate-slide-up [animation-delay:0.3s]">
-          Soar Over the Forests of Rishikesh
+          Feel the Freedom, <br /> Fly Above Rishikesh
         </h1>
 
         {/* 📜 Subtitle */}
         <p className="max-w-2xl text-lg sm:text-2xl text-white font-medium mt-6 mb-8 z-10 opacity-0 animate-slide-up [animation-delay:0.6s]">
-          Experience the thrill of ziplining over lush valleys and mighty rivers in Shivpuri.
+          Experience the thrill of ziplining over lush valleys and mighty ganga in Shivpuri.
         </p>
 
         {/* 🚀 Book Now Button */}
@@ -161,6 +161,7 @@ const Zipline = () => {
                 <p className="text-black/80 mb-4">
                   Experience the thrill of gliding over canopies, cliffs, and sparkling rivers. Our Rishikesh zipline adventure offers unmatched aerial views and pure excitement.
                 </p>
+                <h1 className="mt-5 mb-5"><b>Special Discount for Students : ₹1800 /-</b></h1>
                 <button
                   onClick={() =>
                     window.open(
@@ -215,12 +216,11 @@ const Zipline = () => {
           {/* Text Content */}
           <div className="w-full lg:w-1/2 space-y-6 text-center">
             <h2 className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-amber-600 to-pink-500">
-              Himalayan Zipline Adventure
+              Ganga Zipline Adventure
             </h2>
             <p className="text-sm md:text-base text-gray-700 leading-relaxed">
-              Experience the thrill of soaring 300 feet above the lush valleys of Rishikesh at 40-50 km/h speeds. 
-              Our eco-friendly zipline course offers breathtaking panoramic views of the Himalayan foothills and 
-              the sacred Ganges river below.
+              Experience the thrill of flying above the beautiful ganga maa in Rishikesh at 40-50 km/h speeds. 
+              we asure you a safe and exciting adventure with our solid equipments and trained staff and with the blessings of Mother Ganga.
             </p>
             
             {/* Book Now Button */}
@@ -236,7 +236,7 @@ const Zipline = () => {
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  Book Now – ₹1,499 Only
+                  Book Now – ₹2000 Only
                 </span>
 
                 {/* Hover Overlay */}
@@ -258,7 +258,7 @@ const Zipline = () => {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent p-4 flex flex-col justify-end">
-                  <span className="text-xs font-semibold text-white/90">300ft Height</span>
+                  <span className="text-xs font-semibold text-white/90">150 meter's above from Ganga ji</span>
                   <span className="text-[0.65rem] text-amber-300 mt-0.5">Breathtaking Views</span>
                 </div>
               </div>
@@ -272,7 +272,7 @@ const Zipline = () => {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent p-4 flex flex-col justify-end">
-                  <span className="text-xs font-semibold text-white/90">500m Length</span>
+                  <span className="text-xs font-semibold text-white/90">750 meter's in Length</span>
                   <span className="text-[0.65rem] text-amber-300 mt-0.5">Adrenaline Rush</span>
                 </div>
               </div>

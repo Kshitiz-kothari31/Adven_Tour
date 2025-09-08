@@ -55,9 +55,9 @@ function ImageSliderBox() {
         </p>
         <button
           onClick={handleScrollClick}
-          className="mt-6 md:mt-8 px-6 md:px-8 py-2 md:py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold text-base md:text-lg rounded-xl shadow-lg shadow-orange-300/30 transition-transform duration-500 hover:scale-105 animate-fade-up delay-500"
+          className="mt-6 md:mt-8 px-6 md:px-8 py-2 md:py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold text-base md:text-lg rounded-xl shadow-lg shadow-orange-300/30 transition-transform duration-500 hover:scale-105 animate-fade-up delay-500 cursor-pointer"
         >
-          Start the Journey
+          Start Your Journey
         </button>
       </div>
     </div>
@@ -86,7 +86,7 @@ const Home = () => {
         {/* Text (left side) */}
         <div className="px-2 md:px-6 xl:px-10 text-center md:text-left">
           <h2 className="text-2xl md:text-4xl font-medium text-gray-800 mb-2">
-            Adventure Pulse
+            GoRafts
           </h2>
           <p className="text-xs md:text-sm text-gray-600 mb-3">
             Based in Shivpuri, Rishikesh — India's Adventure Capital
@@ -94,12 +94,12 @@ const Home = () => {
 
           {/* Mobile text */}
           <p className="text-gray-700 leading-relaxed text-[1rem] block md:hidden">
-            <span className="font-semibold">Adventure Pulse</span> brings adrenaline to life with rafting, hiking, kayaking, and more.
+            <span className="font-semibold">GoRafts</span> brings adrenaline to life with rafting, hiking, kayaking, and more.
           </p>
 
           {/* Desktop text */}
           <p className="text-gray-700 leading-relaxed text-[1rem] hidden md:block">
-            <span className="font-semibold">Adventure Pulse</span> is your adventure base in Shivpuri, Rishikesh — a hotspot for thrill-seekers across India...
+            <span className="font-semibold">GoRafts</span> is your adventure base in Shivpuri, Rishikesh — a hotspot for thrill-seekers across India...
           </p>
         </div>
 
@@ -125,7 +125,8 @@ const Home = () => {
       {/* Video Section */}
       <section id="bottomRef" className="relative josefin-sans -mt-10 md:mt-10 py-12 px-4 sm:px-6 md:px-10 lg:px-20 animate-fadeInUp">
         <div className="relative z-10 max-w-6xl mx-auto text-center space-y-10">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold font-josefin text-black animate-fadeIn">Experience the Adventure</h2>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold font-josefin text-black animate-fadeIn">Experience the <u>Adventure</u></h2>
+          <p>These real clips showcase our adventure experiences – live from Rishikesh's whitewater. </p>
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 animate-fadeIn delay-200">
             {YOUTUBE_VIDEOS.map((yt, index) => (
               <div key={index} className="relative overflow-hidden rounded-2xl shadow-lg bg-black hover:shadow-yellow-400/30 transition-all duration-300 hover:scale-[1.03]">
@@ -144,7 +145,7 @@ const Home = () => {
             ))}
           </div>
           <p className="text-sm sm:text-base max-w-2xl mx-auto text-gray-700 font-josefin leading-relaxed px-2 animate-fadeIn delay-500">
-            These real clips showcase our adventure experiences – live from Rishikesh's whitewater.
+           This isn't just stock footage; these are genuine moments captured from our actual trips. the quality of our equipment, and the breathtaking natural scenery you'll discover on your journey with us. <b> Get ready to picture yourself on the water with us!</b>
           </p>
         </div>
       </section>
@@ -186,7 +187,7 @@ const Home = () => {
                     loading="lazy"
                   />
                   <Link to={item.link}>
-                    <button className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-orange-300 text-black px-5 py-2 text-sm rounded-md shadow transition-transform duration-300 group-hover:scale-105 group-hover:bg-orange-400">
+                    <button className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-orange-500 text-white px-5 py-2 text-sm rounded-md shadow transition-transform duration-300 group-hover:scale-105 group-hover:bg-orange-400 cursor-pointer">
                       More
                     </button>
                   </Link>
@@ -217,7 +218,7 @@ const Home = () => {
                     loading="lazy"
                   />
                   <Link to="/stays">
-                    <button className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-orange-300 text-black px-5 py-2 text-sm rounded-md shadow transition-transform duration-300 group-hover:scale-105 group-hover:bg-orange-400">
+                    <button className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-orange-500 text-white px-5 py-2 text-sm rounded-md shadow transition-transform duration-300 group-hover:scale-105 group-hover:bg-orange-400 cursor-pointer">
                       More
                     </button>
                   </Link>
