@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
+
 const faqData = [
   {
     question: "a. What should I bring for rafting?",
@@ -10,7 +11,9 @@ const faqData = [
           <li>Carry: Life jacket (provided), water bottle, dry bag, lip balm.</li>
           <li>
             Extras: Change of clothes, towel, flashlight (if camping), first-aid.{" "}
-            <a href="#" className="text-blue-600 underline">Checklist</a>
+            <a href="#" className="text-blue-600 underline">
+              Checklist
+            </a>
           </li>
         </ul>
       </>
@@ -19,7 +22,7 @@ const faqData = [
   {
     question: "b. Is rafting safe for beginners?",
     answer:
-      "Yes, rafting is generally safe for beginners when done with a certified guide, proper gear, and on easier rapids like Class I or II. You’ll get a safety briefing before starting. Follow instructions, stay calm — it’s a beginner-friendly adventure!",
+      "Yes, rafting is safe for beginners when done with a certified guide, proper gear, and on easier rapids like Class I or II. You'll also get a safety briefing before starting.",
   },
   {
     question: "c. What is the minimum age to participate?",
@@ -37,7 +40,7 @@ const faqData = [
   {
     question: "d. How do I book a trip?",
     answer:
-      "You can book via platforms like Thrillophilia or local camps. Most allow WhatsApp, phone, or direct walk-ins near Laxman Jhula or Tapovan. Bookings include gear, certified guides, transport to the rafting point, and sometimes fun extras like cliff jumping or riverside camping.",
+      "You can book via platforms like Thrillophilia or local camps. Most allow WhatsApp, phone, or walk-ins near Laxman Jhula or Tapovan. Bookings include gear, certified guides, transport, and sometimes cliff jumping or camping.",
   },
   {
     question: "e. Do I need prior experience?",
@@ -47,52 +50,52 @@ const faqData = [
 ];
 
 export default function FAQSection() {
-    useEffect(() => {
-    const items = document.querySelectorAll(".fade-in-up");
+  const sectionRef = useRef(null);
+  const [visible, setVisible] = useState(false);
 
+  useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
-      },
-      { threshold: 0.1 }
+      ([entry]) => setVisible(entry.isIntersecting),
+      { threshold: 0.2 }
     );
-
-    items.forEach((item) => observer.observe(item));
-
-    return () => {
-      items.forEach((item) => observer.unobserve(item));
-    };
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
   }, []);
+
   return (
-    <section className="josefin-sans py-16 px-6 md:px-20 max-w-5xl mx-auto">
-      <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 fade-in-up">
+    <section
+      ref={sectionRef}
+      className="josefin-sans py-16 px-6 md:px-20 max-w-5xl mx-auto"
+    >
+      <h2
+        className={`text-3xl md:text-4xl font-bold text-center mb-10 transition-all duration-700 ${
+          visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+        }`}
+      >
         Frequently Asked Questions
         <div className="text-lg font-medium text-gray-600">
           Everything you need to know before booking
         </div>
       </h2>
 
-      <div className="space-y-8">
+      <dl className="space-y-8">
         {faqData.map((faq, index) => (
           <div
             key={index}
-            className={`bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-all duration-300 fade-in-up`}
-            style={{ animationDelay: `${index * 0.1}s` }} // ⏳ stagger effect
+            className={`bg-white rounded-xl p-4 shadow-md hover:shadow-lg transition-all duration-700 ${
+              visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            }`}
+            style={{ transitionDelay: `${index * 100}ms` }} // stagger effect
           >
-            <h3 className="text-lg md:text-xl font-semibold text-black">
+            <dt className="text-lg md:text-xl font-semibold text-black">
               {faq.question}
-            </h3>
-            <div className="mt-2 text-gray-700 text-sm md:text-base">
+            </dt>
+            <dd className="mt-2 text-gray-700 text-sm md:text-base">
               {faq.answer}
-            </div>
+            </dd>
           </div>
         ))}
-      </div>
+      </dl>
     </section>
-
   );
 }

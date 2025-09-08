@@ -119,7 +119,6 @@ const Home = () => {
         </div>
       </div>
 
-
       {/* Stats */}
       <HighlightsStats />
 
@@ -129,10 +128,7 @@ const Home = () => {
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold font-josefin text-black animate-fadeIn">Experience the Adventure</h2>
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 animate-fadeIn delay-200">
             {YOUTUBE_VIDEOS.map((yt, index) => (
-              <div
-                key={index}
-                className="relative overflow-hidden rounded-2xl shadow-lg bg-black hover:shadow-yellow-400/30 transition-all duration-300 hover:scale-[1.03]"
-              >
+              <div key={index} className="relative overflow-hidden rounded-2xl shadow-lg bg-black hover:shadow-yellow-400/30 transition-all duration-300 hover:scale-[1.03]">
                 <div className="aspect-[9/16] w-full">
                   <iframe
                     src={yt}
@@ -153,11 +149,24 @@ const Home = () => {
         </div>
       </section>
 
+
       <CertificateMarquee />
 
       {/* Cards Section */}
-      <div className="py-16 px-4 md:px-10 xl:px-24 josefin-sans space-y-20">
-        {/* ───────────────── Packages ───────────────── */}
+      <section className="py-16 px-4 md:px-10 xl:px-24 josefin-sans space-y-20">
+        <style>
+          {`
+            @keyframes fadeInUp {
+              0% { opacity: 0; transform: translateY(20px); }
+              100% { opacity: 1; transform: translateY(0); }
+            }
+            .animate-fadeInUp {
+              animation: fadeInUp 0.5s forwards;
+            }
+          `}
+        </style>
+
+        {/* ──────────────── Packages ──────────────── */}
         <div>
           <h2 className="text-3xl font-semibold josefin-sans mb-6 text-center md:text-left">
             Packages
@@ -166,7 +175,7 @@ const Home = () => {
             {CARDS.map((item, index) => (
               <div
                 key={item.label}
-                className="group w-full flex flex-col items-center transition-transform duration-500 hover:scale-105 animate-fadeInUp"
+                className="group w-full flex flex-col items-center opacity-0 translate-y-10 animate-fadeInUp"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="relative rounded-xl overflow-hidden shadow-md w-full aspect-[4/3] bg-gray-100 transition-all duration-500 group-hover:shadow-xl">
@@ -188,73 +197,43 @@ const Home = () => {
           </div>
         </div>
 
-        {/* ───────────────── Stays ───────────────── */}
+        {/* ──────────────── Stays ──────────────── */}
         <div>
-          <h2 className="text-3xl font-semibold josefin-sans mb-6 md:-mt-15 text-center md:text-left">
+          <h2 className="text-3xl font-semibold josefin-sans mb-6 text-center md:text-left">
             Stays
           </h2>
-
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-10 justify-center">
-            {/* Stay 1 */}
-            <div className="group w-full flex flex-col items-center transition-transform duration-500 hover:scale-105 animate-fadeInUp" style={{ animationDelay: '100ms' }}>
-              <div className="relative rounded-xl overflow-hidden shadow-md w-full aspect-[4/3] bg-gray-100 transition-all duration-500 group-hover:shadow-xl">
-                <img
-                  src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/home_page_stayCard.webp"
-                  alt="Luxury Stay"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  loading="lazy"
-                />
-                <Link to="/stays">
-                  <button className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-orange-300 text-black px-5 py-2 text-sm rounded-md shadow transition-transform duration-300 group-hover:scale-105 group-hover:bg-orange-400">
-                    More
-                  </button>
-                </Link>
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10 justify-center">
+            {["Luxury Stay", "Riverside Cottage", "Adventure Camp"].map((stay, i) => (
+              <div
+                key={stay}
+                className="group w-full flex flex-col items-center opacity-0 translate-y-10 animate-fadeInUp"
+                style={{ animationDelay: `${i * 150}ms` }}
+              >
+                <div className="relative rounded-xl overflow-hidden shadow-md w-full aspect-[4/3] bg-gray-100 transition-all duration-500 group-hover:shadow-xl">
+                  <img
+                    src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/home_page_stayCard.webp"
+                    alt={stay}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    loading="lazy"
+                  />
+                  <Link to="/stays">
+                    <button className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-orange-300 text-black px-5 py-2 text-sm rounded-md shadow transition-transform duration-300 group-hover:scale-105 group-hover:bg-orange-400">
+                      More
+                    </button>
+                  </Link>
+                </div>
+                <p className="mt-2 text-lg opacity-80">{stay}</p>
               </div>
-              <p className="mt-2 text-lg opacity-80">Luxury Stay</p>
-            </div>
-
-            {/* Stay 2 */}
-            <div className="group w-full flex flex-col items-center transition-transform duration-500 hover:scale-105 animate-fadeInUp" style={{ animationDelay: '200ms' }}>
-              <div className="relative rounded-xl overflow-hidden shadow-md w-full aspect-[4/3] bg-gray-100 transition-all duration-500 group-hover:shadow-xl">
-                <img
-                  src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/home_page_stayCard.webp"
-                  alt="Riverside Cottage"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  loading="lazy"
-                />
-                <Link to="/stays">
-                  <button className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-orange-300 text-black px-5 py-2 text-sm rounded-md shadow transition-transform duration-300 group-hover:scale-105 group-hover:bg-orange-400">
-                    More
-                  </button>
-                </Link>
-              </div>
-              <p className="mt-2 text-lg opacity-80">Riverside Cottage</p>
-            </div>
-
-            {/* Stay 3 */}
-            <div className="group w-full flex flex-col items-center transition-transform duration-500 hover:scale-105 animate-fadeInUp" style={{ animationDelay: '300ms' }}>
-              <div className="relative rounded-xl overflow-hidden shadow-md w-full aspect-[4/3] bg-gray-100 transition-all duration-500 group-hover:shadow-xl">
-                <img
-                  src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/home_page_stayCard.webp"
-                  alt="Adventure Camp"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                  loading="lazy"
-                />
-                <Link to="/stays">
-                  <button className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-orange-300 text-black px-5 py-2 text-sm rounded-md shadow transition-transform duration-300 group-hover:scale-105 group-hover:bg-orange-400">
-                    More
-                  </button>
-                </Link>
-              </div>
-              <p className="mt-2 text-lg opacity-80">Adventure Camp</p>
-            </div>
+            ))}
           </div>
         </div>
-      </div>
-
+      </section>
 
       {/* image slider */}
-      <ImageSlider />
+      <section className="mt-10">
+        <ImageSlider />
+      </section>
+      
 
       {/* detail */}
       <Feedback />

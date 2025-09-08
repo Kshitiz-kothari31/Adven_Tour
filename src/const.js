@@ -22,10 +22,10 @@ export const CARDS = [
 
 // Youtube videos
 export const YOUTUBE_VIDEOS = [
-  "https://www.youtube.com/embed/aHrIyirdeDU?autoplay=0&mute=1&modestbranding=1&rel=0&controls=0&showinfo=0",
-  "https://www.youtube.com/embed/sjmNmWuYXqQ?autoplay=0&mute=1&modestbranding=1&rel=0&controls=0&showinfo=0",
-  "https://www.youtube.com/embed/xI-IQ7EpLgE?autoplay=0&mute=1&modestbranding=1&rel=0&controls=0&showinfo=0",
-  "https://www.youtube.com/embed/9IkaMZjyt-8?autoplay=0&mute=1&modestbranding=1&rel=0&controls=0&showinfo=0",
+  "https://www.youtube.com/embed/2BY0nQNL9-Y?autoplay=0&mute=1&modestbranding=1&rel=0&controls=0",
+  "https://www.youtube.com/embed/L3yRmPJ9YGw?autoplay=0&mute=1&modestbranding=1&rel=0&controls=0",
+  "https://www.youtube.com/embed/OsEk0y4a2XU?autoplay=0&mute=1&modestbranding=1&rel=0&controls=0",
+  "https://www.youtube.com/embed/6uQJcoRGa48?autoplay=0&mute=1&modestbranding=1&rel=0&controls=0",
 ];
 
 // Hero texts
