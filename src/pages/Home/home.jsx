@@ -128,10 +128,7 @@ const Home = () => {
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold font-josefin text-black animate-fadeIn">Experience the Adventure</h2>
           <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 animate-fadeIn delay-200">
             {YOUTUBE_VIDEOS.map((yt, index) => (
-              <div
-                key={index}
-                className="relative overflow-hidden rounded-2xl shadow-lg bg-black hover:shadow-yellow-400/30 transition-all duration-300 hover:scale-[1.03]"
-              >
+              <div key={index} className="relative overflow-hidden rounded-2xl shadow-lg bg-black hover:shadow-yellow-400/30 transition-all duration-300 hover:scale-[1.03]">
                 <div className="aspect-[9/16] w-full">
                   <iframe
                     src={yt}
@@ -151,6 +148,7 @@ const Home = () => {
           </p>
         </div>
       </section>
+
 
       <CertificateMarquee />
 

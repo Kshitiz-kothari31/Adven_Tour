@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import CountUp from "react-countup";
 import "./Rafting.css";
 
@@ -9,39 +9,39 @@ const stats = [
 ];
 
 const Expe = () => {
+  const sectionRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+
   useEffect(() => {
-    const items = document.querySelectorAll(".fade-in-up");
-
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
-      },
-      { threshold: 0.2 }
+      ([entry]) => setVisible(entry.isIntersecting),
+      { threshold: 0.3 }
     );
-
-    items.forEach((item) => observer.observe(item));
-    return () => items.forEach((item) => observer.unobserve(item));
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <section>
-      <div className="fade-in-up bg-[#5656eb] hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600 transition-all duration-700 py-6 px-6 text-white text-center josefin-sans">
+    <section ref={sectionRef} className="josefin-sans">
+      <div
+        className={`transition-all duration-700 py-6 px-6 text-white text-center
+        bg-[#5656eb] hover:bg-gradient-to-r hover:from-indigo-600 hover:to-purple-600
+        ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+      >
         <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6">
           {stats.map((item, index) => (
             <div
               key={index}
-              className="fade-in-up hover-animate bg-white/10 hover:bg-white/20 rounded-xl py-5 px-4 shadow-lg backdrop-blur-lg"
+              className="bg-white/10 hover:bg-white/20 rounded-xl py-5 px-4 shadow-lg backdrop-blur-lg transition-transform hover:scale-105"
             >
               <h3 className="text-3xl font-extrabold text-white">
-                <CountUp
-                  end={item.number}
-                  duration={item.duration}
-                  suffix={item.suffix || ""}
-                />
+                {visible && (
+                  <CountUp
+                    end={item.number}
+                    duration={item.duration}
+                    suffix={item.suffix || ""}
+                  />
+                )}
               </h3>
               <p className="text-base mt-1">{item.text}</p>
             </div>
