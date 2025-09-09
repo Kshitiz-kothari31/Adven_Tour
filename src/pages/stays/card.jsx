@@ -13,9 +13,9 @@ export default function CottageCards() {
       shortDesc: "There are many variations of passages of Lorem Ipsum available.",
       price: 2000,
       bigImg:
-        "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Stays/stay_01.webp",
+        "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/Hero_img.webp",
       smallImg:
-        "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Stays/stay_02.webp",
+        "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Stay%20Page/hero_img_1.webp",
     },
     {
       id: 2,
