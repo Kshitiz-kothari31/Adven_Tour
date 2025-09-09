@@ -44,7 +44,7 @@ function KedarKatha() {
         {/* Hero content */}
         <div className="absolute inset-0 flex items-center justify-start px-6 md:px-20 z-40">
           <div className="text-left max-w-3xl animate-fadeInLeft">
-            <h1 className="text-green-300 text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-kalnia font-extrabold tracking-tight drop-shadow-[0_4px_6px_rgba(0,0,0,0.4)] whitespace-nowrap overflow-hidden border-r-4 border-green-400 pr-2 animate-typing">
+            <h1 className="text-white text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-kalnia font-extrabold tracking-tight drop-shadow-[0_4px_6px_rgba(0,0,0,0.4)] whitespace-nowrap overflow-hidden border-r-4 border-green-400 pr-2 animate-typing">
               Kedar Katha Trek
             </h1>
             
@@ -66,7 +66,7 @@ function KedarKatha() {
               onClick={handleCustomBookNow}
               aria-label="Book Kedar Katha Trek on WhatsApp"
             >
-              💬 Book Now
+              Book Now
             </button>
           </div>
         </div>
@@ -157,7 +157,7 @@ function KedarKatha() {
           <div className="max-w-7xl w-full flex flex-col lg:flex-row items-center justify-center gap-14 relative z-10">
             {/* Image Section */}
             <div className="relative group w-full max-w-sm lg:max-w-md opacity-0 animate-fadeUp">
-              <div className="absolute -inset-3 rounded-2xl bg-gradient-to-tr from-green-400 via-green-600 to-green-800 blur-2xl opacity-30 group-hover:opacity-50 transition"></div>
+              <div className="absolute -inset-3 rounded-2xl  from-green-400 via-green-600 to-green-800 blur-2xl opacity-30 group-hover:opacity-50 transition"></div>
               <img
                 src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks/kedarkatha%20trek/kedarkantha_img12.webp"
                 loading="lazy"
@@ -210,7 +210,7 @@ function KedarKatha() {
                 onClick={handleBookNow}
                 aria-label="Book Kedar Katha Trek on WhatsApp"
               >
-                💬 Book Now
+                Book Now
               </button>
             </div>
           </div>

@@ -299,7 +299,7 @@ function Trek() {
               className="mt-2 inline-block px-2 py-1 text-xs sm:text-sm bg-teal-800 text-white rounded-full hover:bg-teal-700 transition-all duration-300 shadow-md hover:scale-105 active:scale-95"
               aria-label={`Learn more about ${trek.title}`}
             >
-              More Details
+              More Info
             </Link>
           </div>
         </div>

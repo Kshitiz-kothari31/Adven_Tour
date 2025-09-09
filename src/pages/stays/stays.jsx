@@ -41,7 +41,7 @@ function Stays() {
     const marqueeItems = [
       'Cozy mountain stays',
       'Wake up to sunrise views',
-      'Nature at your doorstep',
+      'Your perfect nature escape',
       'Comfort meets adventure',
       'Luxury in the wild',
       'Campfires & starry nights',
@@ -79,10 +79,10 @@ function Stays() {
         <div className="relative h-[70vh] md:h-[75vh] flex flex-col items-center justify-center text-center px-4 md:px-8 rounded-b-3xl">
           <div className="opacity-0 translate-y-10 animate-fade-in-up text-center">
             <h1 className="text-2xl sm:text-3xl md:text-6xl font-kalnia font-bold mb-3 md:mb-4 drop-shadow-sm text-white leading-snug">
-              Cozy Camping in Rishikesh
+              Your Peaceful Retreat.<br /> Cozy Camping by the Ganges.
             </h1>
             <p className="text-sm sm:text-base md:text-xl max-w-sm sm:max-w-xl md:max-w-2xl mx-auto mb-4 md:mb-6 text-gray-100">
-              Campfires, riverside tents, and starlit skies — your cozy escape into nature starts here.
+              Campfires, luxury tents, and starlit skies — your cozy escape into nature starts here.
             </p>
 
             {/* Book Now Button */}
@@ -182,9 +182,9 @@ function Stays() {
             {marqueeItems.map((text, i) => (
               <span
                 key={i}
-                className="flex items-center gap-2 text-transparent bg-clip-text bg-gradient-to-r from-green-700 to-emerald-500 hover:scale-105 transition-transform duration-300"
+                className="flex items-center gap-2 text-transparent bg-clip-text bg-gradient-to-r from-green-700 to-emerald-500 hover:scale-105 transition-transform duration-500"
               >
-                ✦ {text}
+                {text}
               </span>
             ))}
           </div>

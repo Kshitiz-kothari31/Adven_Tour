@@ -101,7 +101,11 @@ const Kayaking = () => {
             <p className="text-gray-700 text-base sm:text-lg leading-relaxed opacity-0 animate-slide-up [animation-delay:0.5s]">
               Shivpuri, just a few kilometers upstream from Rishikesh, is known
               for its pristine natural beauty, powerful river currents, and
-              serene Himalayan backdrop...
+              serene Himalayan backdrop... <br />
+              <br />
+              Experience the thrill of kayaking on the <b>Ganga maa</b> with <b> <i>certified and expert guides</i></b> who prioritize your safety and fun. <br />
+              <br />
+              You can also join our one-week <b> <u> Certification Course </u></b> with expert teachers and guides who will help you to bring your own kayak in the <b> white water rapids. </b> <br />
             </p>
           </div>
         </div>
@@ -125,7 +129,7 @@ const Kayaking = () => {
             Ride the Rapids of Shivpuri
           </h1>
           <p className="text-sm md:text-base text-white leading-relaxed mb-8">
-            Experience the pulse of the Ganges...
+          Experience the ultimate rush on the Ganges with our thrilling kayaking adventure. Get ready to paddle, splash, and conquer the exhilarating rapids of Shivpuri.
           </p>
           <button
             className="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-indigo-600 hover:to-blue-500 text-white font-semibold px-10 py-3 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 hover:shadow-2xl flex items-center gap-2"

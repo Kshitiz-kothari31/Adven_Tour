@@ -89,8 +89,8 @@ const Rafting = () => {
   const raftingPlans = useMemo(() => [
     {
       title: "Marine drive to shivpuri",
-      description: "Scenic rafting route perfect for adventure seekers.",
-      distance: "16 km",
+      description: "Scenic rafting route perfect for adventure seekers. ",
+      distance: "12 km",
       cost: "₹599",
       image: "card1.webp",
       link: "/rafting/shivpuri"
@@ -99,12 +99,12 @@ const Rafting = () => {
       title: "Shivpuri To Nim Beach",
       description: "One of the most popular rafting stretches in Rishikesh.",
       distance: "16 km",
-      cost: "₹700",
+      cost: "₹799",
       image: "card2.webp",
       link: "/rafting/nim"
     },
     {
-      title: "Marine Drive to Shivpuri",
+      title: "Marine Drive to Nim Beach",
       description: "Longer stretch with thrilling rapids and scenic views.",
       distance: "24 km",
       cost: "₹1200",
@@ -124,26 +124,23 @@ const Rafting = () => {
   // Booking cards data
   const bookingCards = useMemo(() => [
     {
-      title: "Marine Drive to Shivpuri",
-      description: "Scenic rafting route perfect for adventure seekers.",
-      distance: "16 km",
-      cost: "₹599",
+      title: "Devprayag To Nim Beach (Rishikesh)",
+      description: "on ganga river, perfect for families and beginners.",
+      distance: "50 km",
       image: "card1.webp",
       message: "Hello, I want to book Marine Drive to Shivpuri rafting trip."
     },
     {
-      title: "Shivpuri To Nim Beach",
-      description: "One of the most popular rafting stretches in Rishikesh.",
-      distance: "16 km",
-      cost: "₹700",
+      title: "Koteshwar to Rishikesh",
+      description: "on Bhagirathi river, ideal for thrill-seekers.",
+      distance: "100 km",
       image: "card2.webp",
       message: "Hello, I want to book Shivpuri to Nim Beach rafting trip."
     },
     {
-      title: "Marine Drive to Shivpuri",
-      description: "Longer stretch with thrilling rapids and scenic views.",
-      distance: "24 km",
-      cost: "₹1200",
+      title: "Bagwan to Rishikesh",
+      description: "on alaknanda river, perfect for adventure lovers.",
+      distance: "100 km",
       image: "card3.webp",
       message: "Hello, I want to book Marine Drive to Shivpuri (24 km) rafting trip."
     }
@@ -204,7 +201,7 @@ const Rafting = () => {
       <div className="josefin-sans md:mt-12 overflow-hidden mt-9 py-3">
         <div className="flex whitespace-nowrap text-black font-medium text-3xl gap-12 px-6 animate-marquee">
           {Array(3).fill(marqueeItems).flat().map((text, i) => (
-            <span key={i}>✦ {text}</span>
+            <span key={i}>{text}</span>
           ))}
         </div>
       </div>
@@ -281,7 +278,7 @@ const Rafting = () => {
                   </span>
                 </div>
                 <div className="mt-3 flex items-center justify-between">
-                  <p className="text-sm font-bold">Cost : {card.cost}</p>
+                  <p className="text-sm font-bold"></p>
                   <a
                     href={`https://wa.me/917078287331?text=${encodeURIComponent(card.message)}`}
                     target="_blank"

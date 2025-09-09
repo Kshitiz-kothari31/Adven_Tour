@@ -9,13 +9,13 @@ const LazyForm = lazy(() => import('../../../components/form/Form'));
 const data = [
   {
     reverse: false,
-    title: "Roller Coaster",
+    title: "Denil Deep (3rd grade rapid)",
     desc: "One of the most thrilling rapids on this route.",
     img: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/Memo_img2.webp",
   },
   {
     reverse: true,
-    title: "Golf Course",
+    title: "The Great Wall (4th grade rapid)",
     desc: "A fun rapid with multiple waves and challenges.",
     img: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/Memo_img1.webp",
   },

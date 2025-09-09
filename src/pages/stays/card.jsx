@@ -8,10 +8,10 @@ export default function CottageCards() {
   const cards = [
     {
       id: 1,
-      title: "Coller Cottage",
-      desc: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration...",
+      title: "A.C Deluxe Cottage's",
+      desc: "Unwind in our AC Cottages, your cool retreat with a beautiful view. Enjoy a complete three-time meal plan—breakfast, lunch, and dinner—along with evening snacks and morning tea. It's the perfect blend of comfort and convenience.",
       shortDesc: "There are many variations of passages of Lorem Ipsum available.",
-      price: 2499,
+      price: 2000,
       bigImg:
         "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Stays/stay_01.webp",
       smallImg:
@@ -19,10 +19,10 @@ export default function CottageCards() {
     },
     {
       id: 2,
-      title: "Mountain Stay",
+      title: "Coller Cottage's",
       desc: "Escape into the mountains with cozy cottages surrounded by nature’s beauty...",
       shortDesc: "Escape into the mountains with cozy cottages.",
-      price: 2499,
+      price: 1500,
       bigImg:
         "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Stays/stay_06.webp",
       smallImg:

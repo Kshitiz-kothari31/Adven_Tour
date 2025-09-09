@@ -4,8 +4,8 @@ import "./Rafting.css";
 
 const stats = [
   { number: 5000, text: "Happy Clients", duration: 10 },
-  { number: 15, text: "Years Of Experience", suffix: " +", duration: 15 },
-  { number: 100, text: "River Rafted", duration: 10 },
+  { number: 28, text: "Years Of Experience", suffix: " +", duration: 15 },
+  { number: 4000, text: "River Rafted", duration: 10 },
 ];
 
 const Expe = () => {

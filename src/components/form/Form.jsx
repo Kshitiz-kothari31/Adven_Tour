@@ -48,8 +48,8 @@ export default function Form({
           <PhoneCall className="w-6 h-6 text-black" />
         </div>
         <div>
-          <p className="font-semibold text-black">Customer Support</p>
-          <p className="text-gray-900 text-sm">+91 6398xxx708</p>
+          <p className="font-semibold text-black">Book Your Adventure</p>
+          <p className="text-gray-900 text-sm">+91 7078287331</p>
         </div>
       </div>
 
@@ -58,8 +58,8 @@ export default function Form({
           <Mail className="w-6 h-6 text-black" />
         </div>
         <div>
-          <p className="font-semibold text-black">Email</p>
-          <p className="text-gray-900 text-sm">adventurebooking@gmail.com</p>
+          <p className="font-semibold text-black">Email Us</p>
+          <p className="text-gray-900 text-sm">gorafts001@gmail.com</p>
         </div>
       </div>
     </div>

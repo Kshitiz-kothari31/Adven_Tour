@@ -58,8 +58,8 @@ const cards = [
   },
   {
     title: "Splash Dice",
-    height: "53 meter's",
-    cost: "₹3000 /-",
+    height: "109 meter's",
+    cost: "₹4000 /-",
     extra: "*DSLR Video Included",
     image:
       "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Bungee%20Jumping%20Page/Splash_Dice.webp",
@@ -116,11 +116,11 @@ function BungeeJumping() {
         }}
       >
         <h1 className="text-white text-3xl sm:text-6xl font-semibold drop-shadow-lg font-kalnia leading-tight animate-fade-up">
-          Jump into the Thrill of Bungee Adventures
+          Jump into the Thrill of <br /> Bungee Adventures
         </h1>
 
         <p className="max-w-2xl text-lg sm:text-2xl text-white font-medium mt-6 mb-8 animate-fade-up delay-200">
-          Experience the adrenaline rush of freefalling from breathtaking heights in Rishikesh.
+          fight gravity, embrace the fall, and feel the ultimate bungee experience
         </p>
 
         <button
@@ -130,42 +130,27 @@ function BungeeJumping() {
               "_blank"
             )
           }
-          className="relative px-10 py-3 text-white font-bold rounded-full shadow-xl bg-gradient-to-r from-green-500 to-emerald-600 overflow-hidden transition-all duration-700 transform group hover:scale-90 hover:-rotate-1"
+          className="relative px-10 py-3 text-white font-bold rounded-full shadow-xl bg-blue-800 to-emerald-600 overflow-hidden transition-all duration-700 transform group hover:scale-90 hover:-rotate-1"
         >
           <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent translate-x-[-100%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-out blur-sm"></span>
           <span className="absolute inset-0 w-full h-full bg-emerald-500 rounded-full opacity-0 group-hover:opacity-30 group-hover:scale-125 group-hover:blur-2xl transition-all duration-700"></span>
           <span className="relative z-10 tracking-wide group-hover:tracking-widest group-hover:animate-pulse">
-            💬 WhatsApp Us
+            Book Now
           </span>
         </button>
-
-        <div className="mt-12">
-          <button
-            onClick={() =>
-              document.getElementById("rishikesh")?.scrollIntoView({
-                behavior: "smooth",
-              })
-            }
-            className="bg-blue-300 cursor-pointer text-white p-4 rounded-full text-2xl shadow-lg transition-all duration-700 hover:bg-blue-500 hover:animate-spin-once"
-          >
-            ↓
-          </button>
-        </div>
       </section>
 
       {/* Marquee Section */}
       <div className="josefin-sans md:mt-15 overflow-hidden mt-4">
-        <div className="relative w-full bg-gradient-to-r from-white to-[#89dcfa] h-[60px] flex items-center overflow-hidden">
-          <div className="animate-marquee whitespace-nowrap text-black font-light text-3xl gap-16 flex min-w-[200%]">
+        <div className="italic underline animate-marquee whitespace-nowrap text-black font-medium text-3xl gap-8 flex min-w-[200%]">
             {[...Array(3)].flatMap(() =>
               marqueeItems.map((text, i) => (
                 <span key={`${text}-${i}`} className="shrink-0 px-8">
-                  ✦ {text}
+                  {text}
                 </span>
               ))
             )}
           </div>
-        </div>
       </div>
 
       {/* Plans Section */}
@@ -180,7 +165,7 @@ function BungeeJumping() {
           ref={addToRefs}
           data-id="plans"
         >
-          Rishikesh
+          Bungee Jumping Plans
         </h2>
 
         <p
@@ -190,7 +175,7 @@ function BungeeJumping() {
           ref={addToRefs}
           data-id="plans-p"
         >
-          Pro, we help you reach new heights with confidence.
+          Let's create a memory that will stay with you forever. Push your limits and embrace the adventure, because this is the story you'll be excited to tell.
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -236,7 +221,7 @@ function BungeeJumping() {
         <div className="relative z-10 max-w-6xl mx-auto text-center space-y-10">
           {/* Heading */}
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-black animate-fadeIn">
-            🪂 Rishikesh <span className="text-orange-500">Bungee Jumping</span>
+            🪂 Rishikesh <span className="text-orange-500"> <u>Bungee Jumping</u></span>
           </h2>
 
           {/* Video Grid */}
@@ -264,7 +249,7 @@ function BungeeJumping() {
 
           {/* Footer Text */}
           <p className="text-sm sm:text-base max-w-2xl mx-auto text-gray-700 font-josefin leading-relaxed px-2 animate-fadeIn delay-500">
-            These real clips showcase our adventure experiences – live from Rishikesh's whitewater.
+            These real clips showcase our adventure experiences – live from Rishikesh's whitewater.  This isn't just stock footage; these are genuine moments captured from our actual trips. the quality of our equipment, and the breathtaking natural scenery you'll discover on your journey with us. <b> Get ready to picture yourself on the water with us!</b>
           </p>
         </div>
       </section>

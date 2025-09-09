@@ -46,9 +46,9 @@ const ContactSection = () => {
           viewport={{ once: true }}
           className="text-sm text-gray-700 mb-10 max-w-xl mx-auto"
         >
-          For rafting inquiries, tour availability, or custom adventure
-          bookings, feel free to reach out to our team. We're here to help you
-          plan an unforgettable river experience.
+          Contact us for Rafting in Shivpuri, Rishikesh. We're here to assist you
+          with bookings, inquiries, and any questions you may have about our
+          thrilling rafting adventures.
         </p>
 
         {/* Contact Info Cards */}
@@ -81,11 +81,11 @@ const ContactSection = () => {
               desc: (
                 <>
                   <a href="mailto:contact@domain.com" className="hover:underline">
-                    contact@domain.com
+                    gorafts001@gmail.com
                   </a>
                   <br />
                   <a href="mailto:partner@studio.com" className="hover:underline">
-                    partner@studio.com
+                    rohitbhandari9760@gmail.com
                   </a>
                 </>
               ),
