@@ -62,7 +62,7 @@ const Zipline = () => {
 
           {/* Button Text */}
           <span className="relative z-10 tracking-wide group-hover:tracking-widest group-hover:animate-pulse">
-            💬 WhatsApp Us
+             WhatsApp Us
           </span>
         </button>
 

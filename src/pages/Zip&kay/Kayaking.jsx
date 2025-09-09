@@ -60,16 +60,14 @@ const Kayaking = () => {
         </div>
       </section>
 
-
       {/* ---------------- Scroll Button ---------------- */}
-    <button
-      onClick={handleScroll}
-      className="mx-auto mt-6 flex items-center justify-center w-12 h-12 rounded-full bg-[#E0F7FA] hover:bg-[#C5EEF4] text-black shadow-lg animate-bounce-slow"
-    >
-      <ChevronDown className="w-6 h-6" />
-    </button>
-
-
+      <button
+        onClick={handleScroll}
+        className="mx-auto mt-6 flex items-center justify-center w-12 h-12 rounded-full bg-[#E0F7FA] hover:bg-[#C5EEF4] text-black shadow-lg animate-bounce-slow"
+      >
+        <ChevronDown className="w-6 h-6" />
+      </button>
+      
       {/* ---------------- 3rd Section ---------------- */}
       <section
         id="next-section"
@@ -93,7 +91,7 @@ const Kayaking = () => {
           </div>
 
           {/* Text */}
-          <div className="w-full md:w-1/2 space-y-6">
+          <div className="w-full md:w-1/2 space-y-6 text-center md:text-left">
             <h2 className="text-2xl sm:text-3xl mt-6 md:text-4xl font-bold font-josefin opacity-0 animate-slide-up [animation-delay:0.2s]">
               The Adventure Capital of India
             </h2>
@@ -103,14 +101,34 @@ const Kayaking = () => {
               for its pristine natural beauty, powerful river currents, and
               serene Himalayan backdrop... <br />
               <br />
-              Experience the thrill of kayaking on the <b>Ganga maa</b> with <b> <i>certified and expert guides</i></b> who prioritize your safety and fun. <br />
+              Experience the thrill of kayaking on the <b>Ganga maa</b> with{" "}
+              <b>
+                <i>certified and expert guides</i>
+              </b>{" "}
+              who prioritize your safety and fun. <br />
               <br />
-              You can also join our one-week <b> <u> Certification Course </u></b> with expert teachers and guides who will help you to bring your own kayak in the <b> white water rapids. </b> <br />
+              You can also join our one-week{" "}
+              <b>
+                <u> Certification Course </u>
+              </b>{" "}
+              with expert teachers and guides who will help you to bring your
+              own kayak in the <b> white water rapids. </b> <br />
             </p>
+
+            {/* Badass Button */}
+            <div className="pt-4 flex justify-center md:justify-start">
+              <a
+                href="https://wa.me/917078287331"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block rounded-lg bg-gradient-to-r from-green-500 to-green-600 px-10 py-3 text-white font-semibold shadow-lg transition-all duration-300 hover:from-green-600 hover:to-green-700 hover:shadow-xl hover:-translate-y-1 hover:scale-105 active:scale-95"
+              >
+                Book Now
+              </a>
+            </div>
           </div>
         </div>
       </section>
-
 
       {/* ---------------- Video Section ---------------- */}
       <section className="relative sm:mt-50 w-full h-[70vh] overflow-hidden flex items-center justify-center px-4 text-black josefin-sans">

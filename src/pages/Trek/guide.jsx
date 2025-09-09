@@ -46,7 +46,7 @@ export default function GuidesSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full py-16 flex flex-col justify-center items-center text-center"
+      className="relative w-full py-16 flex  flex-col justify-center items-center text-center"
     >
       {/* Title */}
       <h2 className="text-2xl md:text-3xl font-bold mb-12 text-black drop-shadow-md">
@@ -92,7 +92,7 @@ export default function GuidesSection() {
       </p>
 
       {/* CTA Button */}
-      <button className="px-6 py-2 bg-orange-500 text-white rounded-full shadow-md hover:bg-orange-600 transition-transform duration-300 hover:scale-105 active:scale-95">
+      <button className="px-6 py-2 bg-orange-500 cursor-pointer text-white rounded-full shadow-md hover:bg-orange-600 transition-transform duration-300 hover:scale-105 active:scale-95">
         Book Now
       </button>
     </section>

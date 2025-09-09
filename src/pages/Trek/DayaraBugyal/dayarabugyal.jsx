@@ -1,9 +1,5 @@
 import { lazy, Suspense, useCallback } from 'react';
-import Form from '../../../components/form/Form';
-import SpecialSection from '../points';
 import ScrollDownButton from '../button';
-import TrekPage from "../TrekPage";
-
 // Lazy load non-critical components
 const LazySpecialSection = lazy(() => import('../points'));
 const LazyTrekPage = lazy(() => import("../TrekPage"));
@@ -121,6 +117,105 @@ function DayaraBugyal() {
             animation: fadeUp 1s ease-out forwards;
           }
         `}</style>
+      </section>
+
+      <section className="bg-[#fdfaf6] py-16 px-4 md:px-12 font-josefin">
+      <div className="text-center mb-14 max-w-5xl mx-auto px-4 opacity-0 animate-fadeUp">
+      <h2 className="text-3xl md:text-5xl font-bold text-black mb-6">
+      Discover the Enchanting Dayara Bugyal Trek
+      </h2>
+      <p className="text-base md:text-lg lg:text-xl text-gray-800 leading-relaxed">
+      Experience one of India's most beautiful high-altitude meadows. Trek through lush forests, 
+      pristine alpine grasslands, and witness breathtaking Himalayan views. Perfect for both beginners 
+      and experienced trekkers seeking natural beauty and tranquility.
+      </p>
+      </div>
+
+      <div className="w-full min-h-screen flex items-center justify-center relative bg-transparent px-6 py-16 font-josefin-sans">
+      <div className="max-w-7xl w-full flex flex-col lg:flex-row items-center justify-center gap-14 relative z-10">
+      {/* Image Section */}
+      <div className="relative group w-full max-w-sm lg:max-w-md opacity-0 animate-fadeUp">
+      <div className="absolute -inset-3 rounded-2xl  from-green-400 via-green-600 to-green-800 blur-2xl opacity-30 group-hover:opacity-50 transition"></div>
+      <img
+      src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks%20Page/Dayara%20Bugyal/dayara_bugyal_meadow.webp"
+      loading='lazy'
+      decoding="async"
+      alt="Dayara Bugyal Trek - Beautiful alpine meadow with snow-capped Himalayan peaks in background"
+      className="relative rounded-2xl border-4 border-black shadow-2xl object-cover w-full aspect-square group-hover:scale-105 transition-transform duration-500"
+      />
+      </div>
+
+      {/* Text Section */}
+      <div className="bg-transparent rounded-3xl p-10 shadow-2xl max-w-2xl border border-white/20 relative josefin-sans text-black opacity-0 animate-fadeUp">
+      <div className="absolute top-4 right-4 bg-green-700 text-white px-6 py-3 rounded-xl shadow-lg text-xl font-bold">
+      ₹8,999 /-
+      </div>
+
+      <h3 className="text-5xl font-bold mt-7 md:mt-10 mb-10 text-center">
+      Dayara Bugyal Trek
+      <span className="block w-24 h-1 bg-green-500 mx-auto mt-3 rounded-full"></span>
+      </h3>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      <div className="flex items-center gap-3">
+      <span className="text-green-400 text-3xl" aria-hidden="true">📍</span> 
+      <span>Location: Uttarkashi, Uttarakhand</span>
+      </div>
+      <div className="flex items-center gap-3">
+      <span className="text-green-400 text-3xl" aria-hidden="true">⛰️</span> 
+      <span>Altitude: ~11,000 ft</span>
+      </div>
+      <div className="flex items-center gap-3">
+      <span className="text-green-400 text-3xl" aria-hidden="true">🗓️</span> 
+      <span>Duration: 5-6 days</span>
+      </div>
+      <div className="flex items-center gap-3">
+      <span className="text-green-400 text-3xl" aria-hidden="true">💪</span> 
+      <span>Difficulty: Easy–Moderate</span>
+      </div>
+      <div className="flex items-center gap-3">
+      <span className="text-green-400 text-3xl" aria-hidden="true">🏠</span> 
+      <span>Base Camp: Raithal / Barsu</span>
+      </div>
+      <div className="flex items-center gap-3">
+      <span className="text-green-400 text-3xl" aria-hidden="true">📏</span> 
+      <span>Distance: ~24 km (round trip)</span>
+      </div>
+      </div>
+
+      <button
+      className="mt-10 px-10 py-4 bg-gradient-to-r from-green-600 to-emerald-700 text-white rounded-full font-semibold shadow-xl hover:from-emerald-700 hover:to-green-600 transition-all duration-300 flex items-center gap-2 mx-auto animate-pulseBtn focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 cursor-pointer"
+      onClick={() => {
+      // WhatsApp integration
+      const phoneNumber = "7078287331";
+      const message = "Hi, I'm interested in booking the Dayara Bugyal Trek. Can you provide more details?";
+      const whatsappUrl = `https://wa.me/91${phoneNumber}?text=${encodeURIComponent(message)}`;
+      window.open(whatsappUrl, '_blank');
+      }}
+      aria-label="Book Dayara Bugyal Trek on WhatsApp"
+      >
+      Book Now 
+      </button>
+      </div>
+      </div>
+      </div>
+
+      <style jsx>{`
+      @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+      }
+      .animate-fadeUp {
+      animation: fadeUp 1s ease-out forwards;
+      }
+      @keyframes pulseBtn {
+      0%, 100% { transform: scale(1); box-shadow: 0 4px 12px rgba(34, 197, 94, 0.35); }
+      50% { transform: scale(1.07); box-shadow: 0 8px 24px rgba(34, 197, 94, 0.45); }
+      }
+      .animate-pulseBtn {
+      animation: pulseBtn 1.8s ease-in-out infinite;
+      }
+      `}</style>
       </section>
       
       {/* Third section with lazy loading */}

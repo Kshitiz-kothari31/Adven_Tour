@@ -1,8 +1,5 @@
 import { useCallback, lazy, Suspense } from 'react';
 import ScrollDownButton from '../button';
-import TrekPage from "../TrekPage";
-import Form from "../../../components/form/Form";
-import SpecialSection from '../points';
 
 // Lazy load non-critical components
 const LazyTrekPage = lazy(() => import("../TrekPage"));
@@ -43,15 +40,15 @@ function HiddenWaterfall() {
         
         {/* Right-aligned hero copy */}
         <div className="absolute top-[30%] right-10 md:right-20 text-right z-40 animate-fadeInRight">
-          <h1 className="text-green-300 font-kalnia text-4xl md:text-6xl xl:text-7xl font-extrabold drop-shadow-[0_3px_15px_rgba(0,0,0,0.8)]">
+          <h1 className="text-white font-kalnia text-4xl md:text-6xl xl:text-7xl font-extrabold drop-shadow-[0_3px_15px_rgba(0,0,0,0.8)]">
             Hidden WaterFall Trek
           </h1>
           
           <div className="flex justify-end items-center gap-3 mt-3">
-            <span className="bg-green-400 text-black text-xs md:text-sm font-semibold px-3 py-1 rounded-full shadow">
+            <span className="bg-blue-200 text-black text-xs md:text-sm font-semibold px-3 py-1 rounded-full shadow">
               📍 Uttarakhand, India
             </span>
-            <div className="flex gap-1 text-green-300 text-base md:text-lg" aria-label="4.5 out of 5 stars">
+            <div className="flex gap-1 text-yellow-400 text-base md:text-lg" aria-label="4.5 out of 5 stars">
               ★ ★ ★ ★ ☆
             </div>
           </div>

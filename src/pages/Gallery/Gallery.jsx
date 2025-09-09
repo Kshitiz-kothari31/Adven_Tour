@@ -23,7 +23,7 @@ const WHY_CHOOSE_US_IMAGES = [
 
 const CENTER_IMAGE_2 = "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Gallery/rafting/gallery_10.webp";
 
-const YOUTUBE_VIDEO_IDS = ["aHrIyirdeDU", "sjmNmWuYXqQ", "xI-IQ7EpLgE", "9IkaMZjyt-8"];
+const YOUTUBE_VIDEO_IDS = ["OsEk0y4a2XU", "fPN1amZokEw", "2BY0nQNL9-Y", "L3yRmPJ9YGw"];
 
 const FEATURES = [
   { 
@@ -222,7 +222,7 @@ const Gallery = () => {
             >
               <button className="relative group cursor-pointer overflow-hidden bg-gradient-to-r from-blue-700 to-purple-800 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-2xl transition-transform duration-300 hover:scale-105">
                 <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-yellow-400 to-pink-500 opacity-0 group-hover:opacity-100 blur-md transition duration-700"></span>
-                <span className="relative z-10">Book Now 🚀</span>
+                <span className="relative z-10">Book Now </span>
               </button>
             </a>
             <button
@@ -230,7 +230,7 @@ const Gallery = () => {
               className="relative z-50 group cursor-pointer overflow-hidden bg-gradient-to-r from-blue-700 to-purple-800 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-2xl transition-transform duration-300 hover:scale-105 pointer-events-auto"
             >
               <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-yellow-400 to-pink-500 opacity-0 group-hover:opacity-100 blur-md transition duration-700"></span>
-              <span className="relative z-10">View Gallery 🖼️</span>
+              <span className="relative z-10">View Gallery </span>
             </button>
           </div>
         </div>
@@ -371,9 +371,9 @@ const Gallery = () => {
       </section>
       
       <Form
-        boxClass="bg-gradient-to-l from-[#ffffff] to-[#f1daff]"
+        boxClass="bg-[#f1daff]"
         headingClass="text-[#000000]"
-        buttonClass="bg-[#DCD0A8] hover:bg-[#f1daff]"
+        buttonClass="bg-[#AA336A] hover:bg-[#E75480]"
         focusClass="focus:outline-[#00786F]"
       />
     </section>

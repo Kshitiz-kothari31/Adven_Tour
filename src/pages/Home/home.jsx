@@ -65,6 +65,20 @@ function ImageSliderBox() {
 }
 
 const Home = () => {
+  const stays = [
+    {
+      title: "Luxury Stay",
+      img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      title: "Riverside Cottage",
+      img: "https://images.unsplash.com/photo-1604014237744-1d1a7f34c5c6?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      title: "Adventure Camp",
+      img: "https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=800&q=80",
+    },
+  ];
   return (
     <section className="home josein-sans bg-gradient-to-r from-[#ffffff] via-[#f6fbf9] to-[#e9f5f1]">
       {/* Hero Slider */}
@@ -170,66 +184,66 @@ const Home = () => {
         </style>
 
         {/* ──────────────── Packages ──────────────── */}
-        <div>
-          <h2 className="text-3xl font-semibold josefin-sans mb-6 text-center md:text-left">
-            Packages
-          </h2>
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10 justify-center">
-            {CARDS.map((item, index) => (
-              <div
-                key={item.label}
-                className="group w-full flex flex-col items-center opacity-0 translate-y-10 animate-fadeInUp"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className="relative rounded-xl overflow-hidden shadow-md w-full aspect-[4/3] bg-gray-100 transition-all duration-500 group-hover:shadow-xl">
-                  <img
-                    src={item.src}
-                    alt={item.label}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    loading="lazy"
-                  />
-                  <Link to={item.link}>
-                    <button className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-orange-500 text-white px-5 py-2 text-sm rounded-md shadow transition-transform duration-300 group-hover:scale-105 group-hover:bg-orange-400 cursor-pointer">
-                      More
-                    </button>
-                  </Link>
+          <div>
+            <h2 className="text-3xl font-semibold josefin-sans mb-6 text-center md:text-left">
+              Packages
+            </h2>
+            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10 justify-center">
+              {CARDS.map((item, index) => (
+                <div
+                  key={item.label}
+                  className="group w-full flex flex-col items-center opacity-0 translate-y-10 animate-fadeInUp"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  <div className="relative rounded-xl overflow-hidden shadow-md w-full aspect-[4/3] bg-gray-100 transition-all duration-500 group-hover:shadow-xl">
+                    <img
+                      src={item.src}
+                      alt={item.label}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      loading="lazy"
+                    />
+                    <Link to={item.link}>
+                      <button className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-orange-500 text-white px-5 py-2 text-sm rounded-md shadow transition-transform duration-300 group-hover:scale-105 group-hover:bg-orange-400 cursor-pointer">
+                        More
+                      </button>
+                    </Link>
+                  </div>
+                  <p className="mt-2 text-lg font-medium opacity-80">{item.label}</p>
                 </div>
-                <p className="mt-2 text-lg font-medium opacity-80">{item.label}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
 
         {/* ──────────────── Stays ──────────────── */}
-        <div>
+          <div>
           <h2 className="text-3xl font-semibold josefin-sans mb-6 text-center md:text-left">
-            Stays
+          Stays
           </h2>
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10 justify-center">
-            {["Luxury Stay", "Riverside Cottage", "Adventure Camp"].map((stay, i) => (
-              <div
-                key={stay}
-                className="group w-full flex flex-col items-center opacity-0 translate-y-10 animate-fadeInUp"
-                style={{ animationDelay: `${i * 150}ms` }}
-              >
-                <div className="relative rounded-xl overflow-hidden shadow-md w-full aspect-[4/3] bg-gray-100 transition-all duration-500 group-hover:shadow-xl">
-                  <img
-                    src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Home%20Page/home_page_stayCard.webp"
-                    alt={stay}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    loading="lazy"
-                  />
-                  <Link to="/stays">
-                    <button className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-orange-500 text-white px-5 py-2 text-sm rounded-md shadow transition-transform duration-300 group-hover:scale-105 group-hover:bg-orange-400 cursor-pointer">
-                      More
-                    </button>
-                  </Link>
-                </div>
-                <p className="mt-2 text-lg opacity-80">{stay}</p>
-              </div>
-            ))}
+          {stays.map((stay, i) => (
+          <div
+          key={stay.title}
+          className="group w-full flex flex-col items-center opacity-0 translate-y-10 animate-fadeInUp"
+          style={{ animationDelay: `${i * 150}ms` }}
+          >
+          <div className="relative rounded-xl overflow-hidden shadow-md w-full aspect-[4/3] bg-gray-100 transition-all duration-500 group-hover:shadow-xl">
+          <img
+          src={stay.img}
+          alt={stay.title}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          loading="lazy"
+          />
+          <Link to="/stays">
+          <button className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-orange-500 text-white px-5 py-2 text-sm rounded-md shadow transition-transform duration-300 group-hover:scale-105 group-hover:bg-orange-400 cursor-pointer">
+            More
+          </button>
+          </Link>
           </div>
-        </div>
+          <p className="mt-2 text-lg opacity-80">{stay.title}</p>
+          </div>
+          ))}
+          </div>
+          </div>
       </section>
 
       {/* image slider */}
