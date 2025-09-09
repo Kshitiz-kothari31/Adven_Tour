@@ -37,7 +37,7 @@ function TungnathTrek() {
         
         {/* Content */}
         <div className="absolute top-[25%] left-10 md:left-20 z-40 animate-fadeInLeft">
-          <h1 className="text-green-300 text-3xl md:text-6xl xl:text-5xl font-extrabold leading-tight drop-shadow-[0_3px_15px_rgba(0,0,0,0.7)]">
+          <h1 className="text-white text-3xl md:text-6xl xl:text-5xl font-extrabold leading-tight drop-shadow-[0_3px_15px_rgba(0,0,0,0.7)]">
             Tungnath Chandra<br />Shila Trek
           </h1>
           
@@ -64,7 +64,7 @@ function TungnathTrek() {
             {/* Shine Effect */}
             <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent
                             -translate-x-full group-hover:translate-x-[200%] transition-transform duration-1000 ease-out blur-sm"></span>
-            <span className="relative z-10 flex items-center gap-2">💬 Book Now</span>
+            <span className="relative z-10 flex items-center gap-2">Book Now</span>
           </button>
         </div>
         
@@ -161,7 +161,7 @@ function TungnathTrek() {
           <div className="max-w-7xl w-full flex flex-col lg:flex-row items-center justify-center gap-14 relative z-10">
             {/* Image Section */}
             <div className="relative group w-full max-w-sm lg:max-w-md opacity-0 animate-fadeUp">
-              <div className="absolute -inset-3 rounded-2xl bg-gradient-to-tr from-green-400 via-green-600 to-green-800 blur-2xl opacity-30 group-hover:opacity-50 transition"></div>
+              <div className="absolute -inset-3 rounded-2xl bg-gradient from-green-400 via-green-600 to-green-800 blur-2xl opacity-30 group-hover:opacity-50 transition"></div>
               <img
                 src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks%20Page/Tungnath/price_image.webp"
                 loading="lazy"
@@ -214,7 +214,7 @@ function TungnathTrek() {
                 onClick={handleBookNow}
                 aria-label="Book Tungnath Chandra Shila Trek on WhatsApp"
               >
-                💬 Book Now
+                Book Now
               </button>
             </div>
           </div>

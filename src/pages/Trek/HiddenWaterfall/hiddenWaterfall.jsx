@@ -67,7 +67,7 @@ function HiddenWaterfall() {
           >
             <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover:translate-x-[200%] transition-transform duration-1000 ease-out blur-sm"></span>
             <span className="relative z-10 flex items-center gap-2">
-              💬 Book Now
+              Book Now
             </span>
           </button>
         </div>
@@ -148,7 +148,7 @@ function HiddenWaterfall() {
           <div className="max-w-7xl w-full flex flex-col lg:flex-row items-center justify-center gap-14 relative z-10">
             {/* Image Section */}
             <div className="relative group w-full max-w-sm lg:max-w-md opacity-0 animate-fadeUp">
-              <div className="absolute -inset-3 rounded-2xl bg-gradient-to-tr from-green-400 via-green-600 to-green-800 blur-2xl opacity-30 group-hover:opacity-50 transition"></div>
+              <div className="absolute -inset-3 rounded-2xl  from-green-400 via-green-600 to-green-800 blur-2xl opacity-30 group-hover:opacity-50 transition"></div>
               <img
                 src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks%20Page/hidden%20Waterfall/waterFall_1.webp"
                 loading='lazy'
@@ -197,11 +197,11 @@ function HiddenWaterfall() {
               </div>
               
               <button
-                className="mt-10 px-10 py-4 bg-gradient-to-r from-green-600 to-emerald-700 text-white rounded-full font-semibold shadow-xl hover:from-emerald-700 hover:to-green-600 transition-all duration-300 flex items-center gap-2 mx-auto animate-pulseBtn focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50"
+                className="mt-10 px-10 py-4 bg-gradient-to-r from-green-600 to-emerald-700 text-white rounded-full font-semibold shadow-xl hover:from-emerald-700 hover:to-green-600 transition-all duration-300 flex items-center gap-2 mx-auto animate-pulseBtn focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 cursor-pointer"
                 onClick={handleBookNow}
                 aria-label="Book Hidden Waterfall Trek on WhatsApp"
               >
-                💬 Book Now
+                Book Now
               </button>
             </div>
           </div>

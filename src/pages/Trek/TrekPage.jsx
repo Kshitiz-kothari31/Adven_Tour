@@ -744,7 +744,7 @@ const CallToActionSection = React.memo(({ title }) => (
             Plan Your Trek
           </a>              
           <button
-            className="border-2 border-white text-white font-bold px-8 py-4 rounded-full hover:bg-white hover:text-green-700 transition-all duration-300 hover:scale-105 hover:-translate-y-1 active:scale-98"
+            className="border-2 border-white text-white font-bold px-8 py-4 rounded-full hover:bg-white hover:text-green-700 transition-all duration-300 hover:scale-105 hover:-translate-y-1 active:scale-98 cursor-pointer"
             aria-label="View trek gallery"
           >
             View Gallery
