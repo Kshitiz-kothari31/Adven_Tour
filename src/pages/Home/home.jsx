@@ -99,7 +99,9 @@ const Home = () => {
 
           {/* Desktop text */}
           <p className="text-gray-700 leading-relaxed text-[1rem] hidden md:block">
-            <span className="font-semibold">GoRafts</span> is your adventure base in Shivpuri, Rishikesh — a hotspot for thrill-seekers across India...
+            <span className="font-semibold">GoRafts</span> is your adventure base in Shivpuri, <b>Rishikesh</b> — a hotspot for thrill-seekers across India.
+            We have been helping thousands of customers experience their first memorable adventure since <b><i>1997</i></b>. <br />
+            We have completed over <b>4000+</b> successful rafting trips on the Ganges, and our expert guides ensure safety and fun for all skill levels. <br />
           </p>
         </div>
 

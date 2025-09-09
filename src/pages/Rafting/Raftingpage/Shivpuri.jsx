@@ -9,25 +9,25 @@ const LazyForm = lazy(() => import('../../../components/form/Form'));
 const data = [
   {
     reverse: false,
-    title: "Roller Coaster",
+    title: "Good Morning Rapid (1st grade medium rapid)",
     desc: "One of the most thrilling rapids on this route.",
     img: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/Memo_img2.webp",
   },
   {
     reverse: true,
-    title: "Golf Course",
+    title: "Black Money (1st grade medium rapid)",
     desc: "A fun rapid with multiple waves and challenges.",
     img: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/Memo_img1.webp",
   },
   {
     reverse: false,
-    title: "Club House",
+    title: "three blind mines (4th grade rapid)",
     desc: "Mild rapid, great for beginners and warm-up.",
     img: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/Memo_img3.webp",
   },
   {
     reverse: true,
-    title: "Initiation",
+    title: "Cross Fire (3rd grade rapid)",
     desc: "Perfect start to your adrenaline journey.",
     img: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/Memo_img5.webp",
   },

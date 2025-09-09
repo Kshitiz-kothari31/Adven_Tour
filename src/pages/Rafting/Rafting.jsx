@@ -89,7 +89,7 @@ const Rafting = () => {
   const raftingPlans = useMemo(() => [
     {
       title: "Marine drive to shivpuri",
-      description: "Scenic rafting route perfect for adventure seekers.",
+      description: "Scenic rafting route perfect for adventure seekers. ",
       distance: "12 km",
       cost: "₹599",
       image: "card1.webp",
@@ -201,7 +201,7 @@ const Rafting = () => {
       <div className="josefin-sans md:mt-12 overflow-hidden mt-9 py-3">
         <div className="flex whitespace-nowrap text-black font-medium text-3xl gap-12 px-6 animate-marquee">
           {Array(3).fill(marqueeItems).flat().map((text, i) => (
-            <span key={i}>✦ {text}</span>
+            <span key={i}>{text}</span>
           ))}
         </div>
       </div>
