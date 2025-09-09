@@ -215,7 +215,7 @@ const Rafting = () => {
           {raftingPlans.map((card, index) => (
             <div 
               key={index}
-              className="bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col snap-start h-[300px] sm:h-[400px] md:h-[450px] group transition-transform duration-500 hover:scale-105 opacity-0 translate-y-[80px] animate-fadeInCard"
+              className="bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col snap-start h-[300px] sm:h-[400px] md:h-[400px] group transition-transform duration-500 hover:scale-105 opacity-0 translate-y-[80px] animate-fadeInCard"
               style={{ animationDelay: `${(index + 1) * 200}ms` }}
             >
               <div className="relative h-[48%] overflow-hidden">
