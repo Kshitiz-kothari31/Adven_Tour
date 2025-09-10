@@ -1,8 +1,5 @@
 import { useCallback, lazy, Suspense } from 'react';
 import ScrollDownButton from "../button";
-import TrekPage from "../TrekPage";
-import Form from "../../../components/form/Form";
-import SpecialSection from '../points';
 
 // Lazy load non-critical components
 const LazyTrekPage = lazy(() => import("../TrekPage"));
@@ -107,6 +104,105 @@ function GomukhTrek() {
           }
           .animate-fadeUp {
             animation: fadeUp 1s ease-out forwards;
+          }
+        `}</style>
+      </section>
+
+      <section className="bg-[#fdfaf6] py-16 px-4 md:px-12 font-josefin">
+        <div className="text-center mb-14 max-w-5xl mx-auto px-4 opacity-0 animate-fadeUp">
+          <h2 className="text-3xl md:text-5xl font-bold text-black mb-6">
+            Embark on a Sacred Journey to Gaumukh
+          </h2>
+          <p className="text-base md:text-lg lg:text-xl text-gray-800 leading-relaxed">
+            Experience the spiritual source of the Ganges River. Trek through stunning Himalayan landscapes, 
+            ancient glaciers, and sacred sites. This challenging pilgrimage offers breathtaking views and 
+            profound spiritual significance.
+          </p>
+        </div>
+        
+        <div className="w-full min-h-screen flex items-center justify-center relative bg-transparent px-6 py-16 font-josefin-sans">
+          <div className="max-w-7xl w-full flex flex-col lg:flex-row items-center justify-center gap-14 relative z-10">
+            {/* Image Section */}
+            <div className="relative group w-full max-w-sm lg:max-w-md opacity-0 animate-fadeUp">
+              <div className="absolute -inset-3 rounded-2xl  from-blue-400 via-blue-600 to-indigo-800 blur-2xl opacity-30 group-hover:opacity-50 transition"></div>
+              <img
+                src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks%20Page/Gaumukh/gaumukh_glacier.webp"
+                loading='lazy'
+                decoding="async"
+                alt="Gaumukh Glacier - Sacred source of the Ganges River in the Himalayas"
+                className="relative rounded-2xl border-4 border-black shadow-2xl object-cover w-full aspect-square group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            
+            {/* Text Section */}
+            <div className="bg-transparent rounded-3xl p-10 shadow-2xl max-w-2xl border border-white/20 relative josefin-sans text-black opacity-0 animate-fadeUp">
+              <div className="absolute top-4 right-4 bg-blue-700 text-white px-6 py-3 rounded-xl shadow-lg text-xl font-bold">
+                ₹12,999 /-
+              </div>
+              
+              <h3 className="text-5xl font-bold mt-7 md:mt-10 mb-10 text-center">
+                Gaumukh Trek
+                <span className="block w-24 h-1 bg-blue-500 mx-auto mt-3 rounded-full"></span>
+              </h3>
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="flex items-center gap-3">
+                  <span className="text-blue-400 text-3xl" aria-hidden="true">📍</span> 
+                  <span>Location: Gangotri, Uttarakhand</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-blue-400 text-3xl" aria-hidden="true">⛰️</span> 
+                  <span>Altitude: ~13,200 ft</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-blue-400 text-3xl" aria-hidden="true">🗓️</span> 
+                  <span>Duration: 6-8 days</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-blue-400 text-3xl" aria-hidden="true">💪</span> 
+                  <span>Difficulty: Moderate–Difficult</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-blue-400 text-3xl" aria-hidden="true">🏠</span> 
+                  <span>Base Camp: Gangotri</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-blue-400 text-3xl" aria-hidden="true">📏</span> 
+                  <span>Distance: ~46 km (round trip)</span>
+                </div>
+              </div>
+              
+              <button
+                className="mt-10 px-10 py-4 bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-full font-semibold shadow-xl hover:from-indigo-700 hover:to-blue-600 transition-all duration-300 flex items-center gap-2 mx-auto animate-pulseBtn focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 cursor-pointer"
+                onClick={() => {
+                  // WhatsApp integration
+                  const phoneNumber = "7078287331";
+                  const message = "Hi, I'm interested in booking the Gaumukh Trek. Can you provide more details?";
+                  const whatsappUrl = `https://wa.me/91${phoneNumber}?text=${encodeURIComponent(message)}`;
+                  window.open(whatsappUrl, '_blank');
+                }}
+                aria-label="Book Gaumukh Trek on WhatsApp"
+              >
+                Book Now 
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <style jsx>{`
+          @keyframes fadeUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+          }
+          .animate-fadeUp {
+            animation: fadeUp 1s ease-out forwards;
+          }
+          @keyframes pulseBtn {
+            0%, 100% { transform: scale(1); box-shadow: 0 4px 12px rgba(59, 130, 246, 0.35); }
+            50% { transform: scale(1.07); box-shadow: 0 8px 24px rgba(59, 130, 246, 0.45); }
+          }
+          .animate-pulseBtn {
+            animation: pulseBtn 1.8s ease-in-out infinite;
           }
         `}</style>
       </section>

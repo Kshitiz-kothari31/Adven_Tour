@@ -1,9 +1,5 @@
 import { useCallback, lazy, Suspense } from 'react';
 import ScrollDownButton from '../button';
-import TrekPage from "../TrekPage";
-import Form from "../../../components/form/Form";
-import SpecialSection from '../points';
-
 // Lazy load non-critical components
 const LazyTrekPage = lazy(() => import("../TrekPage"));
 const LazySpecialSection = lazy(() => import('../points'));
@@ -49,10 +45,10 @@ function KedarKatha() {
             </h1>
             
             <div className="flex items-center gap-3 mt-3">
-              <span className="bg-green-400 text-black text-xs md:text-sm font-semibold px-3 py-1 rounded-full shadow">
+              <span className="bg-blue-100 text-black text-xs md:text-sm font-semibold px-3 py-1 rounded-full shadow">
                 📍 Uttarakhand, India
               </span>
-              <div className="flex gap-1 text-green-300 text-base md:text-lg" aria-label="4.5 out of 5 stars">
+              <div className="flex gap-1 text-yellow-400 text-base md:text-lg" aria-label="4.5 out of 5 stars">
                 ★ ★ ★ ★ ☆
               </div>
             </div>

@@ -56,19 +56,43 @@ const Rafting = () => {
 
   // Memoized image grid
   const imageGrid = useMemo(() => (
-    <div ref={sectionRef} className={`mx-auto w-fit grid grid-cols-2 sm:grid-cols-4 gap-[6px] sm:gap-[10px] md:gap-[12px] fade-in-section ${isVisible ? "visible" : ""}`}>
+    <div
+      ref={sectionRef}
+      className={`mx-auto w-fit grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 md:gap-6 fade-in-section ${
+        isVisible ? "visible" : ""
+      }`}
+    >
       {dummyImages.map((src, i) => {
-        const shapeClass = i % 4 === 0
-          ? "rounded-full"
-          : i % 4 === 1
-          ? "rounded-3xl"
-          : i % 4 === 2
-          ? "rounded-[40%_60%_50%_50%/60%_40%_60%_40%]"
-          : "rounded-full sm:rounded-[25%]";
-          
+        const shapeClass =
+          i % 4 === 0
+            ? "rounded-full"
+            : i % 4 === 1
+            ? "rounded-2xl"
+            : i % 4 === 2
+            ? "rounded-[40%_60%_50%_50%/60%_40%_60%_40%]"
+            : "rounded-full sm:rounded-[20%]";
+
         return (
-          <div key={i} className={`p-[3px] bg-gradient-to-br from-[#cbd5e1] via-[#94a3b8] to-[#64748b] ${shapeClass} ${i > 3 ? "hidden sm:block" : ""}`}>
-            <div className={`overflow-hidden bg-white ${shapeClass} w-[120px] h-[120px] sm:w-[160px] sm:h-[160px] lg:w-[200px] lg:h-[200px] xl:w-[240px] xl:h-[240px] transition-transform hover:scale-105 shadow-[0_4px_20px_rgba(0,0,0,0.12)] hover:shadow-[0_6px_28px_rgba(0,0,0,0.18)] duration-300 ease-out`}>
+          <div
+            key={i}
+            className={`p-[2px] sm:p-[3px] bg-gradient-to-br from-slate-200 via-slate-400 to-slate-600 ${shapeClass} ${
+              i > 3 ? "hidden sm:block" : ""
+            }`}
+          >
+            <div
+              className={`overflow-hidden bg-white ${shapeClass}
+                w-[140px] h-[140px]    /* Mobile */
+                xs:w-[130px] xs:h-[130px] 
+                sm:w-[150px] sm:h-[150px] 
+                md:w-[180px] md:h-[180px] 
+                lg:w-[200px] lg:h-[200px] 
+                xl:w-[220px] xl:h-[220px]
+                transition-transform hover:scale-105
+                shadow-[0_3px_12px_rgba(0,0,0,0.1)]
+                hover:shadow-[0_6px_20px_rgba(0,0,0,0.15)]
+                duration-300 ease-out
+              `}
+            >
               <img
                 src={src}
                 alt={`Rafting adventure memory ${i + 1}`}
@@ -152,7 +176,7 @@ const Rafting = () => {
         <AdventureAltHero />
       </Suspense>
       
-      <div className="py-20 px-4 mt-15 md:px-20 xl:px-40 relative text-black overflow-hidden">
+      <div className="py-20 px-4 md:mt-10 md:px-20 xl:px-40 relative text-black overflow-hidden">
         <div onClick={scrollToSection} className="absolute top-6 left-1/2 -translate-x-1/2 z-20 cursor-pointer group">
           <div className="md:-mt-5 relative w-12 h-12 rounded-full bg-blue-900 flex items-center justify-center shadow-xl overflow-hidden transition-transform duration-500 group-hover:rotate-[360deg] group-hover:scale-110 active:scale-90 active:-rotate-12">
             <span className="text-white text-2xl z-10">↓</span>
@@ -205,17 +229,16 @@ const Rafting = () => {
           ))}
         </div>
       </div>
-      
       <div className="mt-15 px-4 py-10 md:px-20">
         <h2 className="text-5xl md:text-7xl font-bold mb-1 josefin-sans opacity-0 translate-y-[-30px] animate-fadeInUp">
           Rafting Plans
         </h2>
-        
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 -mt-15">
           {raftingPlans.map((card, index) => (
-            <div 
+            <div
               key={index}
-              className="bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col snap-start h-[300px] sm:h-[400px] md:h-[400px] group transition-transform duration-500 hover:scale-105 opacity-0 translate-y-[80px] animate-fadeInCard"
+              className="w-[85%] sm:w-full mx-auto bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col snap-start h-[300px] sm:h-[400px] md:h-[400px] group transition-transform duration-500 hover:scale-105 opacity-0 translate-y-[80px] animate-fadeInCard"
               style={{ animationDelay: `${(index + 1) * 200}ms` }}
             >
               <div className="relative h-[48%] overflow-hidden">
@@ -233,7 +256,9 @@ const Rafting = () => {
                   <h3 className="text-lg font-semibold mb-1">{card.title}</h3>
                   <p className="text-sm text-gray-600 mb-3">{card.description}</p>
                   <div className="mb-2">
-                    <span className="inline-block bg-black text-white text-xs px-3 py-1 rounded-full">Dist {card.distance}</span>
+                    <span className="inline-block bg-black text-white text-xs px-3 py-1 rounded-full">
+                      Dist {card.distance}
+                    </span>
                   </div>
                 </div>
                 <div className="mt-2 flex items-center justify-between">
@@ -250,15 +275,18 @@ const Rafting = () => {
           ))}
         </div>
       </div>
-      
+
       <div className="relative josefin-sans mt-12 px-4 md:px-20 py-12 bg-[url('https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/bg.webp')] bg-cover bg-center bg-fixed">
         <h2 className="relative z-10 text-3xl md:text-6xl josefin-sans font-bold text-left mb-12 text-black drop-shadow-lg">
           Rafting Expenditure
         </h2>
-        
+
         <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {bookingCards.map((card, index) => (
-            <div key={index} className="bg-white rounded-3xl shadow-2xl flex flex-col h-[400px] group hover:scale-[1.01] transition-transform duration-300">
+            <div
+              key={index}
+              className="w-[85%] sm:w-full mx-auto bg-white rounded-3xl shadow-2xl flex flex-col h-[400px] group hover:scale-[1.01] transition-transform duration-300"
+            >
               <div className="relative h-[45%] overflow-hidden rounded-t-3xl">
                 <img
                   src={`https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/${card.image}`}
@@ -294,8 +322,8 @@ const Rafting = () => {
           ))}
         </div>
       </div>
-      
-      <div className="py-16 sm:mt-20 px-4 md:px-2 mt-4">
+
+      <div className="py-16 sm:mt-2 px-4 md:px-2 -mt-10">
         <h2 className="jolly-font text-3xl md:text-4xl font-bold text-center mb-12 josefin-sans">
           Rafting Memories to Inspire You
         </h2>
