@@ -21,7 +21,7 @@ function GomukhTrek() {
       <section className="relative josefin-sans w-full h-[90vh] overflow-hidden font-josefin text-white snap-start">
         {/* Background Image with optimization */}
         <img
-          src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks/Gomukh%20Tapovan/landscape/gomukhTapovan_img01.webp"
+          src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks%20Page/new/4.webp"
           alt="Gaumukh Tapovan Trek - Beautiful Himalayan landscape with snow-capped mountains"
           className="absolute w-full h-full object-cover z-10 animate-bgZoom"
           loading="eager"
@@ -126,7 +126,7 @@ function GomukhTrek() {
             <div className="relative group w-full max-w-sm lg:max-w-md opacity-0 animate-fadeUp">
               <div className="absolute -inset-3 rounded-2xl  from-blue-400 via-blue-600 to-indigo-800 blur-2xl opacity-30 group-hover:opacity-50 transition"></div>
               <img
-                src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks%20Page/Gaumukh/gaumukh_glacier.webp"
+                src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks%20Page/new/12.webp"
                 loading='lazy'
                 decoding="async"
                 alt="Gaumukh Glacier - Sacred source of the Ganges River in the Himalayas"
