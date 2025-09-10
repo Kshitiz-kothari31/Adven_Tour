@@ -251,7 +251,7 @@ const Kayaking = () => {
       
       <Suspense fallback={<div className="text-center py-10">Loading form...</div>}>
         <Form
-          boxClass="bg-gradient-to-r from-teal-100 via-cyan-50 to-blue-100"
+          boxClass="bg-blue-100"
           headingClass="text-black"
           buttonClass="bg-blue-600 hover:bg-blue-700"
           focusClass="focus:outline-blue-500"

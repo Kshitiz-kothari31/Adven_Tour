@@ -176,36 +176,49 @@ const PackagesSection = memo(() => {
 
 // Memoize the video section with mobile optimizations
 const VideoSection = memo(() => {
-  const [visibleVideos, setVisibleVideos] = useState(2); // Start with 2 videos on mobile
-  
-  // Increase visible videos as screen size increases
+  const [visibleVideos, setVisibleVideos] = useState(4);
+
   useEffect(() => {
     const updateVisibleVideos = () => {
-      if (window.innerWidth >= 1024) {
-        setVisibleVideos(4); // lg: 4 columns
+      if (window.innerWidth >= 1280) {
+        setVisibleVideos(4); // xl: 4
+      } else if (window.innerWidth >= 1024) {
+        setVisibleVideos(3); // lg: 3
       } else if (window.innerWidth >= 640) {
-        setVisibleVideos(2); // sm: 2 columns
+        setVisibleVideos(3); // sm/md: 3
       } else {
-        setVisibleVideos(2); // default: 2 columns
+        setVisibleVideos(4); // xs: 4
       }
     };
-    
+
     updateVisibleVideos();
-    window.addEventListener('resize', updateVisibleVideos);
-    return () => window.removeEventListener('resize', updateVisibleVideos);
+    window.addEventListener("resize", updateVisibleVideos);
+    return () => window.removeEventListener("resize", updateVisibleVideos);
   }, []);
-  
+
   return (
-    <section id="bottomRef" className="relative josefin-sans -mt-10 md:mt-10 py-12 px-4 sm:px-6 md:px-10 lg:px-20 animate-fadeInUp">
-      <div className="relative z-10 max-w-6xl mx-auto text-center space-y-10">
+    <section
+      id="bottomRef"
+      className="relative josefin-sans -mt-10 md:mt-10 py-12 px-4 sm:px-6 md:px-10 lg:px-20 animate-fadeInUp"
+    >
+      <div className="relative z-10 max-w-7xl mx-auto text-center space-y-10">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold font-josefin text-black animate-fadeIn">
           Experience the <u>Adventure</u>
         </h2>
-        <p>These real clips showcase our adventure experiences – live from Rishikesh's whitewater.</p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 animate-fadeIn delay-200">
+        <p>
+          These real clips showcase our adventure experiences – live from
+          Rishikesh&apos;s whitewater.
+        </p>
+
+        {/* Responsive grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-6 animate-fadeIn delay-200">
           {YOUTUBE_VIDEOS.slice(0, visibleVideos).map((yt, index) => (
-            <div key={index} className="relative overflow-hidden rounded-2xl shadow-lg bg-black hover:shadow-yellow-400/30 transition-all duration-300 hover:scale-[1.03]">
-              <div className="aspect-[9/16] w-full">
+            <div
+              key={index}
+              className="relative overflow-hidden rounded-2xl shadow-lg bg-black hover:shadow-yellow-400/30 transition-all duration-300 hover:scale-[1.03]"
+            >
+              {/* Bigger size for iPad, laptop, monitor */}
+              <div className="w-full aspect-[9/16] sm:aspect-video sm:h-[220px] lg:h-[280px] xl:h-[350px]">
                 <iframe
                   src={yt}
                   className="w-full h-full rounded-2xl"
@@ -219,13 +232,18 @@ const VideoSection = memo(() => {
             </div>
           ))}
         </div>
+
         <p className="text-sm sm:text-base max-w-2xl mx-auto text-gray-700 font-josefin leading-relaxed px-2 animate-fadeIn delay-500">
-          This isn't just stock footage; these are genuine moments captured from our actual trips. The quality of our equipment, and the breathtaking natural scenery you'll discover on your journey with us. <b>Get ready to picture yourself on the water with us!</b>
+          This isn&apos;t just stock footage; these are genuine moments captured
+          from our actual trips. The quality of our equipment, and the
+          breathtaking natural scenery you&apos;ll discover on your journey with
+          us. <b>Get ready to picture yourself on the water with us!</b>
         </p>
       </div>
     </section>
   );
 });
+
 
 // Main Home component with mobile optimizations
 const Home = () => {
