@@ -137,7 +137,7 @@ function DayaraBugyal() {
       <div className="relative group w-full max-w-sm lg:max-w-md opacity-0 animate-fadeUp">
       <div className="absolute -inset-3 rounded-2xl  from-green-400 via-green-600 to-green-800 blur-2xl opacity-30 group-hover:opacity-50 transition"></div>
       <img
-      src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks%20Page/Dayara%20Bugyal/dayara_bugyal_meadow.webp"
+      src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks%20Page/new/7.webp"
       loading='lazy'
       decoding="async"
       alt="Dayara Bugyal Trek - Beautiful alpine meadow with snow-capped Himalayan peaks in background"
