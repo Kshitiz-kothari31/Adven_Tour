@@ -113,7 +113,7 @@ const Rafting = () => {
   const raftingPlans = useMemo(() => [
     {
       title: "Marine drive to shivpuri",
-      description: "From the glowing arc of Marine Drive to the thrilling rapids of Shivpuri, you will captures a journey from city life to the heart of the Himalayas.",
+      description: "Come and feel the glowing arc of Marine Drive to the thrilling rapids of Shivpuri.",
       distance: "12 km",
       cost: "₹599",
       image: "card1.webp",
@@ -121,7 +121,7 @@ const Rafting = () => {
     },
     {
       title: "Shivpuri To Nim Beach",
-      description: "From the thrilling rapids of Shivpuri to the calm banks of Nim Beach, this journey on the Ganga transitions from adventure to peaceful repose.",
+      description: "From the thrilling rapids of Shivpuri to the calm banks of Nim Beach",
       distance: "16 km",
       cost: "₹799",
       image: "card2.webp",
