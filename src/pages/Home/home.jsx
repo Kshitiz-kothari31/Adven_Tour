@@ -1,5 +1,5 @@
 "use client";
-import { lazy, Suspense, useState, useEffect, useCallback, memo } from "react";
+import { lazy, Suspense, useState, useEffect, useCallback, memo, useRef } from "react";
 import { Link } from "react-router-dom";
 import { IMAGES, PICS, CARDS, YOUTUBE_VIDEOS, PARAGRAPH_TEXTS } from "../../const";
 import HighlightsStats from "./sample";
@@ -13,11 +13,16 @@ const ImageSlider = lazy(() => import("./imageslider"));
 // Memoize the hero slider to prevent unnecessary re-renders
 const ImageSliderBox = memo(() => {
   const [current, setCurrent] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
   
   // Auto-slide with cleanup
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrent((prevIndex) => (prevIndex + 1) % IMAGES.length);
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrent((prevIndex) => (prevIndex + 1) % IMAGES.length);
+        setIsTransitioning(false);
+      }, 300);
     }, 5000);
     return () => clearInterval(interval);
   }, []);
@@ -48,6 +53,10 @@ const ImageSliderBox = memo(() => {
           className={`absolute top-0 left-0 w-full h-full object-cover transition-all duration-[1600ms] ease-in-out ${
             index === current ? "opacity-100 scale-100 z-30" : "opacity-0 scale-105 z-20"
           }`}
+          style={{ 
+            willChange: 'transform, opacity',
+            transform: index === current ? 'scale(1)' : 'scale(1.05)'
+          }}
         />
       ))}
       
@@ -75,9 +84,10 @@ const ImageSliderBox = memo(() => {
   );
 });
 
-// Memoize the stays section
+// Memoize the stays section with mobile optimizations
 const StaysSection = memo(() => {
-  const stays = [
+  // Use useRef to prevent recreation on each render
+  const stays = useRef([
     {
       title: "Luxury Stay",
       img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
@@ -90,14 +100,14 @@ const StaysSection = memo(() => {
       title: "Adventure Camp",
       img: "https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=800&q=80",
     },
-  ];
-
+  ]).current;
+  
   return (
     <div>
       <h2 className="text-3xl font-semibold josefin-sans mb-6 text-center md:text-left">
         Stays
       </h2>
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10 justify-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-8 justify-center">
         {stays.map((stay, i) => (
           <div
             key={stay.title}
@@ -110,6 +120,8 @@ const StaysSection = memo(() => {
                 alt={stay.title}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 loading="lazy"
+                decoding="async"
+                style={{ willChange: 'transform' }}
               />
               <Link to="/stays">
                 <button className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-orange-500 text-white px-5 py-2 text-sm rounded-md shadow transition-transform duration-300 group-hover:scale-105 group-hover:bg-orange-400 cursor-pointer">
@@ -125,14 +137,14 @@ const StaysSection = memo(() => {
   );
 });
 
-// Memoize the packages section
+// Memoize the packages section with mobile optimizations
 const PackagesSection = memo(() => {
   return (
     <div>
       <h2 className="text-3xl font-semibold josefin-sans mb-6 text-center md:text-left">
         Packages
       </h2>
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10 justify-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-8 justify-center">
         {CARDS.map((item, index) => (
           <div
             key={item.label}
@@ -145,6 +157,8 @@ const PackagesSection = memo(() => {
                 alt={item.label}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 loading="lazy"
+                decoding="async"
+                style={{ willChange: 'transform' }}
               />
               <Link to={item.link}>
                 <button className="absolute bottom-3 left-1/2 -translate-x-1/2 bg-orange-500 text-white px-5 py-2 text-sm rounded-md shadow transition-transform duration-300 group-hover:scale-105 group-hover:bg-orange-400 cursor-pointer">
@@ -160,8 +174,27 @@ const PackagesSection = memo(() => {
   );
 });
 
-// Memoize the video section
+// Memoize the video section with mobile optimizations
 const VideoSection = memo(() => {
+  const [visibleVideos, setVisibleVideos] = useState(2); // Start with 2 videos on mobile
+  
+  // Increase visible videos as screen size increases
+  useEffect(() => {
+    const updateVisibleVideos = () => {
+      if (window.innerWidth >= 1024) {
+        setVisibleVideos(4); // lg: 4 columns
+      } else if (window.innerWidth >= 640) {
+        setVisibleVideos(2); // sm: 2 columns
+      } else {
+        setVisibleVideos(2); // default: 2 columns
+      }
+    };
+    
+    updateVisibleVideos();
+    window.addEventListener('resize', updateVisibleVideos);
+    return () => window.removeEventListener('resize', updateVisibleVideos);
+  }, []);
+  
   return (
     <section id="bottomRef" className="relative josefin-sans -mt-10 md:mt-10 py-12 px-4 sm:px-6 md:px-10 lg:px-20 animate-fadeInUp">
       <div className="relative z-10 max-w-6xl mx-auto text-center space-y-10">
@@ -169,8 +202,8 @@ const VideoSection = memo(() => {
           Experience the <u>Adventure</u>
         </h2>
         <p>These real clips showcase our adventure experiences – live from Rishikesh's whitewater.</p>
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 animate-fadeIn delay-200">
-          {YOUTUBE_VIDEOS.map((yt, index) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 animate-fadeIn delay-200">
+          {YOUTUBE_VIDEOS.slice(0, visibleVideos).map((yt, index) => (
             <div key={index} className="relative overflow-hidden rounded-2xl shadow-lg bg-black hover:shadow-yellow-400/30 transition-all duration-300 hover:scale-[1.03]">
               <div className="aspect-[9/16] w-full">
                 <iframe
@@ -194,8 +227,21 @@ const VideoSection = memo(() => {
   );
 });
 
-// Main Home component
+// Main Home component with mobile optimizations
 const Home = () => {
+  const [isMobile, setIsMobile] = useState(false);
+  
+  // Check if mobile on mount and resize
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+  
   return (
     <section className="home josein-sans bg-gradient-to-r from-[#ffffff] via-[#f6fbf9] to-[#e9f5f1]">
       {/* Hero Slider */}
@@ -233,17 +279,18 @@ const Home = () => {
             We have completed over <b>4000+</b> successful rafting trips on the Ganges, and our expert guides ensure safety and fun for all skill levels. <br />
           </p>
         </div>
-        {/* Images (right side) */}
-        <div className="flex justify-center md:justify-end items-center gap-4 flex-row flex-nowrap">
-          {PICS.map((src, i) => (
+        {/* Images (right side) - Optimized for mobile */}
+        <div className="flex justify-center md:justify-end items-center gap-2 sm:gap-4 flex-row flex-nowrap">
+          {PICS.slice(0, isMobile ? 2 : PICS.length).map((src, i) => (
             <img
               key={i}
               src={src}
               loading="lazy"
               alt={`Adventure activity ${i + 1}`}
-              className={`w-[140px] sm:w-[170px] md:w-[180px] lg:w-[200px] xl:w-[220px] h-auto object-cover rounded-[50%_30%_50%_30%/30%_50%_30%_50%] shadow-lg ${
+              className={`w-[100px] sm:w-[140px] md:w-[180px] lg:w-[200px] xl:w-[220px] h-auto object-cover rounded-[50%_30%_50%_30%/30%_50%_30%_50%] shadow-lg ${
                 i % 2 === 0 ? "animate-float-slow" : "animate-float-fast"
               }`}
+              style={{ willChange: 'transform' }}
             />
           ))}
         </div>
@@ -276,4 +323,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default memo(Home);

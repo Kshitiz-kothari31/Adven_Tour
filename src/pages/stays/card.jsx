@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useMemo, useCallback } from "react";
+import React ,  { useEffect, useRef, useState, useMemo, useCallback } from "react";
 import { ArrowRight } from "lucide-react";
 
 // Move cards data outside component to prevent recreation on renders
