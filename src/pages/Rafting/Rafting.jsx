@@ -109,7 +109,6 @@ const Rafting = () => {
     </div>
   ), [isVisible]);
 
-
   // Rafting plans data
   const raftingPlans = useMemo(() => [
     {

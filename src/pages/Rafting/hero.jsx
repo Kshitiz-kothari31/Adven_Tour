@@ -21,7 +21,7 @@ const AdventureAltHero = () => {
         src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/Hero_img.webp"
         alt="Group enjoying rafting adventure in Rishikesh"
         className="hero-bg"
-        loading="eager"
+        loading="lazy"
         fetchPriority="high"
       />
 
