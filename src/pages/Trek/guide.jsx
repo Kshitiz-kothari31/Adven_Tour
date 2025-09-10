@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 export default function GuidesSection() {
   const guides = [
     {
-      img: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Guides/Rafting_guide_1.webp",
+      img: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Guides/Rafting_guide_5.webp",
       name: "Professional Rafting Guide 1",
     },
     {
