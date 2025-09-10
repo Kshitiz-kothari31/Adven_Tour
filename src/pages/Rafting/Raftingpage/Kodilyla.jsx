@@ -69,7 +69,7 @@ const Kodilyla = () => {
       <div className="relative w-full h-[90vh] overflow-hidden font-josefin">
         {/* Background Image with optimization */}
         <img
-          src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_3.webp"
+          src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/Shivpuri%20to%20nim%20beach/hero_Image.webp"
           alt="Kodiyala to Nim Beach rafting adventure on the Ganges river"
           className="absolute top-0 left-0 w-full h-full object-cover z-10 animate-slowZoom"
           loading="eager"
@@ -213,7 +213,7 @@ const Kodilyla = () => {
             <div className="bg-gradient-to-br from-[#1e3a8a] via-[#0891b2] to-[#06b6d4] p-1 rounded-[28px] shadow-2xl w-full transition-transform duration-500 hover:scale-105">
               <div className="bg-white rounded-[24px] overflow-hidden w-full">
                 <img
-                  src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting/rafting_11.webp"
+                  src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/Shivpuri%20to%20nim%20beach/overView.webp"
                   loading="lazy"
                   decoding="async"
                   alt="People enjoying rafting adventure on river rapids"
