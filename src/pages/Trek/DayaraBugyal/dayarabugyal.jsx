@@ -20,7 +20,7 @@ function DayaraBugyal() {
       <section className="relative w-full h-[93vh] overflow-hidden font-josefin">
         {/* Background Image with optimization */}
         <img
-          src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks/kedarkatha%20trek/landscape/kedarkantha_img12.webp"
+          src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks%20Page/new/5.webp"
           alt="Dayara Bugyal Trek - Beautiful mountain landscape with snow-capped peaks"
           className="absolute top-0 left-0 w-full h-full object-cover z-10 animate-bgZoom"
           loading="eager"

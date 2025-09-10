@@ -26,7 +26,7 @@ function KedarKatha() {
       <section className="relative w-full h-[90vh] overflow-hidden bg-black font-josefin">
         {/* Background image with optimization */}
         <img
-          src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks/kedarkatha%20trek/landscape/kedarkantha_img11.webp"
+          src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks%20Page/new/hero_img_2.webp"
           alt="Kedar Katha Trek - Beautiful Himalayan mountain landscape with snow-capped peaks"
           className="absolute inset-0 w-full h-full object-cover z-10 scale-110 animate-heroZoom"
           loading="eager"

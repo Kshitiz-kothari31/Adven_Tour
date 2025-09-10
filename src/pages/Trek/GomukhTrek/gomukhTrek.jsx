@@ -21,7 +21,7 @@ function GomukhTrek() {
       <section className="relative josefin-sans w-full h-[90vh] overflow-hidden font-josefin text-white snap-start">
         {/* Background Image with optimization */}
         <img
-          src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks/Gomukh%20Tapovan/landscape/gomukhTapovan_img01.webp"
+          src="https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks%20Page/new/4.webp"
           alt="Gaumukh Tapovan Trek - Beautiful Himalayan landscape with snow-capped mountains"
           className="absolute w-full h-full object-cover z-10 animate-bgZoom"
           loading="eager"
