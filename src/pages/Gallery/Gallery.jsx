@@ -191,13 +191,25 @@ const Gallery = () => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, []);
 
-  const scrollToGallery = useCallback((e) => {
-    e.preventDefault();
-    tutanRef.current?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  }, []);
+// Modify the scroll function
+const scrollToGallery = useCallback(() => {
+  console.log("Gallery button clicked");
+  
+  if (tutanRef.current) {
+    try {
+      // Try smooth scrolling first
+      tutanRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    } catch (e) {
+      // Fallback for browsers that don't support smooth scrolling
+      tutanRef.current.scrollIntoView();
+    }
+  } else {
+    console.error("Gallery element not found");
+  }
+}, []);
 
   return (
     <section className='bg-gradient-to-r from-[#ffffff] to-[#f1daff] pt-20 josefin-sans'>
@@ -227,6 +239,7 @@ const Gallery = () => {
             </a>
             <button
               onClick={scrollToGallery}
+              onTouchEnd={scrollToGallery}
               className="relative z-50 group cursor-pointer overflow-hidden bg-gradient-to-r from-blue-700 to-purple-800 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-2xl transition-transform duration-300 hover:scale-105 pointer-events-auto"
             >
               <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-yellow-400 to-pink-500 opacity-0 group-hover:opacity-100 blur-md transition duration-700"></span>
@@ -240,17 +253,18 @@ const Gallery = () => {
       </div>
       
       {/* Scroll Button */}
-      <div className="flex justify-center sm:mt-1 mt-12 relative z-50">
-        <button
-          onClick={scrollToBottom}
-          className="relative z-50 bg-orange-300 text-white p-4 rounded-full text-2xl shadow-lg
-            transition-all duration-700
-            hover:bg-orange-500 hover:rotate-[360deg] hover:scale-150
-            hover:shadow-2xl"
-        >
-          ↓
-        </button>
-      </div>
+        <div className="flex justify-center mt-12 sm:mt-1 fixed bottom-6 w-full z-[9999]">
+          <button
+            onClick={scrollToBottom}
+            className="bg-orange-300 text-white p-4 rounded-full text-2xl shadow-lg
+              transition-all duration-700
+              active:scale-125
+              hover:bg-orange-500 hover:rotate-[360deg] hover:scale-150
+              hover:shadow-2xl"
+          >
+            ↓
+          </button>
+        </div>
 
       {/* Scroll Target */}
       <div ref={bottomRef} className="h-[300px] w-full bg-transparent" />

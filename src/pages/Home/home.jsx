@@ -132,16 +132,16 @@ const StaysSection = memo(() => {
   // Use useRef to prevent recreation on each render
   const stays = useRef([
     {
-      title: "Luxury Stay",
-      img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80",
+      title: "Luxury A.C Cottages",
+      img: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Stay%20Page/hero_img_1.webp",
     },
     {
-      title: "Riverside Cottage",
-      img: "https://images.unsplash.com/photo-1604014237744-1d1a7f34c5c6?auto=format&fit=crop&w=800&q=80",
+      title: "Coller Cottages",
+      img: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Stay%20Page/hero_img_2.webp",
     },
     {
-      title: "Adventure Camp",
-      img: "https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=800&q=80",
+      title: "Adventure Rive Side Camp / Cottages",
+      img: "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Stay%20Page/stays_cottage_1.webp",
     },
   ]).current;
   
