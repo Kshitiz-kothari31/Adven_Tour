@@ -241,15 +241,15 @@ const Nim = () => {
           {/* Text Section */}
           <div className="flex-1 text-black text-center md:text-left space-y-2 font-josefin z-10">
             <h2 className="text-2xl md:text-3xl font-bold mb-3">
-              Marine Drive to Shivpuri
+              Shivpuri to Nim Beach (Rishikesh) details
             </h2>
-            <p><strong>📍 Starting Point:</strong> Marine Drive, Rishikesh</p>
-            <p><strong>🏁 Ending Point:</strong> Shivpuri, Rishikesh</p>
-            <p><strong>🛶 Distance:</strong> Approx. 11-12 km</p>
-            <p><strong>⏱ Duration:</strong> 1 to 1.5 hours</p>
-            <p><strong>⚡ Difficulty:</strong> Moderate to Challenging</p>
-            <p><strong>🌊 Number of Rapids:</strong> Around 7</p>
-            <p><strong>💸 Price:</strong> ₹599 per person</p>
+            <p><strong>📍 Starting Point:</strong> Shivpuri, Rishikesh</p>
+            <p><strong>🏁 Ending Point:</strong> Nim Beach, Rishikesh</p>
+            <p><strong>🛶 Distance:</strong> Approx. 15-16 km</p>
+            <p><strong>⏱ Duration:</strong> 1 hour 45 minutes</p>
+            <p><strong>⚡ Difficulty:</strong> Moderate to Challenging </p>
+            <p><strong>🌊 Number of Rapids:</strong> Around 9</p>
+            <p><strong>💸 Price:</strong> ₹799 per person</p>
             
             {/* Book Now Button */}
             <button

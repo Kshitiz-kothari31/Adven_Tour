@@ -192,9 +192,7 @@ const Gallery = () => {
   }, []);
 
 // Modify the scroll function
-const scrollToGallery = useCallback(() => {
-  console.log("Gallery button clicked");
-  
+const scrollToGallery = useCallback(() => {  
   if (tutanRef.current) {
     try {
       // Try smooth scrolling first
@@ -251,9 +249,10 @@ const scrollToGallery = useCallback(() => {
         {/* Right Image Grid */}
         <ImageGrid images={ACTIVITY_IMAGES} centerImage={CENTER_IMAGE} />
       </div>
+
       
       {/* Scroll Button */}
-        <div className="flex justify-center mt-12 sm:mt-1 fixed bottom-6 w-full z-[9999]">
+        <div className="flex  justify-center mt-12 sm:mt-1 realtive bottom-6 w-full z-[10]">
           <button
             onClick={scrollToBottom}
             className="bg-orange-300 text-white p-4 rounded-full text-2xl shadow-lg

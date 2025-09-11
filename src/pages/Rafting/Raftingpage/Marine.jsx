@@ -90,7 +90,7 @@ const Marine = () => {
         {/* Hero Content */}
         <div className="absolute top-[25%] left-10 md:left-20 z-40 opacity-0 animate-fadeInLeft">
           <h1 className="text-white font-kalnia text-4xl md:text-5xl lg:text-[2.8rem] xl:text-7xl font-extrabold leading-tight drop-shadow-[0_3px_15px_rgba(0,0,0,0.7)] animate-slideDown">
-            Marine Drive to Shivpuri
+            Marine Drive to Nim Beach
           </h1>
           <p className="text-white/80 text-lg md:text-xl mt-4 font-medium max-w-xl">
             A scenic rafting route with balanced thrill & beauty.
@@ -232,15 +232,15 @@ const Marine = () => {
           {/* Text Section */}
           <div className="flex-1 text-black text-center space-y-2 font-josefin z-10">
             <h2 className="text-2xl md:text-3xl font-bold mb-3">
-              Marine Drive to Shivpuri
+              Marine Drive to Nim Beach (Rishikesh) details
             </h2>
             <p><strong>📍 Starting Point:</strong> Marine Drive, Rishikesh</p>
-            <p><strong>🏁 Ending Point:</strong> Shivpuri, Rishikesh</p>
-            <p><strong>🛶 Distance:</strong> Approx. 11-12 km (commonly claimed as 12 km)</p>
-            <p><strong>⏱ Duration:</strong> 1 to 1.5 hours</p>
-            <p><strong>⚡ Difficulty:</strong> Moderate to Challenging</p>
-            <p><strong>🌊 Number of Rapids:</strong> Around 7 (mix of major & minor)</p>
-            <p><strong>💸 Price:</strong> ₹599 per person</p>
+            <p><strong>🏁 Ending Point:</strong> Nim Beach, Rishikesh</p>
+            <p><strong>🛶 Distance:</strong> Approx. 23 - 24 km (commonly claimed as 24 km)</p>
+            <p><strong>⏱ Duration:</strong> Approx 3 hours</p>
+            <p><strong>⚡ Difficulty:</strong> Hard to Challenging</p>
+            <p><strong>🌊 Number of Rapids:</strong> Around 10 (mix of major & minor)</p>
+            <p><strong>💸 Price:</strong> ₹1,200 per person</p>
             
             {/* Book Now Button */}
             <button

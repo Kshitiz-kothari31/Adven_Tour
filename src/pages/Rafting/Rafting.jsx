@@ -113,7 +113,7 @@ const Rafting = () => {
   const raftingPlans = useMemo(() => [
     {
       title: "Marine drive to shivpuri",
-      description: "Scenic rafting route perfect for adventure seekers. ",
+      description: "Come and feel the glowing arc of Marine Drive to the thrilling rapids of Shivpuri.",
       distance: "12 km",
       cost: "₹599",
       image: "card1.webp",
@@ -121,7 +121,7 @@ const Rafting = () => {
     },
     {
       title: "Shivpuri To Nim Beach",
-      description: "One of the most popular rafting stretches in Rishikesh.",
+      description: "From the thrilling rapids of Shivpuri to the calm banks of Nim Beach",
       distance: "16 km",
       cost: "₹799",
       image: "card2.webp",
