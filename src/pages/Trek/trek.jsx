@@ -8,12 +8,8 @@ const GuideScrolle = lazy(() => import('./guide'));
 
 // Static images array (moved outside component)
 const images = [
-  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks/Gomukh%20Tapovan/landscape/gomukhTapovan_img01.webp",
-  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks/Tungnath/landscape/tungnath_img15.webp",
-  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks/kedarkatha%20trek/landscape/kedarkantha_img11.webp",
-  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks/kedarkatha%20trek/landscape/kedarkantha_img12.webp",
-  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks/kedarkatha%20trek/landscape/kedarkantha_img8.webp",
-  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks/kedarkatha%20trek/landscape/kedarkantha_img9.webp",
+  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks%20Page/new/hero_img_1.webp",
+  "https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Treks%20Page/new/hero_img_2.webp",
 ];
 
 // Memoized TrekkingPathBackground component
@@ -308,12 +304,19 @@ function Trek() {
   , [treks]);
 
   return (
-    <div className="bg-gradient-to-r from-[#fafafa] to-[#DBFCE7] josefin-sans relative">
-      <ImageSliderBox />
+ <div className="bg-gradient-to-r from-[#fafafa] to-[#DBFCE7] josefin-sans relative">
+      {/* Hero section with higher stacking context */}
+      <div className="relative z-50">
+        <ImageSliderBox />
+      </div>
       
-      <div className="relative z-10">
+      {/* Background animation with lower stacking context */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
         <TrekkingPathBackground />
-        
+      </div>
+      
+      {/* Rest of the content */}
+      <div className="relative z-10">
         <section
           id="trek-section"
           className="relative text-center pt-24 pb-16 px-4 sm:px-8 md:px-16 lg:px-24 josefin-sans bg-transparent overflow-hidden"

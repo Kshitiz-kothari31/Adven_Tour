@@ -229,19 +229,27 @@ const Rafting = () => {
           ))}
         </div>
       </div>
-      <div className="mt-15 px-4 py-10 md:px-20">
-        <h2 className="text-5xl md:text-7xl font-bold mb-1 josefin-sans opacity-0 translate-y-[-30px] animate-fadeInUp">
+      <div className="sm:mt-15 mt-10 px-4 py-10 md:px-20">
+        <h2 className="text-4xl sm:text-5xl md:text-7xl font-extrabold josefin-sans mb-12 
+                      text-black tracking-tight relative text-center
+                      opacity-0 translate-y-[-30px] animate-fadeInUp">
           Rafting Plans
+          <span className="absolute left-1/2 -translate-x-1/2 bottom-[-10px] w-28 sm:w-40 h-1.5 
+                          bg-black rounded-full"></span>
         </h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 -mt-15">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 -mt-25">
           {raftingPlans.map((card, index) => (
             <div
               key={index}
-              className="w-[85%] sm:w-full mx-auto bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col snap-start h-[300px] sm:h-[400px] md:h-[400px] group transition-transform duration-500 hover:scale-105 opacity-0 translate-y-[80px] animate-fadeInCard"
+              className="w-[85%] sm:w-full mx-auto bg-white rounded-2xl overflow-hidden shadow-lg flex flex-col snap-start 
+                        h-[400px] sm:h-[420px] md:h-[430px] 
+                        group transition-transform duration-500 hover:scale-105 
+                        opacity-0 translate-y-[80px] animate-fadeInCard"
               style={{ animationDelay: `${(index + 1) * 200}ms` }}
             >
-              <div className="relative h-[48%] overflow-hidden">
+              {/* Image Section */}
+              <div className="relative h-[65%] sm:h-[58%] overflow-hidden">
                 <img
                   src={`https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/${card.image}`}
                   alt={`${card.title} rafting experience`}
@@ -251,21 +259,23 @@ const Rafting = () => {
                 />
                 <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white/95 via-white/60 to-transparent pointer-events-none" />
               </div>
+
+              {/* Content Section */}
               <div className="p-4 flex flex-col flex-1 justify-between">
                 <div>
-                  <h3 className="text-lg font-semibold mb-1">{card.title}</h3>
-                  <p className="text-sm text-gray-600 mb-3">{card.description}</p>
+                  <h3 className="text-lg sm:text-xl font-semibold mb-1">{card.title}</h3>
+                  <p className="text-sm sm:text-base text-gray-600 mb-3">{card.description}</p>
                   <div className="mb-2">
-                    <span className="inline-block bg-black text-white text-xs px-3 py-1 rounded-full">
+                    <span className="inline-block bg-black text-white text-xs sm:text-sm px-3 py-1 rounded-full">
                       Dist {card.distance}
                     </span>
                   </div>
                 </div>
                 <div className="mt-2 flex items-center justify-between">
-                  <p className="text-sm font-bold">Cost : {card.cost}</p>
+                  <p className="text-sm sm:text-base font-bold">Cost : {card.cost}</p>
                   <Link
                     to={card.link}
-                    className="flex items-center justify-center text-sm px-3 py-1 rounded-full bg-blue-500 text-white hover:bg-blue-600 hover:scale-105 transition-transform duration-300"
+                    className="flex items-center justify-center text-sm sm:text-base px-3 py-1 rounded-full bg-blue-500 text-white hover:bg-blue-600 hover:scale-105 transition-transform duration-300"
                   >
                     more
                   </Link>
@@ -276,12 +286,18 @@ const Rafting = () => {
         </div>
       </div>
 
-      <div className="relative josefin-sans mt-12 px-4 md:px-20 py-12 bg-[url('https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/bg.webp')] bg-cover bg-center bg-fixed">
-        <h2 className="relative z-10 text-3xl md:text-6xl josefin-sans font-bold text-left mb-12 text-black drop-shadow-lg">
-          Rafting Expenditure
-        </h2>
 
-        <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="relative josefin-sans mt-22 px-4 md:px-20 py-12 bg-[url('https://cdn.jsdelivr.net/gh/Kshitiz-kothari31/Adven_Tour_img-videos@main/Images/Rafting%20Page/bg.webp')] bg-cover bg-center bg-fixed">
+          <h2 className="text-4xl sm:text-5xl md:text-7xl font-extrabold josefin-sans mb-12 
+                        text-black tracking-tight relative text-center
+                        opacity-0 translate-y-[-30px] animate-fadeInUp">
+            Rafting Expenditure
+            <span className="absolute left-1/2 -translate-x-1/2 bottom-[-10px] w-28 sm:w-40 h-1.5 
+                            bg-black rounded-full"></span>
+          </h2>
+
+
+        <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 -mt-5">
           {bookingCards.map((card, index) => (
             <div
               key={index}
