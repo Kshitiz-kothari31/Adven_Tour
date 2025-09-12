@@ -235,14 +235,12 @@ const scrollToGallery = useCallback(() => {
                 <span className="relative z-10">Book Now </span>
               </button>
             </a>
-            <button
-              onClick={scrollToGallery}
-              onTouchEnd={scrollToGallery}
-              className="relative z-50 group cursor-pointer overflow-hidden bg-gradient-to-r from-blue-700 to-purple-800 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-2xl transition-transform duration-300 hover:scale-105 pointer-events-auto"
-            >
-              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-yellow-400 to-pink-500 opacity-0 group-hover:opacity-100 blur-md transition duration-700"></span>
-              <span className="relative z-10">View Gallery </span>
-            </button>
+              <button
+              onClick={scrollToGallery} 
+              className="relative group cursor-pointer overflow-hidden bg-gradient-to-r from-blue-700 to-purple-800 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-2xl transition-transform duration-300 hover:scale-105">
+                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-yellow-400 to-pink-500 opacity-0 group-hover:opacity-100 blur-md transition duration-700"></span>
+                <span className="relative z-10">View Gallery </span>
+              </button>
           </div>
         </div>
         

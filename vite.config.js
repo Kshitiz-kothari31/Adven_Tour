@@ -1,7 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
-import { visualizer } from 'rollup-plugin-visualizer';
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
 
 export default defineConfig({
@@ -9,12 +8,6 @@ export default defineConfig({
     react(),
     ViteImageOptimizer(),
     tailwindcss(),
-    visualizer({
-      open: true,           // opens report in browser after build
-      gzipSize: true,       // shows gzip size
-      brotliSize: true,     // shows brotli size
-      filename: 'bundle-report.html', // report file name
-    }),
   ],
   css: {
     devSourcemap: false,

@@ -1,5 +1,5 @@
 "use client";
-import { useState, useMemo, memo } from "react";
+import { useState, useMemo, memo, useEffect } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import images from "../../const";
@@ -30,12 +30,25 @@ const GallerySection = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
+  
+  // ✅ Reset selected image when category changes
+  useEffect(() => {
+    setSelectedImage(null);
+  }, [selectedCategory]);
+  
   // ✅ Filter images by category (memoized)
   const filteredImages = useMemo(() => {
     if (selectedCategory === "all") return images;
     return images.filter((img) => img.category === selectedCategory);
   }, [selectedCategory]);
+
+  // ✅ Handle category selection
+  const handleCategorySelect = (category) => {
+    setSelectedCategory(category);
+    setIsDropdownOpen(false);
+    // Reset selected image when category changes
+    setSelectedImage(null);
+  };
 
   return (
     <section className="scroll-mt-32 mt-20 w-full px-6 md:px-12 py-12">
@@ -44,7 +57,6 @@ const GallerySection = () => {
         <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight mb-4">
           📸 Image Gallery
         </h2>
-
         {/* Dropdown */}
         <div className="relative inline-block text-left">
           <button
@@ -56,7 +68,6 @@ const GallerySection = () => {
             {selectedCategory === "stays" && "🏕️ Stays"}
             {selectedCategory === "trekking" && "🥾 Trekking"}
             {selectedCategory === "bungee" && "🪂 Bungee"}
-
             <span
               className={`ml-2 transition-transform duration-300 ${
                 isDropdownOpen ? "rotate-180" : "rotate-0"
@@ -65,16 +76,12 @@ const GallerySection = () => {
               👇
             </span>
           </button>
-
           {isDropdownOpen && (
             <div className="absolute top-full left-0 mt-3 w-56 bg-white border border-gray-200 rounded-xl shadow-xl z-50">
               {["all", "rafting", "stays", "trekking", "bungee"].map((cat) => (
                 <div
                   key={cat}
-                  onClick={() => {
-                    setSelectedCategory(cat);
-                    setIsDropdownOpen(false);
-                  }}
+                  onClick={() => handleCategorySelect(cat)}
                   className="block px-5 py-3 text-sm hover:bg-gray-100 font-medium transition cursor-pointer"
                 >
                   {cat === "all" && "🌟 All"}
@@ -88,18 +95,18 @@ const GallerySection = () => {
           )}
         </div>
       </div>
-
+      
       {/* ✅ Masonry Grid */}
       <div className="max-w-7xl mx-auto columns-2 sm:columns-3 md:columns-4 lg:columns-5 gap-4">
         {filteredImages.map((img, index) => (
           <GalleryImage
-            key={index}
+            key={`${selectedCategory}-${index}`} // ✅ Unique key with category
             src={img.src}
             onClick={() => setSelectedImage(img.src)}
           />
         ))}
       </div>
-
+      
       {/* ✅ Fullscreen Modal */}
       {selectedImage && (
         <div
@@ -117,7 +124,6 @@ const GallerySection = () => {
             >
               ×
             </button>
-
             <LazyLoadImage
               src={`${selectedImage}?w=1000&q=80`}
               srcSet={`
