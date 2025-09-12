@@ -13,7 +13,7 @@ const KedarKatha = lazy(() => import("./pages/Trek/KedarKatha/kedarKatha"));
 const HiddenWaterfall = lazy(() => import("./pages/Trek/HiddenWaterfall/hiddenWaterfall"));
 const TungnathTrek = lazy(() => import("./pages/Trek/TungnathTrek/tungnathTrek"));
 const GomukhTrek = lazy(() => import("./pages/Trek/GomukhTrek/gomukhTrek"));
-const BungeeJumping = lazy(() => import("./pages/bungeeJumping/bungeeumping"));
+const BungeeJumping = lazy(() => import("./pages/bungeeJumping/Bungeeumping"));
 const Zipline = lazy(() => import("./pages/Zip&kay/Zipline"));
 const Kayaking = lazy(() => import("./pages/Zip&kay/Kayaking"));
 const Stays = lazy(() => import("./pages/stays/stays"));
