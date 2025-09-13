@@ -77,7 +77,14 @@ const Navbar = () => {
               className="flex items-center space-x-3 hover:opacity-90 transition-opacity"
             >
               <LazyImage src={logo} alt="GoRafts logo" className="h-8 w-8" />
-              <span className="text-gray-900 font-medium text-lg">GoRafts</span>
+                <div className="relative inline-block">
+                  {/* Brand Name */}
+                  <span className="text-gray-900 font-extrabold text-2xl tracking-tight uppercase drop-shadow-md">
+                    Go<span className="text-blue-700">Rafts</span>
+                  </span>
+
+                </div>
+
             </Link>
           </div>
           
