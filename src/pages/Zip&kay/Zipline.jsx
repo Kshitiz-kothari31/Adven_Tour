@@ -328,7 +328,7 @@ const Zipline = () => {
       
       <Suspense fallback={<div className="h-64 flex items-center justify-center">Loading form...</div>}>
         <Form
-          boxClass="bg-[#FFF5E4]"
+          boxClass="bg-gradient-to-b from-[#fafafa] to-[#FFF5E4]"
           headingClass="text-black"
           buttonClass="bg-[#E26024] hover:bg-[#E26024]"
           focusClass="focus:outline-[#E26024]"

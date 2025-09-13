@@ -334,7 +334,7 @@ function BungeeJumping() {
 
       <Suspense fallback={<div className="h-64 flex items-center justify-center">Loading form...</div>}>
         <Form
-          boxClass="bg-gradient-to-r from-[#cceeff] to-white"
+          boxClass="bg-gradient-to-b from-white to-[#cceeff]"
           headingClass="text-black"
           buttonClass="bg-blue-400 hover:bg-blue-700"
           focusClass="focus:outline-blue-500"

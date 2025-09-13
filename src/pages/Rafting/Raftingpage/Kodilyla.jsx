@@ -397,7 +397,7 @@ const Kodilyla = () => {
       {/* Lazy loaded Form component */}
       <Suspense fallback={<div className="h-40 flex items-center justify-center">Loading booking form...</div>}>
         <LazyForm
-          boxClass="bg-[#B4F4FA]"
+          boxClass="bg-gradient-to-b from-[#fafafa] to-[#B2EBF2]"
           headingClass="text-black"
           buttonClass="bg-blue-600 hover:bg-blue-700"
           focusClass="focus:outline-blue-500"

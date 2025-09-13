@@ -356,7 +356,7 @@ const Rafting = () => {
       
       <Suspense fallback={<div className="h-40 flex items-center justify-center">Loading form...</div>}>
         <Form
-          boxClass="bg-[#B4F4FA]"
+          boxClass="bg-gradient-to-b from-[#fafafa] to-[#B2EBF2]"
           headingClass="text-black"
           buttonClass="bg-blue-600 hover:bg-blue-700"
           focusClass="focus:outline-blue-500"

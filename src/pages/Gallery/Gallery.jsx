@@ -382,7 +382,7 @@ const scrollToGallery = useCallback(() => {
       </section>
       
       <Form
-        boxClass="bg-[#f1daff]"
+        boxClass="bg-gradient-to-b from-[#ffffff] to-[#f1daff]"
         headingClass="text-[#000000]"
         buttonClass="bg-[#AA336A] hover:bg-[#E75480]"
         focusClass="focus:outline-[#00786F]"
