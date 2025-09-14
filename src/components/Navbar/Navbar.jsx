@@ -1,8 +1,20 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import logo from "../Navbar/21.svg";
 import "../Navbar/Navbar.css";
 import "../../index.css";
+import { 
+  Mountain, 
+  Tent, 
+  Camera, 
+  MapPin, 
+  Menu, 
+  X, 
+  ChevronDown,
+  Zap,
+  Waves,
+  ArrowRight
+} from "lucide-react";
 
 const LazyImage = ({ src, alt, className }) => (
   <img src={src} alt={alt} loading="lazy" className={className} />
@@ -16,260 +28,258 @@ const Navbar = () => {
   const buttonRef = useRef(null);
   const detailsRef = useRef(null);
 
-  // Close mobile menu when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (
-        isOpen &&
-        menuRef.current &&
-        !menuRef.current.contains(event.target) &&
-        buttonRef.current &&
-        !buttonRef.current.contains(event.target)
-      ) {
-        setIsOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+  const handleClickOutside = useCallback((event) => {
+    if (
+      isOpen &&
+      menuRef.current &&
+      !menuRef.current.contains(event.target) &&
+      buttonRef.current &&
+      !buttonRef.current.contains(event.target)
+    ) {
+      setIsOpen(false);
+    }
   }, [isOpen]);
 
-  const handleMouseEnter = () => {
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [handleClickOutside]);
+
+  const handleMouseEnter = useCallback(() => {
     if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
     setDropdownOpen(true);
-  };
+  }, []);
 
-  const handleMouseLeave = () => {
-    dropdownTimeout.current = setTimeout(() => setDropdownOpen(false), 200); // small delay
-  };
+  const handleMouseLeave = useCallback(() => {
+    dropdownTimeout.current = setTimeout(() => setDropdownOpen(false), 200);
+  }, []);
 
-  const closeMobileDropdown = () => {
+  const closeMobileDropdown = useCallback(() => {
     if (detailsRef.current) detailsRef.current.open = false;
-  };
+  }, []);
+
+  const toggleMobileMenu = useCallback(() => {
+    setIsOpen(prev => !prev);
+  }, []);
+
+  const closeMobileMenu = useCallback(() => {
+    setIsOpen(false);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-[1000] w-auto bg-white/30 backdrop-blur-md shadow-xl transition-all duration-300 ease-in-out josefin-sans">
-      <div className="w-full px-4 xl:px-8">
-        <div className="mx-auto w-full flex items-center justify-between py-4 xl:px-16 3xl:px-32">
+    <header className="sticky top-0 z-[1000] w-full bg-white transition-all duration-300 josefin-sans border-b border-gray-100">
+      <div className="w-full px-6 lg:px-10">
+        <div className="mx-auto flex items-center justify-between py-3 lg:px-8">
           {/* Logo */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center">
             <Link
               to="/"
-              className="flex items-center space-x-4 hover:opacity-80 transition"
+              className="flex items-center space-x-3 hover:opacity-90 transition-opacity"
             >
-              <LazyImage src={logo} alt="logo" className="h-10 w-10" />
-              <span className="h-8 w-px bg-gray-800 hidden lg:block"></span>
+              <LazyImage src={logo} alt="GoRafts logo" className="h-8 w-8" />
+                <div className="relative inline-block">
+                  {/* Brand Name */}
+                  <span className="text-gray-900 font-extrabold text-2xl tracking-tight uppercase drop-shadow-md">
+                    Go<span className="text-blue-700">Rafts</span>
+                  </span>
+
+                </div>
+
             </Link>
           </div>
-
-          {/* Spacer */}
-          <div className="flex-1 hidden md:block" />
-
+          
           {/* Desktop Nav */}
-          <ul className="hidden md:flex items-center space-x-6 xl:space-x-10 text-base font-medium text-gray-800">
-            <li>
-              <a href="#Rafting" className="nav-link">
-                Rafting
-              </a>
-            </li>
-            <li>
-              <a href="#trek" className="nav-link">
-                Treks
-              </a>
-            </li>
-
-            {/* Adventure Sports Dropdown */}
-            <li
-              className="relative"
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            >
-              <div
-                className={`nav-link flex items-center gap-2 cursor-pointer transition duration-300 ${
-                  dropdownOpen ? "text-cyan-700 scale-[1.03]" : ""
-                }`}
+          <nav className="hidden lg:flex items-center">
+            <ul className="flex items-center space-x-6">
+              <li>
+                <a href="#Rafting" className="nav-link">
+                  <Mountain className="w-4 h-4 mr-1.5 text-gray-500" />
+                  <span>Rafting</span>
+                </a>
+              </li>
+              <li>
+                <a href="#trek" className="nav-link">
+                  <Tent className="w-4 h-4 mr-1.5 text-gray-500" />
+                  <span>Treks</span>
+                </a>
+              </li>
+              
+              {/* Adventure Sports Dropdown */}
+              <li
+                className="relative"
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
               >
-                <span>Adventure Sports</span>
-                <svg
-                  className={`w-4 h-4 transition-transform duration-300 ${
-                    dropdownOpen ? "rotate-180 text-cyan-700" : ""
-                  }`}
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  viewBox="0 0 24 24"
+                <button
+                  className={`nav-link flex items-center ${dropdownOpen ? 'text-gray-900' : ''}`}
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
-              </div>
-
-              {dropdownOpen && (
-                <div className="absolute top-full left-0 mt-3 w-56 bg-white border border-gray-200 rounded-xl shadow-xl z-50 overflow-hidden josefin-sans animate-fadeIn">
-                  <a
-                    href="#bungee"
-                    className="block px-5 py-3 text-sm hover:bg-gray-100 font-medium transition"
-                  >
-                    Bungee Jumping
-                  </a>
-                  <a
-                    href="#kayaking"
-                    className="block px-5 py-3 text-sm hover:bg-gray-100 font-medium transition"
-                  >
-                    Kayaking
-                  </a>
-                  <a
-                    href="#zipline"
-                    className="block px-5 py-3 text-sm hover:bg-gray-100 font-medium transition"
-                  >
-                    Zipline
-                  </a>
-                </div>
-              )}
-            </li>
-
-            <li>
-              <a href="#Stays" className="nav-link">
-                Stays
-              </a>
-            </li>
-            <li>
-              <a href="#gallery" className="nav-link">
-                Gallery
-              </a>
-            </li>
-            <li>
-              <a href="#contact" className="nav-link">
-                Contact
-              </a>
-            </li>
-          </ul>
-
-          {/* Mobile Toggle */}
-          <div className="md:hidden" ref={buttonRef}>
-            <button onClick={() => setIsOpen(!isOpen)}>
-              <svg
-                className="w-6 h-6 cursor-pointer text-gray-800"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                {isOpen ? (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                ) : (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
+                  <Zap className="w-4 h-4 mr-1.5 text-gray-500" />
+                  <span>Adventure Sports</span>
+                  <ChevronDown className={`ml-1 w-3.5 h-3.5 transition-transform duration-200 ${dropdownOpen ? 'rotate-180' : ''}`} />
+                </button>
+                
+                {dropdownOpen && (
+                  <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-md shadow-sm border border-gray-100 py-1 z-50 animate-fadeIn">
+                    <a
+                      href="#bungee"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors flex items-center"
+                    >
+                      <Zap className="w-4 h-4 mr-2 text-gray-500" />
+                      Bungee Jumping
+                    </a>
+                    <a
+                      href="#kayaking"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors flex items-center"
+                    >
+                      <Waves className="w-4 h-4 mr-2 text-gray-500" />
+                      Kayaking
+                    </a>
+                    <a
+                      href="#zipline"
+                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors flex items-center"
+                    >
+                      <ArrowRight className="w-4 h-4 mr-2 text-gray-500" />
+                      Zipline
+                    </a>
+                  </div>
                 )}
-              </svg>
+              </li>
+              
+              <li>
+                <a href="#Stays" className="nav-link">
+                  <Tent className="w-4 h-4 mr-1.5 text-gray-500" />
+                  <span>Stays</span>
+                </a>
+              </li>
+              <li>
+                <a href="#gallery" className="nav-link">
+                  <Camera className="w-4 h-4 mr-1.5 text-gray-500" />
+                  <span>Gallery</span>
+                </a>
+              </li>
+              <li>
+                <a href="#contact" className="nav-link">
+                  <MapPin className="w-4 h-4 mr-1.5 text-gray-500" />
+                  <span>Contact</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+          
+          {/* Mobile Toggle */}
+          <div className="lg:hidden" ref={buttonRef}>
+            <button 
+              onClick={toggleMobileMenu}
+              className="p-1.5 rounded-md text-gray-600 hover:bg-gray-50 transition-colors"
+              aria-label={isOpen ? "Close menu" : "Open menu"}
+            >
+              {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
       </div>
-
+      
       {/* Mobile Menu */}
       {isOpen && (
-        <div ref={menuRef} className="md:hidden px-6 pb-4 animate-slideDown">
-          <ul className="space-y-3 flex flex-col items-center text-base font-medium text-gray-800">
-            <li>
-              <a
-                href="#Rafting"
-                onClick={() => setIsOpen(false)}
-                className="nav-link block text-center"
+        <div 
+          ref={menuRef} 
+          className="lg:hidden bg-white border-t border-gray-100 animate-slideDown"
+        >
+          <div className="px-6 py-3 space-y-1">
+            <a
+              href="#Rafting"
+              onClick={closeMobileMenu}
+              className="mobile-nav-link"
+            >
+              <Mountain className="w-4 h-4 mr-3 text-gray-500" />
+              <span>Rafting</span>
+            </a>
+            <a
+              href="#trek"
+              onClick={closeMobileMenu}
+              className="mobile-nav-link"
+            >
+              <Tent className="w-4 h-4 mr-3 text-gray-500" />
+              <span>Treks</span>
+            </a>
+            
+            {/* Mobile Dropdown */}
+            <div className="py-1">
+              <button
+                onClick={() => setDropdownOpen(prev => !prev)}
+                className="w-full mobile-nav-link flex items-center justify-between"
               >
-                Rafting
-              </a>
-            </li>
-            <li>
-              <a
-                href="#trek"
-                onClick={() => setIsOpen(false)}
-                className="nav-link block text-center"
-              >
-                Treks
-              </a>
-            </li>
-
-            <li className="w-full">
-              <details ref={detailsRef} className="w-full text-center">
-                <summary className="nav-link cursor-pointer flex justify-center items-center gap-2">
-                  Adventure Sports
-                </summary>
-                <ul className="mt-2 space-y-2 text-sm text-center josefin-sans">
-                  <li>
-                    <a
-                      href="#bungee"
-                      onClick={() => {
-                        closeMobileDropdown();
-                        setIsOpen(false);
-                      }}
-                      className="block px-2 py-2 rounded hover:bg-gray-100"
-                    >
-                      Bungee Jumping
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#kayaking"
-                      onClick={() => {
-                        closeMobileDropdown();
-                        setIsOpen(false);
-                      }}
-                      className="block px-2 py-2 rounded hover:bg-gray-100"
-                    >
-                      Kayaking
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="#zipline"
-                      onClick={() => {
-                        closeMobileDropdown();
-                        setIsOpen(false);
-                      }}
-                      className="block px-2 py-2 rounded hover:bg-gray-100"
-                    >
-                      Zipline
-                    </a>
-                  </li>
-                </ul>
-              </details>
-            </li>
-
-            <li>
-              <a
-                href="#Stays"
-                onClick={() => setIsOpen(false)}
-                className="nav-link block text-center"
-              >
-                Stays
-              </a>
-            </li>
-            <li>
-              <a
-                href="#gallery"
-                onClick={() => setIsOpen(false)}
-                className="nav-link block text-center"
-              >
-                Gallery
-              </a>
-            </li>
-            <li>
-              <a
-                href="#contact"
-                onClick={() => setIsOpen(false)}
-                className="nav-link block text-center"
-              >
-                Contact
-              </a>
-            </li>
-          </ul>
+                <div className="flex items-center">
+                  <Zap className="w-4 h-4 mr-3 text-gray-500" />
+                  <span>Adventure Sports</span>
+                </div>
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform ${dropdownOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {dropdownOpen && (
+                <div className="pl-7 mt-1 space-y-1 animate-fadeIn">
+                  <a
+                    href="#bungee"
+                    onClick={() => {
+                      closeMobileMenu();
+                      setDropdownOpen(false);
+                    }}
+                    className="block py-2 px-3 text-sm text-gray-700 hover:bg-gray-50 rounded transition-colors flex items-center"
+                  >
+                    <Zap className="w-4 h-4 mr-2 text-gray-500" />
+                    Bungee Jumping
+                  </a>
+                  <a
+                    href="#kayaking"
+                    onClick={() => {
+                      closeMobileMenu();
+                      setDropdownOpen(false);
+                    }}
+                    className="block py-2 px-3 text-sm text-gray-700 hover:bg-gray-50 rounded transition-colors flex items-center"
+                  >
+                    <Waves className="w-4 h-4 mr-2 text-gray-500" />
+                    Kayaking
+                  </a>
+                  <a
+                    href="#zipline"
+                    onClick={() => {
+                      closeMobileMenu();
+                      setDropdownOpen(false);
+                    }}
+                    className="block py-2 px-3 text-sm text-gray-700 hover:bg-gray-50 rounded transition-colors flex items-center"
+                  >
+                    <ArrowRight className="w-4 h-4 mr-2 text-gray-500" />
+                    Zipline
+                  </a>
+                </div>
+              )}
+            </div>
+            
+            <a
+              href="#Stays"
+              onClick={closeMobileMenu}
+              className="mobile-nav-link"
+            >
+              <Tent className="w-4 h-4 mr-3 text-gray-500" />
+              <span>Stays</span>
+            </a>
+            <a
+              href="#gallery"
+              onClick={closeMobileMenu}
+              className="mobile-nav-link"
+            >
+              <Camera className="w-4 h-4 mr-3 text-gray-500" />
+              <span>Gallery</span>
+            </a>
+            <a
+              href="#contact"
+              onClick={closeMobileMenu}
+              className="mobile-nav-link"
+            >
+              <MapPin className="w-4 h-4 mr-3 text-gray-500" />
+              <span>Contact</span>
+            </a>
+          </div>
         </div>
       )}
     </header>

@@ -245,7 +245,7 @@ function GomukhTrek() {
       {/* Form section with lazy loading */}
       <Suspense fallback={<div className="h-40 flex items-center justify-center">Loading booking form...</div>}>
         <LazyForm
-          boxClass="bg-[#DBFCE7]"
+          boxClass="bg-gradient-to-b from-[#fafafa] to-[#DBFCE7]"
           headingClass="text-[#00786F]"
           buttonClass="bg-[#00786F] hover:bg-[#00786F]"
           focusClass="focus:outline-[#00786F]"

@@ -10,21 +10,62 @@ import "./home.css";
 // Lazy load components that aren't immediately visible
 const ImageSlider = lazy(() => import("./imageslider"));
 
+// Define CSS animation keyframes in JS to avoid missing CSS errors
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease forwards;
+  }
+  .animate-fadeIn {
+    animation: fadeIn 0.8s ease forwards;
+  }
+  .animate-fadeInUp {
+    animation: fadeInUp 0.8s ease forwards;
+  }
+  .animate-float-slow {
+    animation: float 6s ease-in-out infinite;
+  }
+  .animate-float-fast {
+    animation: float 4s ease-in-out infinite;
+  }
+`;
+document.head.appendChild(style);
+
 // Memoize the hero slider to prevent unnecessary re-renders
 const ImageSliderBox = memo(() => {
   const [current, setCurrent] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const intervalRef = useRef(null);
   
   // Auto-slide with cleanup
   useEffect(() => {
-    const interval = setInterval(() => {
+    intervalRef.current = setInterval(() => {
       setIsTransitioning(true);
       setTimeout(() => {
         setCurrent((prevIndex) => (prevIndex + 1) % IMAGES.length);
         setIsTransitioning(false);
       }, 300);
     }, 5000);
-    return () => clearInterval(interval);
+    
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
   }, []);
   
   // Scroll button with useCallback
@@ -35,6 +76,8 @@ const ImageSliderBox = memo(() => {
   
   // Preload the next image for smoother transitions
   useEffect(() => {
+    if (IMAGES.length === 0) return;
+    
     const nextIndex = (current + 1) % IMAGES.length;
     const img = new Image();
     img.src = IMAGES[nextIndex];
@@ -107,7 +150,7 @@ const StaysSection = memo(() => {
       <h2 className="text-3xl font-semibold josefin-sans mb-6 text-center md:text-left">
         Stays
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-8 justify-center">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-3 gap-y-6 justify-center">
         {stays.map((stay, i) => (
           <div
             key={stay.title}
@@ -144,7 +187,7 @@ const PackagesSection = memo(() => {
       <h2 className="text-3xl font-semibold josefin-sans mb-6 text-center md:text-left">
         Packages
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-8 justify-center">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-3 gap-y-6 justify-center">
         {CARDS.map((item, index) => (
           <div
             key={item.label}
@@ -176,68 +219,34 @@ const PackagesSection = memo(() => {
 
 // Memoize the video section with mobile optimizations
 const VideoSection = memo(() => {
-  const [visibleVideos, setVisibleVideos] = useState(4);
-
-  useEffect(() => {
-    const updateVisibleVideos = () => {
-      if (window.innerWidth >= 1280) {
-        setVisibleVideos(4); // xl: 4
-      } else if (window.innerWidth >= 1024) {
-        setVisibleVideos(3); // lg: 3
-      } else if (window.innerWidth >= 640) {
-        setVisibleVideos(3); // sm/md: 3
-      } else {
-        setVisibleVideos(4); // xs: 4
-      }
-    };
-
-    updateVisibleVideos();
-    window.addEventListener("resize", updateVisibleVideos);
-    return () => window.removeEventListener("resize", updateVisibleVideos);
-  }, []);
-
   return (
-    <section
-      id="bottomRef"
-      className="relative josefin-sans -mt-10 md:mt-10 py-12 px-4 sm:px-6 md:px-10 lg:px-20 animate-fadeInUp"
-    >
-      <div className="relative z-10 max-w-7xl mx-auto text-center space-y-10">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold font-josefin text-black animate-fadeIn">
+    <section className="py-12 px-4 sm:px-6 md:px-10 lg:px-20 animate-fadeInUp">
+      <div className="max-w-6xl mx-auto text-center space-y-10">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold">
           Experience the <u>Adventure</u>
         </h2>
-        <p>
-          These real clips showcase our adventure experiences – live from
-          Rishikesh&apos;s whitewater.
-        </p>
-
-        {/* Responsive grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-6 animate-fadeIn delay-200">
-          {YOUTUBE_VIDEOS.slice(0, visibleVideos).map((yt, index) => (
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 justify-center">
+          {YOUTUBE_VIDEOS.slice(0, 4).map((yt, i) => (
             <div
-              key={index}
-              className="relative overflow-hidden rounded-2xl shadow-lg bg-black hover:shadow-yellow-400/30 transition-all duration-300 hover:scale-[1.03]"
+              key={`video-${i}`}
+              className="overflow-hidden rounded-2xl shadow-lg bg-black transition-transform hover:scale-[1.03] mx-auto
+                        max-w-[180px] sm:max-w-[220px] md:max-w-[280px] lg:max-w-[300px] w-full"
             >
-              {/* Bigger size for iPad, laptop, monitor */}
-              <div className="w-full aspect-[9/16] sm:aspect-video sm:h-[220px] lg:h-[280px] xl:h-[350px]">
+              <div className="aspect-[9/16] w-full"> {/* 👈 shorts layout */}
                 <iframe
                   src={yt}
                   className="w-full h-full rounded-2xl"
                   frameBorder="0"
-                  allow="autoplay; encrypted-media; picture-in-picture"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
-                  title={`Adventure video ${index + 1}`}
-                  loading="lazy"
+                  title={`Adventure video ${i + 1}`}
                 ></iframe>
               </div>
             </div>
           ))}
         </div>
-
-        <p className="text-sm sm:text-base max-w-2xl mx-auto text-gray-700 font-josefin leading-relaxed px-2 animate-fadeIn delay-500">
-          This isn&apos;t just stock footage; these are genuine moments captured
-          from our actual trips. The quality of our equipment, and the
-          breathtaking natural scenery you&apos;ll discover on your journey with
-          us. <b>Get ready to picture yourself on the water with us!</b>
+        <p className="max-w-2xl mx-auto text-gray-700">
+          These are genuine clips captured from our actual trips — get ready to picture yourself on the water with us!
         </p>
       </div>
     </section>
@@ -248,16 +257,30 @@ const VideoSection = memo(() => {
 // Main Home component with mobile optimizations
 const Home = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const resizeTimeoutRef = useRef(null);
   
-  // Check if mobile on mount and resize
+  // Check if mobile on mount and resize with debounce
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
     
+    const handleResize = () => {
+      if (resizeTimeoutRef.current) {
+        clearTimeout(resizeTimeoutRef.current);
+      }
+      resizeTimeoutRef.current = setTimeout(checkMobile, 100);
+    };
+    
     checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    window.addEventListener('resize', handleResize);
+    
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      if (resizeTimeoutRef.current) {
+        clearTimeout(resizeTimeoutRef.current);
+      }
+    };
   }, []);
   
   return (
@@ -292,9 +315,9 @@ const Home = () => {
           </p>
           {/* Desktop text */}
           <p className="text-gray-700 leading-relaxed text-[1rem] hidden md:block">
-            <span className="font-semibold">GoRafts</span> is your adventure base in Shivpuri, <b>Rishikesh</b> — a hotspot for thrill-seekers across India.
-            We have been helping thousands of customers experience their first memorable adventure since <b><i>1997</i></b>. <br />
-            We have completed over <b>4000+</b> successful rafting trips on the Ganges, and our expert guides ensure safety and fun for all skill levels. <br />
+            <span className="font-semibold">GoRafts</span> is your adventure base in Shivpuri, <strong>Rishikesh</strong> — a hotspot for thrill-seekers across India.
+            We have been helping thousands of customers experience their first memorable adventure since <strong><em>1997</em></strong>. <br />
+            We have completed over <strong>4000+</strong> successful rafting trips on the Ganges, and our expert guides ensure safety and fun for all skill levels. <br />
           </p>
         </div>
         {/* Images (right side) - Optimized for mobile */}
@@ -305,7 +328,7 @@ const Home = () => {
               src={src}
               loading="lazy"
               alt={`Adventure activity ${i + 1}`}
-              className={`w-[100px] sm:w-[140px] md:w-[180px] lg:w-[200px] xl:w-[220px] h-auto object-cover rounded-[50%_30%_50%_30%/30%_50%_30%_50%] shadow-lg ${
+              className={`w-[150px] sm:w-[140px] md:w-[180px] lg:w-[200px] xl:w-[220px] h-auto object-cover rounded-[50%_30%_50%_30%/30%_50%_30%_50%] shadow-lg ${
                 i % 2 === 0 ? "animate-float-slow" : "animate-float-fast"
               }`}
               style={{ willChange: 'transform' }}

@@ -178,7 +178,9 @@ function Stays() {
         <Feedback />
       </section>
       
-      <Form />
+      <Form 
+      boxClass="bg-gradient-to-b from-white via-amber-50 to-orange-100"
+      buttonClass="bg-black hover:bg-[#E26024]"/>
     </main>
   );
 }

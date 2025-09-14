@@ -175,8 +175,8 @@ const Gallery = () => {
   const ref = useRef(null);
   const headingRef = useRef(null);
   const paraRef = useRef(null);
-  const tutanRef = useRef(null);
   const bottomRef = useRef(null);
+  const tutanRef = useRef(null);
 
   // Use single intersection observer for multiple elements
   const visibleElements = useIntersectionObserver([ref, headingRef, paraRef]);
@@ -187,70 +187,65 @@ const Gallery = () => {
   const showPara = !!visibleElements[paraRef.current?.dataset.id];
 
   // Memoize scroll function
-  const scrollToBottom = useCallback(() => {
-    bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, []);
-
-  const scrollToGallery = useCallback((e) => {
-    e.preventDefault();
-    tutanRef.current?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  }, []);
+  const scrollToBottom = () => {
+  bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <section className='bg-gradient-to-r from-[#ffffff] to-[#f1daff] pt-20 josefin-sans'>
       {/* Hero Section */}
-      <div className="w-full max-w-7xl mx-auto px-4 py-10 flex flex-col md:flex-row items-center md:items-start justify-between gap-10 -mt-15">
-        {/* Left Text */}
-        <div className="flex-1 space-y-6 text-center md:text-left">
-          <h1 className="text-4xl md:text-6xl font-bold leading-tight heading-animated">
-            Find Your Adventure.<br /> Find Yourself. <br /> In Rishikesh.
-          </h1>
-          <p className="text-gray-700 text-base md:text-lg max-w-lg mx-auto md:mx-0">
-            Experience the ultimate adrenaline rush with white-water rafting,
-            bungee jumping, kayaking, and trekking in the heart of Rishikesh.
-            Whether you're chasing rapids or scaling trails, every moment here
-            is packed with energy, nature, and unforgettable memories.
-          </p>
-          <div className="flex flex-row flex-wrap items-center justify-center md:justify-start gap-4">
-            <a
-              href="https://wa.me/7078287331?text=Hi%20I%20am%20interested%20in%20booking%20a%20tour"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <button className="relative group cursor-pointer overflow-hidden bg-gradient-to-r from-blue-700 to-purple-800 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-2xl transition-transform duration-300 hover:scale-105">
-                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-yellow-400 to-pink-500 opacity-0 group-hover:opacity-100 blur-md transition duration-700"></span>
-                <span className="relative z-10">Book Now </span>
+        <div className="w-full max-w-7xl mx-auto px-4 py-10 flex flex-col md:flex-row items-center md:items-start justify-between gap-10 -mt-15">
+
+          {/* Left Text */}
+          <div className="flex-1 space-y-6 text-center md:text-left">
+            <h1 className="text-4xl md:text-6xl font-bold leading-tight heading-animated fade-in">
+              Find Your Adventure.<br /> Find Yourself. <br /> In Rishikesh.
+            </h1>
+            <p className="text-gray-700 text-base md:text-lg max-w-lg mx-auto md:mx-0 fade-in fade-in-delay-200">
+              Experience the ultimate adrenaline rush with white-water rafting,
+              bungee jumping, kayaking, and trekking in the heart of Rishikesh.
+              Whether you're chasing rapids or scaling trails, every moment here
+              is packed with energy, nature, and unforgettable memories.
+            </p>
+
+            <div className="flex flex-row flex-wrap items-center justify-center md:justify-start gap-4 fade-in fade-in-delay-400">
+              {/* Book Now Button */}
+              <a href="https://wa.me/7078287331?text=Hi%20I%20am%20interested%20in%20booking%20a%20tour" target="_blank" rel="noopener noreferrer" className="w-full md:w-auto">
+                <button className="relative group cursor-pointer overflow-hidden bg-gradient-to-r from-blue-700 to-purple-800 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-2xl transition-transform duration-300 hover:scale-105 w-full md:w-auto">
+                  <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-yellow-400 to-pink-500 opacity-0 group-hover:opacity-100 blur-md transition duration-700"></span>
+                  <span className="relative z-10">Book Now</span>
+                </button>
+              </a>
+
+              {/* View Gallery Button (hidden on mobile) */}
+              <button
+                onClick={() => tutanRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })}
+                className="hidden md:inline-block relative cursor-pointer group overflow-hidden bg-gradient-to-r from-blue-700 to-purple-800 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-2xl transition-all duration-500 ease-in-out hover:scale-110 hover:rotate-1"
+              >
+                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-yellow-400 to-pink-500 opacity-0 group-hover:opacity-100 blur-md transition duration-700 scale-125"></span>
+                <span className="relative z-10">View Gallery 🖼️</span>
               </button>
-            </a>
-            <button
-              onClick={scrollToGallery}
-              className="relative z-50 group cursor-pointer overflow-hidden bg-gradient-to-r from-blue-700 to-purple-800 text-white px-8 py-4 text-lg font-semibold rounded-full shadow-2xl transition-transform duration-300 hover:scale-105 pointer-events-auto"
-            >
-              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-yellow-400 to-pink-500 opacity-0 group-hover:opacity-100 blur-md transition duration-700"></span>
-              <span className="relative z-10">View Gallery </span>
-            </button>
+            </div>
           </div>
+
+          {/* Right Image Grid */}
+          <ImageGrid images={ACTIVITY_IMAGES} centerImage={CENTER_IMAGE} />
         </div>
-        
-        {/* Right Image Grid */}
-        <ImageGrid images={ACTIVITY_IMAGES} centerImage={CENTER_IMAGE} />
-      </div>
-      
+
+  
       {/* Scroll Button */}
-      <div className="flex justify-center sm:mt-1 mt-12 relative z-50">
-        <button
-          onClick={scrollToBottom}
-          className="relative z-50 bg-orange-300 text-white p-4 rounded-full text-2xl shadow-lg
+        <div className="hidden sm:flex justify-center sm:mt-1 mt-12 z-10">
+          <button
+            onClick={scrollToBottom}
+            className="bg-orange-300 text-white p-4 rounded-full text-2xl shadow-lg
             transition-all duration-700
             hover:bg-orange-500 hover:rotate-[360deg] hover:scale-150
-            hover:shadow-2xl"
-        >
-          ↓
-        </button>
-      </div>
+            hover:shadow-2xl hover:animate-bounce"
+          >
+            ↓
+          </button>
+        </div>
+
 
       {/* Scroll Target */}
       <div ref={bottomRef} className="h-[300px] w-full bg-transparent" />
@@ -304,7 +299,7 @@ const Gallery = () => {
       </section>
       
       {/* Why Choose Us Section */}
-      <div className="w-full px-4 mt-15 py-10 md:py-20 overflow-hidden josefin-sans">
+      <div className="w-full px-4 -mt-10 md:mt-10 py-10 md:py-20 overflow-hidden josefin-sans">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-10 items-center">
           {/* Mobile Heading */}
           <h2 className="text-3xl md:text-5xl font-extrabold text-center text-black md:hidden mb-4 transition-transform duration-700 transform hover:scale-105">
@@ -366,12 +361,13 @@ const Gallery = () => {
       </div>
       
       {/* Image Gallery Section */}
-      <section id="bottomRef" className="scroll-mt-20" ref={tutanRef}>
+      <section className="scroll -mt-25 sm:mt-8" 
+        ref={tutanRef}>
         <GallerySection />
       </section>
       
       <Form
-        boxClass="bg-[#f1daff]"
+        boxClass="bg-gradient-to-b from-[#ffffff] to-[#f1daff]"
         headingClass="text-[#000000]"
         buttonClass="bg-[#AA336A] hover:bg-[#E75480]"
         focusClass="focus:outline-[#00786F]"
