@@ -141,7 +141,7 @@ function HiddenWaterfall() {
           </p>
         </div>
         
-        <div className="w-full min-h-screen flex items-center justify-center relative bg-transparent px-6 py-16 font-josefin-sans">
+        <div className="w-full min-h-screen flex items-center justify-center relative bg-transparent px-6 py-16 font-josefin-sans xl:-mt-30">
           <div className="max-w-7xl w-full flex flex-col lg:flex-row items-center justify-center gap-14 relative z-10">
             {/* Image Section */}
             <div className="relative group w-full max-w-sm lg:max-w-md opacity-0 animate-fadeUp">
@@ -189,7 +189,7 @@ function HiddenWaterfall() {
                 </div>
                 <div className="flex items-center gap-3">
                   <span className="text-green-400 text-3xl" aria-hidden="true">📏</span> 
-                  <span>Distance: ~21–24 km</span>
+                  <span>Distance: ~4 km</span>
                 </div>
               </div>
               

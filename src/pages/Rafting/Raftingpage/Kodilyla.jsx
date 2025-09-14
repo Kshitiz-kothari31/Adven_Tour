@@ -238,7 +238,7 @@ const Kodilyla = () => {
             <p><strong>🛶 Distance:</strong> Approx. 32-36 km (commonly claimed as 36 km)</p>
             <p><strong>⏱ Duration:</strong> 6 hours something</p>
             <p><strong>⚡ Difficulty:</strong> Hard Challenging</p>
-            <p><strong>🌊 Number of Rapids:</strong> Around 13 (mix of major & minor)</p>
+            <p><strong>🌊 Number of Rapids:</strong> Around 19 (mix of major & minor)</p>
             <p><strong>💸 Price:</strong> ₹2,400 per person</p>
             
             {/* Book Now Button */}
