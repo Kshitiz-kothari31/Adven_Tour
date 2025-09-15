@@ -90,42 +90,145 @@ const TrekkingPathBackground = React.memo(() => {
 const ImageSliderBox = React.memo(() => {
   const [current, setCurrent] = useState(0);
   const [prev, setPrev] = useState(null);
-
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+  const [loadingProgress, setLoadingProgress] = useState(0);
+  const intervalRef = useRef(null);
+  const currentRef = useRef(current);
+  
+  // Update ref when current changes
   useEffect(() => {
-    const interval = setInterval(() => {
-      setPrev(current);
-      setCurrent((prevIndex) => (prevIndex + 1) % images.length);
-    }, 5000);
-    return () => clearInterval(interval);
+    currentRef.current = current;
   }, [current]);
 
+  // Preload all images
+  useEffect(() => {
+    let isMounted = true;
+    let loadedCount = 0;
+    
+    const preloadImages = () => {
+      const imagePromises = images.map((src) => {
+        return new Promise((resolve, reject) => {
+          const img = new Image();
+          img.src = src;
+          
+          img.onload = () => {
+            loadedCount++;
+            if (isMounted) {
+              setLoadingProgress(Math.round((loadedCount / images.length) * 100));
+            }
+            resolve();
+          };
+          
+          img.onerror = () => {
+            console.error(`Failed to load image: ${src}`);
+            // Still resolve to not block other images
+            resolve();
+          };
+        });
+      });
+      
+      Promise.all(imagePromises)
+        .then(() => {
+          if (isMounted) {
+            setImagesLoaded(true);
+          }
+        })
+        .catch((error) => {
+          console.error('Error preloading images:', error);
+          if (isMounted) {
+            setImagesLoaded(true); // Continue even if some images fail
+          }
+        });
+    };
+    
+    preloadImages();
+    
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  // Set up the interval for image transitions
+  useEffect(() => {
+    if (!imagesLoaded) return;
+    
+    const startInterval = () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+      
+      intervalRef.current = setInterval(() => {
+        setPrev(currentRef.current);
+        setCurrent((prevIndex) => (prevIndex + 1) % images.length);
+      }, 5000);
+    };
+    
+    startInterval();
+    
+    return () => {
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
+    };
+  }, [imagesLoaded]);
+
+  // Handle manual navigation
+  const goToSlide = (index) => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+    
+    setPrev(currentRef.current);
+    setCurrent(index);
+    
+    // Restart the interval after manual navigation
+    intervalRef.current = setInterval(() => {
+      setPrev(currentRef.current);
+      setCurrent((prevIndex) => (prevIndex + 1) % images.length);
+    }, 5000);
+  };
+
+  // Loading state
+  if (!imagesLoaded) {
+    return (
+      <div className="relative w-full h-[93vh] overflow-hidden bg-black flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-16 h-16 border-t-4 border-green-500 border-solid rounded-full animate-spin mx-auto mb-4"></div>
+          <p className="text-white text-lg">Loading amazing treks... {loadingProgress}%</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="relative w-full h-[93vh] overflow-hidden bg-black font-josefin fade-in hero-section" >
+    <div className="relative w-full h-[93vh] overflow-hidden bg-black font-josefin hero-section">
+      {/* Previous image */}
       {prev !== null && (
         <img
           key={`prev-${prev}`}
           src={images[prev]}
           alt={`Previous trekking landscape ${prev + 1}`}
-          className="absolute top-0 left-0 w-full h-full object-cover z-20 fade-out scale-up"
-          loading="lazy"
-          decoding="async"
+          className="absolute top-0 left-0 w-full h-full object-cover z-20 animate-fadeOut animate-scaleUp"
         />
       )}
+      
+      {/* Current image */}
       <img
         key={`current-${current}`}
         src={images[current]}
         alt={`Current trekking landscape ${current + 1}`}
-        className="absolute top-0 left-0 w-full h-full object-cover z-30 fade-in scale-down"
-        loading="lazy"
-        decoding="async"
+        className="absolute top-0 left-0 w-full h-full object-cover z-30 animate-fadeIn animate-scaleDown"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/90 z-40 fade-in" />
       
-      <div className="absolute inset-0 flex flex-col items-center justify-center z-50 text-white text-center px-4 fade-up delay-2000">
-        <h1 className="text-4xl md:text-6xl xl:text-7xl font-medium font-kalnia drop-shadow-xl leading-tight fade-up delay-2500">
+      {/* Overlay gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/90 z-40" />
+      
+      {/* Content */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center z-50 text-white text-center px-4 animate-fadeUp">
+        <h1 className="text-4xl md:text-6xl xl:text-7xl font-medium font-kalnia drop-shadow-xl leading-tight">
           Embrace the Trekking Spirit
         </h1>
-        <p className="text-lg md:text-xl mt-4 max-w-2xl text-white/80 fade-up delay-3000">
+        <p className="text-lg md:text-xl mt-4 max-w-2xl text-white/80">
           Climb new heights, feel the earth beneath your feet, and lose yourself
           in breathtaking trails. Adventure awaits every step you take.
         </p>
@@ -141,7 +244,22 @@ const ImageSliderBox = React.memo(() => {
         </button>
       </div>
       
-      <div className="absolute -bottom-[1px] left-0 w-full overflow-hidden leading-[0] z-50 fade-up delay-4000">
+      {/* Image indicators */}
+      <div className="absolute bottom-8 left-0 right-0 flex justify-center space-x-2 z-50">
+        {images.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => goToSlide(index)}
+            className={`w-3 h-3 rounded-full transition-all ${
+              index === current ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white/75'
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
+      
+      {/* Wave divider */}
+      <div className="absolute -bottom-[1px] left-0 w-full overflow-hidden leading-[0] z-50">
         <svg
           className="block w-full h-[100px] pointer-events-none"
           xmlns="http://www.w3.org/2000/svg"
@@ -306,7 +424,7 @@ function Trek() {
   return (
  <div className="bg-gradient-to-r from-[#fafafa] to-[#DBFCE7] josefin-sans relative">
       {/* Hero section with higher stacking context */}
-      <div className="relative z-50">
+      <div className="relative z-10">
         <ImageSliderBox />
       </div>
       

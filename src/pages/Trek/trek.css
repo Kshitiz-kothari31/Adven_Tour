@@ -215,3 +215,33 @@ body, html {
 /* Hover and active states */
 .hover\:scale-102:hover { transform: scale(1.02); }
 .active\:scale-98:active { transform: scale(0.98); }
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(1); }
+  to { transform: scale(1.05); }
+}
+
+@keyframes scaleDown {
+  from { transform: scale(1.05); }
+  to { transform: scale(1); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn { animation: fadeIn 1.5s ease-in-out forwards; }
+.animate-fadeOut { animation: fadeOut 1.5s ease-in-out forwards; }
+.animate-scaleUp { animation: scaleUp 1.5s ease-in-out forwards; }
+.animate-scaleDown { animation: scaleDown 1.5s ease-in-out forwards; }
+.animate-fadeUp { animation: fadeUp 1s ease-out forwards; }
