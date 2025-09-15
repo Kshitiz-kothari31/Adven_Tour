@@ -503,7 +503,7 @@ const TrekSelector = React.memo(({ currentTrek, onTrekChange }) => {
 // --- Hero Section Component ---
 const HeroSection = React.memo(({ heroData }) => (
   <section
-    className="relative bg-gradient-to-r from-green-900 via-emerald-800 to-teal-800 text-white py-20 px-6 overflow-hidden animate-fade-in"
+    className="relative bg-gradient-to-r from-green-900 via-emerald-800 to-teal-800 text-white py-20 px-6 overflow-hidden animate-fade-in xl:-mt-30"
     >
     <div 
       className="absolute inset-0 bg-cover bg-center"
