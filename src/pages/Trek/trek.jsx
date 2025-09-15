@@ -100,7 +100,7 @@ const ImageSliderBox = React.memo(() => {
   }, [current]);
 
   return (
-    <div className="relative w-full h-[93vh] overflow-hidden bg-black font-josefin fade-in">
+    <div className="relative w-full h-[93vh] overflow-hidden bg-black font-josefin fade-in hero-section" >
       {prev !== null && (
         <img
           key={`prev-${prev}`}
