@@ -1,5 +1,4 @@
 import { useRef, useState, useEffect, memo, useCallback, lazy, Suspense } from "react";
-import { Link } from "react-router-dom";
 
 // Lazy load components that aren't immediately visible
 const Form = lazy(() => import("../../components/form/Form"));

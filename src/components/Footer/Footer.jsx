@@ -124,7 +124,7 @@ const Footer = ({ bgClass = "bg-transparent" }) => {
         <p className="mt-1 font-medium">
           Designed & Developed by{" "}
           <a
-            href="https://www.linkedin.com/in/kshitiz-kothari/"
+            href="https://www.linkedin.com/in/kshitiz-kothari-455950326?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-700 hover:text-gray-900"
@@ -133,7 +133,7 @@ const Footer = ({ bgClass = "bg-transparent" }) => {
           </a>{" "}
           &{" "}
           <a
-            href="https://www.linkedin.com/in/amannakoti/"
+            href="https://www.linkedin.com/in/aman-nakoti-b6a464385/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-700 hover:text-gray-900"
