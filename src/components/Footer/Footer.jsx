@@ -57,13 +57,13 @@ const Footer = ({ bgClass = "bg-transparent" }) => {
           <p className="text-sm opacity-80">Beyond Limits, Into the Wild.</p>
           <div className="flex justify-center space-x-3">
             {[
-              { icon: Twitter, link: "https://x.com/yourprofile" },
-              { icon: Facebook, link: "https://www.facebook.com/Cristiano/" },
-              { icon: Instagram, link: "https://instagram.com/yourprofile" }
+              { icon: Twitter, link: "https://x.com/yourprofile", hover: "hover:text-[#1DA1F2]" }, // Twitter Blue
+              { icon: Facebook, link: "https://www.facebook.com/Cristiano/", hover: "hover:text-[#1877F2]" }, // Facebook Blue
+              { icon: Instagram, link: "https://instagram.com/yourprofile", hover: "hover:text-[#E4405F]" } // Instagram Pink/Red
             ].map((social, idx) => (
               <a
                 key={idx}
-                className="text-gray-500 hover:text-gray-700 p-2 rounded-full transition-all duration-300"
+                className={`text-gray-500 ${social.hover} p-2 rounded-full transition-all duration-300`}
                 href={social.link}
                 target="_blank"
                 rel="noopener noreferrer"
